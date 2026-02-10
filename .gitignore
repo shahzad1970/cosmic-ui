@@ -25,8 +25,8 @@ yarn-error.log*
 # Coverage
 coverage/
 
-# Build output (currently none, but future-proofing)
-dist/
+# Build output
+# dist/ is checked in so users can download directly from GitHub
 
 # Environment variables
 .env

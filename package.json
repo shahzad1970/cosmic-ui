@@ -1,5 +1,5 @@
 {
-  "name": "@ui-components/core",
+  "name": "cosmic-ui-components",
   "version": "0.1.0",
   "description": "Pure JavaScript custom web component library — zero dependencies, 50+ components, no build step required.",
   "type": "module",
@@ -10,22 +10,24 @@
   },
   "files": [
     "src/",
+    "dist/",
     "LICENSE",
     "README.md",
     "CHANGELOG.md"
   ],
   "scripts": {
     "dev": "node dev-server.js",
+    "build": "esbuild src/index.js --bundle --format=esm --minify --outfile=dist/cosmic-ui.min.js && esbuild src/index.js --bundle --format=esm --outfile=dist/cosmic-ui.js",
     "lint": "npx eslint src/",
     "test": "node --test test/**/*.test.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nicokimmel/ui-components.git"
+    "url": "git+https://github.com/shahzad1970/cosmic-ui.git"
   },
-  "homepage": "https://github.com/nicokimmel/ui-components#readme",
+  "homepage": "https://github.com/shahzad1970/cosmic-ui#readme",
   "bugs": {
-    "url": "https://github.com/nicokimmel/ui-components/issues"
+    "url": "https://github.com/shahzad1970/cosmic-ui/issues"
   },
   "keywords": [
     "web-components",
@@ -40,5 +42,7 @@
   ],
   "author": "",
   "license": "MIT",
-  "devDependencies": {}
+  "devDependencies": {
+    "esbuild": "^0.27.3"
+  }
 }

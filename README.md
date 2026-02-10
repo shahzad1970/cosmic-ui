@@ -24,23 +24,44 @@ Components use Shadow DOM, adopted stylesheets, and vanilla JS. Drop a `<script 
 
 ## Quick Start
 
-### CDN (easiest)
+### Download from GitHub (easiest)
+
+Grab the single-file bundle directly from the repository:
 
 ```html
-<script type="module" src="https://unpkg.com/@ui-components/core/src/index.js"></script>
+<!-- Minified (417 KB) -->
+<script type="module" src="https://raw.githubusercontent.com/shahzad1970/cosmic-ui/main/dist/cosmic-ui.min.js"></script>
 
 <ui-button background="indigo-500">Click me</ui-button>
+```
+
+Or download [cosmic-ui.min.js](https://github.com/shahzad1970/cosmic-ui/raw/main/dist/cosmic-ui.min.js) and host it yourself:
+
+```html
+<script type="module" src="cosmic-ui.min.js"></script>
+
+<ui-button background="indigo-500">Click me</ui-button>
+```
+
+### CDN via unpkg
+
+```html
+<!-- Single bundle -->
+<script type="module" src="https://unpkg.com/cosmic-ui-components/dist/cosmic-ui.min.js"></script>
+
+<!-- Or load individual ES modules -->
+<script type="module" src="https://unpkg.com/cosmic-ui-components/src/index.js"></script>
 ```
 
 ### npm
 
 ```bash
-npm install @ui-components/core
+npm install cosmic-ui-components
 ```
 
 ```html
 <script type="module">
-  import '@ui-components/core';
+  import 'cosmic-ui-components';
 </script>
 
 <ui-button background="indigo-500">Click me</ui-button>
@@ -49,8 +70,8 @@ npm install @ui-components/core
 ### Cherry-pick components
 
 ```js
-import '@ui-components/core/src/components/button/button.js';
-import '@ui-components/core/src/components/input/input.js';
+import 'cosmic-ui-components/src/components/button/button.js';
+import 'cosmic-ui-components/src/components/input/input.js';
 ```
 
 ## Components
@@ -186,11 +207,14 @@ All components accept a `size` attribute — CSS named sizes (`xx-small` – `xx
 
 ```bash
 # Clone
-git clone https://github.com/nicokimmel/ui-components.git
-cd ui-components
+git clone https://github.com/shahzad1970/cosmic-ui.git
+cd cosmic-ui
 
 # Start dev server (localhost:3000)
 npm run dev
+
+# Build single-file bundle
+npm run build
 
 # Run tests
 npm test
