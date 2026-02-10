@@ -1,0 +1,307 @@
+<!-- ============================================================
+     Toast — Component Documentation
+     ============================================================ -->
+
+<ui-layout-stack gap="0.25em" style="margin-bottom:2em;">
+  <ui-text type="heading" size="xx-large">Toast</ui-text>
+  <ui-text type="paragraph" color="gray-500">
+    <code>&lt;ui-toast&gt;</code> shows transient notifications that auto-dismiss
+    and stack at screen corners. Use the static <code>show()</code> API for
+    one-liner programmatic toasts.
+  </ui-text>
+</ui-layout-stack>
+
+<!-- ── Basic Usage ────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Basic Usage</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Call <code>Toast.show(message, options)</code> from anywhere. The toast appears,
+  auto-dismisses after <code>duration</code> ms, and removes itself from the DOM.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack direction="horizontal" gap="0.5em" wrap>
+      <ui-button id="toast-basic-info" background="sky-600">Info</ui-button>
+      <ui-button id="toast-basic-success" background="emerald-600">Success</ui-button>
+      <ui-button id="toast-basic-error" background="rose-600">Error</ui-button>
+      <ui-button id="toast-basic-warning" background="amber-500">Warning</ui-button>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="javascript" readonly height="auto">const Toast = customElements.get('ui-toast');
+Toast.show('Changes saved!', { background: 'emerald-600' });
+Toast.show('Something failed.', { background: 'rose-600', duration: 6000 });</ui-input-code>
+</div>
+
+<script>
+(function() {
+  const Toast = customElements.get('ui-toast');
+  if (!Toast) return;
+  const bind = (id, msg, opts) => {
+    const btn = document.getElementById(id);
+    if (btn) btn.addEventListener('click', () => Toast.show(msg, opts));
+  };
+  bind('toast-basic-info',    'Here is some information.',  { background: 'sky-600' });
+  bind('toast-basic-success', 'Changes saved.',             { background: 'emerald-600' });
+  bind('toast-basic-error',   'Something went wrong.',      { background: 'rose-600', duration: 6000 });
+  bind('toast-basic-warning', 'Careful — this is a warning.', { background: 'amber-500' });
+})();
+</script>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Positions ──────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Positions</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Toasts can appear in any of six screen corners via the <code>position</code>
+  option.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack direction="horizontal" gap="0.5em" wrap>
+      <ui-button id="toast-pos-tl" size="small">Top Left</ui-button>
+      <ui-button id="toast-pos-tc" size="small">Top Center</ui-button>
+      <ui-button id="toast-pos-tr" size="small">Top Right</ui-button>
+      <ui-button id="toast-pos-bl" size="small">Bottom Left</ui-button>
+      <ui-button id="toast-pos-bc" size="small">Bottom Center</ui-button>
+      <ui-button id="toast-pos-br" size="small">Bottom Right</ui-button>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="javascript" readonly height="auto">Toast.show('Top left!',     { position: 'top-left' });
+Toast.show('Top center!',   { position: 'top-center' });
+Toast.show('Bottom right!', { position: 'bottom-right' });</ui-input-code>
+</div>
+
+<script>
+(function() {
+  const Toast = customElements.get('ui-toast');
+  if (!Toast) return;
+  const positions = {
+    'toast-pos-tl': 'top-left',    'toast-pos-tc': 'top-center',    'toast-pos-tr': 'top-right',
+    'toast-pos-bl': 'bottom-left', 'toast-pos-bc': 'bottom-center', 'toast-pos-br': 'bottom-right',
+  };
+  Object.entries(positions).forEach(([id, pos]) => {
+    const btn = document.getElementById(id);
+    if (btn) btn.addEventListener('click', () => Toast.show(pos, { position: pos, background: 'gray-800' }));
+  });
+})();
+</script>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Toast Queue ────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Toast Queue</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Fire multiple toasts quickly — they stack automatically.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-button id="toast-queue" background="indigo-600">Burst Queue</ui-button>
+  </div>
+  <ui-input-code language="javascript" readonly height="auto">['Queued 1', 'Queued 2', 'Queued 3'].forEach((msg, i) =&gt; {
+  setTimeout(() =&gt; Toast.show(msg, { background: 'gray-800' }), i * 250);
+});</ui-input-code>
+</div>
+
+<script>
+(function() {
+  const Toast = customElements.get('ui-toast');
+  const queue = document.getElementById('toast-queue');
+  if (!Toast || !queue) return;
+  queue.addEventListener('click', () => {
+    ['Queued 1', 'Queued 2', 'Queued 3'].forEach((msg, i) => {
+      setTimeout(() => Toast.show(msg, { background: 'gray-800' }), i * 250);
+    });
+  });
+})();
+</script>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Dismissible ────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Dismissible</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Toasts are dismissible by default. Set <code>dismissible: false</code> to
+  hide the close button (the toast still auto-dismisses after <code>duration</code>).
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack direction="horizontal" gap="0.5em" wrap>
+      <ui-button id="toast-dismiss-yes" background="gray-200">Dismissible (default)</ui-button>
+      <ui-button id="toast-dismiss-no" background="gray-200">Non-dismissible</ui-button>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="javascript" readonly height="auto">Toast.show('No close button.', { dismissible: false });</ui-input-code>
+</div>
+
+<script>
+(function() {
+  const Toast = customElements.get('ui-toast');
+  if (!Toast) return;
+  const yes = document.getElementById('toast-dismiss-yes');
+  const no  = document.getElementById('toast-dismiss-no');
+  if (yes) yes.addEventListener('click', () => Toast.show('Has close button.', { background: 'gray-800' }));
+  if (no)  no.addEventListener('click', () => Toast.show('Auto-dismiss only.', { background: 'gray-800', dismissible: false }));
+})();
+</script>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Playground ─────────────────────────────────────────── -->
+<ui-text type="heading" size="large">
+  <ui-icon color="indigo-500">play-circle</ui-icon>
+  Playground
+</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Customise message, duration, position, and style interactively.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="playground">
+  <div class="playground-controls">
+    <ui-card elevation="1">
+      <ui-card-body>
+        <ui-text type="heading" size="small">Controls</ui-text>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input id="toast-message" label="Message" size="small" value="Toast message"></ui-input>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input id="toast-duration" label="Duration (ms)" size="small" value="4000"></ui-input>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-select id="toast-position" label="Position" size="small">
+          <option value="bottom-right" selected>bottom-right</option>
+          <option value="bottom-left">bottom-left</option>
+          <option value="bottom-center">bottom-center</option>
+          <option value="top-right">top-right</option>
+          <option value="top-left">top-left</option>
+          <option value="top-center">top-center</option>
+        </ui-input-select>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-select id="toast-size" label="Size" size="small">
+          <option value="">— (default)</option>
+          <option value="xx-small">xx-small</option>
+          <option value="x-small">x-small</option>
+          <option value="small">small</option>
+          <option value="medium">medium</option>
+          <option value="large">large</option>
+          <option value="x-large">x-large</option>
+        </ui-input-select>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-color id="toast-bg" label="Background" size="small" value="indigo-600"></ui-input-color>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-checkbox id="toast-dismissible" label="Dismissible" checked></ui-input-checkbox>
+        <ui-layout-spacer size="0.75em"></ui-layout-spacer>
+        <ui-button id="toast-fire" background="indigo-600">Show Toast</ui-button>
+      </ui-card-body>
+    </ui-card>
+  </div>
+
+  <div class="playground-preview">
+    <div class="demo-card">
+      <div class="demo-preview">
+        <ui-text color="gray-500" size="small">Click "Show Toast" to preview.</ui-text>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  const Toast = customElements.get('ui-toast');
+  const message = document.getElementById('toast-message');
+  const duration = document.getElementById('toast-duration');
+  const position = document.getElementById('toast-position');
+  const sizeCtrl = document.getElementById('toast-size');
+  const dismissible = document.getElementById('toast-dismissible');
+  const bgPicker = document.getElementById('toast-bg');
+  const fire = document.getElementById('toast-fire');
+
+  if (!Toast || !message || !duration || !position || !dismissible || !fire) return;
+
+  let bg = 'indigo-600';
+  if (bgPicker) {
+    const upBg = () => { bg = (bgPicker.value || '').trim() || 'indigo-600'; };
+    bgPicker.addEventListener('ui-input', upBg);
+    bgPicker.addEventListener('ui-change', upBg);
+  }
+
+  fire.addEventListener('click', () => {
+    const msg  = (message.value || '').trim() || 'Toast message';
+    const dur  = Number((duration.value || '').trim() || 4000);
+    const pos  = (position.value || '').trim() || 'bottom-right';
+    const size = (sizeCtrl?.value || '').trim();
+    const opts = {
+      background: bg,
+      duration: Number.isFinite(dur) ? dur : 4000,
+      position: pos,
+      dismissible: dismissible.checked,
+    };
+    if (size) opts.size = size;
+    Toast.show(msg, opts);
+  });
+})();
+</script>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── API Reference ──────────────────────────────────────── -->
+<ui-text type="heading" size="large">API Reference</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead>
+      <tr><th>Attribute</th><th>Type</th><th>Default</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>background</code></td><td>String</td><td>gray-800</td><td>Background colour (palette token or CSS colour). Text auto-contrasts.</td></tr>
+      <tr><td><code>color</code></td><td>String</td><td>auto</td><td>Text colour — auto-contrasts against background if omitted</td></tr>
+      <tr><td><code>size</code></td><td>String</td><td>—</td><td>Font size: named keyword (<code>xx-small</code> … <code>xxx-large</code>) or CSS length</td></tr>
+      <tr><td><code>elevation</code></td><td>String</td><td>2</td><td>Shadow depth: <code>1</code>–<code>5</code></td></tr>
+      <tr><td><code>duration</code></td><td>Number</td><td>4000</td><td>Auto-dismiss delay in milliseconds. Set <code>0</code> for persistent toasts.</td></tr>
+      <tr><td><code>position</code></td><td>String</td><td>bottom-right</td><td>Screen corner: <code>top-left</code>, <code>top-center</code>, <code>top-right</code>, <code>bottom-left</code>, <code>bottom-center</code>, <code>bottom-right</code></td></tr>
+      <tr><td><code>dismissible</code></td><td>Boolean</td><td>true</td><td>Show a close button for manual dismiss</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Static Methods ─────────────────────────────────────── -->
+<ui-text type="heading" size="large">Static Methods</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead>
+      <tr><th>Method</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>UIToast.show(message, options?)</code></td><td>Create and display a toast. <code>options</code> accepts any attribute as a key: <code>background</code>, <code>color</code>, <code>size</code>, <code>duration</code>, <code>position</code>, <code>dismissible</code>, <code>elevation</code>.</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Events ──────────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Events</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead>
+      <tr><th>Event</th><th>Detail</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>ui-dismiss</code></td><td>—</td><td>Fired when the toast is dismissed (manually or by timer). The toast removes itself from the DOM.</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>

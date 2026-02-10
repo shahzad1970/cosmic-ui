@@ -1,0 +1,248 @@
+<!-- ============================================================
+     Divider — Component Documentation
+     ============================================================ -->
+
+<ui-layout-stack gap="0.25em" style="margin-bottom:2em;">
+  <ui-text type="heading" size="xx-large">Divider</ui-text>
+  <ui-text type="paragraph" color="gray-500">
+    <code>&lt;ui-divider&gt;</code> draws a horizontal or vertical rule to separate
+    content, with optional labels and style variants.
+  </ui-text>
+</ui-layout-stack>
+
+<ui-text type="heading" size="large">Diagram</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Horizontal with label and vertical in a row.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <svg viewBox="0 0 520 140" width="100%" height="140" role="img" aria-label="Divider diagram">
+      <text x="40" y="36" font-size="10" fill="#6b7280" font-family="var(--ui-font, system-ui, sans-serif)">Horizontal</text>
+      <line x1="40" y1="56" x2="240" y2="56" stroke="#e5e7eb" stroke-width="2" />
+      <rect x="250" y="48" width="40" height="16" rx="8" fill="#f3f4f6" stroke="#e5e7eb" />
+      <text x="270" y="60" text-anchor="middle" font-size="10" fill="#6b7280" font-family="var(--ui-font, system-ui, sans-serif)">OR</text>
+      <line x1="300" y1="56" x2="480" y2="56" stroke="#e5e7eb" stroke-width="2" />
+
+      <text x="40" y="96" font-size="10" fill="#6b7280" font-family="var(--ui-font, system-ui, sans-serif)">Vertical</text>
+      <text x="120" y="110" font-size="12" fill="#4b5563" font-family="var(--ui-font, system-ui, sans-serif)">Left</text>
+      <line x1="200" y1="90" x2="200" y2="120" stroke="#e5e7eb" stroke-width="2" />
+      <text x="230" y="110" font-size="12" fill="#4b5563" font-family="var(--ui-font, system-ui, sans-serif)">Right</text>
+    </svg>
+  </div>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<ui-text type="heading" size="large">Basic Divider</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Use a divider to separate sections.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-text>Section One</ui-text>
+    <ui-divider></ui-divider>
+    <ui-text>Section Two</ui-text>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-text&gt;Section One&lt;/ui-text&gt;
+&lt;ui-divider&gt;&lt;/ui-divider&gt;
+&lt;ui-text&gt;Section Two&lt;/ui-text&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<ui-text type="heading" size="large">Label &amp; Variants</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Add a <code>label</code> and change the <code>variant</code> or
+  <code>thickness</code>.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-divider label="OR"></ui-divider>
+    <ui-divider label="DASHED" variant="dashed"></ui-divider>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-divider label="OR"&gt;&lt;/ui-divider&gt;
+&lt;ui-divider label="DASHED" variant="dashed"&gt;&lt;/ui-divider&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<ui-text type="heading" size="large">Vertical Divider</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Use <code>vertical</code> inside a horizontal layout.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack horizontal align="center" gap="0.75em">
+      <ui-text>Left</ui-text>
+      <ui-divider vertical></ui-divider>
+      <ui-text>Right</ui-text>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-layout-stack horizontal align="center" gap="0.75em"&gt;
+  &lt;ui-text&gt;Left&lt;/ui-text&gt;
+  &lt;ui-divider vertical&gt;&lt;/ui-divider&gt;
+  &lt;ui-text&gt;Right&lt;/ui-text&gt;
+&lt;/ui-layout-stack&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Playground ─────────────────────────────────────────── -->
+<ui-text type="heading" size="large">
+  <ui-icon color="indigo-500">play-circle</ui-icon>
+  Playground
+</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Toggle orientation and add a label or variant.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="playground">
+  <div class="playground-controls">
+    <ui-card elevation="1">
+      <ui-card-body>
+        <ui-text type="heading" size="small">Controls</ui-text>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+
+        <ui-input id="div-label" label="Label" size="small" value="OR"></ui-input>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+
+        <ui-input-select id="div-variant" label="Variant" size="small" value="solid">
+          <option value="solid">solid</option>
+          <option value="dashed">dashed</option>
+          <option value="dotted">dotted</option>
+        </ui-input-select>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+
+        <ui-input-color id="div-color" label="Color" size="small" placeholder="e.g. red-500, #ccc"></ui-input-color>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+
+        <ui-input-select id="div-thickness" label="Thickness" size="small" placeholder="1px">
+          <option value="">1px (default)</option>
+          <option value="2px">2px</option>
+          <option value="3px">3px</option>
+          <option value="4px">4px</option>
+          <option value="6px">6px</option>
+        </ui-input-select>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+
+        <ui-input-select id="div-spacing" label="Spacing" size="small" placeholder="1em">
+          <option value="">1em (default)</option>
+          <option value="0.25em">0.25em</option>
+          <option value="0.5em">0.5em</option>
+          <option value="1em">1em</option>
+          <option value="1.5em">1.5em</option>
+          <option value="2em">2em</option>
+          <option value="small">small</option>
+          <option value="medium">medium</option>
+          <option value="large">large</option>
+        </ui-input-select>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+
+        <ui-input-select id="div-size" label="Label Size" size="small" placeholder="inherit">
+          <option value="">inherit</option>
+          <option value="xx-small">xx-small</option>
+          <option value="x-small">x-small</option>
+          <option value="small">small</option>
+          <option value="medium">medium</option>
+          <option value="large">large</option>
+        </ui-input-select>
+        <ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+        <ui-input-checkbox id="div-vertical" label="Vertical"></ui-input-checkbox>
+      </ui-card-body>
+    </ui-card>
+  </div>
+
+  <div class="playground-preview">
+    <div class="demo-card">
+      <div class="demo-preview">
+        <ui-layout-stack id="div-preview-stack" horizontal align="center" gap="0.75em">
+          <ui-text>Left</ui-text>
+          <ui-divider id="div-playground" label="OR"></ui-divider>
+          <ui-text>Right</ui-text>
+        </ui-layout-stack>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  const el = document.getElementById('div-playground');
+  if (!el) return;
+
+  /* ── select controls ── */
+  for (const [id, attr] of [
+    ['div-variant',   'variant'],
+    ['div-thickness', 'thickness'],
+    ['div-spacing',   'spacing'],
+    ['div-size',      'size'],
+  ]) {
+    const ctrl = document.getElementById(id);
+    if (!ctrl) continue;
+    ctrl.addEventListener('ui-change', () => {
+      const v = (ctrl.value || '').trim();
+      if (v) el.setAttribute(attr, v);
+      else el.removeAttribute(attr);
+    });
+  }
+
+  /* ── text-input controls ── */
+  for (const [id, attr] of [
+    ['div-label', 'label'],
+    ['div-color', 'color'],
+  ]) {
+    const ctrl = document.getElementById(id);
+    if (!ctrl) continue;
+    const handler = () => {
+      const v = (ctrl.value || '').trim();
+      if (v) el.setAttribute(attr, v);
+      else el.removeAttribute(attr);
+    };
+    ctrl.addEventListener('ui-input', handler);
+    ctrl.addEventListener('ui-change', handler);
+  }
+
+  /* ── vertical checkbox ── */
+  const vert = document.getElementById('div-vertical');
+  if (vert) {
+    vert.addEventListener('ui-change', () => {
+      if (vert.checked) el.setAttribute('vertical', '');
+      else el.removeAttribute('vertical');
+    });
+  }
+})();
+</script>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<ui-text type="heading" size="large">API Reference</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead>
+      <tr><th>Attribute</th><th>Type</th><th>Default</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>label</code></td><td>String</td><td>—</td><td>Optional text label displayed in the centre of the divider</td></tr>
+      <tr><td><code>vertical</code></td><td>Boolean</td><td><code>false</code></td><td>Render as a vertical divider (inside flex rows)</td></tr>
+      <tr><td><code>variant</code></td><td>String</td><td><code>solid</code></td><td>Line style: <code>solid</code>, <code>dashed</code>, or <code>dotted</code></td></tr>
+      <tr><td><code>color</code></td><td>String</td><td>—</td><td>Line colour — palette token or CSS colour</td></tr>
+      <tr><td><code>thickness</code></td><td>String</td><td><code>1px</code></td><td>Line thickness — CSS length or named size</td></tr>
+      <tr><td><code>spacing</code></td><td>String</td><td><code>1em</code></td><td>Margin above/below (horizontal) or left/right (vertical) — CSS length or named size</td></tr>
+      <tr><td><code>size</code></td><td>String</td><td>—</td><td>Font size for the label text — CSS keyword or any CSS length</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>

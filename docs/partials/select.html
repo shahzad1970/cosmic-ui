@@ -1,0 +1,383 @@
+<!-- ============================================================
+     Select — Component Documentation
+     ============================================================ -->
+
+<ui-layout-stack gap="0.25em" style="margin-bottom:2em;">
+  <ui-text type="heading" size="xx-large">Select</ui-text>
+  <ui-text type="paragraph" color="gray-500">
+    <code>&lt;ui-input-select&gt;</code> is a dropdown select picker with optional
+    multi-select and search/filter. Options are defined as native
+    <code>&lt;option&gt;</code> children.
+  </ui-text>
+</ui-layout-stack>
+
+<!-- ── Basic Usage ────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Basic Usage</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Wrap <code>&lt;option&gt;</code> elements inside the component. Set
+  <code>label</code> and <code>placeholder</code> as needed.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-input-select label="Country" placeholder="Choose a country">
+      <option value="us">United States</option>
+      <option value="ca">Canada</option>
+      <option value="uk">United Kingdom</option>
+    </ui-input-select>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-input-select label="Country" placeholder="Choose a country"&gt;
+  &lt;option value="us"&gt;United States&lt;/option&gt;
+  &lt;option value="ca"&gt;Canada&lt;/option&gt;
+  &lt;option value="uk"&gt;United Kingdom&lt;/option&gt;
+&lt;/ui-input-select&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Help & Error ───────────────────────────────────────── -->
+<ui-text type="heading" size="large">Help &amp; Error</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Use <code>help</code> for guidance and <code>error</code> for validation
+  messages. When <code>required</code> is set, an asterisk appears next to the label.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack gap="1em">
+      <ui-input-select label="Language" help="Pick your primary language" required>
+        <option value="en">English</option>
+        <option value="es">Spanish</option>
+        <option value="fr">French</option>
+      </ui-input-select>
+      <ui-input-select label="Region" error="Region is required">
+        <option value="na">North America</option>
+        <option value="eu">Europe</option>
+        <option value="ap">Asia Pacific</option>
+      </ui-input-select>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-input-select label="Language" help="Pick your primary language" required&gt;
+  &lt;option value="en"&gt;English&lt;/option&gt;
+  …
+&lt;/ui-input-select&gt;
+
+&lt;ui-input-select label="Region" error="Region is required"&gt;
+  &lt;option value="na"&gt;North America&lt;/option&gt;
+  …
+&lt;/ui-input-select&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Disabled ────────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Disabled</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Add the <code>disabled</code> attribute to prevent interaction.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-input-select label="Status" placeholder="Cannot change" disabled>
+      <option value="active">Active</option>
+      <option value="inactive">Inactive</option>
+    </ui-input-select>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-input-select label="Status" placeholder="Cannot change" disabled&gt;
+  &lt;option value="active"&gt;Active&lt;/option&gt;
+  &lt;option value="inactive"&gt;Inactive&lt;/option&gt;
+&lt;/ui-input-select&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Sizes ───────────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Sizes</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  The <code>size</code> attribute accepts CSS named sizes (<code>x-small</code> …
+  <code>xx-large</code>) or any CSS length.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack gap="0.75em">
+      <ui-input-select label="Small" size="small" placeholder="Pick one…">
+        <option value="a">Alpha</option>
+        <option value="b">Beta</option>
+      </ui-input-select>
+      <ui-input-select label="Default" placeholder="Pick one…">
+        <option value="a">Alpha</option>
+        <option value="b">Beta</option>
+      </ui-input-select>
+      <ui-input-select label="Large" size="large" placeholder="Pick one…">
+        <option value="a">Alpha</option>
+        <option value="b">Beta</option>
+      </ui-input-select>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-input-select label="Small" size="small"&gt;…&lt;/ui-input-select&gt;
+&lt;ui-input-select label="Default"&gt;…&lt;/ui-input-select&gt;
+&lt;ui-input-select label="Large" size="large"&gt;…&lt;/ui-input-select&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Background & Color ─────────────────────────────────── -->
+<ui-text type="heading" size="large">Background &amp; Color</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Use palette tokens or any CSS colour for <code>background</code> and
+  <code>color</code>.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack gap="0.75em">
+      <ui-input-select label="Emerald" background="emerald-600" color="white" placeholder="Pick…">
+        <option value="1">Option 1</option>
+        <option value="2">Option 2</option>
+      </ui-input-select>
+      <ui-input-select label="Indigo" background="indigo-600" color="white" placeholder="Pick…">
+        <option value="1">Option 1</option>
+        <option value="2">Option 2</option>
+      </ui-input-select>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-input-select background="emerald-600" color="white"&gt;…&lt;/ui-input-select&gt;
+&lt;ui-input-select background="indigo-600" color="white"&gt;…&lt;/ui-input-select&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Searchable ─────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Searchable</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Add <code>searchable</code> to show a filter input inside the dropdown.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-input-select label="Country" placeholder="Search countries…" searchable>
+      <option value="us">United States</option>
+      <option value="ca">Canada</option>
+      <option value="uk">United Kingdom</option>
+      <option value="de">Germany</option>
+      <option value="fr">France</option>
+      <option value="jp">Japan</option>
+    </ui-input-select>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-input-select label="Country" searchable&gt;
+  &lt;option value="us"&gt;United States&lt;/option&gt;
+  &lt;option value="ca"&gt;Canada&lt;/option&gt;
+  …
+&lt;/ui-input-select&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Multiple Selection ─────────────────────────────────── -->
+<ui-text type="heading" size="large">Multiple Selection</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Set <code>multiple</code> to allow picking several options. Values are
+  stored comma-separated in the <code>value</code> attribute.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-input-select label="Toppings" placeholder="Add toppings…" multiple searchable>
+      <option value="cheese">Extra Cheese</option>
+      <option value="pepperoni">Pepperoni</option>
+      <option value="mushrooms">Mushrooms</option>
+      <option value="olives">Olives</option>
+      <option value="peppers">Peppers</option>
+    </ui-input-select>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-input-select label="Toppings" multiple searchable&gt;
+  &lt;option value="cheese"&gt;Extra Cheese&lt;/option&gt;
+  &lt;option value="pepperoni"&gt;Pepperoni&lt;/option&gt;
+  …
+&lt;/ui-input-select&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Playground ─────────────────────────────────────────── -->
+<ui-text type="heading" size="large">
+  <ui-icon color="indigo-500">play-circle</ui-icon>
+  Playground
+</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Experiment with every attribute in real time.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="playground">
+  <div class="playground-controls">
+    <ui-card elevation="1">
+      <ui-card-body>
+        <ui-text type="heading" size="small">Controls</ui-text>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input id="sel-label" label="Label" size="small" value="Fruit"></ui-input>
+        <ui-layout-spacer size="0.35em"></ui-layout-spacer>
+        <ui-input id="sel-placeholder" label="Placeholder" size="small" value="Choose…"></ui-input>
+        <ui-layout-spacer size="0.35em"></ui-layout-spacer>
+        <ui-input id="sel-help" label="Help" size="small"></ui-input>
+        <ui-layout-spacer size="0.35em"></ui-layout-spacer>
+        <ui-input id="sel-error" label="Error" size="small"></ui-input>
+        <ui-layout-spacer size="0.35em"></ui-layout-spacer>
+        <ui-input-select id="sel-size" label="Size" size="small" placeholder="Default">
+          <option value="x-small">x-small</option>
+          <option value="small">small</option>
+          <option value="large">large</option>
+          <option value="x-large">x-large</option>
+          <option value="xx-large">xx-large</option>
+        </ui-input-select>
+        <ui-layout-spacer size="0.35em"></ui-layout-spacer>
+        <ui-input-color id="sel-background" label="Background" size="small" placeholder="e.g. emerald-600"></ui-input-color>
+        <ui-layout-spacer size="0.35em"></ui-layout-spacer>
+        <ui-input-color id="sel-color" label="Color" size="small" placeholder="e.g. white"></ui-input-color>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-layout-stack gap="0.35em">
+          <ui-input-checkbox id="sel-multiple" label="Multiple"></ui-input-checkbox>
+          <ui-input-checkbox id="sel-searchable" label="Searchable"></ui-input-checkbox>
+          <ui-input-checkbox id="sel-disabled" label="Disabled"></ui-input-checkbox>
+          <ui-input-checkbox id="sel-required" label="Required"></ui-input-checkbox>
+        </ui-layout-stack>
+      </ui-card-body>
+    </ui-card>
+  </div>
+
+  <div class="playground-preview">
+    <div class="demo-card">
+      <div class="demo-preview">
+        <ui-input-select id="sel-playground" label="Fruit" placeholder="Choose…">
+          <option value="apple">Apple</option>
+          <option value="banana">Banana</option>
+          <option value="orange">Orange</option>
+          <option value="grape">Grape</option>
+          <option value="mango">Mango</option>
+        </ui-input-select>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  const el = document.getElementById('sel-playground');
+  if (!el) return;
+
+  const ids = {
+    label: 'sel-label', placeholder: 'sel-placeholder',
+    help: 'sel-help', error: 'sel-error',
+    background: 'sel-background', color: 'sel-color',
+  };
+  for (const [attr, id] of Object.entries(ids)) {
+    const ctrl = document.getElementById(id);
+    if (!ctrl) continue;
+    const handler = () => {
+      const v = (ctrl.value || '').trim();
+      if (v) el.setAttribute(attr, v);
+      else el.removeAttribute(attr);
+    };
+    ctrl.addEventListener('ui-input', handler);
+    ctrl.addEventListener('ui-change', handler);
+  }
+
+  const sizeCtrl = document.getElementById('sel-size');
+  if (sizeCtrl) {
+    sizeCtrl.addEventListener('ui-change', () => {
+      const v = (sizeCtrl.value || '').trim();
+      if (v) el.setAttribute('size', v);
+      else el.removeAttribute('size');
+    });
+  }
+
+  const bools = { multiple: 'sel-multiple', searchable: 'sel-searchable', disabled: 'sel-disabled', required: 'sel-required' };
+  for (const [attr, id] of Object.entries(bools)) {
+    const ctrl = document.getElementById(id);
+    if (!ctrl) continue;
+    ctrl.addEventListener('ui-change', () => {
+      if (ctrl.checked) el.setAttribute(attr, '');
+      else el.removeAttribute(attr);
+    });
+  }
+})();
+</script>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── API Reference ──────────────────────────────────────── -->
+<ui-text type="heading" size="large">API Reference</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead>
+      <tr><th>Attribute</th><th>Type</th><th>Default</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>value</code></td><td>String</td><td><code>""</code></td><td>Selected value(s); comma-separated for multi</td></tr>
+      <tr><td><code>placeholder</code></td><td>String</td><td><code>"Select…"</code></td><td>Placeholder text when nothing is selected</td></tr>
+      <tr><td><code>name</code></td><td>String</td><td><code>""</code></td><td>Form field name</td></tr>
+      <tr><td><code>label</code></td><td>String</td><td><code>""</code></td><td>Label text above the trigger</td></tr>
+      <tr><td><code>help</code></td><td>String</td><td><code>""</code></td><td>Help text below the trigger</td></tr>
+      <tr><td><code>error</code></td><td>String</td><td><code>""</code></td><td>Error message below the trigger</td></tr>
+      <tr><td><code>size</code></td><td>String</td><td><code>""</code></td><td>CSS named size or any CSS length</td></tr>
+      <tr><td><code>background</code></td><td>String</td><td><code>""</code></td><td>Background colour (palette token or CSS colour)</td></tr>
+      <tr><td><code>color</code></td><td>String</td><td><code>""</code></td><td>Text colour (palette token or CSS colour)</td></tr>
+      <tr><td><code>disabled</code></td><td>Boolean</td><td><code>false</code></td><td>Prevents interaction</td></tr>
+      <tr><td><code>required</code></td><td>Boolean</td><td><code>false</code></td><td>Marks the field as required (asterisk on label)</td></tr>
+      <tr><td><code>multiple</code></td><td>Boolean</td><td><code>false</code></td><td>Allow multiple selection</td></tr>
+      <tr><td><code>searchable</code></td><td>Boolean</td><td><code>false</code></td><td>Show a search / filter input in the dropdown</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── CSS Parts ──────────────────────────────────────────── -->
+<ui-text type="heading" size="large">CSS Parts</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead>
+      <tr><th>Part</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>label</code></td><td>The label element above the trigger</td></tr>
+      <tr><td><code>trigger</code></td><td>The clickable trigger button</td></tr>
+      <tr><td><code>dropdown</code></td><td>The dropdown panel containing options</td></tr>
+      <tr><td><code>help</code></td><td>The help text element</td></tr>
+      <tr><td><code>error</code></td><td>The error message element</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Events ──────────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Events</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead>
+      <tr><th>Event</th><th>Detail</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>ui-change</code></td><td><code>{ value }</code></td><td>Fires when the selection changes</td></tr>
+      <tr><td><code>ui-focus</code></td><td>—</td><td>Fires when the dropdown opens</td></tr>
+      <tr><td><code>ui-blur</code></td><td>—</td><td>Fires when the dropdown closes</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>

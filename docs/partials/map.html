@@ -1,0 +1,437 @@
+<!-- ============================================================
+     Map (Leaflet) — Component Documentation
+     ============================================================ -->
+
+<ui-layout-stack gap="0.25em" style="margin-bottom:2em;">
+  <ui-text type="heading" size="xx-large">Map (Leaflet)</ui-text>
+  <ui-text type="paragraph" color="gray-500">
+    <code>&lt;ui-map&gt;</code> renders an interactive map powered by Leaflet.js
+    and OpenStreetMap tiles. Provide coordinates via attributes or load a full
+    config (with markers) from a JSON file. Leaflet is lazy-loaded from the CDN
+    only when this component is used.
+  </ui-text>
+</ui-layout-stack>
+
+<ui-text type="heading" size="large">Basic Usage</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Set <code>lat</code>, <code>lng</code>, and <code>zoom</code> to position the map.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-map lat="40.7128" lng="-74.006" zoom="13" height="16em"></ui-map>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-map lat=&quot;40.7128&quot; lng=&quot;-74.006&quot; zoom=&quot;13&quot; height=&quot;16em&quot;&gt;&lt;/ui-map&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── src config ──────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Config via <code>src</code></ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Point <code>src</code> at a JSON file describing center, zoom, and markers.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-map src="../assets/map-config.json" height="16em"></ui-map>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-map src=&quot;../assets/map-config.json&quot; height=&quot;16em&quot;&gt;&lt;/ui-map&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Dark tiles ─────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Dark Theme</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Add the <code>dark</code> attribute for CartoDB dark tiles.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-map src="../assets/map-config.json" height="16em" dark></ui-map>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-map src=&quot;../assets/map-config.json&quot; height=&quot;16em&quot; dark&gt;&lt;/ui-map&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Address-based markers ───────────────────────────────── -->
+<ui-text type="heading" size="large">Address-based Markers</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Use <code>address</code> instead of <code>lat</code>/<code>lng</code>. Addresses are
+  geocoded via Nominatim (OpenStreetMap). Results are cached for the page lifetime.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-map id="map-address-demo" height="16em"></ui-map>
+  </div>
+  <ui-input-code language="javascript" readonly height="auto">// via JS config property
+map.config = {
+  center: "New York, NY",
+  zoom: 12,
+  markers: [
+    { address: "Empire State Building, New York", popup: "Empire State Building" },
+    { address: "Times Square, New York", popup: "Times Square" },
+    { address: "Central Park, New York", popup: "Central Park" }
+  ]
+};</ui-input-code>
+</div>
+<script>
+(function() {
+  const m = document.getElementById('map-address-demo');
+  if (!m) return;
+  m.config = {
+    center: "New York, NY",
+    zoom: 12,
+    markers: [
+      { address: "Empire State Building, New York", popup: "Empire State Building" },
+      { address: "Times Square, New York", popup: "Times Square" },
+      { address: "Central Park, New York", popup: "Central Park" }
+    ]
+  };
+})();
+</script>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Custom marker icons ────────────────────────────────── -->
+<ui-text type="heading" size="large">Custom Marker Icons</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Set <code>icon</code> per marker (or at the config level as a default).
+  Value can be a URL string or an object with <code>url</code>, <code>size</code>,
+  <code>anchor</code>, <code>popupAnchor</code>.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-map id="map-icon-demo" height="16em"></ui-map>
+  </div>
+  <ui-input-code language="javascript" readonly height="auto">map.config = {
+  center: [48.8566, 2.3522],
+  zoom: 13,
+  icon: {
+    url: "https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/images/marker-icon-2x.png",
+    size: [20, 33],
+    anchor: [10, 33]
+  },
+  markers: [
+    { address: "Eiffel Tower, Paris", popup: "Eiffel Tower" },
+    { address: "Louvre Museum, Paris", popup: "Louvre Museum" }
+  ]
+};</ui-input-code>
+</div>
+<script>
+(function() {
+  const m = document.getElementById('map-icon-demo');
+  if (!m) return;
+  m.config = {
+    center: [48.8566, 2.3522],
+    zoom: 13,
+    icon: {
+      url: "https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/images/marker-icon-2x.png",
+      size: [20, 33],
+      anchor: [10, 33]
+    },
+    markers: [
+      { address: "Eiffel Tower, Paris", popup: "Eiffel Tower" },
+      { address: "Louvre Museum, Paris", popup: "Louvre Museum" }
+    ]
+  };
+})();
+</script>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Lines between markers ─────────────────────────────── -->
+<ui-text type="heading" size="large">Lines (Polylines)</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Use the <code>lines</code> array to draw polylines between points.
+  Each line has a <code>points</code> array (coordinates or addresses) and
+  optional styling (<code>color</code>, <code>weight</code>, <code>opacity</code>, <code>dash</code>).
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-map id="map-lines-demo" height="16em"></ui-map>
+  </div>
+  <ui-input-code language="javascript" readonly height="auto">map.config = {
+  center: "New York, NY",
+  zoom: 13,
+  markers: [
+    { address: "Empire State Building, New York", popup: "Start" },
+    { address: "Times Square, New York", popup: "Stop 1" },
+    { address: "Central Park, New York", popup: "End" }
+  ],
+  lines: [
+    {
+      points: [
+        { address: "Empire State Building, New York" },
+        { address: "Times Square, New York" },
+        { address: "Central Park, New York" }
+      ],
+      color: "#6366f1",
+      weight: 4
+    }
+  ]
+};</ui-input-code>
+</div>
+<script>
+(function() {
+  const m = document.getElementById('map-lines-demo');
+  if (!m) return;
+  m.config = {
+    center: "New York, NY",
+    zoom: 13,
+    markers: [
+      { address: "Empire State Building, New York", popup: "Start" },
+      { address: "Times Square, New York", popup: "Stop 1" },
+      { address: "Central Park, New York", popup: "End" }
+    ],
+    lines: [
+      {
+        points: [
+          { address: "Empire State Building, New York" },
+          { address: "Times Square, New York" },
+          { address: "Central Park, New York" }
+        ],
+        color: "#6366f1",
+        weight: 4
+      }
+    ]
+  };
+})();
+</script>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── No scroll zoom ─────────────────────────────────────── -->
+<ui-text type="heading" size="large">Disable Scroll Zoom</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Use <code>no-zoom</code> to prevent scroll-wheel zooming.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-map lat="48.8566" lng="2.3522" zoom="12" height="16em" no-zoom></ui-map>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-map lat=&quot;48.8566&quot; lng=&quot;2.3522&quot; zoom=&quot;12&quot; height=&quot;16em&quot; no-zoom&gt;&lt;/ui-map&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Playground ──────────────────────────────────────────── -->
+<ui-text type="heading" size="large">
+  <ui-icon color="indigo-500">play-circle</ui-icon>
+  Playground
+</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Edit the map config and tweak attributes below.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="playground">
+  <div class="playground-controls">
+    <ui-input-code id="map-config-json" language="json" label="Config JSON" height="16em"></ui-input-code>
+    <ui-layout-spacer size="1em"></ui-layout-spacer>
+    <ui-layout-grid min-col-width="6rem" gap="0.5em">
+      <ui-input id="map-height" label="Height" size="small" value="20em"></ui-input>
+      <ui-input id="map-lat" label="Latitude" size="small" value="40.7128"></ui-input>
+      <ui-input id="map-lng" label="Longitude" size="small" value="-74.006"></ui-input>
+      <ui-input id="map-zoom" label="Zoom" size="small" value="13"></ui-input>
+    </ui-layout-grid>
+    <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+    <ui-layout-stack direction="row" gap="1em">
+      <ui-input-switch id="map-dark" label="Dark" size="small"></ui-input-switch>
+      <ui-input-switch id="map-nozoom" label="No Zoom" size="small"></ui-input-switch>
+    </ui-layout-stack>
+  </div>
+
+  <div class="playground-preview">
+    <div class="demo-card">
+      <div class="demo-preview">
+        <ui-map id="map-playground" height="20em"></ui-map>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  const map = document.getElementById('map-playground');
+  const configInput = document.getElementById('map-config-json');
+  const heightInput = document.getElementById('map-height');
+  const latInput = document.getElementById('map-lat');
+  const lngInput = document.getElementById('map-lng');
+  const zoomInput = document.getElementById('map-zoom');
+  const darkSwitch = document.getElementById('map-dark');
+  const nozoomSwitch = document.getElementById('map-nozoom');
+
+  if (!map || !configInput) return;
+
+  const defaultConfig = `{
+  "center": "New York, NY",
+  "zoom": 13,
+  "markers": [
+    { "address": "Empire State Building, New York", "popup": "Empire State Building" },
+    { "address": "Statue of Liberty, New York", "popup": "Statue of Liberty" },
+    { "lat": 40.7580, "lng": -73.9855, "popup": "Times Square" }
+  ]
+}`;
+
+  const applyConfig = () => {
+    const raw = (configInput.value || '').trim();
+    if (!raw) return;
+    try {
+      const parsed = JSON.parse(raw);
+      map.config = parsed;
+      configInput.removeAttribute('error');
+    } catch (err) {
+      configInput.setAttribute('error', 'Invalid JSON.');
+    }
+  };
+
+  const updateAttr = (id, attr) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    const handler = () => {
+      const v = (el.value || '').trim();
+      if (v) map.setAttribute(attr, v); else map.removeAttribute(attr);
+    };
+    handler();
+    el.addEventListener('ui-input', handler);
+    el.addEventListener('ui-change', handler);
+  };
+
+  const updateToggle = (id, attr) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    const handler = () => {
+      if (el.checked) map.setAttribute(attr, ''); else map.removeAttribute(attr);
+    };
+    handler();
+    el.addEventListener('ui-change', handler);
+  };
+
+  if (!configInput.value) configInput.value = defaultConfig;
+  applyConfig();
+
+  updateAttr('map-height', 'height');
+  updateAttr('map-lat', 'lat');
+  updateAttr('map-lng', 'lng');
+  updateAttr('map-zoom', 'zoom');
+  updateToggle('map-dark', 'dark');
+  updateToggle('map-nozoom', 'no-zoom');
+
+  configInput.addEventListener('ui-input', applyConfig);
+  configInput.addEventListener('ui-change', applyConfig);
+})();
+</script>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Config JSON shape ──────────────────────────────────── -->
+<ui-text type="heading" size="large">Map Config (JSON)</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  JSON config shape accepted by <code>src</code> and <code>config</code>.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead>
+      <tr><th>Key</th><th>Type</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>center</code></td><td>[lat, lng] | String</td><td>Map center as coordinates or address string</td></tr>
+      <tr><td><code>zoom</code></td><td>Number</td><td>Zoom level (1–20)</td></tr>
+      <tr><td><code>icon</code></td><td>String | Object</td><td>Default marker icon (URL or <code>{ url, size?, anchor?, popupAnchor? }</code>)</td></tr>
+      <tr><td><code>markers</code></td><td>Array</td><td>Array of marker definitions</td></tr>
+      <tr><td><code>markers[].lat</code></td><td>Number</td><td>Marker latitude</td></tr>
+      <tr><td><code>markers[].lng</code></td><td>Number</td><td>Marker longitude</td></tr>
+      <tr><td><code>markers[].address</code></td><td>String</td><td>Address string (geocoded via Nominatim, used when lat/lng omitted)</td></tr>
+      <tr><td><code>markers[].popup</code></td><td>String</td><td>Popup text (optional)</td></tr>
+      <tr><td><code>markers[].icon</code></td><td>String | Object</td><td>Custom icon for this marker (overrides config-level icon)</td></tr>
+      <tr><td><code>lines</code></td><td>Array</td><td>Array of polyline definitions</td></tr>
+      <tr><td><code>lines[].points</code></td><td>Array</td><td>Array of points: <code>[lat, lng]</code>, <code>{ lat, lng }</code>, <code>{ address }</code>, or <code>"address"</code></td></tr>
+      <tr><td><code>lines[].color</code></td><td>String</td><td>Stroke colour (default: <code>#6366f1</code>)</td></tr>
+      <tr><td><code>lines[].weight</code></td><td>Number</td><td>Stroke width in px (default: 3)</td></tr>
+      <tr><td><code>lines[].opacity</code></td><td>Number</td><td>Stroke opacity 0–1 (default: 1)</td></tr>
+      <tr><td><code>lines[].dash</code></td><td>String</td><td>SVG dashArray string, e.g. <code>"10 5"</code> (optional)</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="1em"></ui-layout-spacer>
+
+<ui-input-code language="json" readonly height="auto">{
+  "center": "New York, NY",
+  "zoom": 13,
+  "icon": "https://example.com/my-pin.png",
+  "markers": [
+    { "address": "Empire State Building, New York", "popup": "Empire State Building" },
+    { "lat": 40.6892, "lng": -74.0445, "popup": "Statue of Liberty" },
+    { "address": "Times Square, New York", "popup": "Times Square",
+      "icon": { "url": "https://example.com/star.png", "size": [32, 32] } }
+  ],
+  "lines": [
+    {
+      "points": [
+        { "address": "Empire State Building, New York" },
+        { "address": "Times Square, New York" }
+      ],
+      "color": "#6366f1",
+      "weight": 3,
+      "dash": "10 5"
+    }
+  ]
+}</ui-input-code>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── API Reference ──────────────────────────────────────── -->
+<ui-text type="heading" size="large">API Reference</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead>
+      <tr><th>Attribute</th><th>Type</th><th>Default</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>lat</code></td><td>Number</td><td>0</td><td>Center latitude</td></tr>
+      <tr><td><code>lng</code></td><td>Number</td><td>0</td><td>Center longitude</td></tr>
+      <tr><td><code>zoom</code></td><td>Number</td><td>2</td><td>Zoom level (1–20)</td></tr>
+      <tr><td><code>height</code></td><td>String</td><td>20em</td><td>Map height (CSS value)</td></tr>
+      <tr><td><code>src</code></td><td>String</td><td>—</td><td>URL to map config JSON</td></tr>
+      <tr><td><code>dark</code></td><td>Boolean</td><td>false</td><td>Use dark map tiles (CartoDB)</td></tr>
+      <tr><td><code>no-zoom</code></td><td>Boolean</td><td>false</td><td>Disable scroll-wheel zoom</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<ui-text type="heading" size="medium">JS Properties</ui-text>
+<ui-layout-spacer size="0.5em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead>
+      <tr><th>Property</th><th>Type</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>config</code></td><td>Object</td><td>Map config object (center, zoom, markers)</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>

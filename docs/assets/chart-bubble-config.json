@@ -1,0 +1,27 @@
+{
+  "type": "bubble",
+  "data": {
+    "datasets": [
+      {
+        "label": "Traffic",
+        "data": [
+          { "x": 1, "y": 8, "r": 6 },
+          { "x": 2, "y": 14, "r": 9 },
+          { "x": 3, "y": 10, "r": 7 },
+          { "x": 4, "y": 18, "r": 11 },
+          { "x": 5, "y": 15, "r": 8 }
+        ],
+        "backgroundColor": "#6366f1"
+      }
+    ]
+  },
+  "options": {
+    "responsive": true,
+    "maintainAspectRatio": false,
+    "plugins": { "legend": { "display": false } },
+    "scales": {
+      "x": { "grid": { "display": false }, "ticks": { "color": "#6b7280" } },
+      "y": { "grid": { "color": "#e5e7eb" }, "ticks": { "color": "#6b7280" } }
+    }
+  }
+}

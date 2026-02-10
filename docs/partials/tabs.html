@@ -1,0 +1,264 @@
+<!-- ============================================================
+     Tabs — Component Documentation
+     ============================================================ -->
+
+<ui-layout-stack gap="0.25em" style="margin-bottom:2em;">
+  <ui-text type="heading" size="xx-large">Tabs</ui-text>
+  <ui-text type="paragraph" color="gray-500">
+    <code>&lt;ui-tabs&gt;</code> manages tab selection and panels using
+    <code>&lt;ui-tab&gt;</code> children.
+  </ui-text>
+</ui-layout-stack>
+
+<ui-text type="heading" size="large">Basic Usage</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Each <code>ui-tab</code> provides the label and panel content.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-tabs>
+      <ui-tab label="Overview">
+        <ui-text>Overview content goes here.</ui-text>
+      </ui-tab>
+      <ui-tab label="Details">
+        <ui-text>Details panel content.</ui-text>
+      </ui-tab>
+      <ui-tab label="Activity" disabled>
+        <ui-text>Disabled tab content.</ui-text>
+      </ui-tab>
+    </ui-tabs>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-tabs&gt;
+  &lt;ui-tab label="Overview"&gt;...&lt;/ui-tab&gt;
+  &lt;ui-tab label="Details"&gt;...&lt;/ui-tab&gt;
+  &lt;ui-tab label="Activity" disabled&gt;...&lt;/ui-tab&gt;
+&lt;/ui-tabs&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<ui-text type="heading" size="large">Placement</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Place the tab bar on any edge of the container.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-tabs placement="start" size="small">
+      <ui-tab label="Alpha">Alpha panel</ui-tab>
+      <ui-tab label="Beta">Beta panel</ui-tab>
+      <ui-tab label="Gamma">Gamma panel</ui-tab>
+    </ui-tabs>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-tabs placement="start"&gt;...&lt;/ui-tabs&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<ui-text type="heading" size="large">Icon Labels</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Use short labels with icon-like text and add icons inside panels if needed.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-tabs size="small">
+      <ui-tab label="Home *">
+        <ui-layout-stack direction="horizontal" gap="0.5em" align="center">
+          <ui-icon>home</ui-icon>
+          <ui-text>Home panel content.</ui-text>
+        </ui-layout-stack>
+      </ui-tab>
+      <ui-tab label="Settings *">
+        <ui-layout-stack direction="horizontal" gap="0.5em" align="center">
+          <ui-icon>settings</ui-icon>
+          <ui-text>Settings panel content.</ui-text>
+        </ui-layout-stack>
+      </ui-tab>
+      <ui-tab label="Billing *">
+        <ui-layout-stack direction="horizontal" gap="0.5em" align="center">
+          <ui-icon>credit-card</ui-icon>
+          <ui-text>Billing panel content.</ui-text>
+        </ui-layout-stack>
+      </ui-tab>
+    </ui-tabs>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-tab label="Home *"&gt;...&lt;/ui-tab&gt;
+&lt;ui-tab label="Settings *"&gt;...&lt;/ui-tab&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Sizes ──────────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Sizes</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Scale the entire tab component with the <code>size</code> attribute.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack gap="1.5em">
+      <ui-tabs size="x-small">
+        <ui-tab label="Small">x-small tabs content.</ui-tab>
+        <ui-tab label="Example">Second panel.</ui-tab>
+      </ui-tabs>
+      <ui-tabs>
+        <ui-tab label="Default">Default size tabs content.</ui-tab>
+        <ui-tab label="Example">Second panel.</ui-tab>
+      </ui-tabs>
+      <ui-tabs size="large">
+        <ui-tab label="Large">Large tabs content.</ui-tab>
+        <ui-tab label="Example">Second panel.</ui-tab>
+      </ui-tabs>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-tabs size="x-small"&gt;...&lt;/ui-tabs&gt;
+&lt;ui-tabs&gt;...&lt;/ui-tabs&gt;
+&lt;ui-tabs size="large"&gt;...&lt;/ui-tabs&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Playground ─────────────────────────────────────────── -->
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="playground">
+  <div class="playground-controls">
+    <ui-card elevation="1">
+      <ui-card-body>
+        <ui-text type="heading" size="small">Controls</ui-text>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input id="tabs-selected" label="Selected Index" size="small" value="0"></ui-input>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-select id="tabs-size" label="Size" size="small" placeholder="Default">
+          <option value="">Default</option>
+          <option value="xx-small">XX-Small</option>
+          <option value="x-small">X-Small</option>
+          <option value="small">Small</option>
+          <option value="medium">Medium</option>
+          <option value="large">Large</option>
+          <option value="x-large">X-Large</option>
+          <option value="xx-large">XX-Large</option>
+        </ui-input-select>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-color id="tabs-bg" label="Background" size="small" value=""></ui-input-color>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-color id="tabs-color" label="Color" size="small" value=""></ui-input-color>
+        <ui-layout-spacer size="0.75em"></ui-layout-spacer>
+        <ui-input-select id="tabs-placement" label="Placement" size="small" value="top">
+          <option value="top">Top</option>
+          <option value="bottom">Bottom</option>
+          <option value="start">Start</option>
+          <option value="end">End</option>
+        </ui-input-select>
+      </ui-card-body>
+    </ui-card>
+  </div>
+
+  <div class="playground-preview">
+    <div class="demo-card">
+      <div class="demo-preview">
+        <ui-tabs id="tabs-playground">
+          <ui-tab label="First">First panel content.</ui-tab>
+          <ui-tab label="Second">Second panel content.</ui-tab>
+          <ui-tab label="Third">Third panel content.</ui-tab>
+        </ui-tabs>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  const tabs = document.getElementById('tabs-playground');
+  const selected = document.getElementById('tabs-selected');
+  const size = document.getElementById('tabs-size');
+  const bg = document.getElementById('tabs-bg');
+  const color = document.getElementById('tabs-color');
+  const placement = document.getElementById('tabs-placement');
+
+  if (!tabs || !selected || !size || !bg || !color) return;
+
+  const setOrRemove = (attr, val) => val ? tabs.setAttribute(attr, val) : tabs.removeAttribute(attr);
+
+  selected.addEventListener('ui-input', () => {
+    const val = (selected.value || '').trim();
+    if (val !== '') tabs.setAttribute('selected', val);
+    else tabs.removeAttribute('selected');
+  });
+  selected.addEventListener('ui-change', () => {
+    const val = (selected.value || '').trim();
+    if (val !== '') tabs.setAttribute('selected', val);
+    else tabs.removeAttribute('selected');
+  });
+
+  size.addEventListener('ui-change', () => setOrRemove('size', (size.value || '').trim()));
+  bg.addEventListener('ui-change', () => setOrRemove('background', (bg.value || '').trim()));
+  color.addEventListener('ui-change', () => setOrRemove('color', (color.value || '').trim()));
+  placement?.addEventListener('ui-change', () => setOrRemove('placement', (placement.value || '').trim()));
+})();
+</script>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<ui-text type="heading" size="large">API Reference</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<ui-text type="heading" size="small">Tabs</ui-text>
+<ui-layout-spacer size="0.5em"></ui-layout-spacer>
+<ui-table size="small">
+  <table>
+    <thead>
+      <tr><th>Attribute</th><th>Type</th><th>Default</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>background</code></td><td>String</td><td>—</td><td>Bar and panel background</td></tr>
+      <tr><td><code>color</code></td><td>String</td><td>—</td><td>Text color</td></tr>
+      <tr><td><code>size</code></td><td>String</td><td>—</td><td>Size keyword or CSS length</td></tr>
+      <tr><td><code>placement</code></td><td>String</td><td>top</td><td>Tab bar position</td></tr>
+      <tr><td><code>selected</code></td><td>Number</td><td>0</td><td>Active tab index</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="1.5em"></ui-layout-spacer>
+
+<ui-text type="heading" size="small">Tab</ui-text>
+<ui-layout-spacer size="0.5em"></ui-layout-spacer>
+<ui-table size="small">
+  <table>
+    <thead>
+      <tr><th>Attribute</th><th>Type</th><th>Default</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>label</code></td><td>String</td><td>—</td><td>Tab button label</td></tr>
+      <tr><td><code>disabled</code></td><td>Boolean</td><td>false</td><td>Disable this tab</td></tr>
+      <tr><td><code>background</code></td><td>String</td><td>—</td><td>Panel background</td></tr>
+      <tr><td><code>color</code></td><td>String</td><td>—</td><td>Panel text color</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Events ──────────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Events</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead>
+      <tr><th>Event</th><th>Detail</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>ui-tab-change</code></td><td><code>{ index }</code></td><td>Fires when the active tab changes</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>

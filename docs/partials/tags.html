@@ -1,0 +1,252 @@
+<!-- ============================================================
+     Tags — Component Documentation
+     ============================================================ -->
+
+<ui-layout-stack gap="0.25em" style="margin-bottom:2em;">
+  <ui-text type="heading" size="xx-large">Tags</ui-text>
+  <ui-text type="paragraph" color="gray-500">
+    <code>&lt;ui-input-tags&gt;</code> is a free-form tag / chip input.
+    Type text and press <kbd>Enter</kbd> or comma to add a tag, click × to remove.
+    Duplicates are automatically prevented.
+  </ui-text>
+</ui-layout-stack>
+
+<!-- ── Basic Usage ────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Basic Usage</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Pre-populate with a comma-separated <code>value</code>. Press <kbd>Backspace</kbd>
+  on an empty input to remove the last tag.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-input-tags label="Skills" value="JavaScript, CSS, HTML"></ui-input-tags>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-input-tags label="Skills" value="JavaScript, CSS, HTML"&gt;&lt;/ui-input-tags&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Help & Error ───────────────────────────────────────── -->
+<ui-text type="heading" size="large">Help &amp; Error</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Use <code>help</code> for guidance and <code>error</code> for validation.
+  Error state turns the wrapper border red.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview" style="display:flex;gap:1.5em;flex-wrap:wrap;">
+    <ui-input-tags label="With help" help="Add up to 5 tags" max="5" style="flex:1;min-width:12em;"></ui-input-tags>
+    <ui-input-tags label="With error" error="At least one tag is required" style="flex:1;min-width:12em;"></ui-input-tags>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-input-tags label="With help" help="Add up to 5 tags" max="5"&gt;&lt;/ui-input-tags&gt;
+&lt;ui-input-tags label="With error" error="At least one tag is required"&gt;&lt;/ui-input-tags&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Max Tags ───────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Max Tags</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Set <code>max</code> to limit the number of tags. When the limit is reached,
+  the input field is hidden.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-input-tags label="Top 3 colours" max="3" value="Red, Blue"></ui-input-tags>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-input-tags label="Top 3 colours" max="3" value="Red, Blue"&gt;&lt;/ui-input-tags&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Tag Colours ────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Tag Colours</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Use the <code>color</code> attribute with a palette token to change the tag badge colour.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview" style="display:flex;gap:1.5em;flex-wrap:wrap;">
+    <ui-input-tags label="Indigo" color="indigo-100" value="Tag A, Tag B" style="flex:1;min-width:10em;"></ui-input-tags>
+    <ui-input-tags label="Emerald" color="emerald-100" value="Tag A, Tag B" style="flex:1;min-width:10em;"></ui-input-tags>
+    <ui-input-tags label="Rose" color="rose-100" value="Tag A, Tag B" style="flex:1;min-width:10em;"></ui-input-tags>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-input-tags label="Indigo" color="indigo-100" value="Tag A, Tag B"&gt;&lt;/ui-input-tags&gt;
+&lt;ui-input-tags label="Emerald" color="emerald-100" value="Tag A, Tag B"&gt;&lt;/ui-input-tags&gt;
+&lt;ui-input-tags label="Rose" color="rose-100" value="Tag A, Tag B"&gt;&lt;/ui-input-tags&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Sizes ──────────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Sizes</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Use <code>size</code> with CSS named sizes or any CSS length.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview" style="display:flex;gap:1em;flex-wrap:wrap;align-items:flex-end;">
+    <ui-input-tags label="Small" size="small" value="A, B" style="flex:1;min-width:10em;"></ui-input-tags>
+    <ui-input-tags label="Default" value="A, B" style="flex:1;min-width:10em;"></ui-input-tags>
+    <ui-input-tags label="Large" size="large" value="A, B" style="flex:1;min-width:10em;"></ui-input-tags>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-input-tags label="Small" size="small" value="A, B"&gt;&lt;/ui-input-tags&gt;
+&lt;ui-input-tags label="Default" value="A, B"&gt;&lt;/ui-input-tags&gt;
+&lt;ui-input-tags label="Large" size="large" value="A, B"&gt;&lt;/ui-input-tags&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Disabled ────────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Disabled</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-input-tags label="Disabled" value="Locked, Tag" disabled></ui-input-tags>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-input-tags label="Disabled" value="Locked, Tag" disabled&gt;&lt;/ui-input-tags&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Playground ─────────────────────────────────────────── -->
+<ui-text type="heading" size="large">
+  <ui-icon color="indigo-500">play-circle</ui-icon>
+  Playground
+</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Interactively configure every property.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="playground">
+  <div class="playground-controls">
+    <ui-card elevation="1">
+      <ui-card-body>
+        <ui-text type="heading" size="small">Controls</ui-text>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input id="tags-label" label="Label" size="small" value="Tags"></ui-input>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input id="tags-help" label="Help" size="small"></ui-input>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input id="tags-error" label="Error" size="small"></ui-input>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input id="tags-placeholder" label="Placeholder" size="small" value="Add…"></ui-input>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input id="tags-max" label="Max" size="small" value="0"></ui-input>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-select id="tags-size" label="Size" size="small">
+          <option value="">Default</option>
+          <option value="small">Small</option>
+          <option value="large">Large</option>
+          <option value="x-large">X-Large</option>
+        </ui-input-select>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-color id="tags-bg" label="Background" size="small"></ui-input-color>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-color id="tags-color" label="Tag Colour" size="small"></ui-input-color>
+        <ui-layout-spacer size="0.75em"></ui-layout-spacer>
+        <ui-layout-stack direction="horizontal" gap="1em">
+          <ui-input-checkbox id="tags-disabled" label="Disabled"></ui-input-checkbox>
+          <ui-input-checkbox id="tags-required" label="Required"></ui-input-checkbox>
+        </ui-layout-stack>
+      </ui-card-body>
+    </ui-card>
+  </div>
+
+  <div class="playground-preview">
+    <div class="demo-card">
+      <div class="demo-preview">
+        <ui-input-tags id="tags-playground" label="Tags" value="design, ui"></ui-input-tags>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  const el    = document.getElementById('tags-playground');
+  const label = document.getElementById('tags-label');
+  const help  = document.getElementById('tags-help');
+  const error = document.getElementById('tags-error');
+  const ph    = document.getElementById('tags-placeholder');
+  const max   = document.getElementById('tags-max');
+  const size  = document.getElementById('tags-size');
+  const bg    = document.getElementById('tags-bg');
+  const color = document.getElementById('tags-color');
+  const dis   = document.getElementById('tags-disabled');
+  const req   = document.getElementById('tags-required');
+
+  if (!el || !label || !help || !error || !ph || !max || !size || !bg || !color || !dis || !req) return;
+
+  const setOrRemove = (attr, v) => v ? el.setAttribute(attr, v) : el.removeAttribute(attr);
+  const listen = (ctrl, fn) => { ctrl.addEventListener('ui-input', fn); ctrl.addEventListener('ui-change', fn); };
+
+  listen(label, () => setOrRemove('label', label.value));
+  listen(help,  () => setOrRemove('help',  help.value));
+  listen(error, () => setOrRemove('error', error.value));
+  listen(ph,    () => setOrRemove('placeholder', ph.value));
+  listen(max,   () => setOrRemove('max',   max.value));
+  listen(size,  () => setOrRemove('size',  size.value));
+  listen(bg,    () => setOrRemove('background', bg.value));
+  listen(color, () => setOrRemove('color', color.value));
+
+  dis.addEventListener('ui-change', () => { if (dis.checked) el.setAttribute('disabled', ''); else el.removeAttribute('disabled'); });
+  req.addEventListener('ui-change', () => { if (req.checked) el.setAttribute('required', ''); else el.removeAttribute('required'); });
+})();
+</script>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── API Reference ──────────────────────────────────────── -->
+<ui-text type="heading" size="large">API Reference</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead>
+      <tr><th>Attribute</th><th>Type</th><th>Default</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>value</code></td><td>String</td><td>—</td><td>Comma-separated tags</td></tr>
+      <tr><td><code>placeholder</code></td><td>String</td><td><code>Add…</code></td><td>Input placeholder text</td></tr>
+      <tr><td><code>name</code></td><td>String</td><td>—</td><td>Form field name</td></tr>
+      <tr><td><code>label</code></td><td>String</td><td>—</td><td>Label text above the input</td></tr>
+      <tr><td><code>help</code></td><td>String</td><td>—</td><td>Help text below the input</td></tr>
+      <tr><td><code>error</code></td><td>String</td><td>—</td><td>Error message (turns border red)</td></tr>
+      <tr><td><code>size</code></td><td>String</td><td>—</td><td>Size keyword or CSS length</td></tr>
+      <tr><td><code>background</code></td><td>String</td><td>—</td><td>Wrapper background colour</td></tr>
+      <tr><td><code>color</code></td><td>String</td><td><code>indigo-100</code></td><td>Tag badge colour (palette token or CSS)</td></tr>
+      <tr><td><code>max</code></td><td>Number</td><td><code>0</code></td><td>Maximum tags (0 = unlimited)</td></tr>
+      <tr><td><code>disabled</code></td><td>Boolean</td><td><code>false</code></td><td>Dims the component and prevents input</td></tr>
+      <tr><td><code>required</code></td><td>Boolean</td><td><code>false</code></td><td>Marks field as required</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Events ──────────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Events</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead>
+      <tr><th>Event</th><th>Detail</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>ui-change</code></td><td><code>{ value, tags }</code></td><td>Fires when tags are added or removed</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>

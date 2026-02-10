@@ -1,0 +1,49 @@
+{
+  "type": "line",
+  "data": {
+    "labels": ["Q1", "Q2", "Q3", "Q4"],
+    "datasets": [
+      {
+        "label": "Revenue (USD)",
+        "data": [120, 180, 160, 220],
+        "borderColor": "#6366f1",
+        "backgroundColor": "#6366f133",
+        "tension": 0.35,
+        "fill": true,
+        "yAxisID": "y"
+      },
+      {
+        "label": "Orders",
+        "data": [480, 620, 560, 740],
+        "borderColor": "#14b8a6",
+        "backgroundColor": "#14b8a633",
+        "tension": 0.35,
+        "fill": false,
+        "yAxisID": "y1"
+      }
+    ]
+  },
+  "options": {
+    "responsive": true,
+    "maintainAspectRatio": false,
+    "plugins": {
+      "legend": { "position": "bottom" }
+    },
+    "scales": {
+      "x": {
+        "grid": { "display": false },
+        "ticks": { "color": "#6b7280" }
+      },
+      "y": {
+        "position": "left",
+        "grid": { "color": "#e5e7eb" },
+        "ticks": { "color": "#6b7280" }
+      },
+      "y1": {
+        "position": "right",
+        "grid": { "drawOnChartArea": false },
+        "ticks": { "color": "#6b7280" }
+      }
+    }
+  }
+}

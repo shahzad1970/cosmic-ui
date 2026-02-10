@@ -1,0 +1,300 @@
+<!-- ============================================================
+     Avatar — Component Documentation
+     ============================================================ -->
+
+<ui-layout-stack gap="0.25em" style="margin-bottom:2em;">
+  <ui-text type="heading" size="xx-large">Avatar</ui-text>
+  <ui-text type="paragraph" color="gray-500">
+    <code>&lt;ui-avatar&gt;</code> displays a user image, initials, or fallback icon
+    with size, shape, and status controls.
+  </ui-text>
+</ui-layout-stack>
+
+<ui-text type="heading" size="large">Basic Usage</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Use <code>initials</code> for text fallback, <code>src</code> for images, or slot a custom icon.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack direction="horizontal" gap="0.75em" align="center">
+      <ui-avatar initials="JS" background="indigo-500"></ui-avatar>
+      <ui-avatar initials="AL" background="emerald-500"></ui-avatar>
+      <ui-avatar initials="TN" background="rose-500"></ui-avatar>
+      <ui-avatar background="gray-200">
+        <ui-icon>user</ui-icon>
+      </ui-avatar>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-avatar initials="JS" background="indigo-500"&gt;&lt;/ui-avatar&gt;
+&lt;ui-avatar initials="AL" background="emerald-500"&gt;&lt;/ui-avatar&gt;
+&lt;ui-avatar initials="TN" background="rose-500"&gt;&lt;/ui-avatar&gt;
+&lt;ui-avatar background="gray-200"&gt;
+  &lt;ui-icon&gt;user&lt;/ui-icon&gt;
+&lt;/ui-avatar&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<ui-text type="heading" size="large">Sizes</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Use named keywords or any CSS length for the <code>size</code> attribute.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack direction="horizontal" gap="1em" align="center">
+      <ui-layout-stack align="center" gap="0.25em">
+        <ui-avatar initials="XS" background="indigo-400" size="x-small"></ui-avatar>
+        <ui-text size="xx-small" color="gray-400">x-small</ui-text>
+      </ui-layout-stack>
+      <ui-layout-stack align="center" gap="0.25em">
+        <ui-avatar initials="SM" background="indigo-400" size="small"></ui-avatar>
+        <ui-text size="xx-small" color="gray-400">small</ui-text>
+      </ui-layout-stack>
+      <ui-layout-stack align="center" gap="0.25em">
+        <ui-avatar initials="MD" background="indigo-500"></ui-avatar>
+        <ui-text size="xx-small" color="gray-400">default</ui-text>
+      </ui-layout-stack>
+      <ui-layout-stack align="center" gap="0.25em">
+        <ui-avatar initials="LG" background="indigo-500" size="large"></ui-avatar>
+        <ui-text size="xx-small" color="gray-400">large</ui-text>
+      </ui-layout-stack>
+      <ui-layout-stack align="center" gap="0.25em">
+        <ui-avatar initials="XL" background="indigo-600" size="x-large"></ui-avatar>
+        <ui-text size="xx-small" color="gray-400">x-large</ui-text>
+      </ui-layout-stack>
+      <ui-layout-stack align="center" gap="0.25em">
+        <ui-avatar initials="2X" background="indigo-600" size="xx-large"></ui-avatar>
+        <ui-text size="xx-small" color="gray-400">xx-large</ui-text>
+      </ui-layout-stack>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-avatar initials="XS" size="x-small"&gt;&lt;/ui-avatar&gt;
+&lt;ui-avatar initials="SM" size="small"&gt;&lt;/ui-avatar&gt;
+&lt;ui-avatar initials="MD"&gt;&lt;/ui-avatar&gt;
+&lt;ui-avatar initials="LG" size="large"&gt;&lt;/ui-avatar&gt;
+&lt;ui-avatar initials="XL" size="x-large"&gt;&lt;/ui-avatar&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<ui-text type="heading" size="large">Shape</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Avatars are circular by default. Add <code>square</code> for rounded-rectangle shape.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack direction="horizontal" gap="1em" align="center">
+      <ui-layout-stack align="center" gap="0.25em">
+        <ui-avatar initials="CL" background="sky-500" size="large"></ui-avatar>
+        <ui-text size="xx-small" color="gray-400">circle</ui-text>
+      </ui-layout-stack>
+      <ui-layout-stack align="center" gap="0.25em">
+        <ui-avatar initials="SQ" background="violet-500" size="large" square></ui-avatar>
+        <ui-text size="xx-small" color="gray-400">square</ui-text>
+      </ui-layout-stack>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-avatar initials="CL" background="sky-500"&gt;&lt;/ui-avatar&gt;
+&lt;ui-avatar initials="SQ" background="violet-500" square&gt;&lt;/ui-avatar&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<ui-text type="heading" size="large">Status Indicator</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Show presence with <code>status</code>: <code>online</code>, <code>away</code>, <code>busy</code>, or <code>offline</code>.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack direction="horizontal" gap="1.5em" align="center">
+      <ui-layout-stack align="center" gap="0.25em">
+        <ui-avatar initials="ON" background="gray-300" size="large" status="online"></ui-avatar>
+        <ui-text size="xx-small" color="gray-400">online</ui-text>
+      </ui-layout-stack>
+      <ui-layout-stack align="center" gap="0.25em">
+        <ui-avatar initials="AW" background="gray-300" size="large" status="away"></ui-avatar>
+        <ui-text size="xx-small" color="gray-400">away</ui-text>
+      </ui-layout-stack>
+      <ui-layout-stack align="center" gap="0.25em">
+        <ui-avatar initials="BS" background="gray-300" size="large" status="busy"></ui-avatar>
+        <ui-text size="xx-small" color="gray-400">busy</ui-text>
+      </ui-layout-stack>
+      <ui-layout-stack align="center" gap="0.25em">
+        <ui-avatar initials="OF" background="gray-300" size="large" status="offline"></ui-avatar>
+        <ui-text size="xx-small" color="gray-400">offline</ui-text>
+      </ui-layout-stack>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-avatar initials="ON" status="online"&gt;&lt;/ui-avatar&gt;
+&lt;ui-avatar initials="AW" status="away"&gt;&lt;/ui-avatar&gt;
+&lt;ui-avatar initials="BS" status="busy"&gt;&lt;/ui-avatar&gt;
+&lt;ui-avatar initials="OF" status="offline"&gt;&lt;/ui-avatar&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<ui-text type="heading" size="large">Colours</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Text colour auto-contrasts against the background. Override with <code>color</code>.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack direction="horizontal" gap="0.75em" align="center">
+      <ui-avatar initials="AB" background="rose-500"></ui-avatar>
+      <ui-avatar initials="CD" background="amber-400"></ui-avatar>
+      <ui-avatar initials="EF" background="emerald-500"></ui-avatar>
+      <ui-avatar initials="GH" background="sky-500"></ui-avatar>
+      <ui-avatar initials="IJ" background="violet-500"></ui-avatar>
+      <ui-avatar initials="KL" background="gray-800"></ui-avatar>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-avatar initials="AB" background="rose-500"&gt;&lt;/ui-avatar&gt;
+&lt;ui-avatar initials="CD" background="amber-400"&gt;&lt;/ui-avatar&gt;
+&lt;ui-avatar initials="EF" background="emerald-500"&gt;&lt;/ui-avatar&gt;
+&lt;ui-avatar initials="GH" background="sky-500"&gt;&lt;/ui-avatar&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Playground ─────────────────────────────────────────── -->
+<ui-text type="heading" size="large">
+  <ui-icon color="indigo-500">play-circle</ui-icon>
+  Playground
+</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Adjust avatar properties interactively.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="playground">
+  <div class="playground-controls">
+    <ui-card elevation="1">
+      <ui-card-body>
+        <ui-text type="heading" size="small">Controls</ui-text>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input id="avatar-initials" label="Initials" size="small" value="CU"></ui-input>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-color id="avatar-bg" label="Background" size="small" value="indigo-500"></ui-input-color>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-color id="avatar-color" label="Color" size="small" placeholder="auto-contrast"></ui-input-color>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-select id="avatar-size" label="Size" size="small">
+          <option value="">— (default)</option>
+          <option value="xx-small">xx-small</option>
+          <option value="x-small">x-small</option>
+          <option value="small">small</option>
+          <option value="medium">medium</option>
+          <option value="large">large</option>
+          <option value="x-large">x-large</option>
+          <option value="xx-large">xx-large</option>
+        </ui-input-select>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-select id="avatar-status" label="Status" size="small">
+          <option value="">— (none)</option>
+          <option value="online">online</option>
+          <option value="away">away</option>
+          <option value="busy">busy</option>
+          <option value="offline">offline</option>
+        </ui-input-select>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-checkbox id="avatar-square" label="Square"></ui-input-checkbox>
+      </ui-card-body>
+    </ui-card>
+  </div>
+
+  <div class="playground-preview">
+    <div class="demo-card">
+      <div class="demo-preview">
+        <ui-avatar id="avatar-playground" initials="CU" background="indigo-500">
+          <ui-icon>user</ui-icon>
+        </ui-avatar>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  const el = document.getElementById('avatar-playground');
+  if (!el) return;
+
+  /* Text inputs */
+  const inputs = {
+    'avatar-initials': 'initials',
+    'avatar-bg':       'background',
+    'avatar-color':    'color',
+  };
+  Object.entries(inputs).forEach(([id, attr]) => {
+    const ctrl = document.getElementById(id);
+    if (!ctrl) return;
+    const update = () => {
+      const val = (ctrl.value || '').trim();
+      if (val) el.setAttribute(attr, val);
+      else el.removeAttribute(attr);
+    };
+    ctrl.addEventListener('ui-input', update);
+    ctrl.addEventListener('ui-change', update);
+  });
+
+  /* Select-based attrs */
+  const selects = {
+    'avatar-size':   'size',
+    'avatar-status': 'status',
+  };
+  Object.entries(selects).forEach(([id, attr]) => {
+    const ctrl = document.getElementById(id);
+    if (!ctrl) return;
+    ctrl.addEventListener('ui-change', () => {
+      const val = (ctrl.value || '').trim();
+      if (val) el.setAttribute(attr, val);
+      else el.removeAttribute(attr);
+    });
+  });
+
+  /* Square checkbox */
+  const squareCtrl = document.getElementById('avatar-square');
+  if (squareCtrl) {
+    squareCtrl.addEventListener('ui-change', () => {
+      if (squareCtrl.checked) el.setAttribute('square', '');
+      else el.removeAttribute('square');
+    });
+  }
+})();
+</script>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<ui-text type="heading" size="large">API Reference</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead>
+      <tr><th>Attribute</th><th>Type</th><th>Default</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>src</code></td><td>String</td><td>—</td><td>Image URL (highest priority — hides initials/fallback)</td></tr>
+      <tr><td><code>initials</code></td><td>String</td><td>—</td><td>Fallback initials text (e.g. <code>"JS"</code>). Uppercase, centred.</td></tr>
+      <tr><td><code>alt</code></td><td>String</td><td>—</td><td>Alt text for the image (falls back to initials)</td></tr>
+      <tr><td><code>size</code></td><td>String</td><td>—</td><td>Avatar size (named keyword or CSS length)</td></tr>
+      <tr><td><code>background</code></td><td>String</td><td>—</td><td>Background colour (palette token or CSS colour)</td></tr>
+      <tr><td><code>color</code></td><td>String</td><td>auto</td><td>Text/icon colour (auto-contrasts if omitted)</td></tr>
+      <tr><td><code>circle</code></td><td>Boolean</td><td>true</td><td>Circular shape (default)</td></tr>
+      <tr><td><code>square</code></td><td>Boolean</td><td>false</td><td>Rounded-rectangle shape (overrides <code>circle</code>)</td></tr>
+      <tr><td><code>status</code></td><td>String</td><td>—</td><td>Status dot: <code>online</code>, <code>away</code>, <code>busy</code>, <code>offline</code></td></tr>
+      <tr><td><code>status-color</code></td><td>String</td><td>—</td><td>Override the status dot colour (palette token or CSS)</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>

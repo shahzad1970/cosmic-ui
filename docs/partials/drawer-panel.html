@@ -1,0 +1,106 @@
+<!-- ============================================================
+     Drawer — Component Documentation
+     ============================================================ -->
+
+<ui-layout-stack gap="0.25em" style="margin-bottom:2em;">
+  <ui-text type="heading" size="xx-large">Drawer</ui-text>
+  <ui-text type="paragraph" color="gray-500">
+    <code>&lt;ui-drawer&gt;</code> is a standalone slide-in panel from any viewport edge. Works anywhere in the page — unlike <code>&lt;ui-app-drawer&gt;</code> which only works inside <code>&lt;ui-app&gt;</code>.
+  </ui-text>
+</ui-layout-stack>
+
+<ui-text type="heading" size="large">Basic Usage</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Use <code>show()</code> / <code>hide()</code> methods or toggle the <code>open</code> attribute. Set <code>placement</code> for edge direction.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack direction="horizontal" gap="0.5em" wrap>
+      <ui-button id="drawer-right-btn" size="small">Open right drawer</ui-button>
+      <ui-button id="drawer-left-btn" size="small">Open left drawer</ui-button>
+      <ui-button id="drawer-bottom-btn" size="small">Open bottom drawer</ui-button>
+    </ui-layout-stack>
+    <ui-drawer id="drawer-right-demo" label="Settings" placement="right">
+      <ui-text type="paragraph">Right drawer content. Click backdrop or press Escape to close.</ui-text>
+    </ui-drawer>
+    <ui-drawer id="drawer-left-demo" label="Navigation" placement="left">
+      <ui-text type="paragraph">Left drawer content.</ui-text>
+    </ui-drawer>
+    <ui-drawer id="drawer-bottom-demo" label="Details" placement="bottom" height="200px">
+      <ui-text type="paragraph">Bottom drawer content.</ui-text>
+    </ui-drawer>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-button onclick="document.querySelector('#my-drawer').show()"&gt;Open&lt;/ui-button&gt;
+
+&lt;ui-drawer id="my-drawer" label="Settings" placement="right"&gt;
+  &lt;p&gt;Drawer content here.&lt;/p&gt;
+&lt;/ui-drawer&gt;</ui-input-code>
+</div>
+
+<script>
+(function() {
+  document.getElementById('drawer-right-btn')?.addEventListener('click', () =>
+    document.getElementById('drawer-right-demo')?.show());
+  document.getElementById('drawer-left-btn')?.addEventListener('click', () =>
+    document.getElementById('drawer-left-demo')?.show());
+  document.getElementById('drawer-bottom-btn')?.addEventListener('click', () =>
+    document.getElementById('drawer-bottom-demo')?.show());
+})();
+</script>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<ui-text type="heading" size="large">API Reference</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead><tr><th>Attribute</th><th>Type</th><th>Default</th><th>Description</th></tr></thead>
+    <tbody>
+      <tr><td><code>open</code></td><td>Boolean</td><td>false</td><td>Whether the drawer is visible</td></tr>
+      <tr><td><code>placement</code></td><td>String</td><td>right</td><td>Edge: left, right, top, bottom</td></tr>
+      <tr><td><code>width</code></td><td>String</td><td>320px</td><td>Drawer width (left/right placement)</td></tr>
+      <tr><td><code>height</code></td><td>String</td><td>320px</td><td>Drawer height (top/bottom placement)</td></tr>
+      <tr><td><code>elevation</code></td><td>String</td><td>4</td><td>Shadow depth (1–5)</td></tr>
+      <tr><td><code>background</code></td><td>String</td><td>—</td><td>Panel background colour</td></tr>
+      <tr><td><code>size</code></td><td>String</td><td>—</td><td>Component size</td></tr>
+      <tr><td><code>label</code></td><td>String</td><td>—</td><td>Drawer header title</td></tr>
+      <tr><td><code>persistent</code></td><td>Boolean</td><td>false</td><td>Prevent closing on backdrop click</td></tr>
+      <tr><td><code>no-header</code></td><td>Boolean</td><td>false</td><td>Hide the built-in header bar</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="1em"></ui-layout-spacer>
+
+<ui-text type="heading" size="medium">Methods</ui-text>
+<ui-layout-spacer size="0.5em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead><tr><th>Method</th><th>Description</th></tr></thead>
+    <tbody>
+      <tr><td><code>show()</code></td><td>Open the drawer</td></tr>
+      <tr><td><code>hide(reason)</code></td><td>Close the drawer</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<ui-text type="heading" size="large">Events</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead><tr><th>Event</th><th>Detail</th><th>Description</th></tr></thead>
+    <tbody>
+      <tr><td><code>ui-open</code></td><td>—</td><td>Emitted when the drawer opens</td></tr>
+      <tr><td><code>ui-close</code></td><td><code>{ reason }</code></td><td>Emitted when the drawer closes (reason: backdrop, escape, close-button, method)</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>

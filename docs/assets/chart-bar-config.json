@@ -1,0 +1,25 @@
+{
+  "type": "bar",
+  "data": {
+    "labels": ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
+    "datasets": [
+      {
+        "label": "Signups",
+        "data": [24, 32, 28, 40, 36, 44],
+        "backgroundColor": "#6366f1",
+        "borderRadius": 6
+      }
+    ]
+  },
+  "options": {
+    "responsive": true,
+    "maintainAspectRatio": false,
+    "plugins": {
+      "legend": { "display": false }
+    },
+    "scales": {
+      "x": { "grid": { "display": false }, "ticks": { "color": "#6b7280" } },
+      "y": { "grid": { "color": "#e5e7eb" }, "ticks": { "color": "#6b7280" } }
+    }
+  }
+}

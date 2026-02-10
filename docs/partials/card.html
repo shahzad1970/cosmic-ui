@@ -1,0 +1,415 @@
+<!-- ============================================================
+     Card — Component Documentation
+     ============================================================ -->
+
+<ui-layout-stack gap="0.25em" style="margin-bottom:2em;">
+  <ui-text type="heading" size="xx-large">Card</ui-text>
+  <ui-text type="paragraph" color="gray-500">
+    <code>&lt;ui-card&gt;</code> is a structured surface for grouping related content
+    with optional header, body, footer, and media sections.
+  </ui-text>
+</ui-layout-stack>
+
+<ui-text type="heading" size="large">Basic Card</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Compose cards with <code>&lt;ui-card-header&gt;</code>, <code>&lt;ui-card-body&gt;</code>,
+  and <code>&lt;ui-card-footer&gt;</code>. All sections are optional.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-card elevation="1" style="max-width:360px;">
+      <ui-card-header border>Project Update</ui-card-header>
+      <ui-card-body>
+        <ui-text size="small">Latest deployment finished successfully. All services are healthy and running.</ui-text>
+      </ui-card-body>
+      <ui-card-footer>
+        <ui-button size="small" background="indigo-600">View</ui-button>
+        <ui-button size="small" background="gray-200" color="gray-800">Dismiss</ui-button>
+      </ui-card-footer>
+    </ui-card>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-card elevation="1"&gt;
+  &lt;ui-card-header border&gt;Project Update&lt;/ui-card-header&gt;
+  &lt;ui-card-body&gt;
+    &lt;ui-text size="small"&gt;Latest deployment finished successfully.&lt;/ui-text&gt;
+  &lt;/ui-card-body&gt;
+  &lt;ui-card-footer&gt;
+    &lt;ui-button size="small" background="indigo-600"&gt;View&lt;/ui-button&gt;
+    &lt;ui-button size="small" background="gray-200"&gt;Dismiss&lt;/ui-button&gt;
+  &lt;/ui-card-footer&gt;
+&lt;/ui-card&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<ui-text type="heading" size="large">Elevation</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Control shadow depth with <code>elevation</code> (1–5). Higher values create deeper shadows and add a subtle border.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack direction="horizontal" gap="1em" wrap align="start">
+      <ui-card elevation="1" style="min-width:120px;">
+        <ui-card-body><ui-text size="small" weight="600">Elevation 1</ui-text></ui-card-body>
+      </ui-card>
+      <ui-card elevation="2" style="min-width:120px;">
+        <ui-card-body><ui-text size="small" weight="600">Elevation 2</ui-text></ui-card-body>
+      </ui-card>
+      <ui-card elevation="3" style="min-width:120px;">
+        <ui-card-body><ui-text size="small" weight="600">Elevation 3</ui-text></ui-card-body>
+      </ui-card>
+      <ui-card elevation="4" style="min-width:120px;">
+        <ui-card-body><ui-text size="small" weight="600">Elevation 4</ui-text></ui-card-body>
+      </ui-card>
+      <ui-card elevation="5" style="min-width:120px;">
+        <ui-card-body><ui-text size="small" weight="600">Elevation 5</ui-text></ui-card-body>
+      </ui-card>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-card elevation="1"&gt;...&lt;/ui-card&gt;
+&lt;ui-card elevation="2"&gt;...&lt;/ui-card&gt;
+&lt;ui-card elevation="3"&gt;...&lt;/ui-card&gt;
+&lt;ui-card elevation="4"&gt;...&lt;/ui-card&gt;
+&lt;ui-card elevation="5"&gt;...&lt;/ui-card&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<ui-text type="heading" size="large">Variants</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Use <code>outline</code> for a bordered card with no shadow, or <code>flat</code> for no border and no shadow.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack direction="horizontal" gap="1em" wrap align="start">
+      <ui-card style="min-width:140px;">
+        <ui-card-body><ui-text size="small" weight="600">Default</ui-text><ui-text size="x-small" muted>With shadow</ui-text></ui-card-body>
+      </ui-card>
+      <ui-card outline style="min-width:140px;">
+        <ui-card-body><ui-text size="small" weight="600">Outline</ui-text><ui-text size="x-small" muted>Border only</ui-text></ui-card-body>
+      </ui-card>
+      <ui-card flat style="min-width:140px;">
+        <ui-card-body><ui-text size="small" weight="600">Flat</ui-text><ui-text size="x-small" muted>No shadow/border</ui-text></ui-card-body>
+      </ui-card>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-card&gt;Default (with shadow)&lt;/ui-card&gt;
+&lt;ui-card outline&gt;Border only&lt;/ui-card&gt;
+&lt;ui-card flat&gt;No shadow or border&lt;/ui-card&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<ui-text type="heading" size="large">Clickable</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Add <code>clickable</code> for pointer cursor, hover lift effect, and <code>ui-click</code> event.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack direction="horizontal" gap="1em" wrap align="start">
+      <ui-card elevation="1" clickable style="min-width:140px;">
+        <ui-card-body><ui-text size="small" weight="600">Clickable</ui-text><ui-text size="x-small" muted>Hover me</ui-text></ui-card-body>
+      </ui-card>
+      <ui-card outline clickable style="min-width:140px;">
+        <ui-card-body><ui-text size="small" weight="600">Outline + Click</ui-text><ui-text size="x-small" muted>Hover me</ui-text></ui-card-body>
+      </ui-card>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-card elevation="1" clickable&gt;...&lt;/ui-card&gt;
+&lt;ui-card outline clickable&gt;...&lt;/ui-card&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<ui-text type="heading" size="large">Coloured Cards</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Set <code>background</code> on the card or individual sections. Text auto-contrasts.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack direction="horizontal" gap="1em" wrap align="start">
+      <ui-card background="indigo-600" elevation="2" style="min-width:150px;">
+        <ui-card-header border>Indigo Card</ui-card-header>
+        <ui-card-body><ui-text size="small">Auto-contrast white text on dark background.</ui-text></ui-card-body>
+      </ui-card>
+      <ui-card elevation="1" style="min-width:150px;">
+        <ui-card-header background="emerald-500" border>Green Header</ui-card-header>
+        <ui-card-body><ui-text size="small">Coloured header with normal body.</ui-text></ui-card-body>
+      </ui-card>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-card background="indigo-600" elevation="2"&gt;
+  &lt;ui-card-header border&gt;Indigo Card&lt;/ui-card-header&gt;
+  &lt;ui-card-body&gt;Auto-contrast white text.&lt;/ui-card-body&gt;
+&lt;/ui-card&gt;
+
+&lt;ui-card elevation="1"&gt;
+  &lt;ui-card-header background="emerald-500" border&gt;Green Header&lt;/ui-card-header&gt;
+  &lt;ui-card-body&gt;Coloured header with normal body.&lt;/ui-card-body&gt;
+&lt;/ui-card&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<ui-text type="heading" size="large">Card with Media</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Use <code>&lt;ui-card-media&gt;</code> for full-width images. Images are automatically <code>object-fit: cover</code>.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-card elevation="1" style="max-width:300px;">
+      <ui-card-media height="160px">
+        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&h=300&fit=crop" alt="Mountain landscape">
+      </ui-card-media>
+      <ui-card-body>
+        <ui-text weight="600">Mountain View</ui-text>
+        <ui-text size="small" muted>A stunning alpine landscape with snow-capped peaks.</ui-text>
+      </ui-card-body>
+      <ui-card-footer>
+        <ui-button size="small" background="indigo-600">Explore</ui-button>
+      </ui-card-footer>
+    </ui-card>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-card elevation="1"&gt;
+  &lt;ui-card-media height="160px"&gt;
+    &lt;img src="..." alt="Mountain landscape"&gt;
+  &lt;/ui-card-media&gt;
+  &lt;ui-card-body&gt;
+    &lt;ui-text weight="600"&gt;Mountain View&lt;/ui-text&gt;
+    &lt;ui-text size="small" muted&gt;Description text.&lt;/ui-text&gt;
+  &lt;/ui-card-body&gt;
+  &lt;ui-card-footer&gt;
+    &lt;ui-button size="small"&gt;Explore&lt;/ui-button&gt;
+  &lt;/ui-card-footer&gt;
+&lt;/ui-card&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Playground ─────────────────────────────────────────── -->
+<ui-text type="heading" size="large">
+  <ui-icon color="indigo-500">play-circle</ui-icon>
+  Playground
+</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Adjust card properties interactively.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="playground">
+  <div class="playground-controls">
+    <ui-card elevation="1">
+      <ui-card-body>
+        <ui-text type="heading" size="small">Controls</ui-text>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-color id="card-bg" label="Background" size="small" placeholder="e.g. indigo-600"></ui-input-color>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-select id="card-elevation" label="Elevation" size="small" value="1">
+          <option value="">— (none)</option>
+          <option value="1">1 (subtle)</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5 (deep)</option>
+        </ui-input-select>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-select id="card-size" label="Size" size="small">
+          <option value="">— (default)</option>
+          <option value="x-small">x-small</option>
+          <option value="small">small</option>
+          <option value="medium">medium</option>
+          <option value="large">large</option>
+          <option value="x-large">x-large</option>
+        </ui-input-select>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-layout-stack gap="0.35em">
+          <ui-input-checkbox id="card-outline" label="Outline"></ui-input-checkbox>
+          <ui-input-checkbox id="card-flat" label="Flat"></ui-input-checkbox>
+          <ui-input-checkbox id="card-clickable" label="Clickable"></ui-input-checkbox>
+        </ui-layout-stack>
+      </ui-card-body>
+    </ui-card>
+  </div>
+
+  <div class="playground-preview">
+    <div class="demo-card">
+      <div class="demo-preview">
+        <ui-card id="card-playground" elevation="1" style="max-width:360px;">
+          <ui-card-header border>Playground Card</ui-card-header>
+          <ui-card-body>
+            <ui-text size="small">Edit settings on the left to change the card style.</ui-text>
+          </ui-card-body>
+          <ui-card-footer>
+            <ui-button size="small" background="indigo-600">Action</ui-button>
+          </ui-card-footer>
+        </ui-card>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  const el = document.getElementById('card-playground');
+  if (!el) return;
+
+  /* Background input */
+  const bgCtrl = document.getElementById('card-bg');
+  if (bgCtrl) {
+    const update = () => {
+      const val = (bgCtrl.value || '').trim();
+      if (val) el.setAttribute('background', val);
+      else el.removeAttribute('background');
+    };
+    bgCtrl.addEventListener('ui-input', update);
+    bgCtrl.addEventListener('ui-change', update);
+  }
+
+  /* Select-based attrs */
+  const selects = {
+    'card-elevation': 'elevation',
+    'card-size':      'size',
+  };
+  Object.entries(selects).forEach(([id, attr]) => {
+    const ctrl = document.getElementById(id);
+    if (!ctrl) return;
+    ctrl.addEventListener('ui-change', () => {
+      const val = (ctrl.value || '').trim();
+      if (val) el.setAttribute(attr, val);
+      else el.removeAttribute(attr);
+    });
+  });
+
+  /* Boolean checkboxes */
+  const bools = ['outline', 'flat', 'clickable'];
+  bools.forEach(name => {
+    const ctrl = document.getElementById('card-' + name);
+    if (!ctrl) return;
+    ctrl.addEventListener('ui-change', () => {
+      if (ctrl.checked) el.setAttribute(name, '');
+      else el.removeAttribute(name);
+    });
+  });
+})();
+</script>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<ui-text type="heading" size="large">API Reference</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<ui-text type="heading" size="medium">&lt;ui-card&gt;</ui-text>
+<ui-layout-spacer size="0.25em"></ui-layout-spacer>
+<ui-table size="small">
+  <table>
+    <thead>
+      <tr><th>Attribute</th><th>Type</th><th>Default</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>background</code></td><td>String</td><td>—</td><td>Background colour (palette token or CSS colour). Text auto-contrasts.</td></tr>
+      <tr><td><code>color</code></td><td>String</td><td>auto</td><td>Text colour (auto-contrasts against background if omitted)</td></tr>
+      <tr><td><code>size</code></td><td>String</td><td>—</td><td>Card font-size (named keyword or CSS length)</td></tr>
+      <tr><td><code>elevation</code></td><td>String</td><td>—</td><td>Shadow depth: <code>1</code>–<code>5</code> (adds border + shadow) or raw CSS <code>box-shadow</code></td></tr>
+      <tr><td><code>outline</code></td><td>Boolean</td><td>false</td><td>Border only, no shadow</td></tr>
+      <tr><td><code>flat</code></td><td>Boolean</td><td>false</td><td>No shadow and no border — completely flat surface</td></tr>
+      <tr><td><code>clickable</code></td><td>Boolean</td><td>false</td><td>Pointer cursor, hover lift effect, fires <code>ui-click</code> event</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="1.5em"></ui-layout-spacer>
+
+<ui-text type="heading" size="medium">&lt;ui-card-header&gt;</ui-text>
+<ui-layout-spacer size="0.25em"></ui-layout-spacer>
+<ui-table size="small">
+  <table>
+    <thead>
+      <tr><th>Attribute</th><th>Type</th><th>Default</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>background</code></td><td>String</td><td>transparent</td><td>Header background colour (palette token or CSS colour)</td></tr>
+      <tr><td><code>color</code></td><td>String</td><td>inherit</td><td>Header text colour (auto-contrasts against background if omitted)</td></tr>
+      <tr><td><code>size</code></td><td>String</td><td>&mdash;</td><td>Header font-size (named keyword or CSS length)</td></tr>
+      <tr><td><code>border</code></td><td>Boolean</td><td>false</td><td>Show a bottom border divider between header and body</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="1.5em"></ui-layout-spacer>
+
+<ui-text type="heading" size="medium">&lt;ui-card-body&gt;</ui-text>
+<ui-layout-spacer size="0.25em"></ui-layout-spacer>
+<ui-table size="small">
+  <table>
+    <thead>
+      <tr><th>Attribute</th><th>Type</th><th>Default</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>background</code></td><td>String</td><td>transparent</td><td>Body background colour (palette token or CSS colour)</td></tr>
+      <tr><td><code>color</code></td><td>String</td><td>inherit</td><td>Body text colour (auto-contrasts against background if omitted)</td></tr>
+      <tr><td><code>size</code></td><td>String</td><td>&mdash;</td><td>Body font-size (named keyword or CSS length)</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="1.5em"></ui-layout-spacer>
+
+<ui-text type="heading" size="medium">&lt;ui-card-footer&gt;</ui-text>
+<ui-layout-spacer size="0.25em"></ui-layout-spacer>
+<ui-table size="small">
+  <table>
+    <thead>
+      <tr><th>Attribute</th><th>Type</th><th>Default</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>background</code></td><td>String</td><td>transparent</td><td>Footer background colour (palette token or CSS colour)</td></tr>
+      <tr><td><code>color</code></td><td>String</td><td>inherit</td><td>Footer text colour (auto-contrasts against background if omitted)</td></tr>
+      <tr><td><code>size</code></td><td>String</td><td>&mdash;</td><td>Footer font-size (named keyword or CSS length)</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="1.5em"></ui-layout-spacer>
+
+<ui-text type="heading" size="medium">&lt;ui-card-media&gt;</ui-text>
+<ui-layout-spacer size="0.25em"></ui-layout-spacer>
+<ui-table size="small">
+  <table>
+    <thead>
+      <tr><th>Attribute</th><th>Type</th><th>Default</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>height</code></td><td>String</td><td>auto</td><td>Constrain media height (any CSS length). Images use <code>object-fit: cover</code>.</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<ui-text type="heading" size="large">Events</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead>
+      <tr><th>Event</th><th>Detail</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>ui-click</code></td><td>—</td><td>Fired when a <code>clickable</code> card is clicked or activated via Enter / Space</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>

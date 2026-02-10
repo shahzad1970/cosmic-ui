@@ -1,0 +1,247 @@
+<!-- ============================================================
+     Tree — Component Documentation
+     ============================================================ -->
+
+<ui-layout-stack gap="0.25em" style="margin-bottom:2em;">
+  <ui-text type="heading" size="xx-large">Tree</ui-text>
+  <ui-text type="paragraph" color="gray-500">
+    <code>&lt;ui-tree&gt;</code> renders hierarchical lists using
+    <code>&lt;ui-tree-item&gt;</code> nodes.
+  </ui-text>
+</ui-layout-stack>
+
+<ui-text type="heading" size="large">Basic Usage</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Nest items to create folders and leaf nodes.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-tree>
+      <ui-tree-item expanded>
+        <ui-icon>folder</ui-icon>
+        src
+        <ui-tree-item value="main">main.js</ui-tree-item>
+        <ui-tree-item value="utils">utils.js</ui-tree-item>
+      </ui-tree-item>
+      <ui-tree-item value="readme">README.md</ui-tree-item>
+    </ui-tree>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-tree&gt;
+  &lt;ui-tree-item expanded&gt;
+    src
+    &lt;ui-tree-item value="main"&gt;main.js&lt;/ui-tree-item&gt;
+  &lt;/ui-tree-item&gt;
+&lt;/ui-tree&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<ui-text type="heading" size="large">Selectable Tree</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Use <code>multiselect</code> to allow multiple selections.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-tree background="indigo-100" multiselect>
+      <ui-tree-item value="alpha">Alpha</ui-tree-item>
+      <ui-tree-item value="beta">Beta</ui-tree-item>
+      <ui-tree-item value="gamma">Gamma</ui-tree-item>
+    </ui-tree>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-tree background="indigo-100" multiselect&gt;...&lt;/ui-tree&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<ui-text type="heading" size="large">Selection Callback</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Listen for <code>ui-select</code> to react to user selections.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack gap="0.75em">
+      <ui-tree id="tree-callback" background="indigo-100">
+        <ui-tree-item value="design">Design</ui-tree-item>
+        <ui-tree-item value="engineering">Engineering</ui-tree-item>
+        <ui-tree-item value="marketing">Marketing</ui-tree-item>
+      </ui-tree>
+      <ui-text id="tree-selection-output" size="small" color="gray-500">Selected: none</ui-text>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="javascript" readonly height="auto">tree.addEventListener('ui-select', (e) =&gt; {
+  console.log(e.detail.value);
+});</ui-input-code>
+</div>
+
+<script>
+(function() {
+  const tree = document.getElementById('tree-callback');
+  const output = document.getElementById('tree-selection-output');
+  if (!tree || !output) return;
+  tree.addEventListener('ui-select', (e) => {
+    const value = e.detail?.value || 'none';
+    output.textContent = `Selected: ${value}`;
+  });
+})();
+</script>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Playground ─────────────────────────────────────────── -->
+<ui-text type="heading" size="large">
+  <ui-icon color="indigo-500">play-circle</ui-icon>
+  Playground
+</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Adjust selection behavior and styling.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="playground">
+  <div class="playground-controls">
+    <ui-card elevation="1">
+      <ui-card-body>
+        <ui-text type="heading" size="small">Controls</ui-text>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-select id="tree-size" label="Size" size="small" placeholder="Default">
+          <option value="">Default</option>
+          <option value="xx-small">XX-Small</option>
+          <option value="x-small">X-Small</option>
+          <option value="small">Small</option>
+          <option value="medium">Medium</option>
+          <option value="large">Large</option>
+          <option value="x-large">X-Large</option>
+          <option value="xx-large">XX-Large</option>
+        </ui-input-select>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-color id="tree-bg" label="Selection Background" size="small" value=""></ui-input-color>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-color id="tree-color" label="Color" size="small" value=""></ui-input-color>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-checkbox id="tree-multiselect" label="Multiselect"></ui-input-checkbox>
+        <ui-layout-spacer size="0.75em"></ui-layout-spacer>
+        <ui-layout-stack direction="horizontal" gap="0.35em" wrap>
+          <ui-button size="xx-small" id="tree-expand">Expand All</ui-button>
+          <ui-button size="xx-small" id="tree-collapse">Collapse All</ui-button>
+          <ui-button size="xx-small" id="tree-clear">Clear Selection</ui-button>
+        </ui-layout-stack>
+      </ui-card-body>
+    </ui-card>
+  </div>
+
+  <div class="playground-preview">
+    <div class="demo-card">
+      <div class="demo-preview">
+        <ui-tree id="tree-playground">
+          <ui-tree-item expanded>
+            <ui-icon>folder</ui-icon>
+            apps
+            <ui-tree-item value="admin">admin</ui-tree-item>
+            <ui-tree-item value="public">public</ui-tree-item>
+          </ui-tree-item>
+          <ui-tree-item value="docs">docs</ui-tree-item>
+          <ui-tree-item value="config">config.json</ui-tree-item>
+        </ui-tree>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  const tree = document.getElementById('tree-playground');
+  const size = document.getElementById('tree-size');
+  const bg = document.getElementById('tree-bg');
+  const color = document.getElementById('tree-color');
+  const multiselect = document.getElementById('tree-multiselect');
+  const expand = document.getElementById('tree-expand');
+  const collapse = document.getElementById('tree-collapse');
+  const clear = document.getElementById('tree-clear');
+
+  if (!tree || !size || !bg || !color || !multiselect) return;
+
+  const setOrRemove = (attr, val) => val ? tree.setAttribute(attr, val) : tree.removeAttribute(attr);
+
+  size.addEventListener('ui-change', () => setOrRemove('size', (size.value || '').trim()));
+  bg.addEventListener('ui-change', () => setOrRemove('background', (bg.value || '').trim()));
+  color.addEventListener('ui-change', () => setOrRemove('color', (color.value || '').trim()));
+
+  multiselect.addEventListener('ui-change', () => {
+    if (multiselect.checked) tree.setAttribute('multiselect', '');
+    else tree.removeAttribute('multiselect');
+  });
+
+  expand?.addEventListener('click', () => tree.expandAll());
+  collapse?.addEventListener('click', () => tree.collapseAll());
+  clear?.addEventListener('click', () => tree.deselectAll());
+})();
+</script>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<ui-text type="heading" size="large">API Reference</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<ui-text type="heading" size="small">Tree</ui-text>
+<ui-layout-spacer size="0.5em"></ui-layout-spacer>
+<ui-table size="small">
+  <table>
+    <thead>
+      <tr><th>Attribute</th><th>Type</th><th>Default</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>size</code></td><td>String</td><td>—</td><td>Size keyword or CSS length</td></tr>
+      <tr><td><code>background</code></td><td>String</td><td>—</td><td>Selection background</td></tr>
+      <tr><td><code>color</code></td><td>String</td><td>—</td><td>Text color</td></tr>
+      <tr><td><code>multiselect</code></td><td>Boolean</td><td>false</td><td>Allow multiple selection</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="1.5em"></ui-layout-spacer>
+
+<ui-text type="heading" size="small">Tree Item</ui-text>
+<ui-layout-spacer size="0.5em"></ui-layout-spacer>
+<ui-table size="small">
+  <table>
+    <thead>
+      <tr><th>Attribute</th><th>Type</th><th>Default</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>value</code></td><td>String</td><td>—</td><td>Selection value</td></tr>
+      <tr><td><code>disabled</code></td><td>Boolean</td><td>false</td><td>Disable item</td></tr>
+      <tr><td><code>expanded</code></td><td>Boolean</td><td>false</td><td>Expand children</td></tr>
+      <tr><td><code>selected</code></td><td>Boolean</td><td>false</td><td>Selected state</td></tr>
+      <tr><td><code>href</code></td><td>String</td><td>—</td><td>Navigate on click</td></tr>
+      <tr><td><code>target</code></td><td>String</td><td>—</td><td>Link target</td></tr>
+      <tr><td><code>channel</code></td><td>String</td><td>—</td><td>Dispatch event channel</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<ui-text type="heading" size="large">Events</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead>
+      <tr><th>Event</th><th>Detail</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>ui-expand</code></td><td>—</td><td>Fired when a tree item is expanded</td></tr>
+      <tr><td><code>ui-collapse</code></td><td>—</td><td>Fired when a tree item is collapsed</td></tr>
+      <tr><td><code>ui-select</code></td><td><code>{ value, item }</code></td><td>Fired when a tree item is selected</td></tr>
+      <tr><td><code>ui-navigate</code></td><td><code>{ href, target, item }</code></td><td>Fired when a tree item with <code>href</code> is clicked (cancelable)</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>

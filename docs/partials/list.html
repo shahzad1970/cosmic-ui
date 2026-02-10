@@ -1,0 +1,401 @@
+<!-- ============================================================
+     List — Component Documentation
+     ============================================================ -->
+
+<ui-layout-stack gap="0.25em" style="margin-bottom:2em;">
+  <ui-text type="heading" size="xx-large">List</ui-text>
+  <ui-text type="paragraph" color="gray-500">
+    <code>&lt;ui-list&gt;</code> is a styled vertical list with optional dividers, hover states,
+    striped rows, icons, and action slots. Each <code>&lt;ui-list-item&gt;</code> supports leading/trailing
+    slots, descriptions, links, and disabled state.
+  </ui-text>
+</ui-layout-stack>
+
+<ui-text type="heading" size="large">Basic Usage</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Place <code>&lt;ui-list-item&gt;</code> elements inside. Use <code>dividers</code> and <code>hoverable</code> for visual style.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-list dividers hoverable bordered style="max-width:360px;">
+      <ui-list-item>
+        <ui-icon slot="leading" size="small">inbox</ui-icon>
+        Inbox
+        <ui-badge slot="trailing" background="indigo-500" pill>12</ui-badge>
+      </ui-list-item>
+      <ui-list-item>
+        <ui-icon slot="leading" size="small">star</ui-icon>
+        Starred
+      </ui-list-item>
+      <ui-list-item description="View sent messages">
+        <ui-icon slot="leading" size="small">send</ui-icon>
+        Sent
+      </ui-list-item>
+      <ui-list-item disabled>
+        <ui-icon slot="leading" size="small">trash-2</ui-icon>
+        Trash
+      </ui-list-item>
+    </ui-list>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-list dividers hoverable bordered&gt;
+  &lt;ui-list-item&gt;
+    &lt;ui-icon slot="leading"&gt;inbox&lt;/ui-icon&gt;
+    Inbox
+    &lt;ui-badge slot="trailing" background="indigo-500" pill&gt;12&lt;/ui-badge&gt;
+  &lt;/ui-list-item&gt;
+  &lt;ui-list-item description="View sent messages"&gt;
+    &lt;ui-icon slot="leading"&gt;send&lt;/ui-icon&gt;
+    Sent
+  &lt;/ui-list-item&gt;
+  &lt;ui-list-item disabled&gt;
+    &lt;ui-icon slot="leading"&gt;trash-2&lt;/ui-icon&gt;
+    Trash
+  &lt;/ui-list-item&gt;
+&lt;/ui-list&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<ui-text type="heading" size="large">Striped &amp; Bordered</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Alternate row backgrounds with <code>striped</code>. Add <code>bordered</code> for an outer border.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-list striped bordered dividers style="max-width:360px;">
+      <ui-list-item>
+        <ui-icon slot="leading" size="small">folder</ui-icon>
+        Documents
+      </ui-list-item>
+      <ui-list-item>
+        <ui-icon slot="leading" size="small">image</ui-icon>
+        Photos
+      </ui-list-item>
+      <ui-list-item>
+        <ui-icon slot="leading" size="small">music</ui-icon>
+        Music
+      </ui-list-item>
+      <ui-list-item>
+        <ui-icon slot="leading" size="small">film</ui-icon>
+        Videos
+      </ui-list-item>
+      <ui-list-item>
+        <ui-icon slot="leading" size="small">download</ui-icon>
+        Downloads
+      </ui-list-item>
+    </ui-list>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-list striped bordered dividers&gt;
+  &lt;ui-list-item&gt;Documents&lt;/ui-list-item&gt;
+  &lt;ui-list-item&gt;Photos&lt;/ui-list-item&gt;
+  &lt;ui-list-item&gt;Music&lt;/ui-list-item&gt;
+  ...
+&lt;/ui-list&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<ui-text type="heading" size="large">Link Items</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Use <code>href</code> on items to render them as clickable links. Add <code>target="_blank"</code> for external links.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-list dividers bordered style="max-width:360px;">
+      <ui-list-item href="https://github.com" target="_blank">
+        <ui-icon slot="leading" size="small">github</ui-icon>
+        GitHub
+        <ui-icon slot="trailing" size="x-small" color="gray-400">external-link</ui-icon>
+      </ui-list-item>
+      <ui-list-item href="https://twitter.com" target="_blank">
+        <ui-icon slot="leading" size="small">twitter</ui-icon>
+        Twitter
+        <ui-icon slot="trailing" size="x-small" color="gray-400">external-link</ui-icon>
+      </ui-list-item>
+    </ui-list>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-list dividers bordered&gt;
+  &lt;ui-list-item href="https://github.com" target="_blank"&gt;
+    &lt;ui-icon slot="leading"&gt;github&lt;/ui-icon&gt;
+    GitHub
+    &lt;ui-icon slot="trailing"&gt;external-link&lt;/ui-icon&gt;
+  &lt;/ui-list-item&gt;
+&lt;/ui-list&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<ui-text type="heading" size="large">Avatars &amp; Descriptions</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Combine avatars in the <code>leading</code> slot with <code>description</code> for rich contact-style lists.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-list dividers hoverable bordered style="max-width:400px;">
+      <ui-list-item description="Lead Developer">
+        <ui-avatar slot="leading" initials="AJ" background="indigo-500" size="small"></ui-avatar>
+        Alice Johnson
+        <ui-badge slot="trailing" background="green-500" pill size="x-small">Online</ui-badge>
+      </ui-list-item>
+      <ui-list-item description="Product Designer">
+        <ui-avatar slot="leading" initials="BT" background="rose-500" size="small"></ui-avatar>
+        Bob Taylor
+        <ui-badge slot="trailing" background="gray-400" pill size="x-small">Away</ui-badge>
+      </ui-list-item>
+      <ui-list-item description="QA Engineer">
+        <ui-avatar slot="leading" initials="CW" background="amber-500" size="small"></ui-avatar>
+        Carol White
+        <ui-badge slot="trailing" background="green-500" pill size="x-small">Online</ui-badge>
+      </ui-list-item>
+    </ui-list>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-list dividers hoverable bordered&gt;
+  &lt;ui-list-item description="Lead Developer"&gt;
+    &lt;ui-avatar slot="leading" initials="AJ"
+      background="indigo-500" size="small"&gt;&lt;/ui-avatar&gt;
+    Alice Johnson
+    &lt;ui-badge slot="trailing" background="green-500"
+      pill size="x-small"&gt;Online&lt;/ui-badge&gt;
+  &lt;/ui-list-item&gt;
+  ...
+&lt;/ui-list&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<ui-text type="heading" size="large">Background Colour</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Set <code>background</code> and <code>color</code> on the list for a coloured container.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack direction="horizontal" gap="1em" wrap>
+      <ui-list dividers bordered background="indigo-50" style="max-width:220px;">
+        <ui-list-item>
+          <ui-icon slot="leading" size="small">check-circle</ui-icon>
+          Completed
+        </ui-list-item>
+        <ui-list-item>
+          <ui-icon slot="leading" size="small">check-circle</ui-icon>
+          Reviewed
+        </ui-list-item>
+      </ui-list>
+      <ui-list dividers bordered background="rose-50" style="max-width:220px;">
+        <ui-list-item>
+          <ui-icon slot="leading" size="small">alert-circle</ui-icon>
+          Overdue
+        </ui-list-item>
+        <ui-list-item>
+          <ui-icon slot="leading" size="small">alert-circle</ui-icon>
+          Rejected
+        </ui-list-item>
+      </ui-list>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-list dividers bordered background="indigo-50"&gt;
+  &lt;ui-list-item&gt;Completed&lt;/ui-list-item&gt;
+&lt;/ui-list&gt;
+
+&lt;ui-list dividers bordered background="rose-50"&gt;
+  &lt;ui-list-item&gt;Overdue&lt;/ui-list-item&gt;
+&lt;/ui-list&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Playground ─────────────────────────────────────────── -->
+<ui-text type="heading" size="large">
+  <ui-icon color="indigo-500">play-circle</ui-icon>
+  Playground
+</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Tweak list properties interactively.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="playground">
+  <div class="playground-controls">
+    <ui-card elevation="1">
+      <ui-card-body>
+        <ui-text type="heading" size="small">Controls</ui-text>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-select id="list-size" label="Size" size="small">
+          <option value="">(default)</option>
+          <option value="xx-small">xx-small</option>
+          <option value="x-small">x-small</option>
+          <option value="small">small</option>
+          <option value="medium">medium</option>
+          <option value="large">large</option>
+          <option value="x-large">x-large</option>
+        </ui-input-select>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-color id="list-bg" label="Background" size="small" value=""></ui-input-color>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-color id="list-color" label="Color" size="small" value=""></ui-input-color>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-layout-stack gap="0.35em">
+          <ui-input-checkbox id="list-dividers" label="Dividers" checked></ui-input-checkbox>
+          <ui-input-checkbox id="list-hoverable" label="Hoverable" checked></ui-input-checkbox>
+          <ui-input-checkbox id="list-striped" label="Striped"></ui-input-checkbox>
+          <ui-input-checkbox id="list-bordered" label="Bordered" checked></ui-input-checkbox>
+        </ui-layout-stack>
+      </ui-card-body>
+    </ui-card>
+  </div>
+
+  <div class="playground-preview">
+    <div class="demo-card">
+      <div class="demo-preview">
+        <ui-list id="list-playground" dividers hoverable bordered style="max-width:360px;">
+          <ui-list-item>
+            <ui-icon slot="leading" size="small">home</ui-icon>
+            Dashboard
+          </ui-list-item>
+          <ui-list-item description="Manage your team">
+            <ui-icon slot="leading" size="small">users</ui-icon>
+            Team
+            <ui-badge slot="trailing" background="indigo-500" pill>5</ui-badge>
+          </ui-list-item>
+          <ui-list-item>
+            <ui-icon slot="leading" size="small">settings</ui-icon>
+            Settings
+          </ui-list-item>
+          <ui-list-item disabled>
+            <ui-icon slot="leading" size="small">lock</ui-icon>
+            Admin
+          </ui-list-item>
+        </ui-list>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  const el = document.getElementById('list-playground');
+  if (!el) return;
+
+  /* Size select */
+  const sizeCtrl = document.getElementById('list-size');
+  if (sizeCtrl) {
+    sizeCtrl.addEventListener('ui-change', () => {
+      const v = sizeCtrl.value;
+      if (v) el.setAttribute('size', v);
+      else el.removeAttribute('size');
+    });
+  }
+
+  /* Text inputs → attributes */
+  const texts = { 'list-bg': 'background', 'list-color': 'color' };
+  Object.entries(texts).forEach(([id, attr]) => {
+    const ctrl = document.getElementById(id);
+    if (!ctrl) return;
+    const update = () => {
+      const val = (ctrl.value || '').trim();
+      if (val) el.setAttribute(attr, val);
+      else el.removeAttribute(attr);
+    };
+    ctrl.addEventListener('ui-input', update);
+    ctrl.addEventListener('ui-change', update);
+  });
+
+  /* Boolean checkboxes */
+  const bools = {
+    'list-dividers':  'dividers',
+    'list-hoverable': 'hoverable',
+    'list-striped':   'striped',
+    'list-bordered':  'bordered',
+  };
+  Object.entries(bools).forEach(([id, attr]) => {
+    const ctrl = document.getElementById(id);
+    if (!ctrl) return;
+    ctrl.addEventListener('ui-change', () => {
+      if (ctrl.checked) el.setAttribute(attr, '');
+      else el.removeAttribute(attr);
+    });
+  });
+})();
+</script>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<ui-text type="heading" size="large">API Reference</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<ui-text type="heading" size="medium">ui-list</ui-text>
+<ui-layout-spacer size="0.5em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead><tr><th>Attribute</th><th>Type</th><th>Default</th><th>Description</th></tr></thead>
+    <tbody>
+      <tr><td><code>size</code></td><td>String</td><td>—</td><td>Component font-size (named keyword or CSS length)</td></tr>
+      <tr><td><code>dividers</code></td><td>Boolean</td><td>false</td><td>Show 1 px divider lines between items</td></tr>
+      <tr><td><code>hoverable</code></td><td>Boolean</td><td>false</td><td>Highlight items with a subtle background on hover</td></tr>
+      <tr><td><code>striped</code></td><td>Boolean</td><td>false</td><td>Alternate row backgrounds for visual contrast</td></tr>
+      <tr><td><code>background</code></td><td>String</td><td>—</td><td>List background colour — palette token or CSS colour</td></tr>
+      <tr><td><code>color</code></td><td>String</td><td>—</td><td>List text colour — palette token or CSS colour</td></tr>
+      <tr><td><code>bordered</code></td><td>Boolean</td><td>false</td><td>Show a rounded outer border around the list</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="1em"></ui-layout-spacer>
+
+<ui-text type="heading" size="medium">ui-list-item</ui-text>
+<ui-layout-spacer size="0.5em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead><tr><th>Attribute</th><th>Type</th><th>Default</th><th>Description</th></tr></thead>
+    <tbody>
+      <tr><td><code>value</code></td><td>String</td><td>—</td><td>Item value emitted in the <code>ui-click</code> event detail</td></tr>
+      <tr><td><code>description</code></td><td>String</td><td>—</td><td>Secondary text rendered below the main label</td></tr>
+      <tr><td><code>disabled</code></td><td>Boolean</td><td>false</td><td>Dim the item and prevent interaction</td></tr>
+      <tr><td><code>href</code></td><td>String</td><td>—</td><td>Navigate on click — renders the item as an <code>&lt;a&gt;</code> tag</td></tr>
+      <tr><td><code>target</code></td><td>String</td><td>—</td><td>Link target (<code>_blank</code>, <code>_self</code>, etc.)</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="1em"></ui-layout-spacer>
+
+<ui-text type="heading" size="medium">Slots</ui-text>
+<ui-layout-spacer size="0.5em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead><tr><th>Slot</th><th>Description</th></tr></thead>
+    <tbody>
+      <tr><td><code>(default)</code></td><td>Main label content of the list item</td></tr>
+      <tr><td><code>leading</code></td><td>Content before the label — typically an icon or avatar</td></tr>
+      <tr><td><code>trailing</code></td><td>Content after the label — typically a badge, button, or icon</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<ui-text type="heading" size="large">Events</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead><tr><th>Event</th><th>Detail</th><th>Description</th></tr></thead>
+    <tbody>
+      <tr><td><code>ui-click</code></td><td><code>{ value }</code></td><td>Fired on <code>ui-list-item</code> when clicked (non-disabled). Detail includes the item's <code>value</code> attribute.</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>

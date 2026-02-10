@@ -1,0 +1,283 @@
+<!-- ============================================================
+     File — Component Documentation
+     ============================================================ -->
+
+<ui-layout-stack gap="0.25em" style="margin-bottom:2em;">
+  <ui-text type="heading" size="xx-large">File</ui-text>
+  <ui-text type="paragraph" color="gray-500">
+    <code>&lt;ui-input-file&gt;</code> is a drag-and-drop file input with a
+    drop zone UI, file list, and size formatting.
+  </ui-text>
+</ui-layout-stack>
+
+<!-- ── Basic Usage ────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Basic Usage</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Set <code>accept</code> to filter file types. Drag files onto the drop zone
+  or click to browse.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-input-file label="Upload files" accept=".png,.jpg,image/*"></ui-input-file>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-input-file label="Upload files" accept=".png,.jpg,image/*"&gt;&lt;/ui-input-file&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Help & Error ───────────────────────────────────────── -->
+<ui-text type="heading" size="large">Help &amp; Error</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Provide guidance with <code>help</code> and validation feedback with
+  <code>error</code>. Add <code>required</code> for the asterisk indicator.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack gap="1em">
+      <ui-input-file label="Resume" help="PDF or DOCX, max 5 MB" accept=".pdf,.docx" required></ui-input-file>
+      <ui-input-file label="Photo" error="File is required" accept="image/*"></ui-input-file>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-input-file label="Resume" help="PDF or DOCX, max 5 MB" accept=".pdf,.docx" required&gt;
+&lt;/ui-input-file&gt;
+
+&lt;ui-input-file label="Photo" error="File is required" accept="image/*"&gt;
+&lt;/ui-input-file&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Multiple ───────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Multiple Files</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Set <code>multiple</code> to allow selecting more than one file.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-input-file label="Attachments" multiple accept="image/*,.pdf"></ui-input-file>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-input-file label="Attachments" multiple accept="image/*,.pdf"&gt;&lt;/ui-input-file&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Disabled ────────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Disabled</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Add <code>disabled</code> to prevent file selection.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-input-file label="Locked" disabled></ui-input-file>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-input-file label="Locked" disabled&gt;&lt;/ui-input-file&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Sizes ───────────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Sizes</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  The <code>size</code> attribute accepts CSS named sizes or any CSS length.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack gap="0.75em">
+      <ui-input-file label="Small" size="small"></ui-input-file>
+      <ui-input-file label="Default"></ui-input-file>
+      <ui-input-file label="Large" size="large"></ui-input-file>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-input-file label="Small" size="small"&gt;&lt;/ui-input-file&gt;
+&lt;ui-input-file label="Default"&gt;&lt;/ui-input-file&gt;
+&lt;ui-input-file label="Large" size="large"&gt;&lt;/ui-input-file&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Background ─────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Background (Accent)</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Use a palette token or CSS colour for the drop-zone accent.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack gap="0.75em">
+      <ui-input-file label="Indigo" background="indigo-500"></ui-input-file>
+      <ui-input-file label="Teal" background="teal-500"></ui-input-file>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-input-file label="Indigo" background="indigo-500"&gt;&lt;/ui-input-file&gt;
+&lt;ui-input-file label="Teal" background="teal-500"&gt;&lt;/ui-input-file&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Playground ─────────────────────────────────────────── -->
+<ui-text type="heading" size="large">
+  <ui-icon color="indigo-500">play-circle</ui-icon>
+  Playground
+</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Experiment with every attribute in real time.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="playground">
+  <div class="playground-controls">
+    <ui-card elevation="1">
+      <ui-card-body>
+        <ui-text type="heading" size="small">Controls</ui-text>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input id="fi-label" label="Label" size="small" value="Upload"></ui-input>
+        <ui-layout-spacer size="0.35em"></ui-layout-spacer>
+        <ui-input id="fi-accept" label="Accept" size="small" value=".png,.jpg"></ui-input>
+        <ui-layout-spacer size="0.35em"></ui-layout-spacer>
+        <ui-input id="fi-help" label="Help" size="small"></ui-input>
+        <ui-layout-spacer size="0.35em"></ui-layout-spacer>
+        <ui-input id="fi-error" label="Error" size="small"></ui-input>
+        <ui-layout-spacer size="0.35em"></ui-layout-spacer>
+        <ui-input-select id="fi-size" label="Size" size="small" placeholder="Default">
+          <option value="x-small">x-small</option>
+          <option value="small">small</option>
+          <option value="large">large</option>
+          <option value="x-large">x-large</option>
+          <option value="xx-large">xx-large</option>
+        </ui-input-select>
+        <ui-layout-spacer size="0.35em"></ui-layout-spacer>
+        <ui-input-color id="fi-bg" label="Background" size="small" placeholder="e.g. indigo-500"></ui-input-color>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-layout-stack gap="0.35em">
+          <ui-input-checkbox id="fi-multiple" label="Multiple"></ui-input-checkbox>
+          <ui-input-checkbox id="fi-disabled" label="Disabled"></ui-input-checkbox>
+          <ui-input-checkbox id="fi-required" label="Required"></ui-input-checkbox>
+        </ui-layout-stack>
+      </ui-card-body>
+    </ui-card>
+  </div>
+
+  <div class="playground-preview">
+    <div class="demo-card">
+      <div class="demo-preview">
+        <ui-input-file id="fi-playground" label="Upload" accept=".png,.jpg"></ui-input-file>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  const el = document.getElementById('fi-playground');
+  if (!el) return;
+
+  const strings = { label: 'fi-label', accept: 'fi-accept', help: 'fi-help', error: 'fi-error', background: 'fi-bg' };
+  for (const [attr, id] of Object.entries(strings)) {
+    const ctrl = document.getElementById(id);
+    if (!ctrl) continue;
+    const handler = () => {
+      const v = (ctrl.value || '').trim();
+      if (v) el.setAttribute(attr, v);
+      else el.removeAttribute(attr);
+    };
+    ctrl.addEventListener('ui-input', handler);
+    ctrl.addEventListener('ui-change', handler);
+  }
+
+  const sizeCtrl = document.getElementById('fi-size');
+  if (sizeCtrl) {
+    sizeCtrl.addEventListener('ui-change', () => {
+      const v = (sizeCtrl.value || '').trim();
+      if (v) el.setAttribute('size', v);
+      else el.removeAttribute('size');
+    });
+  }
+
+  const bools = { multiple: 'fi-multiple', disabled: 'fi-disabled', required: 'fi-required' };
+  for (const [attr, id] of Object.entries(bools)) {
+    const ctrl = document.getElementById(id);
+    if (!ctrl) continue;
+    ctrl.addEventListener('ui-change', () => {
+      if (ctrl.checked) el.setAttribute(attr, '');
+      else el.removeAttribute(attr);
+    });
+  }
+})();
+</script>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── API Reference ──────────────────────────────────────── -->
+<ui-text type="heading" size="large">API Reference</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead>
+      <tr><th>Attribute</th><th>Type</th><th>Default</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>accept</code></td><td>String</td><td><code>""</code></td><td>Accepted file types (MIME or extensions)</td></tr>
+      <tr><td><code>name</code></td><td>String</td><td><code>""</code></td><td>Form field name</td></tr>
+      <tr><td><code>label</code></td><td>String</td><td><code>""</code></td><td>Label text</td></tr>
+      <tr><td><code>help</code></td><td>String</td><td><code>""</code></td><td>Help text below the drop zone</td></tr>
+      <tr><td><code>error</code></td><td>String</td><td><code>""</code></td><td>Error message below the drop zone</td></tr>
+      <tr><td><code>size</code></td><td>String</td><td><code>""</code></td><td>CSS named size or any CSS length</td></tr>
+      <tr><td><code>background</code></td><td>String</td><td><code>""</code></td><td>Accent colour (palette token or CSS colour)</td></tr>
+      <tr><td><code>disabled</code></td><td>Boolean</td><td><code>false</code></td><td>Prevents interaction</td></tr>
+      <tr><td><code>required</code></td><td>Boolean</td><td><code>false</code></td><td>Marks the field as required</td></tr>
+      <tr><td><code>multiple</code></td><td>Boolean</td><td><code>false</code></td><td>Allow selecting multiple files</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── CSS Parts ──────────────────────────────────────────── -->
+<ui-text type="heading" size="large">CSS Parts</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead>
+      <tr><th>Part</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>label</code></td><td>The label element</td></tr>
+      <tr><td><code>dropzone</code></td><td>The drag-and-drop zone</td></tr>
+      <tr><td><code>filelist</code></td><td>The list of selected files</td></tr>
+      <tr><td><code>help</code></td><td>The help text element</td></tr>
+      <tr><td><code>error</code></td><td>The error message element</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Events ──────────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Events</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead>
+      <tr><th>Event</th><th>Detail</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>ui-change</code></td><td><code>{ files }</code></td><td>Fires when files are selected or removed (FileList)</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>

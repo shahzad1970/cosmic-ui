@@ -1,0 +1,268 @@
+<!-- ============================================================
+     Color Picker — Component Documentation
+     ============================================================ -->
+
+<ui-layout-stack gap="0.25em" style="margin-bottom:2em;">
+  <ui-text type="heading" size="xx-large">Color Picker</ui-text>
+  <ui-text type="paragraph" color="gray-500">
+    <code>&lt;ui-input-color&gt;</code> provides a colour picker with a swatch
+    palette, hex input, native colour chooser, and a <strong>Theme</strong> tab
+    for picking design-token colours directly.
+  </ui-text>
+</ui-layout-stack>
+
+<!-- ── Basic Usage ────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Basic Usage</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Click the swatch to open the palette. Pick from the grid, type a hex value,
+  or use the native colour dialog.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-input-color label="Brand color" value="#6366f1"></ui-input-color>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-input-color label="Brand color" value="#6366f1"&gt;&lt;/ui-input-color&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Theme Colours ──────────────────────────────────────── -->
+<ui-text type="heading" size="large">Theme Colours</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Switch to the <strong>Theme</strong> tab inside the panel to pick from the
+  design-token palette (18 colour families &times; 3 shades). The value is set
+  to the token name (e.g. <code>red-500</code>) so it stays in sync with your
+  theme.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack direction="horizontal" gap="1em" align="center">
+      <ui-input-color label="Primary" value="indigo-500"></ui-input-color>
+      <ui-input-color label="Accent" value="rose-500"></ui-input-color>
+      <ui-input-color label="Success" value="emerald-500"></ui-input-color>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-input-color label="Primary" value="indigo-500"&gt;&lt;/ui-input-color&gt;
+&lt;ui-input-color label="Accent" value="rose-500"&gt;&lt;/ui-input-color&gt;
+&lt;ui-input-color label="Success" value="emerald-500"&gt;&lt;/ui-input-color&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Help & Error ───────────────────────────────────────── -->
+<ui-text type="heading" size="large">Help &amp; Error</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Add guidance with <code>help</code> and validation feedback with
+  <code>error</code>. Use <code>required</code> for the asterisk.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack gap="1em">
+      <ui-input-color label="Background" help="Choose a background colour" required></ui-input-color>
+      <ui-input-color label="Foreground" error="Colour is required"></ui-input-color>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-input-color label="Background" help="Choose a background colour" required&gt;
+&lt;/ui-input-color&gt;
+
+&lt;ui-input-color label="Foreground" error="Colour is required"&gt;
+&lt;/ui-input-color&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Disabled ────────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Disabled</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Add <code>disabled</code> to prevent opening the picker.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-input-color label="Locked" value="#ef4444" disabled></ui-input-color>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-input-color label="Locked" value="#ef4444" disabled&gt;&lt;/ui-input-color&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Sizes ───────────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Sizes</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  The <code>size</code> attribute accepts CSS named sizes or any CSS length.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack direction="horizontal" gap="1em" align="end">
+      <ui-input-color label="Small" size="small"></ui-input-color>
+      <ui-input-color label="Default"></ui-input-color>
+      <ui-input-color label="Large" size="large"></ui-input-color>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-input-color label="Small" size="small"&gt;&lt;/ui-input-color&gt;
+&lt;ui-input-color label="Default"&gt;&lt;/ui-input-color&gt;
+&lt;ui-input-color label="Large" size="large"&gt;&lt;/ui-input-color&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Playground ─────────────────────────────────────────── -->
+<ui-text type="heading" size="large">
+  <ui-icon color="indigo-500">play-circle</ui-icon>
+  Playground
+</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Experiment with every attribute in real time.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="playground">
+  <div class="playground-controls">
+    <ui-card elevation="1">
+      <ui-card-body>
+        <ui-text type="heading" size="small">Controls</ui-text>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input id="cp-label" label="Label" size="small" value="Pick colour"></ui-input>
+        <ui-layout-spacer size="0.35em"></ui-layout-spacer>
+        <ui-input id="cp-value" label="Value" size="small" value="#6366f1"></ui-input>
+        <ui-layout-spacer size="0.35em"></ui-layout-spacer>
+        <ui-input id="cp-help" label="Help" size="small"></ui-input>
+        <ui-layout-spacer size="0.35em"></ui-layout-spacer>
+        <ui-input id="cp-error" label="Error" size="small"></ui-input>
+        <ui-layout-spacer size="0.35em"></ui-layout-spacer>
+        <ui-input-select id="cp-size" label="Size" size="small" placeholder="Default">
+          <option value="x-small">x-small</option>
+          <option value="small">small</option>
+          <option value="large">large</option>
+          <option value="x-large">x-large</option>
+          <option value="xx-large">xx-large</option>
+        </ui-input-select>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-layout-stack gap="0.35em">
+          <ui-input-checkbox id="cp-disabled" label="Disabled"></ui-input-checkbox>
+          <ui-input-checkbox id="cp-required" label="Required"></ui-input-checkbox>
+        </ui-layout-stack>
+      </ui-card-body>
+    </ui-card>
+  </div>
+
+  <div class="playground-preview">
+    <div class="demo-card">
+      <div class="demo-preview">
+        <ui-input-color id="cp-playground" label="Pick colour" value="#6366f1"></ui-input-color>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  const el = document.getElementById('cp-playground');
+  if (!el) return;
+
+  const strings = { label: 'cp-label', value: 'cp-value', help: 'cp-help', error: 'cp-error' };
+  for (const [attr, id] of Object.entries(strings)) {
+    const ctrl = document.getElementById(id);
+    if (!ctrl) continue;
+    const handler = () => {
+      const v = (ctrl.value || '').trim();
+      if (v) el.setAttribute(attr, v);
+      else el.removeAttribute(attr);
+    };
+    ctrl.addEventListener('ui-input', handler);
+    ctrl.addEventListener('ui-change', handler);
+  }
+
+  const sizeCtrl = document.getElementById('cp-size');
+  if (sizeCtrl) {
+    sizeCtrl.addEventListener('ui-change', () => {
+      const v = (sizeCtrl.value || '').trim();
+      if (v) el.setAttribute('size', v);
+      else el.removeAttribute('size');
+    });
+  }
+
+  const bools = { disabled: 'cp-disabled', required: 'cp-required' };
+  for (const [attr, id] of Object.entries(bools)) {
+    const ctrl = document.getElementById(id);
+    if (!ctrl) continue;
+    ctrl.addEventListener('ui-change', () => {
+      if (ctrl.checked) el.setAttribute(attr, '');
+      else el.removeAttribute(attr);
+    });
+  }
+})();
+</script>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── API Reference ──────────────────────────────────────── -->
+<ui-text type="heading" size="large">API Reference</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead>
+      <tr><th>Attribute</th><th>Type</th><th>Default</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>value</code></td><td>String</td><td><code>#6366f1</code></td><td>Colour value (hex or theme token like <code>red-500</code>)</td></tr>
+      <tr><td><code>name</code></td><td>String</td><td><code>""</code></td><td>Form field name</td></tr>
+      <tr><td><code>label</code></td><td>String</td><td><code>""</code></td><td>Label text</td></tr>
+      <tr><td><code>help</code></td><td>String</td><td><code>""</code></td><td>Help text below the swatch</td></tr>
+      <tr><td><code>error</code></td><td>String</td><td><code>""</code></td><td>Error message below the swatch</td></tr>
+      <tr><td><code>size</code></td><td>String</td><td><code>""</code></td><td>CSS named size or any CSS length</td></tr>
+      <tr><td><code>disabled</code></td><td>Boolean</td><td><code>false</code></td><td>Prevents opening the picker</td></tr>
+      <tr><td><code>required</code></td><td>Boolean</td><td><code>false</code></td><td>Marks the field as required</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── CSS Parts ──────────────────────────────────────────── -->
+<ui-text type="heading" size="large">CSS Parts</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead>
+      <tr><th>Part</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>label</code></td><td>The label element</td></tr>
+      <tr><td><code>trigger</code></td><td>The colour swatch button</td></tr>
+      <tr><td><code>panel</code></td><td>The dropdown panel (palette + hex + native input)</td></tr>
+      <tr><td><code>help</code></td><td>The help text element</td></tr>
+      <tr><td><code>error</code></td><td>The error message element</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Events ──────────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Events</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead>
+      <tr><th>Event</th><th>Detail</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>ui-change</code></td><td><code>{ value }</code></td><td>Fires when the colour value changes</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>

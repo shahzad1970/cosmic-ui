@@ -1,0 +1,405 @@
+<!-- ============================================================
+     Input — Component Documentation
+     ============================================================ -->
+
+<ui-layout-stack gap="0.25em" style="margin-bottom:2em;">
+  <ui-text type="heading" size="xx-large">Input</ui-text>
+  <ui-text type="paragraph" color="gray-500">
+    <code>&lt;ui-input&gt;</code> is a rich, accessible text input with built-in
+    labels, help text, error messages, prefix/suffix, clearable, and password-toggle.
+  </ui-text>
+</ui-layout-stack>
+
+<!-- ── Basic Usage ──────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Basic Usage</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Use <code>label</code>, <code>placeholder</code>, and <code>prefix</code> / <code>suffix</code>
+  to create rich input fields.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack gap="0.75em">
+      <ui-input label="Email" type="email" placeholder="you@example.com"></ui-input>
+      <ui-input label="Search" type="search" placeholder="Search..." clearable></ui-input>
+      <ui-input label="Amount" prefix="$" suffix="USD" placeholder="0.00"></ui-input>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-input label="Email" type="email" placeholder="you@example.com"&gt;&lt;/ui-input&gt;
+&lt;ui-input label="Search" type="search" placeholder="Search..." clearable&gt;&lt;/ui-input&gt;
+&lt;ui-input label="Amount" prefix="$" suffix="USD" placeholder="0.00"&gt;&lt;/ui-input&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Help & Error ────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Help & Error Text</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Use <code>help</code> for guidance and <code>error</code> for validation messages.
+  When <code>error</code> is set, the input border turns red and the help text is replaced by the error.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack gap="0.75em">
+      <ui-input label="Username" placeholder="Choose a username" help="Must be 3–20 characters"></ui-input>
+      <ui-input label="Username" value="jo" error="Too short — minimum 3 characters"></ui-input>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-input label="Username" placeholder="Choose a username"
+  help="Must be 3–20 characters"&gt;&lt;/ui-input&gt;
+
+&lt;ui-input label="Username" value="jo"
+  error="Too short — minimum 3 characters"&gt;&lt;/ui-input&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Password Toggle ─────────────────────────────────────── -->
+<ui-text type="heading" size="large">Password Toggle</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Set <code>type="password"</code> and <code>toggleable</code> to show a show/hide eye icon.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-input label="Password" type="password" toggleable placeholder="Enter your password"></ui-input>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-input label="Password" type="password" toggleable
+  placeholder="Enter your password"&gt;&lt;/ui-input&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Required & Readonly ─────────────────────────────────── -->
+<ui-text type="heading" size="large">Required & Readonly</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  <code>required</code> adds an asterisk to the label. <code>readonly</code> prevents editing but keeps the input focusable.
+  <code>disabled</code> dims the entire component and prevents interaction.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack gap="0.75em">
+      <ui-input label="Full Name" required placeholder="Jane Doe"></ui-input>
+      <ui-input label="Account ID" readonly value="ACC-29481"></ui-input>
+      <ui-input label="Archived" disabled value="Locked field"></ui-input>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-input label="Full Name" required placeholder="Jane Doe"&gt;&lt;/ui-input&gt;
+&lt;ui-input label="Account ID" readonly value="ACC-29481"&gt;&lt;/ui-input&gt;
+&lt;ui-input label="Archived" disabled value="Locked field"&gt;&lt;/ui-input&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Sizes ────────────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Sizes</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  The <code>size</code> attribute scales the entire input — label, text, prefix/suffix, and padding.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack gap="0.75em">
+      <ui-input label="Small" size="small" placeholder="Small input"></ui-input>
+      <ui-input label="Default" placeholder="Default input"></ui-input>
+      <ui-input label="Large" size="large" placeholder="Large input"></ui-input>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-input label="Small" size="small" placeholder="Small input"&gt;&lt;/ui-input&gt;
+&lt;ui-input label="Default" placeholder="Default input"&gt;&lt;/ui-input&gt;
+&lt;ui-input label="Large" size="large" placeholder="Large input"&gt;&lt;/ui-input&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Background & Colour ─────────────────────────────────── -->
+<ui-text type="heading" size="large">Background & Colour</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Set <code>background</code> and <code>color</code> to customise the input wrapper appearance.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack gap="0.75em">
+      <ui-input label="Subtle" background="gray-50" placeholder="Light background"></ui-input>
+      <ui-input label="Branded" background="indigo-50" color="indigo-700" placeholder="Indigo accent"></ui-input>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-input label="Subtle" background="gray-50" placeholder="Light background"&gt;&lt;/ui-input&gt;
+&lt;ui-input label="Branded" background="indigo-50" color="indigo-700"
+  placeholder="Indigo accent"&gt;&lt;/ui-input&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Playground ─────────────────────────────────────────── -->
+<ui-text type="heading" size="large">
+  <ui-icon color="indigo-500">play-circle</ui-icon>
+  Playground
+</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Tweak every input property interactively.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="playground">
+  <div class="playground-controls">
+    <ui-card elevation="1">
+      <ui-card-body>
+        <ui-text type="heading" size="small">Controls</ui-text>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+
+        <ui-input-select id="pg-input-type" label="Type" size="small">
+          <option value="text" selected>text</option>
+          <option value="email">email</option>
+          <option value="password">password</option>
+          <option value="search">search</option>
+          <option value="tel">tel</option>
+          <option value="url">url</option>
+          <option value="number">number</option>
+        </ui-input-select>
+        <ui-layout-spacer size="0.35em"></ui-layout-spacer>
+
+        <ui-input id="pg-input-label" label="Label" size="small" value="Playground Input"></ui-input>
+        <ui-layout-spacer size="0.35em"></ui-layout-spacer>
+
+        <ui-input id="pg-input-placeholder" label="Placeholder" size="small" value="Type here..."></ui-input>
+        <ui-layout-spacer size="0.35em"></ui-layout-spacer>
+
+        <ui-input id="pg-input-value" label="Value" size="small" value=""></ui-input>
+        <ui-layout-spacer size="0.35em"></ui-layout-spacer>
+
+        <ui-input id="pg-input-prefix" label="Prefix" size="small" value=""></ui-input>
+        <ui-layout-spacer size="0.35em"></ui-layout-spacer>
+
+        <ui-input id="pg-input-suffix" label="Suffix" size="small" value=""></ui-input>
+        <ui-layout-spacer size="0.35em"></ui-layout-spacer>
+
+        <ui-input id="pg-input-help" label="Help text" size="small" value=""></ui-input>
+        <ui-layout-spacer size="0.35em"></ui-layout-spacer>
+
+        <ui-input id="pg-input-error" label="Error text" size="small" value=""></ui-input>
+        <ui-layout-spacer size="0.35em"></ui-layout-spacer>
+
+        <ui-input-select id="pg-input-size" label="Size" size="small">
+          <option value="" selected>default</option>
+          <option value="small">small</option>
+          <option value="medium">medium</option>
+          <option value="large">large</option>
+          <option value="x-large">x-large</option>
+        </ui-input-select>
+        <ui-layout-spacer size="0.35em"></ui-layout-spacer>
+
+        <ui-input-color id="pg-input-bg" label="Background" size="small" value=""></ui-input-color>
+        <ui-layout-spacer size="0.35em"></ui-layout-spacer>
+
+        <ui-input-color id="pg-input-color" label="Colour" size="small" value=""></ui-input-color>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+
+        <ui-layout-stack gap="0.35em">
+          <ui-input-checkbox id="pg-input-required" label="Required" size="small"></ui-input-checkbox>
+          <ui-input-checkbox id="pg-input-disabled" label="Disabled" size="small"></ui-input-checkbox>
+          <ui-input-checkbox id="pg-input-readonly" label="Readonly" size="small"></ui-input-checkbox>
+          <ui-input-checkbox id="pg-input-clearable" label="Clearable" size="small"></ui-input-checkbox>
+          <ui-input-checkbox id="pg-input-toggleable" label="Toggleable" size="small"></ui-input-checkbox>
+        </ui-layout-stack>
+      </ui-card-body>
+    </ui-card>
+  </div>
+
+  <div class="playground-preview">
+    <div class="demo-card">
+      <div class="demo-preview">
+        <ui-input id="pg-input" label="Playground Input" placeholder="Type here..."></ui-input>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  var el = document.getElementById('pg-input');
+  if (!el) return;
+
+  function bindText(ctrlId, attr) {
+    var ctrl = document.getElementById(ctrlId);
+    if (!ctrl) return;
+    var update = function() {
+      var v = (ctrl.value || '').trim();
+      if (v) el.setAttribute(attr, v);
+      else el.removeAttribute(attr);
+    };
+    ctrl.addEventListener('ui-input', update);
+    ctrl.addEventListener('ui-change', update);
+  }
+
+  function bindSelect(ctrlId, attr) {
+    var ctrl = document.getElementById(ctrlId);
+    if (!ctrl) return;
+    ctrl.addEventListener('ui-change', function() {
+      var v = ctrl.value;
+      if (v) el.setAttribute(attr, v);
+      else el.removeAttribute(attr);
+    });
+  }
+
+  function bindBool(ctrlId, attr) {
+    var ctrl = document.getElementById(ctrlId);
+    if (!ctrl) return;
+    ctrl.addEventListener('ui-change', function() {
+      if (ctrl.checked) el.setAttribute(attr, '');
+      else el.removeAttribute(attr);
+    });
+  }
+
+  bindSelect('pg-input-type', 'type');
+  bindText('pg-input-label', 'label');
+  bindText('pg-input-placeholder', 'placeholder');
+  bindText('pg-input-value', 'value');
+  bindText('pg-input-prefix', 'prefix');
+  bindText('pg-input-suffix', 'suffix');
+  bindText('pg-input-help', 'help');
+  bindText('pg-input-error', 'error');
+  bindSelect('pg-input-size', 'size');
+  bindText('pg-input-bg', 'background');
+  bindText('pg-input-color', 'color');
+  bindBool('pg-input-required', 'required');
+  bindBool('pg-input-disabled', 'disabled');
+  bindBool('pg-input-readonly', 'readonly');
+  bindBool('pg-input-clearable', 'clearable');
+  bindBool('pg-input-toggleable', 'toggleable');
+})();
+</script>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── API Reference ───────────────────────────────────────── -->
+<ui-text type="heading" size="large">API Reference</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead>
+      <tr><th>Attribute</th><th>Type</th><th>Default</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>type</code></td><td>String</td><td><code>text</code></td><td>Input type — <code>text</code>, <code>email</code>, <code>password</code>, <code>number</code>, <code>tel</code>, <code>url</code>, <code>search</code>, <code>date</code>, <code>time</code>, <code>datetime-local</code>, <code>month</code>, <code>week</code>, <code>color</code></td></tr>
+      <tr><td><code>value</code></td><td>String</td><td>—</td><td>Current input value</td></tr>
+      <tr><td><code>placeholder</code></td><td>String</td><td>—</td><td>Placeholder text shown when empty</td></tr>
+      <tr><td><code>name</code></td><td>String</td><td>—</td><td>Form field name for submission</td></tr>
+      <tr><td><code>label</code></td><td>String</td><td>—</td><td>Label text shown above the input</td></tr>
+      <tr><td><code>help</code></td><td>String</td><td>—</td><td>Help text shown below the input</td></tr>
+      <tr><td><code>error</code></td><td>String</td><td>—</td><td>Error message — also triggers red border styling</td></tr>
+      <tr><td><code>prefix</code></td><td>String</td><td>—</td><td>Text or symbol before the input (e.g. <code>$</code>)</td></tr>
+      <tr><td><code>suffix</code></td><td>String</td><td>—</td><td>Text or symbol after the input (e.g. <code>USD</code>)</td></tr>
+      <tr><td><code>size</code></td><td>String</td><td>—</td><td>Component font-size — named keyword (<code>small</code>, <code>large</code>, …) or CSS length</td></tr>
+      <tr><td><code>background</code></td><td>String</td><td>—</td><td>Background colour — palette token or CSS colour</td></tr>
+      <tr><td><code>color</code></td><td>String</td><td>—</td><td>Text colour — palette token or CSS colour</td></tr>
+      <tr><td><code>disabled</code></td><td>Boolean</td><td><code>false</code></td><td>Disables the input (dims, no interaction)</td></tr>
+      <tr><td><code>readonly</code></td><td>Boolean</td><td><code>false</code></td><td>Makes the input read-only</td></tr>
+      <tr><td><code>required</code></td><td>Boolean</td><td><code>false</code></td><td>Marks as required — adds <code>*</code> to the label</td></tr>
+      <tr><td><code>clearable</code></td><td>Boolean</td><td><code>false</code></td><td>Shows a clear × button when the input has a value</td></tr>
+      <tr><td><code>toggleable</code></td><td>Boolean</td><td><code>false</code></td><td>Shows a show/hide toggle for password inputs</td></tr>
+      <tr><td><code>pattern</code></td><td>String</td><td>—</td><td>Validation regex pattern passed to native input</td></tr>
+      <tr><td><code>minlength</code></td><td>Number</td><td>—</td><td>Minimum character length</td></tr>
+      <tr><td><code>maxlength</code></td><td>Number</td><td>—</td><td>Maximum character length</td></tr>
+      <tr><td><code>min</code></td><td>Number</td><td>—</td><td>Minimum value (for number / date types)</td></tr>
+      <tr><td><code>max</code></td><td>Number</td><td>—</td><td>Maximum value (for number / date types)</td></tr>
+      <tr><td><code>step</code></td><td>Number</td><td>—</td><td>Step increment (for number / date types)</td></tr>
+      <tr><td><code>autocomplete</code></td><td>String</td><td>—</td><td>Browser autocomplete hint (e.g. <code>email</code>, <code>off</code>)</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="1em"></ui-layout-spacer>
+
+<!-- ── Events ──────────────────────────────────────────────── -->
+<ui-text type="heading" size="medium">Events</ui-text>
+<ui-layout-spacer size="0.5em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead>
+      <tr><th>Event</th><th>Detail</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>ui-input</code></td><td><code>{ value }</code></td><td>Fires on every keystroke</td></tr>
+      <tr><td><code>ui-change</code></td><td><code>{ value }</code></td><td>Fires on blur / commit (final value)</td></tr>
+      <tr><td><code>ui-focus</code></td><td>—</td><td>Input gained focus</td></tr>
+      <tr><td><code>ui-blur</code></td><td>—</td><td>Input lost focus</td></tr>
+      <tr><td><code>ui-clear</code></td><td>—</td><td>Clear button clicked</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="1em"></ui-layout-spacer>
+
+<!-- ── JS Properties & Methods ─────────────────────────────── -->
+<ui-text type="heading" size="medium">JavaScript API</ui-text>
+<ui-layout-spacer size="0.5em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead>
+      <tr><th>Member</th><th>Type</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>.focus()</code></td><td>Method</td><td>Programmatically focus the native input</td></tr>
+      <tr><td><code>.blur()</code></td><td>Method</td><td>Programmatically blur the native input</td></tr>
+      <tr><td><code>.selectAll()</code></td><td>Method</td><td>Select all text in the input</td></tr>
+      <tr><td><code>.clear()</code></td><td>Method</td><td>Clear the value and emit <code>ui-clear</code></td></tr>
+      <tr><td><code>.checkValidity()</code></td><td>Method</td><td>Run native constraint validation — returns <code>boolean</code></td></tr>
+      <tr><td><code>.validationMessage</code></td><td>Getter</td><td>Returns the native input's validation message string</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="1em"></ui-layout-spacer>
+
+<!-- ── CSS Parts ───────────────────────────────────────────── -->
+<ui-text type="heading" size="medium">CSS Parts</ui-text>
+<ui-layout-spacer size="0.5em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead>
+      <tr><th>Part</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>label</code></td><td>The label element above the input</td></tr>
+      <tr><td><code>wrapper</code></td><td>The input container (border, background)</td></tr>
+      <tr><td><code>input</code></td><td>The native <code>&lt;input&gt;</code> element</td></tr>
+      <tr><td><code>prefix</code></td><td>Prefix decoration</td></tr>
+      <tr><td><code>suffix</code></td><td>Suffix decoration</td></tr>
+      <tr><td><code>help</code></td><td>Help text below the input</td></tr>
+      <tr><td><code>error</code></td><td>Error message below the input</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="1em"></ui-layout-spacer>
+
+<!-- ── Slots ───────────────────────────────────────────────── -->
+<ui-text type="heading" size="medium">Slots</ui-text>
+<ui-layout-spacer size="0.5em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead>
+      <tr><th>Slot</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>(default)</code></td><td>Optional content placed inside the input wrapper (e.g. icons, action buttons)</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>

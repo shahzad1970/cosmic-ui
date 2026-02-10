@@ -1,0 +1,273 @@
+<!-- ============================================================
+     Image — Component Documentation
+     ============================================================ -->
+
+<ui-layout-stack gap="0.25em" style="margin-bottom:2em;">
+  <ui-text type="heading" size="xx-large">Image</ui-text>
+  <ui-text type="paragraph" color="gray-500">
+    <code>&lt;ui-image&gt;</code> wraps <code>&lt;img&gt;</code> with lazy loading,
+    a shimmer skeleton while loading, error fallback, captions, and an optional lightbox overlay on click.
+  </ui-text>
+</ui-layout-stack>
+
+<ui-text type="heading" size="large">Basic Usage</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Set <code>src</code>, <code>alt</code>, and optional <code>width</code> / <code>height</code>.
+  Images lazy-load by default.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack direction="horizontal" gap="1em" wrap align="end">
+      <ui-image src="https://picsum.photos/seed/a/300/200" alt="Sample image" width="200px" height="140px" radius="0.5em"></ui-image>
+      <ui-image src="https://picsum.photos/seed/b/300/200" alt="Another image" width="200px" height="140px" radius="0.5em"></ui-image>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-image src="photo.jpg" alt="Sample"
+  width="200px" height="140px" radius="0.5em"&gt;&lt;/ui-image&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<ui-text type="heading" size="large">Object Fit</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Control how the image fills its container with the <code>fit</code> attribute.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack direction="horizontal" gap="1em" wrap>
+      <ui-layout-stack gap="0.25em" align="center">
+        <ui-image src="https://picsum.photos/seed/c/400/200" width="120px" height="120px" fit="cover" radius="0.5em"></ui-image>
+        <ui-text size="x-small" color="gray-500">cover</ui-text>
+      </ui-layout-stack>
+      <ui-layout-stack gap="0.25em" align="center">
+        <ui-image src="https://picsum.photos/seed/c/400/200" width="120px" height="120px" fit="contain" radius="0.5em"></ui-image>
+        <ui-text size="x-small" color="gray-500">contain</ui-text>
+      </ui-layout-stack>
+      <ui-layout-stack gap="0.25em" align="center">
+        <ui-image src="https://picsum.photos/seed/c/400/200" width="120px" height="120px" fit="fill" radius="0.5em"></ui-image>
+        <ui-text size="x-small" color="gray-500">fill</ui-text>
+      </ui-layout-stack>
+      <ui-layout-stack gap="0.25em" align="center">
+        <ui-image src="https://picsum.photos/seed/c/400/200" width="120px" height="120px" fit="none" radius="0.5em"></ui-image>
+        <ui-text size="x-small" color="gray-500">none</ui-text>
+      </ui-layout-stack>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-image src="photo.jpg" width="120px" height="120px" fit="cover"&gt;&lt;/ui-image&gt;
+&lt;ui-image src="photo.jpg" width="120px" height="120px" fit="contain"&gt;&lt;/ui-image&gt;
+&lt;ui-image src="photo.jpg" width="120px" height="120px" fit="fill"&gt;&lt;/ui-image&gt;
+&lt;ui-image src="photo.jpg" width="120px" height="120px" fit="none"&gt;&lt;/ui-image&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<ui-text type="heading" size="large">Lightbox &amp; Caption</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Add <code>lightbox</code> to enable click-to-zoom. Set <code>caption</code> for descriptive text below the image.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack direction="horizontal" gap="1em" wrap>
+      <ui-image src="https://picsum.photos/seed/d/600/400" alt="Lightbox demo" width="220px" height="150px" radius="0.5em" lightbox caption="Click to view full size"></ui-image>
+      <ui-image src="https://picsum.photos/seed/e/600/400" alt="Another lightbox" width="220px" height="150px" radius="0.5em" lightbox caption="Mountain landscape"></ui-image>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-image src="photo.jpg" alt="Sunset"
+  width="220px" height="150px" radius="0.5em"
+  lightbox caption="Click to view full size"&gt;&lt;/ui-image&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<ui-text type="heading" size="large">Border Radius</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Use <code>radius</code> to round corners. Set <code>50%</code> for a circular crop.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack direction="horizontal" gap="1em" wrap align="center">
+      <ui-image src="https://picsum.photos/seed/f/200/200" width="100px" height="100px" radius="0"></ui-image>
+      <ui-image src="https://picsum.photos/seed/f/200/200" width="100px" height="100px" radius="0.5em"></ui-image>
+      <ui-image src="https://picsum.photos/seed/f/200/200" width="100px" height="100px" radius="1em"></ui-image>
+      <ui-image src="https://picsum.photos/seed/f/200/200" width="100px" height="100px" radius="50%"></ui-image>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-image src="photo.jpg" width="100px" height="100px" radius="0"&gt;&lt;/ui-image&gt;
+&lt;ui-image src="photo.jpg" width="100px" height="100px" radius="0.5em"&gt;&lt;/ui-image&gt;
+&lt;ui-image src="photo.jpg" width="100px" height="100px" radius="1em"&gt;&lt;/ui-image&gt;
+&lt;ui-image src="photo.jpg" width="100px" height="100px" radius="50%"&gt;&lt;/ui-image&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<ui-text type="heading" size="large">Error Fallback</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  If the primary <code>src</code> fails, the <code>fallback</code> image is tried.
+  If both fail, a placeholder icon is shown.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack direction="horizontal" gap="1em" wrap align="center">
+      <ui-layout-stack gap="0.25em" align="center">
+        <ui-image src="https://broken-url.invalid/photo.jpg" fallback="https://picsum.photos/seed/fallback/200/200" width="120px" height="120px" radius="0.5em"></ui-image>
+        <ui-text size="x-small" color="gray-500">With fallback</ui-text>
+      </ui-layout-stack>
+      <ui-layout-stack gap="0.25em" align="center">
+        <ui-image src="https://broken-url.invalid/photo.jpg" width="120px" height="120px" radius="0.5em"></ui-image>
+        <ui-text size="x-small" color="gray-500">No fallback</ui-text>
+      </ui-layout-stack>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-image src="broken.jpg"
+  fallback="backup.jpg" width="120px" height="120px"&gt;&lt;/ui-image&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Playground ─────────────────────────────────────────── -->
+<ui-text type="heading" size="large">
+  <ui-icon color="indigo-500">play-circle</ui-icon>
+  Playground
+</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Tweak image properties interactively.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="playground">
+  <div class="playground-controls">
+    <ui-card elevation="1">
+      <ui-card-body>
+        <ui-text type="heading" size="small">Controls</ui-text>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input id="img-src" label="src" size="small" value="https://picsum.photos/seed/pg/600/400"></ui-input>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input id="img-width" label="Width" size="small" value="300px"></ui-input>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input id="img-height" label="Height" size="small" value="200px"></ui-input>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-select id="img-fit" label="Fit" size="small">
+          <option value="cover" selected>cover</option>
+          <option value="contain">contain</option>
+          <option value="fill">fill</option>
+          <option value="none">none</option>
+          <option value="scale-down">scale-down</option>
+        </ui-input-select>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input id="img-radius" label="Radius" size="small" value="0.5em"></ui-input>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input id="img-caption" label="Caption" size="small" value=""></ui-input>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-layout-stack gap="0.35em">
+          <ui-input-checkbox id="img-lightbox" label="Lightbox"></ui-input-checkbox>
+          <ui-input-checkbox id="img-lazy" label="Lazy" checked></ui-input-checkbox>
+        </ui-layout-stack>
+      </ui-card-body>
+    </ui-card>
+  </div>
+
+  <div class="playground-preview">
+    <div class="demo-card">
+      <div class="demo-preview">
+        <ui-image id="img-playground" src="https://picsum.photos/seed/pg/600/400" width="300px" height="200px" radius="0.5em"></ui-image>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  const el = document.getElementById('img-playground');
+  if (!el) return;
+
+  /* Text inputs → attributes */
+  const texts = {
+    'img-src':     'src',
+    'img-width':   'width',
+    'img-height':  'height',
+    'img-radius':  'radius',
+    'img-caption': 'caption',
+  };
+  Object.entries(texts).forEach(([id, attr]) => {
+    const ctrl = document.getElementById(id);
+    if (!ctrl) return;
+    const update = () => {
+      const val = (ctrl.value || '').trim();
+      if (val) el.setAttribute(attr, val);
+      else el.removeAttribute(attr);
+    };
+    ctrl.addEventListener('ui-input', update);
+    ctrl.addEventListener('ui-change', update);
+  });
+
+  /* Fit select */
+  const fitCtrl = document.getElementById('img-fit');
+  if (fitCtrl) {
+    fitCtrl.addEventListener('ui-change', () => {
+      el.setAttribute('fit', fitCtrl.value || 'cover');
+    });
+  }
+
+  /* Boolean checkboxes */
+  const bools = { 'img-lightbox': 'lightbox', 'img-lazy': 'lazy' };
+  Object.entries(bools).forEach(([id, attr]) => {
+    const ctrl = document.getElementById(id);
+    if (!ctrl) return;
+    ctrl.addEventListener('ui-change', () => {
+      if (ctrl.checked) el.setAttribute(attr, '');
+      else el.removeAttribute(attr);
+    });
+  });
+})();
+</script>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<ui-text type="heading" size="large">API Reference</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead><tr><th>Attribute</th><th>Type</th><th>Default</th><th>Description</th></tr></thead>
+    <tbody>
+      <tr><td><code>src</code></td><td>String</td><td>—</td><td>Image source URL (required)</td></tr>
+      <tr><td><code>alt</code></td><td>String</td><td>—</td><td>Alt text for accessibility — always provide meaningful text</td></tr>
+      <tr><td><code>width</code></td><td>String</td><td>auto</td><td>Image width (any CSS length)</td></tr>
+      <tr><td><code>height</code></td><td>String</td><td>auto</td><td>Image height (any CSS length)</td></tr>
+      <tr><td><code>fit</code></td><td>String</td><td>cover</td><td>CSS <code>object-fit</code>: <code>cover</code>, <code>contain</code>, <code>fill</code>, <code>none</code>, <code>scale-down</code></td></tr>
+      <tr><td><code>radius</code></td><td>String</td><td>0</td><td>Border radius (any CSS length, use <code>50%</code> for circles)</td></tr>
+      <tr><td><code>fallback</code></td><td>String</td><td>—</td><td>Fallback image URL — loaded if the primary <code>src</code> fails</td></tr>
+      <tr><td><code>size</code></td><td>String</td><td>—</td><td>Component font-size (named keyword or CSS length)</td></tr>
+      <tr><td><code>lazy</code></td><td>Boolean</td><td>true</td><td>Enable native lazy loading (<code>loading="lazy"</code>)</td></tr>
+      <tr><td><code>lightbox</code></td><td>Boolean</td><td>false</td><td>Click to open full-size image in a dark overlay. Press Escape to close.</td></tr>
+      <tr><td><code>caption</code></td><td>String</td><td>—</td><td>Descriptive text rendered below the image</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<ui-text type="heading" size="large">Events</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead><tr><th>Event</th><th>Detail</th><th>Description</th></tr></thead>
+    <tbody>
+      <tr><td><code>ui-load</code></td><td>—</td><td>Fired when the image loads successfully</td></tr>
+      <tr><td><code>ui-error</code></td><td>—</td><td>Fired when the image (and fallback, if any) fails to load</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>

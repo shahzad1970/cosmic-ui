@@ -1,0 +1,138 @@
+<!-- ============================================================
+     Popover — Component Documentation
+     ============================================================ -->
+
+<ui-layout-stack gap="0.25em" style="margin-bottom:2em;">
+  <ui-text type="heading" size="xx-large">Popover</ui-text>
+  <ui-text type="paragraph" color="gray-500">
+    <code>&lt;ui-popover&gt;</code> displays interactive floating content anchored to a trigger element. Unlike tooltips, popovers support forms, links, and rich content.
+  </ui-text>
+</ui-layout-stack>
+
+<ui-text type="heading" size="large">Basic Usage</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Wrap a trigger in <code>slot="trigger"</code> and place content in the default slot.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack direction="horizontal" gap="1em" align="center" wrap>
+      <ui-popover placement="bottom" arrow>
+        <ui-button slot="trigger">Click me</ui-button>
+        <ui-text size="small">This is popover content with <strong>rich HTML</strong>.</ui-text>
+      </ui-popover>
+      <ui-popover placement="top" trigger="hover" arrow>
+        <ui-button slot="trigger" background="emerald-500">Hover me</ui-button>
+        <ui-text size="small">Popover on hover!</ui-text>
+      </ui-popover>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-popover placement="bottom" arrow&gt;
+  &lt;ui-button slot="trigger"&gt;Click me&lt;/ui-button&gt;
+  &lt;p&gt;This is popover content with &lt;strong&gt;rich HTML&lt;/strong&gt;.&lt;/p&gt;
+&lt;/ui-popover&gt;
+
+&lt;ui-popover placement="top" trigger="hover" arrow&gt;
+  &lt;ui-button slot="trigger"&gt;Hover me&lt;/ui-button&gt;
+  &lt;p&gt;Popover on hover!&lt;/p&gt;
+&lt;/ui-popover&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Playground ─────────────────────────────────────────── -->
+<ui-text type="heading" size="large">
+  <ui-icon color="indigo-500">play-circle</ui-icon>
+  Playground
+</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Experiment with popover placement and trigger modes.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="playground">
+  <div class="playground-controls">
+    <ui-card elevation="1">
+      <ui-card-body>
+        <ui-text type="heading" size="small">Controls</ui-text>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-select id="pop-placement" label="Placement" size="small" value="bottom">
+          <option value="top">Top</option>
+          <option value="bottom">Bottom</option>
+          <option value="left">Left</option>
+          <option value="right">Right</option>
+        </ui-input-select>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-select id="pop-trigger" label="Trigger" size="small" value="click">
+          <option value="click">Click</option>
+          <option value="hover">Hover</option>
+        </ui-input-select>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-checkbox id="pop-arrow" label="Arrow" checked></ui-input-checkbox>
+      </ui-card-body>
+    </ui-card>
+  </div>
+  <div class="playground-preview">
+    <div class="demo-card">
+      <div class="demo-preview" style="display:flex;align-items:center;justify-content:center;min-height:120px;">
+        <ui-popover id="pop-playground" placement="bottom" arrow>
+          <ui-button slot="trigger" background="indigo-500">Trigger</ui-button>
+          <ui-text size="small">Interactive popover content.</ui-text>
+        </ui-popover>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  const pop = document.getElementById('pop-playground');
+  if (!pop) return;
+  const setBool = (el, name, on) => on ? el.setAttribute(name, '') : el.removeAttribute(name);
+
+  document.getElementById('pop-placement')?.addEventListener('ui-change', (e) => pop.setAttribute('placement', e.target.value));
+  document.getElementById('pop-trigger')?.addEventListener('ui-change', (e) => pop.setAttribute('trigger', e.target.value));
+  document.getElementById('pop-arrow')?.addEventListener('ui-change', (e) => setBool(pop, 'arrow', e.target.checked));
+})();
+</script>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<ui-text type="heading" size="large">API Reference</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead><tr><th>Attribute</th><th>Type</th><th>Default</th><th>Description</th></tr></thead>
+    <tbody>
+      <tr><td><code>placement</code></td><td>String</td><td>bottom</td><td>Panel position: top, bottom, left, right</td></tr>
+      <tr><td><code>trigger</code></td><td>String</td><td>click</td><td>How to open: click, hover, manual</td></tr>
+      <tr><td><code>elevation</code></td><td>String</td><td>3</td><td>Shadow depth (1–5)</td></tr>
+      <tr><td><code>background</code></td><td>String</td><td>—</td><td>Panel background colour</td></tr>
+      <tr><td><code>color</code></td><td>String</td><td>—</td><td>Panel text colour</td></tr>
+      <tr><td><code>size</code></td><td>String</td><td>—</td><td>Component size</td></tr>
+      <tr><td><code>width</code></td><td>String</td><td>—</td><td>Panel width</td></tr>
+      <tr><td><code>padding</code></td><td>String</td><td>—</td><td>Panel inner padding</td></tr>
+      <tr><td><code>open</code></td><td>Boolean</td><td>false</td><td>Whether the popover is visible</td></tr>
+      <tr><td><code>arrow</code></td><td>Boolean</td><td>false</td><td>Show arrow pointing to trigger</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<ui-text type="heading" size="large">Events</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead><tr><th>Event</th><th>Detail</th><th>Description</th></tr></thead>
+    <tbody>
+      <tr><td><code>ui-open</code></td><td>—</td><td>Emitted when the popover opens</td></tr>
+      <tr><td><code>ui-close</code></td><td>—</td><td>Emitted when the popover closes</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>

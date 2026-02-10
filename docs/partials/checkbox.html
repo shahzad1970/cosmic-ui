@@ -1,0 +1,285 @@
+<!-- ============================================================
+     Checkbox — Component Documentation
+     ============================================================ -->
+
+<ui-layout-stack gap="0.25em" style="margin-bottom:2em;">
+  <ui-text type="heading" size="xx-large">Checkbox</ui-text>
+  <ui-text type="paragraph" color="gray-500">
+    <code>&lt;ui-input-checkbox&gt;</code> is a labeled checkbox with optional
+    help text, error state, indeterminate mode, and full colour support.
+  </ui-text>
+</ui-layout-stack>
+
+<!-- ── Basic Usage ────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Basic Usage</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Use <code>checked</code> and <code>indeterminate</code> states.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack gap="0.4em">
+      <ui-input-checkbox label="Receive updates" checked></ui-input-checkbox>
+      <ui-input-checkbox label="Partially selected" indeterminate></ui-input-checkbox>
+      <ui-input-checkbox label="Unchecked option"></ui-input-checkbox>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-input-checkbox label="Receive updates" checked&gt;&lt;/ui-input-checkbox&gt;
+&lt;ui-input-checkbox label="Partially selected" indeterminate&gt;&lt;/ui-input-checkbox&gt;
+&lt;ui-input-checkbox label="Unchecked option"&gt;&lt;/ui-input-checkbox&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Help & Error ───────────────────────────────────────── -->
+<ui-text type="heading" size="large">Help &amp; Error Messages</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Use <code>help</code> for guidance text below the label.
+  Set <code>error</code> to show a red error message (replaces help text).
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack gap="1em">
+      <ui-input-checkbox label="Subscribe to newsletter" help="We'll send you weekly updates"></ui-input-checkbox>
+      <ui-input-checkbox label="Accept terms" error="You must accept to continue" required></ui-input-checkbox>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-input-checkbox label="Subscribe to newsletter" help="We'll send you weekly updates"&gt;&lt;/ui-input-checkbox&gt;
+&lt;ui-input-checkbox label="Accept terms" error="You must accept to continue" required&gt;&lt;/ui-input-checkbox&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Read-only & Disabled ───────────────────────────────── -->
+<ui-text type="heading" size="large">Disabled</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Add <code>disabled</code> to prevent interaction.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack gap="0.4em">
+      <ui-input-checkbox label="Disabled unchecked" disabled></ui-input-checkbox>
+      <ui-input-checkbox label="Disabled checked" disabled checked></ui-input-checkbox>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-input-checkbox label="Disabled unchecked" disabled&gt;&lt;/ui-input-checkbox&gt;
+&lt;ui-input-checkbox label="Disabled checked" disabled checked&gt;&lt;/ui-input-checkbox&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Sizes ──────────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Sizes</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Use <code>size</code> with CSS keywords (<code>x-small</code> … <code>xx-large</code>) or any CSS length.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack gap="0.6em">
+      <ui-input-checkbox label="Extra small" size="x-small" checked></ui-input-checkbox>
+      <ui-input-checkbox label="Small" size="small" checked></ui-input-checkbox>
+      <ui-input-checkbox label="Medium (default)" checked></ui-input-checkbox>
+      <ui-input-checkbox label="Large" size="large" checked></ui-input-checkbox>
+      <ui-input-checkbox label="Extra large" size="x-large" checked></ui-input-checkbox>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-input-checkbox label="Extra small" size="x-small" checked&gt;&lt;/ui-input-checkbox&gt;
+&lt;ui-input-checkbox label="Large" size="large" checked&gt;&lt;/ui-input-checkbox&gt;
+&lt;ui-input-checkbox label="Extra large" size="x-large" checked&gt;&lt;/ui-input-checkbox&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Background & Color ─────────────────────────────────── -->
+<ui-text type="heading" size="large">Background &amp; Color</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Set <code>background</code> to a palette token (e.g. <code>emerald-600</code>)
+  or any CSS colour to change the checked accent.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack direction="horizontal" gap="1.5em" wrap>
+      <ui-input-checkbox label="Indigo" background="indigo-600" checked></ui-input-checkbox>
+      <ui-input-checkbox label="Emerald" background="emerald-600" checked></ui-input-checkbox>
+      <ui-input-checkbox label="Rose" background="rose-600" checked></ui-input-checkbox>
+      <ui-input-checkbox label="Amber" background="amber-500" checked></ui-input-checkbox>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-input-checkbox label="Emerald" background="emerald-600" checked&gt;&lt;/ui-input-checkbox&gt;
+&lt;ui-input-checkbox label="Rose" background="rose-600" checked&gt;&lt;/ui-input-checkbox&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Playground ─────────────────────────────────────────── -->
+<ui-text type="heading" size="large">
+  <ui-icon color="indigo-500">play-circle</ui-icon>
+  Playground
+</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Toggle states, size, accent colour, and error text.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="playground">
+  <div class="playground-controls">
+    <ui-card elevation="1">
+      <ui-card-body>
+        <ui-text type="heading" size="small">Controls</ui-text>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input id="checkbox-label" label="Label" size="small" value="Playground checkbox"></ui-input>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input id="checkbox-help" label="Help" size="small" value=""></ui-input>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input id="checkbox-error" label="Error" size="small" value=""></ui-input>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-color id="checkbox-bg" label="Background" size="small" value="" placeholder="e.g. emerald-600"></ui-input-color>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-select id="checkbox-size" label="Size" size="small">
+          <option value="">Default</option>
+          <option value="x-small">x-small</option>
+          <option value="small">small</option>
+          <option value="large">large</option>
+          <option value="x-large">x-large</option>
+          <option value="xx-large">xx-large</option>
+        </ui-input-select>
+        <ui-layout-spacer size="0.75em"></ui-layout-spacer>
+        <ui-layout-stack gap="0.35em">
+          <ui-input-checkbox id="checkbox-checked" label="Checked"></ui-input-checkbox>
+          <ui-input-checkbox id="checkbox-indeterminate" label="Indeterminate"></ui-input-checkbox>
+          <ui-input-checkbox id="checkbox-disabled" label="Disabled"></ui-input-checkbox>
+          <ui-input-checkbox id="checkbox-required" label="Required"></ui-input-checkbox>
+        </ui-layout-stack>
+      </ui-card-body>
+    </ui-card>
+  </div>
+
+  <div class="playground-preview">
+    <div class="demo-card">
+      <div class="demo-preview">
+        <ui-input-checkbox id="checkbox-playground" label="Playground checkbox"></ui-input-checkbox>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  const el = document.getElementById('checkbox-playground');
+  const label = document.getElementById('checkbox-label');
+  const help = document.getElementById('checkbox-help');
+  const error = document.getElementById('checkbox-error');
+  const bg = document.getElementById('checkbox-bg');
+  const size = document.getElementById('checkbox-size');
+  const checked = document.getElementById('checkbox-checked');
+  const indeterminate = document.getElementById('checkbox-indeterminate');
+  const disabled = document.getElementById('checkbox-disabled');
+  const required = document.getElementById('checkbox-required');
+
+  if (!el || !label) return;
+
+  function setOrRemove(attr, val) {
+    const v = (val || '').trim();
+    if (v) el.setAttribute(attr, v);
+    else el.removeAttribute(attr);
+  }
+
+  function bindText(input, attr) {
+    const handler = () => setOrRemove(attr, input.value);
+    input.addEventListener('ui-input', handler);
+    input.addEventListener('ui-change', handler);
+  }
+
+  function bindBool(input, attr) {
+    input.addEventListener('ui-change', () => {
+      if (input.checked) el.setAttribute(attr, '');
+      else el.removeAttribute(attr);
+    });
+  }
+
+  bindText(label, 'label');
+  bindText(help, 'help');
+  bindText(error, 'error');
+  bindText(bg, 'background');
+  size.addEventListener('ui-change', () => setOrRemove('size', size.value));
+  bindBool(checked, 'checked');
+  bindBool(indeterminate, 'indeterminate');
+  bindBool(disabled, 'disabled');
+  bindBool(required, 'required');
+})();
+</script>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── API Reference ──────────────────────────────────────── -->
+<ui-text type="heading" size="large">API Reference</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead>
+      <tr><th>Attribute</th><th>Type</th><th>Default</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>checked</code></td><td>Boolean</td><td>false</td><td>Checked state</td></tr>
+      <tr><td><code>indeterminate</code></td><td>Boolean</td><td>false</td><td>Indeterminate / partial state</td></tr>
+      <tr><td><code>value</code></td><td>String</td><td>""</td><td>Form value when checked</td></tr>
+      <tr><td><code>name</code></td><td>String</td><td>""</td><td>Form field name</td></tr>
+      <tr><td><code>label</code></td><td>String</td><td>""</td><td>Label text next to the checkbox</td></tr>
+      <tr><td><code>help</code></td><td>String</td><td>""</td><td>Help text shown below the label</td></tr>
+      <tr><td><code>error</code></td><td>String</td><td>""</td><td>Error message (replaces help text)</td></tr>
+      <tr><td><code>size</code></td><td>String</td><td>""</td><td>Size keyword or CSS length</td></tr>
+      <tr><td><code>background</code></td><td>String</td><td>""</td><td>Accent colour (palette token or CSS colour)</td></tr>
+      <tr><td><code>disabled</code></td><td>Boolean</td><td>false</td><td>Disables the checkbox</td></tr>
+      <tr><td><code>required</code></td><td>Boolean</td><td>false</td><td>Marks as required (shows asterisk)</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── CSS Parts ──────────────────────────────────────────── -->
+<ui-text type="heading" size="large">CSS Parts</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead>
+      <tr><th>Part</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>container</code></td><td>The outer flex container (label element)</td></tr>
+      <tr><td><code>box</code></td><td>The checkbox square</td></tr>
+      <tr><td><code>help</code></td><td>The help text element</td></tr>
+      <tr><td><code>error</code></td><td>The error message element</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Events ──────────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Events</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead>
+      <tr><th>Event</th><th>Detail</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>ui-change</code></td><td><code>{ checked, value }</code></td><td>Fires when the checked state changes</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>

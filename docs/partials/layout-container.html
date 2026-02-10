@@ -1,0 +1,190 @@
+<!-- ============================================================
+     Layout Container — Component Documentation
+     ============================================================ -->
+
+<ui-layout-stack gap="0.25em" style="margin-bottom:2em;">
+  <ui-text type="heading" size="xx-large">Container</ui-text>
+  <ui-text type="paragraph" color="gray-500">
+    <code>&lt;ui-layout-container&gt;</code> centers content and constrains it to a
+    max width with consistent horizontal padding.
+  </ui-text>
+</ui-layout-stack>
+
+<ui-text type="heading" size="large">Diagram</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Centered content with max-width and padding.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <svg viewBox="0 0 520 140" width="100%" height="140" role="img" aria-label="Container layout diagram">
+      <rect x="10" y="20" width="500" height="100" rx="8" fill="#f9fafb" stroke="#e5e7eb" />
+      <rect x="70" y="40" width="380" height="60" rx="8" fill="#e0e7ff" stroke="#c7d2fe" />
+      <text x="260" y="34" text-anchor="middle" font-size="10" fill="#6b7280" font-family="var(--ui-font, system-ui, sans-serif)">Page Width</text>
+      <text x="260" y="78" text-anchor="middle" font-size="12" fill="#4b5563" font-family="var(--ui-font, system-ui, sans-serif)">Container</text>
+    </svg>
+  </div>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<ui-text type="heading" size="large">Default Container</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Defaults to a 1200px max width with 1.5em horizontal padding.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-container style="background: var(--ui-gray-50);" padding="1em">
+      <ui-text type="heading" size="small">Centered Content</ui-text>
+      <ui-text type="paragraph" color="gray-500" size="small">
+        This content is constrained by the container.
+      </ui-text>
+    </ui-layout-container>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-layout-container padding="1em"&gt;
+  &lt;ui-text type="heading"&gt;Centered Content&lt;/ui-text&gt;
+  &lt;ui-text type="paragraph"&gt;This content is constrained by the container.&lt;/ui-text&gt;
+&lt;/ui-layout-container&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<ui-text type="heading" size="large">Size Presets</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Use <code>size</code> to pick a preset width: small (640px), medium (960px), large (1200px), x-large (1400px), full (100%).
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-container size="small" style="background: var(--ui-gray-50);" padding="1em">
+      <ui-text size="small">Small container (640px max)</ui-text>
+    </ui-layout-container>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-layout-container size="small" padding="1em"&gt;
+  &lt;ui-text&gt;Small container (640px max)&lt;/ui-text&gt;
+&lt;/ui-layout-container&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Playground ─────────────────────────────────────────── -->
+<ui-text type="heading" size="large">
+  <ui-icon color="indigo-500">play-circle</ui-icon>
+  Playground
+</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Adjust container attributes interactively.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="playground">
+  <div class="playground-controls">
+    <ui-card elevation="1">
+      <ui-card-body>
+        <ui-text type="heading" size="small">Controls</ui-text>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+
+        <ui-input-select id="cnt-size" label="Size" size="small" placeholder="none">
+          <option value="">none</option>
+          <option value="small">small (640px)</option>
+          <option value="medium" selected>medium (960px)</option>
+          <option value="large">large (1200px)</option>
+          <option value="x-large">x-large (1400px)</option>
+          <option value="full">full (100%)</option>
+        </ui-input-select>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+
+        <ui-input id="cnt-max-width" label="Max Width" size="small" placeholder="e.g. 800px"></ui-input>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+
+        <ui-input id="cnt-padding" label="Padding" size="small" value="1em"></ui-input>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+
+        <ui-input-select id="cnt-align" label="Align" size="small" placeholder="center">
+          <option value="">center (default)</option>
+          <option value="left">left</option>
+          <option value="center">center</option>
+          <option value="right">right</option>
+        </ui-input-select>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+
+        <ui-input id="cnt-width" label="Width" size="small" placeholder="e.g. 80%, 600px"></ui-input>
+      </ui-card-body>
+    </ui-card>
+  </div>
+
+  <div class="playground-preview">
+    <div class="demo-card">
+      <div class="demo-preview">
+        <ui-layout-container id="cnt-playground" size="medium" style="background: var(--ui-gray-50);" padding="1em">
+          <ui-text type="heading" size="small">Container Content</ui-text>
+          <ui-text type="paragraph" color="gray-500" size="small">
+            Resize the container to see the max width change.
+          </ui-text>
+        </ui-layout-container>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  const el = document.getElementById('cnt-playground');
+  if (!el) return;
+
+  /* ── select controls ── */
+  ['size', 'align'].forEach(attr => {
+    const ctrl = document.getElementById('cnt-' + attr);
+    if (!ctrl) return;
+    const handler = () => {
+      const v = (ctrl.value || '').trim();
+      if (v) el.setAttribute(attr, v);
+      else el.removeAttribute(attr);
+    };
+    ctrl.addEventListener('ui-change', handler);
+  });
+
+  /* ── text-input controls ── */
+  [
+    { id: 'cnt-max-width', attr: 'max-width' },
+    { id: 'cnt-padding',   attr: 'padding'   },
+    { id: 'cnt-width',     attr: 'width'     },
+  ].forEach(({ id, attr }) => {
+    const ctrl = document.getElementById(id);
+    if (!ctrl) return;
+    const handler = () => {
+      const v = (ctrl.value || '').trim();
+      if (v) el.setAttribute(attr, v);
+      else el.removeAttribute(attr);
+    };
+    ctrl.addEventListener('ui-input', handler);
+    ctrl.addEventListener('ui-change', handler);
+  });
+})();
+</script>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<ui-text type="heading" size="large">API Reference</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead>
+      <tr><th>Attribute</th><th>Type</th><th>Default</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>max-width</code></td><td>String</td><td><code>1200px</code></td><td>Maximum width of the container</td></tr>
+      <tr><td><code>padding</code></td><td>String</td><td><code>0 1.5em</code></td><td>Inner padding — accepts CSS values or named sizes (<code>small</code>, <code>medium</code>, <code>large</code>, etc.)</td></tr>
+      <tr><td><code>align</code></td><td>String</td><td><code>center</code></td><td>Horizontal alignment: <code>left</code>, <code>center</code>, or <code>right</code></td></tr>
+      <tr><td><code>width</code></td><td>String</td><td><code>100%</code></td><td>CSS width of the container</td></tr>
+      <tr><td><code>size</code></td><td>String</td><td>—</td><td>Preset max-width: <code>small</code> (640px), <code>medium</code> (960px), <code>large</code> (1200px), <code>x-large</code> (1400px), <code>full</code> (100%)</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>

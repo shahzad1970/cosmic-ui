@@ -1,0 +1,333 @@
+<!-- ============================================================
+     Installation — Getting Started Guide
+     ============================================================ -->
+
+<!-- Page header -->
+<ui-layout-stack gap="0.25em" style="margin-bottom:2em;">
+  <ui-text type="heading" size="xx-large">Installation</ui-text>
+  <ui-text type="paragraph" color="gray-500">
+    Cosmic UI requires <strong>no build step</strong>, no bundler, and no package manager.
+    Add a single <code>&lt;script&gt;</code> tag and start building.
+  </ui-text>
+</ui-layout-stack>
+
+<!-- ── Requirements ───────────────────────────────────────── -->
+<ui-text type="heading" size="large">Requirements</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Cosmic UI uses standard Web APIs that ship in every modern browser.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<ui-layout-stack gap="0.5em">
+  <ui-callout background="sky-50" color="sky-700" size="small">
+    <strong>Browser support:</strong> Chrome / Edge 90+, Firefox 90+, Safari 15.4+, and any
+    Chromium-based browser. No polyfills needed.
+  </ui-callout>
+  <ui-callout background="amber-50" color="amber-700" size="small">
+    <strong>No IE support.</strong> Cosmic UI relies on Shadow DOM, Custom Elements v1,
+    Constructable Stylesheets, and ES Modules — none of which are available in Internet Explorer.
+  </ui-callout>
+</ui-layout-stack>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Download / Clone ───────────────────────────────────── -->
+<ui-text type="heading" size="large">Download</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Clone the repository or download the source directly. There are no build artefacts —
+  the <code>src/</code> folder <em>is</em> the distribution.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <ui-input-code language="shell" readonly height="auto"># Clone the repo
+git clone https://github.com/user/cosmic-ui.git
+
+# Or download a zip
+curl -L https://github.com/user/cosmic-ui/archive/main.zip -o cosmic-ui.zip</ui-input-code>
+</div>
+
+<ui-layout-spacer size="1em"></ui-layout-spacer>
+
+<ui-text type="paragraph" color="gray-500" size="small">
+  If you prefer npm:
+</ui-text>
+<ui-layout-spacer size="0.5em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <ui-input-code language="shell" readonly height="auto">npm install @cosmic-ui/core</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Quick Setup ────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Quick Setup</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Import the library with a single <code>&lt;script type="module"&gt;</code> tag.
+  All components register themselves automatically.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <ui-input-code language="html" readonly height="auto">&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8" /&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0" /&gt;
+  &lt;title&gt;My App&lt;/title&gt;
+  &lt;script type="module" src="path/to/cosmic-ui/src/index.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;ui-button background="indigo-600"&gt;Hello Cosmic!&lt;/ui-button&gt;
+&lt;/body&gt;
+&lt;/html&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="1em"></ui-layout-spacer>
+
+<ui-callout background="emerald-50" color="emerald-700" size="small">
+  <strong>That's it!</strong> No <code>npm install</code>, no <code>webpack</code>,
+  no <code>vite.config.js</code>. Just a script tag and you're ready.
+</ui-callout>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Import Everything vs Individual ────────────────────── -->
+<ui-text type="heading" size="large">Import Strategies</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Choose between importing the full library or individual components.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<ui-text type="heading" size="medium">Full Library</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Imports and registers every component. Simplest approach — recommended for most projects.
+</ui-text>
+<ui-layout-spacer size="0.5em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <ui-input-code language="html" readonly height="auto">&lt;!-- Registers all ui-* elements --&gt;
+&lt;script type="module" src="path/to/cosmic-ui/src/index.js"&gt;&lt;/script&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="1.5em"></ui-layout-spacer>
+
+<ui-text type="heading" size="medium">Individual Components</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Import only the components you need. Each file is self-contained and
+  registers its own custom element on import.
+</ui-text>
+<ui-layout-spacer size="0.5em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <ui-input-code language="html" readonly height="auto">&lt;!-- Just the button --&gt;
+&lt;script type="module"&gt;
+  import './cosmic-ui/src/components/button/button.js';
+&lt;/script&gt;
+
+&lt;!-- Or cherry-pick several --&gt;
+&lt;script type="module"&gt;
+  import './cosmic-ui/src/components/button/button.js';
+  import './cosmic-ui/src/components/input/input.js';
+  import './cosmic-ui/src/components/card/card.js';
+&lt;/script&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="1.5em"></ui-layout-spacer>
+
+<ui-text type="heading" size="medium">JavaScript Imports</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  You can also use standard ES module imports from JavaScript if you need
+  access to the component classes or utilities.
+</ui-text>
+<ui-layout-spacer size="0.5em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <ui-input-code language="javascript" readonly height="auto">import { UIButton, UICard, UIInput } from './cosmic-ui/src/index.js';
+
+// Utilities are also available
+import { resolveColor, resolveSize } from './cosmic-ui/src/core/ui-utils.js';</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Using with a Dev Server ────────────────────────────── -->
+<ui-text type="heading" size="large">Development Server</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Any static file server works. Cosmic UI ships as ES modules —
+  no transpilation or bundling required.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <ui-input-code language="shell" readonly height="auto"># Using npx serve (included in project)
+npx serve . --listen 3000
+
+# Or use any other static server
+python3 -m http.server 3000
+php -S localhost:3000</ui-input-code>
+</div>
+
+<ui-layout-spacer size="1em"></ui-layout-spacer>
+
+<ui-text type="paragraph" color="gray-500" size="small">
+  Open <code>http://localhost:3000</code> in your browser and you're good to go.
+</ui-text>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Using with Frameworks ──────────────────────────────── -->
+<ui-text type="heading" size="large">Using with Frameworks</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Custom elements are a web standard — they work anywhere HTML works.
+  Drop Cosmic UI components into React, Vue, Svelte, Angular, or plain HTML.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<ui-text type="heading" size="medium">React</ui-text>
+<ui-layout-spacer size="0.5em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <ui-input-code language="javascript" readonly height="auto">// Import once at your app entry point
+import './cosmic-ui/src/index.js';
+
+function App() {
+  return (
+    &lt;ui-card elevation="2"&gt;
+      &lt;ui-card-body&gt;
+        &lt;ui-text type="heading"&gt;Works in React!&lt;/ui-text&gt;
+        &lt;ui-button background="indigo-600"&gt;Click me&lt;/ui-button&gt;
+      &lt;/ui-card-body&gt;
+    &lt;/ui-card&gt;
+  );
+}</ui-input-code>
+</div>
+
+<ui-layout-spacer size="1.5em"></ui-layout-spacer>
+
+<ui-text type="heading" size="medium">Vue</ui-text>
+<ui-layout-spacer size="0.5em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <ui-input-code language="javascript" readonly height="auto">// main.js — import once
+import './cosmic-ui/src/index.js';
+
+// vite.config.js — tell Vue to skip custom elements
+export default {
+  plugins: [
+    vue({
+      template: {
+        compilerOptions: {
+          isCustomElement: (tag) =&gt; tag.startsWith('ui-'),
+        },
+      },
+    }),
+  ],
+};</ui-input-code>
+</div>
+
+<ui-layout-spacer size="1.5em"></ui-layout-spacer>
+
+<ui-text type="heading" size="medium">Svelte</ui-text>
+<ui-layout-spacer size="0.5em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <ui-input-code language="html" readonly height="auto">&lt;!-- Import in your root layout or +page.svelte --&gt;
+&lt;script&gt;
+  import './cosmic-ui/src/index.js';
+&lt;/script&gt;
+
+&lt;ui-button background="emerald-500"&gt;Svelte + Cosmic&lt;/ui-button&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── CDN Usage ──────────────────────────────────────────── -->
+<ui-text type="heading" size="large">CDN (Coming Soon)</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  A hosted CDN build is on the roadmap. In the meantime, serve the
+  <code>src/</code> folder from your own static host or use a service like
+  jsDelivr to point at the GitHub repo.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <ui-input-code language="html" readonly height="auto">&lt;!-- Example using jsDelivr (once published) --&gt;
+&lt;script type="module"
+  src="https://cdn.jsdelivr.net/gh/user/cosmic-ui@latest/src/index.js"&gt;
+&lt;/script&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Project Structure ──────────────────────────────────── -->
+<ui-text type="heading" size="large">Project Structure</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Understanding the repository layout helps when importing individual components
+  or extending the framework.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <ui-input-code language="html" readonly height="auto">cosmic-ui/
+├── src/
+│   ├── core/
+│   │   ├── ui-component.js    ← Base class every component extends
+│   │   ├── ui-theme.js        ← Global colour palette &amp; design tokens
+│   │   └── ui-utils.js        ← Shared utility functions
+│   ├── components/
+│   │   ├── button/button.js   ← &lt;ui-button&gt;
+│   │   ├── card/card.js       ← &lt;ui-card&gt;
+│   │   ├── input/input.js     ← &lt;ui-input&gt;
+│   │   └── ...                ← 42+ components
+│   └── index.js               ← Barrel — registers all elements
+├── test/                       ← Node test-runner tests
+├── docs/                       ← Documentation site
+└── package.json</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Next Steps ─────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Next Steps</ui-text>
+<ui-layout-spacer size="0.5em"></ui-layout-spacer>
+
+<ui-layout-stack gap="0.75em">
+  <ui-card elevation="1">
+    <ui-card-body>
+      <ui-text type="heading" size="small">
+        <ui-icon color="indigo-500">palette</ui-icon>
+        Theming
+      </ui-text>
+      <ui-text type="paragraph" color="gray-500" size="small">
+        Learn how to customise colours, fonts, and design tokens to match your brand.
+      </ui-text>
+    </ui-card-body>
+  </ui-card>
+
+  <ui-card elevation="1">
+    <ui-card-body>
+      <ui-text type="heading" size="small">
+        <ui-icon color="indigo-500">layout</ui-icon>
+        App Shell
+      </ui-text>
+      <ui-text type="paragraph" color="gray-500" size="small">
+        Build full-page layouts with banner, header, navigation, main content, and footer.
+      </ui-text>
+    </ui-card-body>
+  </ui-card>
+
+  <ui-card elevation="1">
+    <ui-card-body>
+      <ui-text type="heading" size="small">
+        <ui-icon color="indigo-500">code</ui-icon>
+        Browse Components
+      </ui-text>
+      <ui-text type="paragraph" color="gray-500" size="small">
+        Explore all 42+ components with live demos and code examples.
+      </ui-text>
+    </ui-card-body>
+  </ui-card>
+</ui-layout-stack>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>

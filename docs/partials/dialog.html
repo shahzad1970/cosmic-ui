@@ -1,0 +1,328 @@
+<!-- ============================================================
+     Dialog — Component Documentation
+     ============================================================ -->
+
+<ui-layout-stack gap="0.25em" style="margin-bottom:2em;">
+  <ui-text type="heading" size="xx-large">Dialog</ui-text>
+  <ui-text type="paragraph" color="gray-500">
+    <code>&lt;ui-dialog&gt;</code> displays modal or non-modal overlays with a
+    built-in header, close button, and backdrop. Supports size presets,
+    persistent mode, and headerless layouts.
+  </ui-text>
+</ui-layout-stack>
+
+<!-- ── Basic Usage ────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Basic Usage</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Open with <code>showModal()</code> for a backdrop or <code>show()</code>
+  for a non-modal overlay. Close with <code>hide()</code> or the built-in ✕.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-button id="dialog-basic-open" background="indigo-600">Open Dialog</ui-button>
+    <ui-dialog id="dialog-basic" label="Confirm Action">
+      <ui-text>Are you sure you want to continue?</ui-text>
+      <ui-layout-spacer size="1em"></ui-layout-spacer>
+      <ui-layout-stack direction="horizontal" gap="0.5em">
+        <ui-button background="indigo-600">Confirm</ui-button>
+        <ui-button outline>Cancel</ui-button>
+      </ui-layout-stack>
+    </ui-dialog>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-dialog id="d" label="Confirm Action"&gt;
+  &lt;ui-text&gt;Are you sure?&lt;/ui-text&gt;
+  &lt;ui-button background="indigo-600"&gt;Confirm&lt;/ui-button&gt;
+&lt;/ui-dialog&gt;
+&lt;script&gt;d.showModal()&lt;/script&gt;</ui-input-code>
+</div>
+
+<script>
+(function() {
+  const btn = document.getElementById('dialog-basic-open');
+  const dlg = document.getElementById('dialog-basic');
+  if (btn && dlg) btn.addEventListener('click', () => dlg.showModal());
+})();
+</script>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Sizes ──────────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Sizes</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Use <code>size</code> for built-in width presets: <code>small</code>,
+  <code>medium</code>, <code>large</code>, <code>full</code>.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack direction="horizontal" gap="0.5em" wrap>
+      <ui-button id="dialog-sz-small" size="small">Small</ui-button>
+      <ui-button id="dialog-sz-medium" size="small">Medium</ui-button>
+      <ui-button id="dialog-sz-large" size="small">Large</ui-button>
+      <ui-button id="dialog-sz-full" size="small">Full</ui-button>
+    </ui-layout-stack>
+
+    <ui-dialog id="dialog-sz-small-dlg" label="Small" size="small">
+      <ui-text>Compact dialog for short prompts.</ui-text>
+    </ui-dialog>
+    <ui-dialog id="dialog-sz-medium-dlg" label="Medium" size="medium">
+      <ui-text>Medium dialog — the default width.</ui-text>
+    </ui-dialog>
+    <ui-dialog id="dialog-sz-large-dlg" label="Large" size="large">
+      <ui-text>Roomier dialog for more content.</ui-text>
+    </ui-dialog>
+    <ui-dialog id="dialog-sz-full-dlg" label="Full" size="full">
+      <ui-text>Full-width dialog fills the viewport.</ui-text>
+    </ui-dialog>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-dialog size="small"&gt;...&lt;/ui-dialog&gt;
+&lt;ui-dialog size="medium"&gt;...&lt;/ui-dialog&gt;
+&lt;ui-dialog size="large"&gt;...&lt;/ui-dialog&gt;
+&lt;ui-dialog size="full"&gt;...&lt;/ui-dialog&gt;</ui-input-code>
+</div>
+
+<script>
+(function() {
+  ['small','medium','large','full'].forEach(s => {
+    const btn = document.getElementById('dialog-sz-' + s);
+    const dlg = document.getElementById('dialog-sz-' + s + '-dlg');
+    if (btn && dlg) btn.addEventListener('click', () => dlg.showModal());
+  });
+})();
+</script>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── No Header ──────────────────────────────────────────── -->
+<ui-text type="heading" size="large">No Header</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Set <code>no-header</code> to hide the built-in title bar and dismiss button.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-button id="dialog-nh-open" size="small">No Header</ui-button>
+    <ui-dialog id="dialog-nh-dlg" no-header>
+      <ui-layout-stack gap="0.75em">
+        <ui-text>A headerless dialog for fully custom layouts.</ui-text>
+        <ui-button background="indigo-600" onclick="this.closest('ui-dialog').hide()">Close</ui-button>
+      </ui-layout-stack>
+    </ui-dialog>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-dialog no-header&gt;
+  Custom content — no title bar.
+&lt;/ui-dialog&gt;</ui-input-code>
+</div>
+
+<script>
+(function() {
+  const btn = document.getElementById('dialog-nh-open');
+  const dlg = document.getElementById('dialog-nh-dlg');
+  if (btn && dlg) btn.addEventListener('click', () => dlg.showModal());
+})();
+</script>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Persistent ─────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Persistent</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  A persistent dialog cannot be closed by backdrop click or <kbd>Escape</kbd>.
+  The user must interact with the content (e.g. a confirm button).
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-button id="dialog-pers-open" background="rose-600" size="small">Persistent</ui-button>
+    <ui-dialog id="dialog-pers-dlg" label="Terms Required" persistent>
+      <ui-text>You must accept the terms to continue.</ui-text>
+      <ui-layout-spacer size="0.75em"></ui-layout-spacer>
+      <ui-button background="indigo-600" onclick="this.closest('ui-dialog').hide()">Accept</ui-button>
+    </ui-dialog>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-dialog label="Terms" persistent&gt;
+  Must interact to close.
+&lt;/ui-dialog&gt;</ui-input-code>
+</div>
+
+<script>
+(function() {
+  const btn = document.getElementById('dialog-pers-open');
+  const dlg = document.getElementById('dialog-pers-dlg');
+  if (btn && dlg) btn.addEventListener('click', () => dlg.showModal());
+})();
+</script>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Playground ─────────────────────────────────────────── -->
+<ui-text type="heading" size="large">
+  <ui-icon color="indigo-500">play-circle</ui-icon>
+  Playground
+</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Adjust label, size, and behaviour interactively.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="playground">
+  <div class="playground-controls">
+    <ui-card elevation="1">
+      <ui-card-body>
+        <ui-text type="heading" size="small">Controls</ui-text>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input id="dialog-pg-label" label="Label" size="small" value="Dialog Title"></ui-input>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input id="dialog-pg-width" label="Width" size="small" value=""></ui-input>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-select id="dialog-pg-size" label="Size" size="small">
+          <option value="">— (default)</option>
+          <option value="small">small</option>
+          <option value="medium">medium</option>
+          <option value="large">large</option>
+          <option value="full">full</option>
+        </ui-input-select>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-layout-stack gap="0.35em">
+          <ui-input-checkbox id="dialog-pg-modal" label="Modal" checked></ui-input-checkbox>
+          <ui-input-checkbox id="dialog-pg-persistent" label="Persistent"></ui-input-checkbox>
+          <ui-input-checkbox id="dialog-pg-noheader" label="No Header"></ui-input-checkbox>
+        </ui-layout-stack>
+        <ui-layout-spacer size="0.75em"></ui-layout-spacer>
+        <ui-button id="dialog-pg-open" background="indigo-600">Open</ui-button>
+      </ui-card-body>
+    </ui-card>
+  </div>
+
+  <div class="playground-preview">
+    <div class="demo-card">
+      <div class="demo-preview">
+        <ui-dialog id="dialog-pg" label="Dialog Title">
+          <ui-text>Preview dialog content.</ui-text>
+          <ui-layout-spacer size="0.75em"></ui-layout-spacer>
+          <ui-button background="indigo-600">Primary</ui-button>
+        </ui-dialog>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  const dlg        = document.getElementById('dialog-pg');
+  const openBtn    = document.getElementById('dialog-pg-open');
+  const label      = document.getElementById('dialog-pg-label');
+  const width      = document.getElementById('dialog-pg-width');
+  const sizeCtrl   = document.getElementById('dialog-pg-size');
+  const modal      = document.getElementById('dialog-pg-modal');
+  const persistent = document.getElementById('dialog-pg-persistent');
+  const noHeader   = document.getElementById('dialog-pg-noheader');
+
+  if (!dlg || !openBtn || !label || !width) return;
+
+  /* Text inputs */
+  const update = () => {
+    const lbl = (label.value || '').trim();
+    const w   = (width.value || '').trim();
+    lbl ? dlg.setAttribute('label', lbl) : dlg.removeAttribute('label');
+    w   ? dlg.setAttribute('width', w)   : dlg.removeAttribute('width');
+  };
+  label.addEventListener('ui-input', update);
+  label.addEventListener('ui-change', update);
+  width.addEventListener('ui-input', update);
+  width.addEventListener('ui-change', update);
+
+  /* Size select */
+  if (sizeCtrl) {
+    sizeCtrl.addEventListener('ui-change', () => {
+      const v = (sizeCtrl.value || '').trim();
+      v ? dlg.setAttribute('size', v) : dlg.removeAttribute('size');
+    });
+  }
+
+  /* Checkboxes */
+  const bindCb = (ctrl, attr) => {
+    if (!ctrl) return;
+    ctrl.addEventListener('ui-change', () => {
+      ctrl.checked ? dlg.setAttribute(attr, '') : dlg.removeAttribute(attr);
+    });
+  };
+  bindCb(modal, 'modal');
+  bindCb(persistent, 'persistent');
+  bindCb(noHeader, 'no-header');
+
+  openBtn.addEventListener('click', () => dlg.showModal());
+})();
+</script>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── API Reference ──────────────────────────────────────── -->
+<ui-text type="heading" size="large">API Reference</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead>
+      <tr><th>Attribute</th><th>Type</th><th>Default</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>open</code></td><td>Boolean</td><td>false</td><td>Whether the dialog is currently visible</td></tr>
+      <tr><td><code>modal</code></td><td>Boolean</td><td>true</td><td>Show a backdrop overlay when open</td></tr>
+      <tr><td><code>size</code></td><td>String</td><td>—</td><td>Width preset: <code>small</code>, <code>medium</code>, <code>large</code>, <code>full</code></td></tr>
+      <tr><td><code>width</code></td><td>String</td><td>—</td><td>Custom CSS width (overrides <code>size</code>)</td></tr>
+      <tr><td><code>max-height</code></td><td>String</td><td>—</td><td>Maximum height before content scrolls</td></tr>
+      <tr><td><code>padding</code></td><td>String</td><td>—</td><td>Body padding (CSS length)</td></tr>
+      <tr><td><code>background</code></td><td>String</td><td>—</td><td>Panel background colour (palette token or CSS colour)</td></tr>
+      <tr><td><code>elevation</code></td><td>String</td><td>5</td><td>Shadow depth: <code>1</code>–<code>5</code></td></tr>
+      <tr><td><code>persistent</code></td><td>Boolean</td><td>false</td><td>Prevent closing on backdrop click or <kbd>Escape</kbd></td></tr>
+      <tr><td><code>no-header</code></td><td>Boolean</td><td>false</td><td>Hide the built-in title bar and close button</td></tr>
+      <tr><td><code>label</code></td><td>String</td><td>—</td><td>Header title text (also sets <code>aria-label</code>)</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Methods ────────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Methods</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead>
+      <tr><th>Method</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>show()</code></td><td>Open the dialog (non-modal, no backdrop)</td></tr>
+      <tr><td><code>showModal()</code></td><td>Open the dialog as a modal with backdrop</td></tr>
+      <tr><td><code>hide(reason?)</code></td><td>Close the dialog. Optional <code>reason</code> string (default: <code>'api'</code>).</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Events ─────────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Events</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead>
+      <tr><th>Event</th><th>Detail</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>ui-open</code></td><td>—</td><td>Fired when the dialog opens</td></tr>
+      <tr><td><code>ui-close</code></td><td><code>{ reason }</code></td><td>Fired after the dialog closes. Reason: <code>'close-button'</code>, <code>'backdrop'</code>, <code>'escape'</code>, or <code>'api'</code></td></tr>
+      <tr><td><code>ui-request-close</code></td><td><code>{ reason }</code></td><td>Fired when a close is requested. Call <code>e.preventDefault()</code> to block closing.</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>

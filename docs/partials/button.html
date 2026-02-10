@@ -1,0 +1,333 @@
+<!-- ============================================================
+     Button — Component Documentation
+     ============================================================ -->
+
+<ui-layout-stack gap="0.25em" style="margin-bottom:2em;">
+  <ui-text type="heading" size="xx-large">Button</ui-text>
+  <ui-text type="paragraph" color="gray-500">
+    <code>&lt;ui-button&gt;</code> is a flexible action button with sizes,
+    variants, link behaviour, and channel events.
+  </ui-text>
+</ui-layout-stack>
+
+<!-- ── Basic Usage ─────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Basic Usage</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Use filled, outline, flat, link, pill, circle, and plain styles.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack gap="0.75em">
+      <ui-layout-stack direction="horizontal" gap="0.5em" wrap>
+        <ui-button background="indigo-600">Primary</ui-button>
+        <ui-button background="emerald-600">Success</ui-button>
+        <ui-button background="rose-600">Danger</ui-button>
+      </ui-layout-stack>
+      <ui-layout-stack direction="horizontal" gap="0.5em" wrap>
+        <ui-button background="indigo-600" outline>Outline</ui-button>
+        <ui-button background="indigo-600" flat>Flat</ui-button>
+        <ui-button background="indigo-600" link href="#">Link</ui-button>
+        <ui-button plain>Plain</ui-button>
+      </ui-layout-stack>
+      <ui-layout-stack direction="horizontal" gap="0.5em" wrap>
+        <ui-button background="indigo-600" pill>Capsule</ui-button>
+        <ui-button background="indigo-600" circle>+</ui-button>
+      </ui-layout-stack>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-button background="indigo-600"&gt;Primary&lt;/ui-button&gt;
+&lt;ui-button background="indigo-600" outline&gt;Outline&lt;/ui-button&gt;
+&lt;ui-button background="indigo-600" flat&gt;Flat&lt;/ui-button&gt;
+&lt;ui-button background="indigo-600" link href="#"&gt;Link&lt;/ui-button&gt;
+&lt;ui-button plain&gt;Plain&lt;/ui-button&gt;
+&lt;ui-button background="indigo-600" pill&gt;Capsule&lt;/ui-button&gt;
+&lt;ui-button background="indigo-600" circle&gt;+&lt;/ui-button&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Sizes ───────────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Sizes</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Use the <code>size</code> attribute with CSS named keywords or any CSS length.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack direction="horizontal" gap="0.5em" wrap style="align-items:center;">
+      <ui-button background="indigo-600" size="xx-small">XX-Small</ui-button>
+      <ui-button background="indigo-600" size="x-small">X-Small</ui-button>
+      <ui-button background="indigo-600" size="small">Small</ui-button>
+      <ui-button background="indigo-600">Default</ui-button>
+      <ui-button background="indigo-600" size="large">Large</ui-button>
+      <ui-button background="indigo-600" size="x-large">X-Large</ui-button>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-button background="indigo-600" size="xx-small"&gt;XX-Small&lt;/ui-button&gt;
+&lt;ui-button background="indigo-600" size="small"&gt;Small&lt;/ui-button&gt;
+&lt;ui-button background="indigo-600"&gt;Default&lt;/ui-button&gt;
+&lt;ui-button background="indigo-600" size="large"&gt;Large&lt;/ui-button&gt;
+&lt;ui-button background="indigo-600" size="x-large"&gt;X-Large&lt;/ui-button&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Disabled ────────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Disabled</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Disabled buttons are faded and non-interactive.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack direction="horizontal" gap="0.5em" wrap>
+      <ui-button background="indigo-600" disabled>Disabled</ui-button>
+      <ui-button background="indigo-600" outline disabled>Outline</ui-button>
+      <ui-button background="indigo-600" flat disabled>Flat</ui-button>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-button background="indigo-600" disabled&gt;Disabled&lt;/ui-button&gt;
+&lt;ui-button background="indigo-600" outline disabled&gt;Outline&lt;/ui-button&gt;
+&lt;ui-button background="indigo-600" flat disabled&gt;Flat&lt;/ui-button&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Loading & Icon-Only ─────────────────────────────────── -->
+<ui-text type="heading" size="large">Loading &amp; Icon-Only</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Compose a loading state with a spinner, or use icon-only buttons for toolbars.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack direction="horizontal" gap="0.5em" wrap>
+      <ui-button background="indigo-600" disabled>
+        <ui-spinner size="small"></ui-spinner>
+        Saving
+      </ui-button>
+      <ui-button background="gray-200" circle>
+        <ui-icon>plus</ui-icon>
+      </ui-button>
+      <ui-button background="gray-200" circle>
+        <ui-icon>trash</ui-icon>
+      </ui-button>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-button background="indigo-600" disabled&gt;
+  &lt;ui-spinner size="small"&gt;&lt;/ui-spinner&gt;
+  Saving
+&lt;/ui-button&gt;
+
+&lt;ui-button background="gray-200" circle&gt;
+  &lt;ui-icon&gt;plus&lt;/ui-icon&gt;
+&lt;/ui-button&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Link Navigation ─────────────────────────────────────── -->
+<ui-text type="heading" size="large">Link Navigation</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Set <code>href</code> to navigate on click. Add <code>target="_blank"</code> for a new tab.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack direction="horizontal" gap="0.5em" wrap>
+      <ui-button background="indigo-600" href="#" target="_self">Same Tab</ui-button>
+      <ui-button background="sky-600" href="https://example.com" target="_blank">New Tab</ui-button>
+      <ui-button background="indigo-600" link href="#">Link Style</ui-button>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-button background="indigo-600" href="#" target="_self"&gt;Same Tab&lt;/ui-button&gt;
+&lt;ui-button background="sky-600" href="https://example.com" target="_blank"&gt;New Tab&lt;/ui-button&gt;
+&lt;ui-button background="indigo-600" link href="#"&gt;Link Style&lt;/ui-button&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Channel Events ──────────────────────────────────────── -->
+<ui-text type="heading" size="large">Channel Events</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Set <code>channel</code> to dispatch a named document-level event on click.
+  Useful with <code>&lt;ui-include&gt;</code> for SPA-style navigation.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack direction="horizontal" gap="0.5em" wrap>
+      <ui-button background="violet-600" channel="my-channel" href="/page">Channel + Href</ui-button>
+      <ui-button background="violet-600" channel="my-channel">Channel Only</ui-button>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-button background="violet-600" channel="my-channel" href="/page"&gt;
+  Channel + Href
+&lt;/ui-button&gt;
+&lt;ui-button background="violet-600" channel="my-channel"&gt;
+  Channel Only
+&lt;/ui-button&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Playground ─────────────────────────────────────────── -->
+<ui-text type="heading" size="large">
+  <ui-icon color="indigo-500">play-circle</ui-icon>
+  Playground
+</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Change label, colour, size, and variants interactively.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="playground">
+  <div class="playground-controls">
+    <ui-card elevation="1">
+      <ui-card-body>
+        <ui-text type="heading" size="small">Controls</ui-text>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input id="button-label" label="Label" size="small" value="Playground"></ui-input>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-layout-stack gap="0.35em">
+          <ui-input-checkbox id="button-disabled" label="Disabled"></ui-input-checkbox>
+          <ui-input-checkbox id="button-pill" label="Pill"></ui-input-checkbox>
+          <ui-input-checkbox id="button-circle" label="Circle"></ui-input-checkbox>
+          <ui-input-checkbox id="button-outline" label="Outline"></ui-input-checkbox>
+          <ui-input-checkbox id="button-flat" label="Flat"></ui-input-checkbox>
+          <ui-input-checkbox id="button-link" label="Link"></ui-input-checkbox>
+          <ui-input-checkbox id="button-plain" label="Plain"></ui-input-checkbox>
+        </ui-layout-stack>
+        <ui-layout-spacer size="0.75em"></ui-layout-spacer>
+        <ui-input-color id="button-bg" label="Background" size="small" value="indigo-600"></ui-input-color>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-color id="button-color" label="Text Color" size="small" value=""></ui-input-color>
+        <ui-layout-spacer size="0.75em"></ui-layout-spacer>
+        <ui-input-select id="button-size" label="Size" size="small" placeholder="Default">
+          <option value="">Default</option>
+          <option value="xx-small">XX-Small</option>
+          <option value="x-small">X-Small</option>
+          <option value="small">Small</option>
+          <option value="medium">Medium</option>
+          <option value="large">Large</option>
+          <option value="x-large">X-Large</option>
+          <option value="xx-large">XX-Large</option>
+        </ui-input-select>
+      </ui-card-body>
+    </ui-card>
+  </div>
+
+  <div class="playground-preview">
+    <div class="demo-card">
+      <div class="demo-preview">
+        <ui-button id="button-playground" background="indigo-600">Playground</ui-button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  const el    = document.getElementById('button-playground');
+  const label = document.getElementById('button-label');
+  if (!el || !label) return;
+
+  const setOrRemove = (attr, val) => val ? el.setAttribute(attr, val) : el.removeAttribute(attr);
+  const setBool     = (attr, on)  => on ? el.setAttribute(attr, '') : el.removeAttribute(attr);
+
+  const listen = (id, attr) => {
+    const ctrl = document.getElementById(id);
+    ctrl?.addEventListener('ui-change', () => setBool(attr, ctrl.checked));
+  };
+
+  /* Label */
+  const updateLabel = () => { el.textContent = (label.value || '').trim() || 'Playground'; };
+  label.addEventListener('ui-input', updateLabel);
+  label.addEventListener('ui-change', updateLabel);
+
+  /* Toggles */
+  listen('button-disabled', 'disabled');
+  listen('button-pill',     'pill');
+  listen('button-circle',   'circle');
+  listen('button-outline',  'outline');
+  listen('button-flat',     'flat');
+  listen('button-plain',    'plain');
+
+  /* Link toggle needs href */
+  const linkCtrl = document.getElementById('button-link');
+  linkCtrl?.addEventListener('ui-change', () => {
+    setBool('link', linkCtrl.checked);
+    if (linkCtrl.checked) el.setAttribute('href', '#');
+    else el.removeAttribute('href');
+  });
+
+  /* Colour pickers */
+  document.getElementById('button-bg')?.addEventListener('ui-change', function() {
+    setOrRemove('background', (this.value || '').trim());
+  });
+  document.getElementById('button-color')?.addEventListener('ui-change', function() {
+    setOrRemove('color', (this.value || '').trim());
+  });
+
+  /* Size */
+  document.getElementById('button-size')?.addEventListener('ui-change', function() {
+    setOrRemove('size', (this.value || '').trim());
+  });
+})();
+</script>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── API Reference ───────────────────────────────────────── -->
+<ui-text type="heading" size="large">API Reference</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead>
+      <tr><th>Attribute</th><th>Type</th><th>Default</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>background</code></td><td>String</td><td>—</td><td>Background colour (palette token or CSS colour)</td></tr>
+      <tr><td><code>color</code></td><td>String</td><td>—</td><td>Text colour (auto-detected if omitted)</td></tr>
+      <tr><td><code>size</code></td><td>String</td><td>—</td><td>Size keyword (<code>xx-small</code>–<code>xxx-large</code>) or CSS length</td></tr>
+      <tr><td><code>disabled</code></td><td>Boolean</td><td>false</td><td>Disable interaction</td></tr>
+      <tr><td><code>pill</code></td><td>Boolean</td><td>false</td><td>Fully rounded ends (capsule shape)</td></tr>
+      <tr><td><code>circle</code></td><td>Boolean</td><td>false</td><td>Square with 50% radius (icon-only)</td></tr>
+      <tr><td><code>outline</code></td><td>Boolean</td><td>false</td><td>Transparent background with coloured border</td></tr>
+      <tr><td><code>flat</code></td><td>Boolean</td><td>false</td><td>No background; subtle hover tint</td></tr>
+      <tr><td><code>link</code></td><td>Boolean</td><td>false</td><td>Styled as a hyperlink (underline on hover)</td></tr>
+      <tr><td><code>plain</code></td><td>Boolean</td><td>false</td><td>No background, border, or hover effects</td></tr>
+      <tr><td><code>href</code></td><td>String</td><td>—</td><td>Navigate to this URL on click</td></tr>
+      <tr><td><code>target</code></td><td>String</td><td>—</td><td>Link target (<code>_blank</code>, <code>_self</code>, etc.)</td></tr>
+      <tr><td><code>channel</code></td><td>String</td><td>—</td><td>Dispatch a named document-level event on click</td></tr>
+      <tr><td><code>type</code></td><td>String</td><td>button</td><td>HTML button type: <code>button</code> | <code>submit</code> | <code>reset</code></td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Events ──────────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Events</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead>
+      <tr><th>Event</th><th>Detail</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>ui-click</code></td><td>—</td><td>Fired when the button is clicked (not when disabled)</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>

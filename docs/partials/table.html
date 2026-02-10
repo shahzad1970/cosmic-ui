@@ -1,0 +1,364 @@
+<!-- ============================================================
+     Table — Component Documentation
+     ============================================================ -->
+
+<ui-layout-stack gap="0.25em" style="margin-bottom:2em;">
+  <ui-text type="heading" size="xx-large">Table</ui-text>
+  <ui-text type="paragraph" color="gray-500">
+    <code>&lt;ui-table&gt;</code> styles native HTML tables and supports striped rows,
+    borders, hover, compact mode, sticky headers, sorting, and row selection.
+  </ui-text>
+</ui-layout-stack>
+
+<ui-text type="heading" size="large">Basic Table</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Wrap a standard <code>&lt;table&gt;</code> inside <code>&lt;ui-table&gt;</code>.
+  Add <code>striped</code> and <code>hoverable</code> for a polished look.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-table striped hoverable>
+      <table>
+        <thead>
+          <tr><th>Name</th><th>Role</th><th>Status</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Alex</td><td>Admin</td><td><ui-badge background="emerald-500" size="xx-small" pill>Active</ui-badge></td></tr>
+          <tr><td>Bryn</td><td>Editor</td><td><ui-badge background="amber-500" size="xx-small" pill>Pending</ui-badge></td></tr>
+          <tr><td>Cameron</td><td>Viewer</td><td><ui-badge background="gray-400" size="xx-small" pill>Disabled</ui-badge></td></tr>
+        </tbody>
+      </table>
+    </ui-table>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-table striped hoverable&gt;
+  &lt;table&gt;
+    &lt;thead&gt;
+      &lt;tr&gt;&lt;th&gt;Name&lt;/th&gt;&lt;th&gt;Role&lt;/th&gt;&lt;th&gt;Status&lt;/th&gt;&lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+      &lt;tr&gt;&lt;td&gt;Alex&lt;/td&gt;&lt;td&gt;Admin&lt;/td&gt;&lt;td&gt;Active&lt;/td&gt;&lt;/tr&gt;
+      &lt;tr&gt;&lt;td&gt;Bryn&lt;/td&gt;&lt;td&gt;Editor&lt;/td&gt;&lt;td&gt;Pending&lt;/td&gt;&lt;/tr&gt;
+    &lt;/tbody&gt;
+  &lt;/table&gt;
+&lt;/ui-table&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<ui-text type="heading" size="large">Variants</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Compare <code>bordered</code>, <code>compact</code>, and default styling side by side.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack gap="1em">
+      <ui-text size="x-small" weight="600" color="gray-500">Bordered</ui-text>
+      <ui-table bordered>
+        <table>
+          <thead><tr><th>Item</th><th>Qty</th><th>Price</th></tr></thead>
+          <tbody>
+            <tr><td>Widget A</td><td>12</td><td>$4.99</td></tr>
+            <tr><td>Widget B</td><td>7</td><td>$9.49</td></tr>
+          </tbody>
+        </table>
+      </ui-table>
+
+      <ui-text size="x-small" weight="600" color="gray-500">Compact</ui-text>
+      <ui-table compact striped>
+        <table>
+          <thead><tr><th>Item</th><th>Qty</th><th>Price</th></tr></thead>
+          <tbody>
+            <tr><td>Widget A</td><td>12</td><td>$4.99</td></tr>
+            <tr><td>Widget B</td><td>7</td><td>$9.49</td></tr>
+          </tbody>
+        </table>
+      </ui-table>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-table bordered&gt;...&lt;/ui-table&gt;
+&lt;ui-table compact striped&gt;...&lt;/ui-table&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<ui-text type="heading" size="large">Sizes</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Scale the entire table with named keywords or any CSS length.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack gap="1em">
+      <ui-text size="x-small" weight="600" color="gray-500">Small</ui-text>
+      <ui-table size="small" striped>
+        <table>
+          <thead><tr><th>Name</th><th>Email</th></tr></thead>
+          <tbody>
+            <tr><td>Alice</td><td>alice@example.com</td></tr>
+            <tr><td>Bob</td><td>bob@example.com</td></tr>
+          </tbody>
+        </table>
+      </ui-table>
+
+      <ui-text size="x-small" weight="600" color="gray-500">Large</ui-text>
+      <ui-table size="large" striped>
+        <table>
+          <thead><tr><th>Name</th><th>Email</th></tr></thead>
+          <tbody>
+            <tr><td>Alice</td><td>alice@example.com</td></tr>
+            <tr><td>Bob</td><td>bob@example.com</td></tr>
+          </tbody>
+        </table>
+      </ui-table>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-table size="small" striped&gt;...&lt;/ui-table&gt;
+&lt;ui-table size="large" striped&gt;...&lt;/ui-table&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<ui-text type="heading" size="large">Sticky Header</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Add <code>sticky-header</code> to keep the header visible while scrolling. Set a fixed height on the table.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-table striped hoverable sticky-header style="height: 200px;">
+      <table>
+        <thead><tr><th>Name</th><th>Role</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td>Alex</td><td>Admin</td><td>Active</td></tr>
+          <tr><td>Bryn</td><td>Editor</td><td>Pending</td></tr>
+          <tr><td>Cameron</td><td>Viewer</td><td>Active</td></tr>
+          <tr><td>Drew</td><td>Admin</td><td>Active</td></tr>
+          <tr><td>Emery</td><td>Editor</td><td>Pending</td></tr>
+          <tr><td>Frankie</td><td>Viewer</td><td>Active</td></tr>
+          <tr><td>Gray</td><td>Admin</td><td>Disabled</td></tr>
+          <tr><td>Hayden</td><td>Editor</td><td>Active</td></tr>
+        </tbody>
+      </table>
+    </ui-table>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-table striped hoverable sticky-header style="height: 200px;"&gt;
+  &lt;table&gt;...&lt;/table&gt;
+&lt;/ui-table&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<ui-text type="heading" size="large">JS-Driven (Sort &amp; Select)</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Set <code>columns</code> and <code>data</code> via JavaScript for sortable headers and row selection.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-table id="table-js-demo" striped hoverable selectable></ui-table>
+  </div>
+  <ui-input-code language="javascript" readonly height="auto">const table = document.querySelector('ui-table');
+
+table.columns = [
+  { key: 'name',  label: 'Name',  sortable: true },
+  { key: 'email', label: 'Email' },
+  { key: 'role',  label: 'Role',  sortable: true },
+];
+
+table.data = [
+  { name: 'Alice',   email: 'alice@ex.com',   role: 'Admin'  },
+  { name: 'Bob',     email: 'bob@ex.com',     role: 'User'   },
+  { name: 'Charlie', email: 'charlie@ex.com', role: 'Editor' },
+];
+
+table.addEventListener('ui-sort', e =&gt; console.log('Sort:', e.detail));
+table.addEventListener('ui-select', e =&gt; console.log('Select:', e.detail));</ui-input-code>
+</div>
+
+<script>
+(function() {
+  const tbl = document.getElementById('table-js-demo');
+  if (!tbl) return;
+  requestAnimationFrame(() => {
+    tbl.columns = [
+      { key: 'name',  label: 'Name',  sortable: true },
+      { key: 'email', label: 'Email' },
+      { key: 'role',  label: 'Role',  sortable: true },
+    ];
+    tbl.data = [
+      { name: 'Alice',   email: 'alice@example.com',   role: 'Admin'  },
+      { name: 'Bob',     email: 'bob@example.com',     role: 'User'   },
+      { name: 'Charlie', email: 'charlie@example.com', role: 'Editor' },
+      { name: 'Diana',   email: 'diana@example.com',   role: 'Admin'  },
+      { name: 'Ethan',   email: 'ethan@example.com',   role: 'Viewer' },
+    ];
+  });
+})();
+</script>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Playground ─────────────────────────────────────────── -->
+<ui-text type="heading" size="large">
+  <ui-icon color="indigo-500">play-circle</ui-icon>
+  Playground
+</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Toggle table styles interactively.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="playground">
+  <div class="playground-controls">
+    <ui-card elevation="1">
+      <ui-card-body>
+        <ui-text type="heading" size="small">Controls</ui-text>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-select id="table-size" label="Size" size="small">
+          <option value="">— (default)</option>
+          <option value="xx-small">xx-small</option>
+          <option value="x-small">x-small</option>
+          <option value="small">small</option>
+          <option value="medium">medium</option>
+          <option value="large">large</option>
+          <option value="x-large">x-large</option>
+        </ui-input-select>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-layout-stack gap="0.35em">
+          <ui-input-checkbox id="table-striped" label="Striped" checked></ui-input-checkbox>
+          <ui-input-checkbox id="table-bordered" label="Bordered"></ui-input-checkbox>
+          <ui-input-checkbox id="table-hoverable" label="Hoverable" checked></ui-input-checkbox>
+          <ui-input-checkbox id="table-compact" label="Compact"></ui-input-checkbox>
+          <ui-input-checkbox id="table-sticky" label="Sticky Header"></ui-input-checkbox>
+        </ui-layout-stack>
+      </ui-card-body>
+    </ui-card>
+  </div>
+
+  <div class="playground-preview">
+    <div class="demo-card">
+      <div class="demo-preview">
+        <ui-table id="table-playground" striped hoverable style="height: 220px;">
+          <table>
+            <thead>
+              <tr><th>Name</th><th>Role</th><th>Status</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Alex</td><td>Admin</td><td>Active</td></tr>
+              <tr><td>Bryn</td><td>Editor</td><td>Pending</td></tr>
+              <tr><td>Cameron</td><td>Viewer</td><td>Disabled</td></tr>
+              <tr><td>Drew</td><td>Admin</td><td>Active</td></tr>
+              <tr><td>Emery</td><td>Editor</td><td>Pending</td></tr>
+              <tr><td>Frankie</td><td>Viewer</td><td>Active</td></tr>
+              <tr><td>Gray</td><td>Admin</td><td>Active</td></tr>
+              <tr><td>Hayden</td><td>Editor</td><td>Pending</td></tr>
+            </tbody>
+          </table>
+        </ui-table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  const el = document.getElementById('table-playground');
+  if (!el) return;
+
+  /* Size select */
+  const sizeCtrl = document.getElementById('table-size');
+  if (sizeCtrl) {
+    sizeCtrl.addEventListener('ui-change', () => {
+      const val = (sizeCtrl.value || '').trim();
+      if (val) el.setAttribute('size', val);
+      else el.removeAttribute('size');
+    });
+  }
+
+  /* Boolean checkboxes */
+  const bools = {
+    'table-striped':   'striped',
+    'table-bordered':  'bordered',
+    'table-hoverable': 'hoverable',
+    'table-compact':   'compact',
+    'table-sticky':    'sticky-header',
+  };
+  Object.entries(bools).forEach(([id, attr]) => {
+    const ctrl = document.getElementById(id);
+    if (!ctrl) return;
+    ctrl.addEventListener('ui-change', () => {
+      if (ctrl.checked) el.setAttribute(attr, '');
+      else el.removeAttribute(attr);
+    });
+  });
+})();
+</script>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<ui-text type="heading" size="large">API Reference</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead>
+      <tr><th>Attribute</th><th>Type</th><th>Default</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>striped</code></td><td>Boolean</td><td>false</td><td>Alternate row shading on even rows</td></tr>
+      <tr><td><code>bordered</code></td><td>Boolean</td><td>false</td><td>Add borders around every cell</td></tr>
+      <tr><td><code>hoverable</code></td><td>Boolean</td><td>false</td><td>Highlight rows on mouse hover</td></tr>
+      <tr><td><code>compact</code></td><td>Boolean</td><td>false</td><td>Reduced cell padding for dense data</td></tr>
+      <tr><td><code>selectable</code></td><td>Boolean</td><td>false</td><td>Show row checkboxes and enable selection (JS-driven mode)</td></tr>
+      <tr><td><code>sortable</code></td><td>Boolean</td><td>false</td><td>Enable click-to-sort on all column headers (JS-driven mode)</td></tr>
+      <tr><td><code>size</code></td><td>String</td><td>—</td><td>Table font-size (named keyword or CSS length)</td></tr>
+      <tr><td><code>background</code></td><td>String</td><td>—</td><td>Table background colour (palette token or CSS colour)</td></tr>
+      <tr><td><code>sticky-header</code></td><td>Boolean</td><td>false</td><td>Keep the <code>&lt;thead&gt;</code> pinned while the body scrolls (set a fixed height)</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="1.5em"></ui-layout-spacer>
+
+<ui-text type="heading" size="medium">JS Properties</ui-text>
+<ui-layout-spacer size="0.5em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead>
+      <tr><th>Property</th><th>Type</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>columns</code></td><td>Array</td><td>Column definitions: <code>{ key, label?, sortable?, align?, render? }</code></td></tr>
+      <tr><td><code>data</code></td><td>Array</td><td>Array of row objects — keys must match column <code>key</code> values</td></tr>
+      <tr><td><code>selectedRows</code></td><td>Array (getter)</td><td>Returns the currently selected row objects</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Events ──────────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Events</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead>
+      <tr><th>Event</th><th>Detail</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>ui-sort</code></td><td><code>{ column, direction }</code></td><td>Fired when a sortable column header is clicked. <code>direction</code> is <code>"asc"</code> or <code>"desc"</code>.</td></tr>
+      <tr><td><code>ui-select</code></td><td><code>{ selected, row, index }</code></td><td>Fired when row selection changes. <code>row</code> is <code>null</code> for select-all.</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>

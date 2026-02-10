@@ -1,0 +1,20 @@
+{
+  "type": "polarArea",
+  "data": {
+    "labels": ["North", "East", "South", "West"],
+    "datasets": [
+      {
+        "data": [18, 22, 14, 20],
+        "backgroundColor": ["#6366f1", "#14b8a6", "#f59e0b", "#ef4444"]
+      }
+    ]
+  },
+  "options": {
+    "responsive": true,
+    "maintainAspectRatio": false,
+    "plugins": { "legend": { "position": "bottom", "labels": { "color": "#6b7280" } } },
+    "scales": {
+      "r": { "ticks": { "display": false }, "grid": { "color": "#e5e7eb" } }
+    }
+  }
+}

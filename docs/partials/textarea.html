@@ -1,0 +1,328 @@
+<!-- ============================================================
+     Textarea — Component Documentation
+     ============================================================ -->
+
+<ui-layout-stack gap="0.25em" style="margin-bottom:2em;">
+  <ui-text type="heading" size="xx-large">Textarea</ui-text>
+  <ui-text type="paragraph" color="gray-500">
+    <code>&lt;ui-input-textarea&gt;</code> provides a multi-line text input with
+    label, help text, error state, auto-resize, and full colour support.
+  </ui-text>
+</ui-layout-stack>
+
+<!-- ── Basic Usage ────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Basic Usage</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Use <code>rows</code> to control the visible height.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-input-textarea label="Message" placeholder="Write a note..." rows="4"></ui-input-textarea>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-input-textarea label="Message" placeholder="Write a note..." rows="4"&gt;&lt;/ui-input-textarea&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Help & Error ───────────────────────────────────────── -->
+<ui-text type="heading" size="large">Help &amp; Error Messages</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Use <code>help</code> for guidance text below the field.
+  Set <code>error</code> to show a red error message (replaces help text).
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack gap="1em">
+      <ui-input-textarea label="Bio" help="Max 500 characters" rows="3" placeholder="Tell us about yourself..."></ui-input-textarea>
+      <ui-input-textarea label="Bio" error="Bio is required" rows="3"></ui-input-textarea>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-input-textarea label="Bio" help="Max 500 characters" rows="3"&gt;&lt;/ui-input-textarea&gt;
+&lt;ui-input-textarea label="Bio" error="Bio is required" rows="3"&gt;&lt;/ui-input-textarea&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Auto Resize ────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Auto Resize</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Add the <code>autoresize</code> attribute to make the textarea grow as the user types.
+  Manual resize is disabled in this mode.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-input-textarea label="Notes" placeholder="Start typing — I'll grow!" rows="2" autoresize></ui-input-textarea>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-input-textarea label="Notes" placeholder="Start typing — I'll grow!" rows="2" autoresize&gt;&lt;/ui-input-textarea&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Read-only & Disabled ───────────────────────────────── -->
+<ui-text type="heading" size="large">Read-only &amp; Disabled</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Use <code>readonly</code> to prevent editing while keeping the textarea selectable,
+  or <code>disabled</code> to grey out entirely.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack gap="1em">
+      <ui-input-textarea label="Read-only" value="This text cannot be edited." readonly rows="2"></ui-input-textarea>
+      <ui-input-textarea label="Disabled" value="This field is disabled." disabled rows="2"></ui-input-textarea>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-input-textarea label="Read-only" value="This text cannot be edited." readonly rows="2"&gt;&lt;/ui-input-textarea&gt;
+&lt;ui-input-textarea label="Disabled" value="This field is disabled." disabled rows="2"&gt;&lt;/ui-input-textarea&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Sizes ──────────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Sizes</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  The <code>size</code> attribute scales the font. Use named keywords or any CSS length.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack gap="1em">
+      <ui-input-textarea label="Small" size="small" rows="2" placeholder="Small textarea"></ui-input-textarea>
+      <ui-input-textarea label="Default" rows="2" placeholder="Default textarea"></ui-input-textarea>
+      <ui-input-textarea label="Large" size="large" rows="2" placeholder="Large textarea"></ui-input-textarea>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-input-textarea label="Small" size="small" rows="2"&gt;&lt;/ui-input-textarea&gt;
+&lt;ui-input-textarea label="Default" rows="2"&gt;&lt;/ui-input-textarea&gt;
+&lt;ui-input-textarea label="Large" size="large" rows="2"&gt;&lt;/ui-input-textarea&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Background & Color ─────────────────────────────────── -->
+<ui-text type="heading" size="large">Background &amp; Color</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Use palette tokens or any CSS colour for <code>background</code> and <code>color</code>.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack gap="1em">
+      <ui-input-textarea label="Dark" background="gray-800" color="gray-100" rows="2" value="Dark background with light text."></ui-input-textarea>
+      <ui-input-textarea label="Tinted" background="indigo-50" rows="2" value="Subtle indigo background."></ui-input-textarea>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-input-textarea label="Dark" background="gray-800" color="gray-100" rows="2"&gt;&lt;/ui-input-textarea&gt;
+&lt;ui-input-textarea label="Tinted" background="indigo-50" rows="2"&gt;&lt;/ui-input-textarea&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Playground ─────────────────────────────────────────── -->
+<ui-text type="heading" size="large">
+  <ui-icon color="indigo-500">play-circle</ui-icon>
+  Playground
+</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Change every attribute and see the textarea update live.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="playground">
+  <div class="playground-controls">
+    <ui-card elevation="1">
+      <ui-card-body>
+        <ui-text type="heading" size="small">Controls</ui-text>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input id="ta-label" label="Label" size="small" value="Notes"></ui-input>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input id="ta-placeholder" label="Placeholder" size="small" value="Write something..."></ui-input>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input id="ta-help" label="Help" size="small" placeholder="Help text"></ui-input>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input id="ta-error" label="Error" size="small" placeholder="Error message"></ui-input>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input id="ta-rows" label="Rows" size="small" value="4"></ui-input>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-select id="ta-size" label="Size" size="small" placeholder="Default">
+          <option value="">Default</option>
+          <option value="xx-small">xx-small</option>
+          <option value="x-small">x-small</option>
+          <option value="small">small</option>
+          <option value="medium">medium</option>
+          <option value="large">large</option>
+          <option value="x-large">x-large</option>
+          <option value="xx-large">xx-large</option>
+        </ui-input-select>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-color id="ta-background" label="Background" size="small" placeholder="e.g. gray-100"></ui-input-color>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-color id="ta-color" label="Color" size="small" placeholder="e.g. gray-800"></ui-input-color>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-checkbox id="ta-autoresize" label="Auto Resize"></ui-input-checkbox>
+        <ui-layout-spacer size="0.25em"></ui-layout-spacer>
+        <ui-input-checkbox id="ta-required" label="Required"></ui-input-checkbox>
+        <ui-layout-spacer size="0.25em"></ui-layout-spacer>
+        <ui-input-checkbox id="ta-readonly" label="Read-only"></ui-input-checkbox>
+        <ui-layout-spacer size="0.25em"></ui-layout-spacer>
+        <ui-input-checkbox id="ta-disabled" label="Disabled"></ui-input-checkbox>
+      </ui-card-body>
+    </ui-card>
+  </div>
+
+  <div class="playground-preview">
+    <div class="demo-card">
+      <div class="demo-preview">
+        <ui-input-textarea id="ta-playground" label="Notes" placeholder="Write something..." rows="4"></ui-input-textarea>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  const ta = document.getElementById('ta-playground');
+  const label      = document.getElementById('ta-label');
+  const placeholder= document.getElementById('ta-placeholder');
+  const help       = document.getElementById('ta-help');
+  const error      = document.getElementById('ta-error');
+  const rows       = document.getElementById('ta-rows');
+  const sizeInput  = document.getElementById('ta-size');
+  const bgInput    = document.getElementById('ta-background');
+  const colorInput = document.getElementById('ta-color');
+  const autoresize = document.getElementById('ta-autoresize');
+  const required   = document.getElementById('ta-required');
+  const readonlyC  = document.getElementById('ta-readonly');
+  const disabled   = document.getElementById('ta-disabled');
+
+  if (!ta) return;
+
+  const setOrRemove = (el, attr, val) => {
+    if (val) el.setAttribute(attr, val); else el.removeAttribute(attr);
+  };
+
+  const update = () => {
+    setOrRemove(ta, 'label',       (label?.value || '').trim());
+    setOrRemove(ta, 'placeholder', (placeholder?.value || '').trim());
+    setOrRemove(ta, 'help',        (help?.value || '').trim());
+    setOrRemove(ta, 'error',       (error?.value || '').trim());
+    setOrRemove(ta, 'size',        (sizeInput?.value || '').trim());
+    setOrRemove(ta, 'background',  (bgInput?.value || '').trim());
+    setOrRemove(ta, 'color',       (colorInput?.value || '').trim());
+    const r = parseInt(rows?.value, 10);
+    if (r > 0) ta.setAttribute('rows', String(r)); else ta.removeAttribute('rows');
+  };
+
+  const updateFlags = () => {
+    if (autoresize?.checked) ta.setAttribute('autoresize', ''); else ta.removeAttribute('autoresize');
+    if (required?.checked)   ta.setAttribute('required', '');   else ta.removeAttribute('required');
+    if (readonlyC?.checked)  ta.setAttribute('readonly', '');   else ta.removeAttribute('readonly');
+    if (disabled?.checked)   ta.setAttribute('disabled', '');   else ta.removeAttribute('disabled');
+  };
+
+  const listen = (el, fn) => {
+    if (!el) return;
+    el.addEventListener('ui-input', fn);
+    el.addEventListener('ui-change', fn);
+  };
+
+  listen(label, update);
+  listen(placeholder, update);
+  listen(help, update);
+  listen(error, update);
+  listen(rows, update);
+  listen(sizeInput, update);
+  listen(bgInput, update);
+  listen(colorInput, update);
+  if (autoresize) autoresize.addEventListener('ui-change', updateFlags);
+  if (required)   required.addEventListener('ui-change', updateFlags);
+  if (readonlyC)  readonlyC.addEventListener('ui-change', updateFlags);
+  if (disabled)   disabled.addEventListener('ui-change', updateFlags);
+
+  update();
+  updateFlags();
+})();
+</script>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── API Reference ──────────────────────────────────────── -->
+<ui-text type="heading" size="large">API Reference</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead>
+      <tr><th>Attribute</th><th>Type</th><th>Default</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>value</code></td><td>String</td><td><code>""</code></td><td>Current value</td></tr>
+      <tr><td><code>placeholder</code></td><td>String</td><td>—</td><td>Placeholder text</td></tr>
+      <tr><td><code>name</code></td><td>String</td><td>—</td><td>Form field name</td></tr>
+      <tr><td><code>label</code></td><td>String</td><td>—</td><td>Label text above the textarea</td></tr>
+      <tr><td><code>help</code></td><td>String</td><td>—</td><td>Help text below the textarea</td></tr>
+      <tr><td><code>error</code></td><td>String</td><td>—</td><td>Error message (replaces help, shows red border)</td></tr>
+      <tr><td><code>size</code></td><td>String</td><td>—</td><td>Font size (named keyword or CSS length)</td></tr>
+      <tr><td><code>background</code></td><td>String</td><td>—</td><td>Background colour (palette token or CSS colour)</td></tr>
+      <tr><td><code>color</code></td><td>String</td><td>—</td><td>Text colour (palette token or CSS colour)</td></tr>
+      <tr><td><code>rows</code></td><td>Number</td><td><code>3</code></td><td>Visible row count</td></tr>
+      <tr><td><code>minlength</code></td><td>Number</td><td><code>0</code></td><td>Minimum character length</td></tr>
+      <tr><td><code>maxlength</code></td><td>Number</td><td><code>0</code></td><td>Maximum character length</td></tr>
+      <tr><td><code>disabled</code></td><td>Boolean</td><td><code>false</code></td><td>Disables the textarea</td></tr>
+      <tr><td><code>readonly</code></td><td>Boolean</td><td><code>false</code></td><td>Read-only mode</td></tr>
+      <tr><td><code>required</code></td><td>Boolean</td><td><code>false</code></td><td>Marks as required (shows asterisk)</td></tr>
+      <tr><td><code>autoresize</code></td><td>Boolean</td><td><code>false</code></td><td>Auto-grow height to fit content</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Events ──────────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Events</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead>
+      <tr><th>Event</th><th>Detail</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>ui-input</code></td><td><code>{ value }</code></td><td>Fires on every keystroke</td></tr>
+      <tr><td><code>ui-change</code></td><td><code>{ value }</code></td><td>Fires on blur (final value)</td></tr>
+      <tr><td><code>ui-focus</code></td><td>—</td><td>Textarea gained focus</td></tr>
+      <tr><td><code>ui-blur</code></td><td>—</td><td>Textarea lost focus</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── CSS Parts ──────────────────────────────────────────── -->
+<ui-text type="heading" size="large">CSS Parts</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead>
+      <tr><th>Part</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>label</code></td><td>The label element above the textarea</td></tr>
+      <tr><td><code>textarea</code></td><td>The native <code>&lt;textarea&gt;</code> element</td></tr>
+      <tr><td><code>help</code></td><td>Help text below the textarea</td></tr>
+      <tr><td><code>error</code></td><td>Error message below the textarea</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>

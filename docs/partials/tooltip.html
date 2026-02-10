@@ -1,0 +1,248 @@
+<!-- ============================================================
+     Tooltip — Component Documentation
+     ============================================================ -->
+
+<ui-layout-stack gap="0.25em" style="margin-bottom:2em;">
+  <ui-text type="heading" size="xx-large">Tooltip</ui-text>
+  <ui-text type="paragraph" color="gray-500">
+    <code>&lt;ui-tooltip&gt;</code> shows contextual help text on hover or focus.
+    Wrap any element and set the <code>content</code> attribute.
+  </ui-text>
+</ui-layout-stack>
+
+<!-- ── Basic Usage ────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Basic Usage</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Wrap a target element and provide a <code>content</code> string.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack direction="horizontal" gap="0.5em" wrap>
+      <ui-tooltip content="Save your changes">
+        <ui-button background="indigo-600">Save</ui-button>
+      </ui-tooltip>
+      <ui-tooltip content="This action is permanent">
+        <ui-button background="rose-600">Delete</ui-button>
+      </ui-tooltip>
+      <ui-tooltip content="Hover works on any element">
+        <ui-badge background="gray-200">Badge</ui-badge>
+      </ui-tooltip>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-tooltip content="Save your changes"&gt;
+  &lt;ui-button background="indigo-600"&gt;Save&lt;/ui-button&gt;
+&lt;/ui-tooltip&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Placements ─────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Placements</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Position the tooltip with <code>placement</code>: <code>top</code> (default),
+  <code>bottom</code>, <code>left</code>, or <code>right</code>.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack direction="horizontal" gap="0.75em" wrap style="justify-content:center">
+      <ui-tooltip content="Top (default)" placement="top">
+        <ui-button size="small">Top</ui-button>
+      </ui-tooltip>
+      <ui-tooltip content="Bottom" placement="bottom">
+        <ui-button size="small">Bottom</ui-button>
+      </ui-tooltip>
+      <ui-tooltip content="Left" placement="left">
+        <ui-button size="small">Left</ui-button>
+      </ui-tooltip>
+      <ui-tooltip content="Right" placement="right">
+        <ui-button size="small">Right</ui-button>
+      </ui-tooltip>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-tooltip content="Top" placement="top"&gt;...&lt;/ui-tooltip&gt;
+&lt;ui-tooltip content="Bottom" placement="bottom"&gt;...&lt;/ui-tooltip&gt;
+&lt;ui-tooltip content="Left" placement="left"&gt;...&lt;/ui-tooltip&gt;
+&lt;ui-tooltip content="Right" placement="right"&gt;...&lt;/ui-tooltip&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Styling ────────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Styling</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Customise colours, size, and max-width.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack direction="horizontal" gap="0.75em" wrap>
+      <ui-tooltip content="Indigo tooltip" background="indigo-600">
+        <ui-button size="small">Indigo</ui-button>
+      </ui-tooltip>
+      <ui-tooltip content="Rose tooltip" background="rose-600">
+        <ui-button size="small">Rose</ui-button>
+      </ui-tooltip>
+      <ui-tooltip content="Emerald tooltip" background="emerald-600">
+        <ui-button size="small">Emerald</ui-button>
+      </ui-tooltip>
+      <ui-tooltip content="Small font size" size="x-small">
+        <ui-button size="small">Tiny</ui-button>
+      </ui-tooltip>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-tooltip content="Indigo" background="indigo-600"&gt;...&lt;/ui-tooltip&gt;
+&lt;ui-tooltip content="Rose" background="rose-600"&gt;...&lt;/ui-tooltip&gt;
+&lt;ui-tooltip content="Small text" size="x-small"&gt;...&lt;/ui-tooltip&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Disabled ──────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Disabled</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Set <code>disabled</code> to suppress the tooltip while keeping it in the DOM.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-tooltip content="You won't see this" disabled>
+      <ui-button size="small" background="gray-200">Disabled tooltip</ui-button>
+    </ui-tooltip>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-tooltip content="Hidden" disabled&gt;...&lt;/ui-tooltip&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Playground ─────────────────────────────────────────── -->
+<ui-text type="heading" size="large">
+  <ui-icon color="indigo-500">play-circle</ui-icon>
+  Playground
+</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Change content, placement, colours, and options interactively.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="playground">
+  <div class="playground-controls">
+    <ui-card elevation="1">
+      <ui-card-body>
+        <ui-text type="heading" size="small">Controls</ui-text>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input id="tooltip-content" label="Content" size="small" value="Helpful tip"></ui-input>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-select id="tooltip-placement" label="Placement" size="small">
+          <option value="top" selected>top</option>
+          <option value="bottom">bottom</option>
+          <option value="left">left</option>
+          <option value="right">right</option>
+        </ui-input-select>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-select id="tooltip-size" label="Size" size="small">
+          <option value="">— (default)</option>
+          <option value="xx-small">xx-small</option>
+          <option value="x-small">x-small</option>
+          <option value="small">small</option>
+          <option value="medium">medium</option>
+          <option value="large">large</option>
+        </ui-input-select>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-color id="tooltip-bg" label="Background" size="small" value=""></ui-input-color>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-color id="tooltip-color" label="Color" size="small" value=""></ui-input-color>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input id="tooltip-delay" label="Delay (ms)" size="small" value="200"></ui-input>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-checkbox id="tooltip-disabled" label="Disabled"></ui-input-checkbox>
+      </ui-card-body>
+    </ui-card>
+  </div>
+
+  <div class="playground-preview">
+    <div class="demo-card">
+      <div class="demo-preview">
+        <ui-tooltip id="tooltip-playground" content="Helpful tip">
+          <ui-button background="gray-200">Hover me</ui-button>
+        </ui-tooltip>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  const tooltip     = document.getElementById('tooltip-playground');
+  const content     = document.getElementById('tooltip-content');
+  const placement   = document.getElementById('tooltip-placement');
+  const sizeCtrl    = document.getElementById('tooltip-size');
+  const bg          = document.getElementById('tooltip-bg');
+  const color       = document.getElementById('tooltip-color');
+  const delay       = document.getElementById('tooltip-delay');
+  const disabled    = document.getElementById('tooltip-disabled');
+
+  if (!tooltip || !content || !placement || !bg || !color || !delay || !disabled) return;
+
+  const setOrRemove = (attr, val) => {
+    val ? tooltip.setAttribute(attr, val) : tooltip.removeAttribute(attr);
+  };
+
+  const update = () => {
+    setOrRemove('content',    (content.value || '').trim());
+    setOrRemove('background', (bg.value || '').trim());
+    setOrRemove('color',      (color.value || '').trim());
+    setOrRemove('delay',      (delay.value || '').trim());
+  };
+
+  [content, bg, color, delay].forEach(ctrl => {
+    ctrl.addEventListener('ui-input', update);
+    ctrl.addEventListener('ui-change', update);
+  });
+
+  placement.addEventListener('ui-change', () => {
+    setOrRemove('placement', (placement.value || '').trim());
+  });
+
+  if (sizeCtrl) {
+    sizeCtrl.addEventListener('ui-change', () => {
+      setOrRemove('size', (sizeCtrl.value || '').trim());
+    });
+  }
+
+  disabled.addEventListener('ui-change', () => {
+    disabled.checked ? tooltip.setAttribute('disabled', '') : tooltip.removeAttribute('disabled');
+  });
+})();
+</script>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── API Reference ──────────────────────────────────────── -->
+<ui-text type="heading" size="large">API Reference</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead>
+      <tr><th>Attribute</th><th>Type</th><th>Default</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>content</code></td><td>String</td><td>—</td><td>Tooltip text to display</td></tr>
+      <tr><td><code>placement</code></td><td>String</td><td>top</td><td>Position: <code>top</code>, <code>bottom</code>, <code>left</code>, or <code>right</code></td></tr>
+      <tr><td><code>delay</code></td><td>Number</td><td>200</td><td>Show delay in milliseconds</td></tr>
+      <tr><td><code>background</code></td><td>String</td><td>—</td><td>Tooltip background colour (palette token or CSS colour)</td></tr>
+      <tr><td><code>color</code></td><td>String</td><td>—</td><td>Tooltip text colour</td></tr>
+      <tr><td><code>size</code></td><td>String</td><td>—</td><td>Font size: named keyword (<code>xx-small</code> … <code>xxx-large</code>) or CSS length</td></tr>
+      <tr><td><code>max-width</code></td><td>String</td><td>250px</td><td>Maximum width of the tooltip popup</td></tr>
+      <tr><td><code>disabled</code></td><td>Boolean</td><td>false</td><td>Suppress the tooltip (keeps element in DOM)</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>

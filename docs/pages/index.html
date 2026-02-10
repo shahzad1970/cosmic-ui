@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Cosmic UI — A Pure Web Component Framework</title>
+  <link rel="icon" href="../assets/logo.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="../shared/styles.css" />
+  <script type="module" src="../../src/index.js"></script>
+  <script type="module" src="../shared/docs.js"></script>
+</head>
+<body>
+
+<ui-app nav-open background="gray-50">
+
+  <!-- ====== Banner ====== -->
+  <ui-app-banner background="indigo-600">
+    <ui-button href="/docs/pages/home" plain>
+    <ui-button circle>
+      <ui-icon size="2em" src="../assets/logo.svg" ></ui-icon>
+    </ui-button>
+    <ui-text size="1.25em" bold>Cosmic UI</ui-text>
+  </ui-button>
+  </ui-app-banner>
+
+  <!-- ====== Header ====== -->
+  <ui-app-header>
+    <ui-button circle channel="toggle-nav" aria-label="Toggle navigation">
+      <ui-icon size="small">menu</ui-icon>
+    </ui-button>
+    <ui-text size="small">Documentation</ui-text>
+  </ui-app-header>
+
+  <!-- ====== Nav ====== -->
+  <ui-app-nav width="15rem" background="gray-200" channel="toggle-nav"> 
+    <ui-include src="../partials/nav.html" nocache></ui-include>
+  </ui-app-nav>
+
+
+
+  <!-- ====== Main Content ====== -->
+  <ui-app-main>
+    <ui-include src="../partials/home.html" channel="docs-nav" base="../partials/" nocache></ui-include>
+  </ui-app-main>
+
+  <!-- ====== Main Footer ====== -->
+  <ui-app-main-footer>
+    <div class="footer-content">
+      Built with <ui-icon name="heart" color="red-500" size="small"></ui-icon> using Cosmic UI
+    </div>
+  </ui-app-main-footer>
+
+  <!-- ====== Footer ====== -->
+  <ui-app-footer>
+    <div class="footer-content">
+      <ui-text size="x-small" color="gray-400">© 2025 Cosmic UI · Pure Web Components</ui-text>
+    </div>
+  </ui-app-footer>
+
+</ui-app>
+
+</body>
+</html>

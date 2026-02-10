@@ -1,0 +1,30 @@
+{
+  "type": "radar",
+  "data": {
+    "labels": ["Speed", "Quality", "Cost", "Reliability", "Scale"],
+    "datasets": [
+      {
+        "label": "Score",
+        "data": [72, 88, 60, 82, 76],
+        "backgroundColor": "#6366f133",
+        "borderColor": "#6366f1",
+        "pointBackgroundColor": "#6366f1"
+      }
+    ]
+  },
+  "options": {
+    "responsive": true,
+    "maintainAspectRatio": false,
+    "plugins": {
+      "legend": { "display": false }
+    },
+    "scales": {
+      "r": {
+        "grid": { "color": "#e5e7eb" },
+        "angleLines": { "color": "#e5e7eb" },
+        "pointLabels": { "color": "#6b7280" },
+        "ticks": { "display": false }
+      }
+    }
+  }
+}

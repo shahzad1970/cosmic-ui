@@ -1,0 +1,422 @@
+<!-- ============================================================
+     Text — Component Documentation
+     ============================================================ -->
+
+<ui-layout-stack gap="0.25em" style="margin-bottom:2em;">
+  <ui-text type="heading" size="xx-large">Text</ui-text>
+  <ui-text type="paragraph" color="gray-500">
+    <code>&lt;ui-text&gt;</code> is a universal text container that supports
+    semantic headings, paragraphs, and rich styling controls.
+  </ui-text>
+</ui-layout-stack>
+
+<ui-text type="heading" size="large">Basic Usage</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Use <code>type</code> for semantic headings and paragraphs.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-text type="heading" size="large">Section Title</ui-text>
+    <ui-text type="paragraph">This is a paragraph with default spacing.</ui-text>
+    <ui-text muted>Muted supporting text.</ui-text>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-text type="heading" size="large"&gt;Section Title&lt;/ui-text&gt;
+&lt;ui-text type="paragraph"&gt;This is a paragraph...&lt;/ui-text&gt;
+&lt;ui-text muted&gt;Muted supporting text.&lt;/ui-text&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<ui-text type="heading" size="large">Heading Sizes</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Headings render an <code>&lt;h2&gt;</code> inside Shadow DOM. Control the visual size with the <code>size</code> attribute.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-text type="heading" size="xxx-large" margin="0">Display</ui-text>
+    <ui-text type="heading" size="xx-large" margin="0">Page Title</ui-text>
+    <ui-text type="heading" size="x-large" margin="0">Section</ui-text>
+    <ui-text type="heading" size="large" margin="0">Subsection</ui-text>
+    <ui-text type="heading" margin="0">Default (1.5em)</ui-text>
+    <ui-text type="heading" size="medium" margin="0">Small heading</ui-text>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-text type="heading" size="xxx-large"&gt;Display&lt;/ui-text&gt;
+&lt;ui-text type="heading" size="xx-large"&gt;Page Title&lt;/ui-text&gt;
+&lt;ui-text type="heading" size="x-large"&gt;Section&lt;/ui-text&gt;
+&lt;ui-text type="heading" size="large"&gt;Subsection&lt;/ui-text&gt;
+&lt;ui-text type="heading"&gt;Default (1.5em)&lt;/ui-text&gt;
+&lt;ui-text type="heading" size="medium"&gt;Small heading&lt;/ui-text&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<ui-text type="heading" size="large">Colours &amp; Weight</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Palette tokens for <code>color</code> and named or numeric <code>weight</code>.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack gap="0.25em">
+      <ui-text color="indigo-600" weight="semibold">Semibold indigo</ui-text>
+      <ui-text color="emerald-600" weight="bold">Bold emerald</ui-text>
+      <ui-text color="rose-500" weight="light">Light rose</ui-text>
+      <ui-text color="gray-500" weight="thin">Thin gray</ui-text>
+      <ui-text bold>Bold shorthand</ui-text>
+      <ui-text muted>Muted text</ui-text>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-text color="indigo-600" weight="semibold"&gt;Semibold indigo&lt;/ui-text&gt;
+&lt;ui-text color="emerald-600" weight="bold"&gt;Bold emerald&lt;/ui-text&gt;
+&lt;ui-text color="rose-500" weight="light"&gt;Light rose&lt;/ui-text&gt;
+&lt;ui-text bold&gt;Bold shorthand&lt;/ui-text&gt;
+&lt;ui-text muted&gt;Muted text&lt;/ui-text&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<ui-text type="heading" size="large">Typography</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Fine-tune leading, letter-spacing, indent, and transform.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack gap="0.5em">
+      <ui-text block size="small" transform="uppercase" spacing="widest" weight="semibold" color="gray-500">Section Label</ui-text>
+      <ui-text block leading="loose">This paragraph has loose line-height for extra breathing room between lines of text that wrap to multiple lines.</ui-text>
+      <ui-text block leading="tight" size="large" weight="bold">Tight leading on large bold text creates a dense, impactful headline style.</ui-text>
+      <ui-text block indent="2em">This paragraph has a 2em first-line indent, similar to traditional typographic book paragraphs.</ui-text>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-text block size="small" transform="uppercase" spacing="widest"
+        weight="semibold" color="gray-500"&gt;Section Label&lt;/ui-text&gt;
+&lt;ui-text block leading="loose"&gt;Loose line-height...&lt;/ui-text&gt;
+&lt;ui-text block leading="tight" size="large" weight="bold"&gt;Tight leading...&lt;/ui-text&gt;
+&lt;ui-text block indent="2em"&gt;First-line indent...&lt;/ui-text&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<ui-text type="heading" size="large">Decoration &amp; Style</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Boolean shorthands and the <code>decoration</code> attribute for text styling.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack gap="0.35em">
+      <ui-text italic>Italic text</ui-text>
+      <ui-text underline>Underlined text</ui-text>
+      <ui-text strike muted>Strikethrough (deprecated)</ui-text>
+      <ui-text decoration="underline wavy" color="rose-500">Wavy underline</ui-text>
+      <ui-text mono size="small">const x = monospace();</ui-text>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-text italic&gt;Italic text&lt;/ui-text&gt;
+&lt;ui-text underline&gt;Underlined text&lt;/ui-text&gt;
+&lt;ui-text strike muted&gt;Strikethrough (deprecated)&lt;/ui-text&gt;
+&lt;ui-text decoration="underline wavy" color="rose-500"&gt;Wavy underline&lt;/ui-text&gt;
+&lt;ui-text mono size="small"&gt;const x = monospace();&lt;/ui-text&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<ui-text type="heading" size="large">Truncation &amp; Line Clamp</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Use <code>truncate</code> for single-line ellipsis, or <code>lines</code> for multi-line clamping.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack gap="1em">
+      <ui-layout-stack gap="0.25em">
+        <ui-text size="x-small" color="gray-500">truncate</ui-text>
+        <ui-text truncate style="max-width:300px;">This is a very long sentence that will be truncated with an ellipsis when it overflows the container width.</ui-text>
+      </ui-layout-stack>
+      <ui-layout-stack gap="0.25em">
+        <ui-text size="x-small" color="gray-500">lines="2"</ui-text>
+        <ui-text lines="2" style="max-width:300px;">This paragraph is clamped to two lines. Any text beyond the second line will be hidden and an ellipsis will appear at the break point. Lorem ipsum dolor sit amet.</ui-text>
+      </ui-layout-stack>
+      <ui-layout-stack gap="0.25em">
+        <ui-text size="x-small" color="gray-500">lines="3"</ui-text>
+        <ui-text lines="3" style="max-width:300px;">This paragraph is clamped to three lines. Any text beyond the third line will be hidden and an ellipsis will appear. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</ui-text>
+      </ui-layout-stack>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-text truncate&gt;Long text truncated with ellipsis...&lt;/ui-text&gt;
+&lt;ui-text lines="2"&gt;Two-line clamp with ellipsis...&lt;/ui-text&gt;
+&lt;ui-text lines="3"&gt;Three-line clamp...&lt;/ui-text&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<ui-text type="heading" size="large">Alignment</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Control text alignment with the <code>align</code> attribute.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack gap="0.25em" style="border:1px solid var(--ui-border-color);border-radius:0.5em;padding:0.75em;">
+      <ui-text block align="left" size="small">Left aligned (default)</ui-text>
+      <ui-text block align="center" size="small">Center aligned</ui-text>
+      <ui-text block align="right" size="small">Right aligned</ui-text>
+      <ui-text block align="justify" size="small">Justified text spreads evenly across the full width of the line, adding extra space between words.</ui-text>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-text block align="left"&gt;Left aligned&lt;/ui-text&gt;
+&lt;ui-text block align="center"&gt;Center aligned&lt;/ui-text&gt;
+&lt;ui-text block align="right"&gt;Right aligned&lt;/ui-text&gt;
+&lt;ui-text block align="justify"&gt;Justified text...&lt;/ui-text&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Playground ─────────────────────────────────────────── -->
+<ui-text type="heading" size="large">
+  <ui-icon color="indigo-500">play-circle</ui-icon>
+  Playground
+</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Adjust text properties interactively.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="playground">
+  <div class="playground-controls">
+    <ui-card elevation="1">
+      <ui-card-body>
+        <ui-text type="heading" size="small">Controls</ui-text>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input id="text-content" label="Content" size="small" value="The quick brown fox jumps over the lazy dog."></ui-input>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-select id="text-type" label="Type" size="small">
+          <option value="">— (inline)</option>
+          <option value="heading">heading</option>
+          <option value="paragraph">paragraph</option>
+        </ui-input-select>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-select id="text-size" label="Size" size="small">
+          <option value="">—</option>
+          <option value="xx-small">xx-small</option>
+          <option value="x-small">x-small</option>
+          <option value="small">small</option>
+          <option value="medium">medium</option>
+          <option value="large">large</option>
+          <option value="x-large">x-large</option>
+          <option value="xx-large">xx-large</option>
+          <option value="xxx-large">xxx-large</option>
+        </ui-input-select>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-color id="text-color" label="Color" size="small" placeholder="e.g. indigo-600"></ui-input-color>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-select id="text-weight" label="Weight" size="small">
+          <option value="">—</option>
+          <option value="thin">thin (100)</option>
+          <option value="light">light (300)</option>
+          <option value="normal">normal (400)</option>
+          <option value="medium">medium (500)</option>
+          <option value="semibold">semibold (600)</option>
+          <option value="bold">bold (700)</option>
+          <option value="extrabold">extrabold (800)</option>
+          <option value="black">black (900)</option>
+        </ui-input-select>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-select id="text-align" label="Align" size="small">
+          <option value="">—</option>
+          <option value="left">left</option>
+          <option value="center">center</option>
+          <option value="right">right</option>
+          <option value="justify">justify</option>
+        </ui-input-select>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-select id="text-transform" label="Transform" size="small">
+          <option value="">—</option>
+          <option value="uppercase">uppercase</option>
+          <option value="lowercase">lowercase</option>
+          <option value="capitalize">capitalize</option>
+        </ui-input-select>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-select id="text-leading" label="Leading" size="small">
+          <option value="">—</option>
+          <option value="none">none (1)</option>
+          <option value="tight">tight (1.25)</option>
+          <option value="snug">snug (1.375)</option>
+          <option value="normal">normal (1.6)</option>
+          <option value="relaxed">relaxed (1.75)</option>
+          <option value="loose">loose (2)</option>
+        </ui-input-select>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-select id="text-spacing" label="Letter Spacing" size="small">
+          <option value="">—</option>
+          <option value="tighter">tighter</option>
+          <option value="tight">tight</option>
+          <option value="normal">normal</option>
+          <option value="wide">wide</option>
+          <option value="wider">wider</option>
+          <option value="widest">widest</option>
+        </ui-input-select>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-select id="text-decoration" label="Decoration" size="small">
+          <option value="">—</option>
+          <option value="underline">underline</option>
+          <option value="line-through">line-through</option>
+          <option value="overline">overline</option>
+        </ui-input-select>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input id="text-lines" label="Line Clamp" size="small" type="number" placeholder="e.g. 2"></ui-input>
+        <ui-layout-spacer size="0.75em"></ui-layout-spacer>
+        <ui-layout-stack gap="0.35em">
+          <ui-input-checkbox id="text-bold" label="Bold"></ui-input-checkbox>
+          <ui-input-checkbox id="text-italic" label="Italic"></ui-input-checkbox>
+          <ui-input-checkbox id="text-muted" label="Muted"></ui-input-checkbox>
+          <ui-input-checkbox id="text-mono" label="Mono"></ui-input-checkbox>
+          <ui-input-checkbox id="text-truncate" label="Truncate"></ui-input-checkbox>
+          <ui-input-checkbox id="text-nowrap" label="No Wrap"></ui-input-checkbox>
+        </ui-layout-stack>
+      </ui-card-body>
+    </ui-card>
+  </div>
+
+  <div class="playground-preview">
+    <div class="demo-card">
+      <div class="demo-preview">
+        <ui-text id="text-playground" block>The quick brown fox jumps over the lazy dog.</ui-text>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  const el = document.getElementById('text-playground');
+  if (!el) return;
+
+  /* ── Content input ──────────────────── */
+  const content = document.getElementById('text-content');
+  if (content) {
+    const updateContent = () => { el.textContent = content.value || 'Playground text'; };
+    content.addEventListener('ui-input', updateContent);
+    content.addEventListener('ui-change', updateContent);
+  }
+
+  /* ── Select-based String attrs ──────── */
+  const selects = {
+    'text-type':       'type',
+    'text-size':       'size',
+    'text-weight':     'weight',
+    'text-align':      'align',
+    'text-transform':  'transform',
+    'text-leading':    'leading',
+    'text-spacing':    'spacing',
+    'text-decoration': 'decoration',
+  };
+
+  Object.entries(selects).forEach(([id, attr]) => {
+    const ctrl = document.getElementById(id);
+    if (!ctrl) return;
+    const update = () => {
+      const val = (ctrl.value || '').trim();
+      if (val) el.setAttribute(attr, val);
+      else el.removeAttribute(attr);
+    };
+    ctrl.addEventListener('ui-change', update);
+  });
+
+  /* ── Text inputs ────────────────────── */
+  const colorInput = document.getElementById('text-color');
+  if (colorInput) {
+    const updateColor = () => {
+      const val = (colorInput.value || '').trim();
+      if (val) el.setAttribute('color', val);
+      else el.removeAttribute('color');
+    };
+    colorInput.addEventListener('ui-input', updateColor);
+    colorInput.addEventListener('ui-change', updateColor);
+  }
+
+  const linesInput = document.getElementById('text-lines');
+  if (linesInput) {
+    const updateLines = () => {
+      const val = parseInt(linesInput.value, 10);
+      if (val > 0) el.setAttribute('lines', val);
+      else el.removeAttribute('lines');
+    };
+    linesInput.addEventListener('ui-input', updateLines);
+    linesInput.addEventListener('ui-change', updateLines);
+  }
+
+  /* ── Boolean toggles ────────────────── */
+  const booleans = {
+    'text-bold':     'bold',
+    'text-italic':   'italic',
+    'text-muted':    'muted',
+    'text-mono':     'mono',
+    'text-truncate': 'truncate',
+    'text-nowrap':   'nowrap',
+  };
+
+  Object.entries(booleans).forEach(([id, attr]) => {
+    const ctrl = document.getElementById(id);
+    if (!ctrl) return;
+    ctrl.addEventListener('ui-change', () => {
+      if (ctrl.checked) el.setAttribute(attr, '');
+      else el.removeAttribute(attr);
+    });
+  });
+})();
+</script>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<ui-text type="heading" size="large">API Reference</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead>
+      <tr><th>Attribute</th><th>Type</th><th>Default</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>type</code></td><td>String</td><td>—</td><td>Semantic type: <code>heading</code> or <code>paragraph</code></td></tr>
+      <tr><td><code>size</code></td><td>String</td><td>—</td><td>Font size (named keyword or CSS length)</td></tr>
+      <tr><td><code>color</code></td><td>String</td><td>—</td><td>Text colour (palette token or CSS)</td></tr>
+      <tr><td><code>weight</code></td><td>String</td><td>—</td><td>Font weight: <code>thin</code>–<code>black</code> or <code>100</code>–<code>900</code></td></tr>
+      <tr><td><code>align</code></td><td>String</td><td>—</td><td>Text alignment: <code>left</code>, <code>center</code>, <code>right</code>, <code>justify</code></td></tr>
+      <tr><td><code>transform</code></td><td>String</td><td>—</td><td>Text transform: <code>uppercase</code>, <code>lowercase</code>, <code>capitalize</code></td></tr>
+      <tr><td><code>decoration</code></td><td>String</td><td>—</td><td>Text decoration: <code>underline</code>, <code>line-through</code>, <code>overline</code>, or full CSS shorthand</td></tr>
+      <tr><td><code>leading</code></td><td>String</td><td>—</td><td>Line height: <code>none</code>, <code>tight</code>, <code>snug</code>, <code>normal</code>, <code>relaxed</code>, <code>loose</code> or CSS value</td></tr>
+      <tr><td><code>spacing</code></td><td>String</td><td>—</td><td>Letter spacing: <code>tighter</code>–<code>widest</code> or CSS value</td></tr>
+      <tr><td><code>wrap</code></td><td>String</td><td>—</td><td>Text wrap: <code>balance</code>, <code>pretty</code>, <code>nowrap</code>, <code>wrap</code> or CSS value</td></tr>
+      <tr><td><code>break</code></td><td>String</td><td>—</td><td>Word break: <code>all</code>, <code>words</code>, <code>keep</code> or CSS value</td></tr>
+      <tr><td><code>indent</code></td><td>String</td><td>—</td><td>First-line text indentation (CSS length)</td></tr>
+      <tr><td><code>margin</code></td><td>String</td><td>—</td><td>Margin shorthand (headings default <code>0 0 0.5em</code>, paragraphs <code>0 0 1em</code>)</td></tr>
+      <tr><td><code>padding</code></td><td>String</td><td>—</td><td>Padding shorthand</td></tr>
+      <tr><td><code>font</code></td><td>String</td><td>—</td><td>Custom font family override</td></tr>
+      <tr><td><code>display</code></td><td>String</td><td>inline</td><td>CSS display value (e.g. <code>flex</code>, <code>inline-block</code>)</td></tr>
+      <tr><td><code>lines</code></td><td>Number</td><td>0</td><td>Clamp to N visible lines with ellipsis (multi-line truncation)</td></tr>
+      <tr><td><code>block</code></td><td>Boolean</td><td>false</td><td>Shorthand for <code>display="block"</code></td></tr>
+      <tr><td><code>bold</code></td><td>Boolean</td><td>false</td><td>Shorthand for <code>weight="bold"</code></td></tr>
+      <tr><td><code>muted</code></td><td>Boolean</td><td>false</td><td>Subdued text using <code>--ui-text-muted</code> colour</td></tr>
+      <tr><td><code>mono</code></td><td>Boolean</td><td>false</td><td>Shorthand for <code>--ui-font-mono</code> font family</td></tr>
+      <tr><td><code>italic</code></td><td>Boolean</td><td>false</td><td>Italic text style</td></tr>
+      <tr><td><code>underline</code></td><td>Boolean</td><td>false</td><td>Shorthand for <code>decoration="underline"</code></td></tr>
+      <tr><td><code>strike</code></td><td>Boolean</td><td>false</td><td>Shorthand for <code>decoration="line-through"</code></td></tr>
+      <tr><td><code>truncate</code></td><td>Boolean</td><td>false</td><td>Single-line truncation with ellipsis (forces block display)</td></tr>
+      <tr><td><code>nowrap</code></td><td>Boolean</td><td>false</td><td>Prevent text wrapping</td></tr>
+      <tr><td><code>selectable</code></td><td>Boolean</td><td>true</td><td>Set to <code>false</code> to prevent text selection</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>

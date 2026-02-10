@@ -1,0 +1,327 @@
+<!-- ============================================================
+     Badge — Component Documentation
+     ============================================================ -->
+
+<ui-layout-stack gap="0.25em" style="margin-bottom:2em;">
+  <ui-text type="heading" size="xx-large">Badge</ui-text>
+  <ui-text type="paragraph" color="gray-500">
+    <code>&lt;ui-badge&gt;</code> is a small label for statuses, counts, and tags
+    with shape, colour, and animation controls.
+  </ui-text>
+</ui-layout-stack>
+
+<ui-text type="heading" size="large">Basic Usage</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Content goes inside the element. Add a <code>background</code> colour for a filled badge.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack direction="horizontal" gap="0.5em" align="center" wrap>
+      <ui-badge background="indigo-500">New</ui-badge>
+      <ui-badge background="emerald-500">Active</ui-badge>
+      <ui-badge background="rose-500">Error</ui-badge>
+      <ui-badge background="amber-500">Warning</ui-badge>
+      <ui-badge background="sky-500">Info</ui-badge>
+      <ui-badge background="gray-900">Dark</ui-badge>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-badge background="indigo-500"&gt;New&lt;/ui-badge&gt;
+&lt;ui-badge background="emerald-500"&gt;Active&lt;/ui-badge&gt;
+&lt;ui-badge background="rose-500"&gt;Error&lt;/ui-badge&gt;
+&lt;ui-badge background="amber-500"&gt;Warning&lt;/ui-badge&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<ui-text type="heading" size="large">Shapes</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  <code>pill</code> gives capsule corners. <code>circle</code> creates a round badge for counts or icons.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack direction="horizontal" gap="0.75em" align="center" wrap>
+      <ui-layout-stack align="center" gap="0.25em">
+        <ui-badge background="indigo-500">Default</ui-badge>
+        <ui-text size="xx-small" color="gray-400">default</ui-text>
+      </ui-layout-stack>
+      <ui-layout-stack align="center" gap="0.25em">
+        <ui-badge background="indigo-500" pill>Pill Shape</ui-badge>
+        <ui-text size="xx-small" color="gray-400">pill</ui-text>
+      </ui-layout-stack>
+      <ui-layout-stack align="center" gap="0.25em">
+        <ui-badge background="indigo-500" circle>5</ui-badge>
+        <ui-text size="xx-small" color="gray-400">circle</ui-text>
+      </ui-layout-stack>
+      <ui-layout-stack align="center" gap="0.25em">
+        <ui-badge background="rose-500" circle><ui-icon size="x-small">bell</ui-icon></ui-badge>
+        <ui-text size="xx-small" color="gray-400">circle + icon</ui-text>
+      </ui-layout-stack>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-badge background="indigo-500"&gt;Default&lt;/ui-badge&gt;
+&lt;ui-badge background="indigo-500" pill&gt;Pill Shape&lt;/ui-badge&gt;
+&lt;ui-badge background="indigo-500" circle&gt;5&lt;/ui-badge&gt;
+&lt;ui-badge background="rose-500" circle&gt;
+  &lt;ui-icon size="x-small"&gt;bell&lt;/ui-icon&gt;
+&lt;/ui-badge&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<ui-text type="heading" size="large">Outline</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  The <code>outline</code> variant uses a border with no fill — text and border colour match the <code>background</code> value.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack direction="horizontal" gap="0.5em" align="center" wrap>
+      <ui-badge background="indigo-500" outline>Indigo</ui-badge>
+      <ui-badge background="emerald-500" outline>Emerald</ui-badge>
+      <ui-badge background="rose-500" outline>Rose</ui-badge>
+      <ui-badge background="amber-600" outline>Amber</ui-badge>
+      <ui-badge background="indigo-500" outline pill>Outline Pill</ui-badge>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-badge background="indigo-500" outline&gt;Indigo&lt;/ui-badge&gt;
+&lt;ui-badge background="emerald-500" outline&gt;Emerald&lt;/ui-badge&gt;
+&lt;ui-badge background="rose-500" outline&gt;Rose&lt;/ui-badge&gt;
+&lt;ui-badge background="indigo-500" outline pill&gt;Outline Pill&lt;/ui-badge&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<ui-text type="heading" size="large">Sizes</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Use named keywords or any CSS length.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack direction="horizontal" gap="0.75em" align="center" wrap>
+      <ui-layout-stack align="center" gap="0.25em">
+        <ui-badge background="indigo-500" size="xx-small" pill>xx-small</ui-badge>
+        <ui-text size="xx-small" color="gray-400">xx-small</ui-text>
+      </ui-layout-stack>
+      <ui-layout-stack align="center" gap="0.25em">
+        <ui-badge background="indigo-500" size="x-small" pill>x-small</ui-badge>
+        <ui-text size="xx-small" color="gray-400">x-small</ui-text>
+      </ui-layout-stack>
+      <ui-layout-stack align="center" gap="0.25em">
+        <ui-badge background="indigo-500" size="small" pill>small</ui-badge>
+        <ui-text size="xx-small" color="gray-400">small</ui-text>
+      </ui-layout-stack>
+      <ui-layout-stack align="center" gap="0.25em">
+        <ui-badge background="indigo-500" pill>default</ui-badge>
+        <ui-text size="xx-small" color="gray-400">default</ui-text>
+      </ui-layout-stack>
+      <ui-layout-stack align="center" gap="0.25em">
+        <ui-badge background="indigo-500" size="large" pill>large</ui-badge>
+        <ui-text size="xx-small" color="gray-400">large</ui-text>
+      </ui-layout-stack>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-badge size="xx-small" pill&gt;xx-small&lt;/ui-badge&gt;
+&lt;ui-badge size="x-small" pill&gt;x-small&lt;/ui-badge&gt;
+&lt;ui-badge size="small" pill&gt;small&lt;/ui-badge&gt;
+&lt;ui-badge pill&gt;default&lt;/ui-badge&gt;
+&lt;ui-badge size="large" pill&gt;large&lt;/ui-badge&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<ui-text type="heading" size="large">Animations</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Draw attention with <code>pulse</code>, <code>bounce</code>, <code>shake</code>, or <code>ping</code>.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack direction="horizontal" gap="1.5em" align="center" wrap>
+      <ui-layout-stack align="center" gap="0.35em">
+        <ui-badge background="rose-500" circle pulse>3</ui-badge>
+        <ui-text size="xx-small" color="gray-400">pulse</ui-text>
+      </ui-layout-stack>
+      <ui-layout-stack align="center" gap="0.35em">
+        <ui-badge background="indigo-500" pill bounce>New</ui-badge>
+        <ui-text size="xx-small" color="gray-400">bounce</ui-text>
+      </ui-layout-stack>
+      <ui-layout-stack align="center" gap="0.35em">
+        <ui-badge background="amber-500" shake>!</ui-badge>
+        <ui-text size="xx-small" color="gray-400">shake</ui-text>
+      </ui-layout-stack>
+      <ui-layout-stack align="center" gap="0.35em">
+        <ui-badge background="emerald-500" circle ping>●</ui-badge>
+        <ui-text size="xx-small" color="gray-400">ping</ui-text>
+      </ui-layout-stack>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-badge background="rose-500" circle pulse&gt;3&lt;/ui-badge&gt;
+&lt;ui-badge background="indigo-500" pill bounce&gt;New&lt;/ui-badge&gt;
+&lt;ui-badge background="amber-500" shake&gt;!&lt;/ui-badge&gt;
+&lt;ui-badge background="emerald-500" circle ping&gt;●&lt;/ui-badge&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<ui-text type="heading" size="large">Inline with Text</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Badges are inline-flex and vertically centred, so they sit naturally next to text.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack gap="0.5em">
+      <ui-text>Messages <ui-badge background="rose-500" size="x-small" circle>5</ui-badge></ui-text>
+      <ui-text>Server Status <ui-badge background="emerald-500" size="x-small" pill>Online</ui-badge></ui-text>
+      <ui-text>Version <ui-badge background="indigo-500" size="x-small" outline pill>v2.1</ui-badge></ui-text>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-text&gt;Messages &lt;ui-badge background="rose-500" size="x-small" circle&gt;5&lt;/ui-badge&gt;&lt;/ui-text&gt;
+&lt;ui-text&gt;Server Status &lt;ui-badge background="emerald-500" size="x-small" pill&gt;Online&lt;/ui-badge&gt;&lt;/ui-text&gt;
+&lt;ui-text&gt;Version &lt;ui-badge background="indigo-500" size="x-small" outline pill&gt;v2.1&lt;/ui-badge&gt;&lt;/ui-text&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Playground ─────────────────────────────────────────── -->
+<ui-text type="heading" size="large">
+  <ui-icon color="indigo-500">play-circle</ui-icon>
+  Playground
+</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Adjust badge properties interactively.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="playground">
+  <div class="playground-controls">
+    <ui-card elevation="1">
+      <ui-card-body>
+        <ui-text type="heading" size="small">Controls</ui-text>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input id="badge-text" label="Text" size="small" value="Badge"></ui-input>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-color id="badge-bg" label="Background" size="small" value="indigo-500"></ui-input-color>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-color id="badge-color" label="Color" size="small" placeholder="auto-contrast"></ui-input-color>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-select id="badge-size" label="Size" size="small">
+          <option value="">— (default)</option>
+          <option value="xx-small">xx-small</option>
+          <option value="x-small">x-small</option>
+          <option value="small">small</option>
+          <option value="medium">medium</option>
+          <option value="large">large</option>
+          <option value="x-large">x-large</option>
+        </ui-input-select>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-layout-stack gap="0.35em">
+          <ui-input-checkbox id="badge-pill" label="Pill"></ui-input-checkbox>
+          <ui-input-checkbox id="badge-outline" label="Outline"></ui-input-checkbox>
+          <ui-input-checkbox id="badge-circle" label="Circle"></ui-input-checkbox>
+          <ui-input-checkbox id="badge-pulse" label="Pulse"></ui-input-checkbox>
+          <ui-input-checkbox id="badge-bounce" label="Bounce"></ui-input-checkbox>
+          <ui-input-checkbox id="badge-shake" label="Shake"></ui-input-checkbox>
+          <ui-input-checkbox id="badge-ping" label="Ping"></ui-input-checkbox>
+        </ui-layout-stack>
+      </ui-card-body>
+    </ui-card>
+  </div>
+
+  <div class="playground-preview">
+    <div class="demo-card">
+      <div class="demo-preview">
+        <ui-badge id="badge-playground" background="indigo-500">Badge</ui-badge>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  const el = document.getElementById('badge-playground');
+  if (!el) return;
+
+  /* Text input */
+  const textCtrl = document.getElementById('badge-text');
+  if (textCtrl) {
+    const update = () => { el.textContent = textCtrl.value || 'Badge'; };
+    textCtrl.addEventListener('ui-input', update);
+    textCtrl.addEventListener('ui-change', update);
+  }
+
+  /* Freeform text attrs */
+  const inputs = {
+    'badge-bg':    'background',
+    'badge-color': 'color',
+  };
+  Object.entries(inputs).forEach(([id, attr]) => {
+    const ctrl = document.getElementById(id);
+    if (!ctrl) return;
+    const update = () => {
+      const val = (ctrl.value || '').trim();
+      if (val) el.setAttribute(attr, val);
+      else el.removeAttribute(attr);
+    };
+    ctrl.addEventListener('ui-input', update);
+    ctrl.addEventListener('ui-change', update);
+  });
+
+  /* Size select */
+  const sizeCtrl = document.getElementById('badge-size');
+  if (sizeCtrl) {
+    sizeCtrl.addEventListener('ui-change', () => {
+      const val = (sizeCtrl.value || '').trim();
+      if (val) el.setAttribute('size', val);
+      else el.removeAttribute('size');
+    });
+  }
+
+  /* Boolean checkboxes */
+  const bools = ['pill', 'outline', 'circle', 'pulse', 'bounce', 'shake', 'ping'];
+  bools.forEach(name => {
+    const ctrl = document.getElementById('badge-' + name);
+    if (!ctrl) return;
+    ctrl.addEventListener('ui-change', () => {
+      if (ctrl.checked) el.setAttribute(name, '');
+      else el.removeAttribute(name);
+    });
+  });
+})();
+</script>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<ui-text type="heading" size="large">API Reference</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead>
+      <tr><th>Attribute</th><th>Type</th><th>Default</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>background</code></td><td>String</td><td>—</td><td>Background colour (palette token or CSS colour). Used for outline border colour too.</td></tr>
+      <tr><td><code>color</code></td><td>String</td><td>auto</td><td>Text colour (auto-contrasts against background if omitted)</td></tr>
+      <tr><td><code>size</code></td><td>String</td><td>—</td><td>Badge size (named keyword or CSS length)</td></tr>
+      <tr><td><code>pill</code></td><td>Boolean</td><td>false</td><td>Fully rounded capsule shape (<code>border-radius: 9999px</code>)</td></tr>
+      <tr><td><code>outline</code></td><td>Boolean</td><td>false</td><td>Border-only variant — no fill; text and border use <code>background</code> colour</td></tr>
+      <tr><td><code>circle</code></td><td>Boolean</td><td>false</td><td>Circular shape for single-character or icon badges</td></tr>
+      <tr><td><code>pulse</code></td><td>Boolean</td><td>false</td><td>Glowing pulse animation radiating outward</td></tr>
+      <tr><td><code>bounce</code></td><td>Boolean</td><td>false</td><td>Gentle vertical hop animation</td></tr>
+      <tr><td><code>shake</code></td><td>Boolean</td><td>false</td><td>Quick horizontal wiggle animation</td></tr>
+      <tr><td><code>ping</code></td><td>Boolean</td><td>false</td><td>Expanding ring beacon animation</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>

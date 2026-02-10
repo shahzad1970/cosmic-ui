@@ -1,0 +1,249 @@
+<!-- ============================================================
+     Clipboard — Component Documentation
+     ============================================================ -->
+
+<ui-layout-stack gap="0.25em" style="margin-bottom:2em;">
+  <ui-text type="heading" size="xx-large">Clipboard</ui-text>
+  <ui-text type="paragraph" color="gray-500">
+    <code>&lt;ui-clipboard&gt;</code> copies text to the clipboard with a single click and shows brief visual feedback.
+  </ui-text>
+</ui-layout-stack>
+
+<!-- ── Basic Usage ─────────────────────────────────────── -->
+<ui-text type="heading" size="large">Basic Usage</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Set the <code>value</code> attribute to the text that should be copied.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack direction="horizontal" gap="0.75em" wrap align="center">
+      <ui-clipboard value="npm install ui-components">Copy command</ui-clipboard>
+      <ui-clipboard value="Hello World!" background="indigo-500">Copy text</ui-clipboard>
+      <ui-clipboard value="secret-token" flat>Flat style</ui-clipboard>
+      <ui-clipboard value="outlined" outline>Outline style</ui-clipboard>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-clipboard value="npm install ui-components"&gt;Copy command&lt;/ui-clipboard&gt;
+&lt;ui-clipboard value="Hello World!" background="indigo-500"&gt;Copy text&lt;/ui-clipboard&gt;
+&lt;ui-clipboard value="secret-token" flat&gt;Flat style&lt;/ui-clipboard&gt;
+&lt;ui-clipboard value="outlined" outline&gt;Outline style&lt;/ui-clipboard&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Custom Feedback ────────────────────────────────── -->
+<ui-text type="heading" size="large">Custom Feedback</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Change the confirmation text with <code>feedback</code> and the display duration with <code>duration</code> (ms).
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack direction="horizontal" gap="0.75em" wrap align="center">
+      <ui-clipboard value="TOKEN-123" feedback="Token copied!" duration="3000">Copy token</ui-clipboard>
+      <ui-clipboard value="my@email.com" feedback="Email saved!" duration="1000">Copy email</ui-clipboard>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-clipboard value="TOKEN-123" feedback="Token copied!" duration="3000"&gt;
+  Copy token
+&lt;/ui-clipboard&gt;
+&lt;ui-clipboard value="my@email.com" feedback="Email saved!" duration="1000"&gt;
+  Copy email
+&lt;/ui-clipboard&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Sizes ──────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Sizes</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Use the <code>size</code> attribute to control button size.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack direction="horizontal" gap="0.75em" wrap align="center">
+      <ui-clipboard value="xs" size="x-small">X-Small</ui-clipboard>
+      <ui-clipboard value="sm" size="small">Small</ui-clipboard>
+      <ui-clipboard value="md">Default</ui-clipboard>
+      <ui-clipboard value="lg" size="large">Large</ui-clipboard>
+      <ui-clipboard value="xl" size="x-large">X-Large</ui-clipboard>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-clipboard value="xs" size="x-small"&gt;X-Small&lt;/ui-clipboard&gt;
+&lt;ui-clipboard value="md"&gt;Default&lt;/ui-clipboard&gt;
+&lt;ui-clipboard value="lg" size="large"&gt;Large&lt;/ui-clipboard&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Disabled ───────────────────────────────────────── -->
+<ui-text type="heading" size="large">Disabled</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Add the <code>disabled</code> attribute to prevent copying.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-clipboard value="can't copy this" disabled>Disabled</ui-clipboard>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-clipboard value="can't copy this" disabled&gt;Disabled&lt;/ui-clipboard&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Listening for Copy ─────────────────────────────── -->
+<ui-text type="heading" size="large">Listening for Copy</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Listen for <code>ui-copy</code> to react when text has been copied.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <ui-input-code language="javascript" readonly height="auto">const clip = document.querySelector('ui-clipboard');
+clip.addEventListener('ui-copy', (e) => {
+  console.log('Copied:', e.detail.value);
+});</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Playground ─────────────────────────────────────── -->
+<ui-text type="heading" size="large">
+  <ui-icon color="indigo-500">play-circle</ui-icon>
+  Playground
+</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Tweak value, feedback, size, colours, and style variants.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="playground">
+  <div class="playground-controls">
+    <ui-card elevation="1">
+      <ui-card-body>
+        <ui-text type="heading" size="small">Controls</ui-text>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input id="pg-clip-value" label="Value" size="small" value="Hello, World!"></ui-input>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input id="pg-clip-feedback" label="Feedback" size="small" value="Copied!"></ui-input>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input id="pg-clip-duration" label="Duration (ms)" size="small" value="2000"></ui-input>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-color id="pg-clip-bg" label="Background" size="small" value=""></ui-input-color>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-color id="pg-clip-color" label="Color" size="small" value=""></ui-input-color>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-select id="pg-clip-size" label="Size" size="small">
+          <option value="">Default</option>
+          <option value="xx-small">XX-Small</option>
+          <option value="x-small">X-Small</option>
+          <option value="small">Small</option>
+          <option value="medium">Medium</option>
+          <option value="large">Large</option>
+          <option value="x-large">X-Large</option>
+          <option value="xx-large">XX-Large</option>
+        </ui-input-select>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-layout-stack direction="horizontal" gap="0.5em" wrap>
+          <ui-input-checkbox id="pg-clip-flat" label="Flat" size="small"></ui-input-checkbox>
+          <ui-input-checkbox id="pg-clip-outline" label="Outline" size="small"></ui-input-checkbox>
+          <ui-input-checkbox id="pg-clip-disabled" label="Disabled" size="small"></ui-input-checkbox>
+        </ui-layout-stack>
+      </ui-card-body>
+    </ui-card>
+  </div>
+
+  <div class="playground-preview">
+    <div class="demo-card">
+      <div class="demo-preview">
+        <ui-clipboard id="pg-clip" value="Hello, World!">Copy</ui-clipboard>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  const el = document.getElementById('pg-clip');
+  const val = document.getElementById('pg-clip-value');
+  const fb = document.getElementById('pg-clip-feedback');
+  const dur = document.getElementById('pg-clip-duration');
+  const bg = document.getElementById('pg-clip-bg');
+  const color = document.getElementById('pg-clip-color');
+  const size = document.getElementById('pg-clip-size');
+  const flat = document.getElementById('pg-clip-flat');
+  const outline = document.getElementById('pg-clip-outline');
+  const disabled = document.getElementById('pg-clip-disabled');
+  if (!el) return;
+
+  const setOrRemove = (attr, v) => v ? el.setAttribute(attr, v) : el.removeAttribute(attr);
+
+  const listen = (ctrl, attr) => {
+    ctrl?.addEventListener('ui-input', function() { setOrRemove(attr, (this.value || '').trim()); });
+    ctrl?.addEventListener('ui-change', function() { setOrRemove(attr, (this.value || '').trim()); });
+  };
+
+  listen(val, 'value');
+  listen(fb, 'feedback');
+  listen(dur, 'duration');
+  listen(bg, 'background');
+  listen(color, 'color');
+  listen(size, 'size');
+
+  const toggle = (ctrl, attr) => {
+    ctrl?.addEventListener('ui-change', function() {
+      if (this.checked) el.setAttribute(attr, ''); else el.removeAttribute(attr);
+    });
+  };
+
+  toggle(flat, 'flat');
+  toggle(outline, 'outline');
+  toggle(disabled, 'disabled');
+})();
+</script>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── API Reference ──────────────────────────────────── -->
+<ui-text type="heading" size="large">API Reference</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead><tr><th>Attribute</th><th>Type</th><th>Default</th><th>Description</th></tr></thead>
+    <tbody>
+      <tr><td><code>value</code></td><td>String</td><td>—</td><td>Text to copy to the clipboard</td></tr>
+      <tr><td><code>background</code></td><td>String</td><td>—</td><td>Button background colour (palette token or CSS colour)</td></tr>
+      <tr><td><code>color</code></td><td>String</td><td>—</td><td>Button text colour (palette token or CSS colour)</td></tr>
+      <tr><td><code>size</code></td><td>String</td><td>—</td><td>Button size (keyword or CSS length)</td></tr>
+      <tr><td><code>disabled</code></td><td>Boolean</td><td>false</td><td>Disable the button</td></tr>
+      <tr><td><code>feedback</code></td><td>String</td><td>Copied!</td><td>Text shown on successful copy</td></tr>
+      <tr><td><code>duration</code></td><td>Number</td><td>2000</td><td>How long feedback is displayed (ms)</td></tr>
+      <tr><td><code>flat</code></td><td>Boolean</td><td>false</td><td>Flat style (no background)</td></tr>
+      <tr><td><code>outline</code></td><td>Boolean</td><td>false</td><td>Outline style (border, no fill)</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Events ─────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Events</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead><tr><th>Event</th><th>Detail</th><th>Description</th></tr></thead>
+    <tbody>
+      <tr><td><code>ui-copy</code></td><td><code>{ value }</code></td><td>Emitted after successfully copying text to the clipboard</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>

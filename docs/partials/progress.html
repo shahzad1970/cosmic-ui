@@ -1,0 +1,263 @@
+<!-- ============================================================
+     Progress — Component Documentation
+     ============================================================ -->
+
+<ui-layout-stack gap="0.25em" style="margin-bottom:2em;">
+  <ui-text type="heading" size="xx-large">Progress</ui-text>
+  <ui-text type="paragraph" color="gray-500">
+    <code>&lt;ui-progress&gt;</code> displays bar or ring progress indicators —
+    determinate with a value, or indeterminate with a looping animation.
+  </ui-text>
+</ui-layout-stack>
+
+<!-- ── Basic Usage ────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Basic Usage</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Set <code>value</code> (0–<code>max</code>) for a determinate bar. Add
+  <code>type="ring"</code> for a circular variant.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack gap="1em">
+      <ui-progress value="45"></ui-progress>
+      <ui-progress type="ring" value="72" label></ui-progress>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-progress value="45"&gt;&lt;/ui-progress&gt;
+&lt;ui-progress type="ring" value="72" label&gt;&lt;/ui-progress&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Indeterminate ──────────────────────────────────────── -->
+<ui-text type="heading" size="large">Indeterminate</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Omit <code>value</code> (or set it to <code>-1</code>) for a continuous
+  looping animation when progress is unknown.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack gap="1em">
+      <ui-progress></ui-progress>
+      <ui-layout-stack direction="horizontal" gap="1.5em" wrap>
+        <ui-progress type="ring"></ui-progress>
+        <ui-progress type="ring" color="indigo-500"></ui-progress>
+      </ui-layout-stack>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-progress&gt;&lt;/ui-progress&gt;
+&lt;ui-progress type="ring"&gt;&lt;/ui-progress&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Colours ────────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Colours</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Use <code>color</code> for the fill and <code>background</code> for the
+  track.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack gap="0.75em">
+      <ui-progress value="70" color="emerald-500"></ui-progress>
+      <ui-progress value="50" color="rose-500"></ui-progress>
+      <ui-progress value="30" color="amber-500" background="amber-100"></ui-progress>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-progress value="70" color="emerald-500"&gt;&lt;/ui-progress&gt;
+&lt;ui-progress value="50" color="rose-500"&gt;&lt;/ui-progress&gt;
+&lt;ui-progress value="30" color="amber-500" background="amber-100"&gt;&lt;/ui-progress&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Sizes ──────────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Sizes</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Scale with <code>size</code> keywords or any CSS length. Use
+  <code>thickness</code> to control bar height or ring stroke width.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack gap="0.75em">
+      <ui-progress value="60" size="x-small" color="indigo-500"></ui-progress>
+      <ui-progress value="60" size="small" color="indigo-500"></ui-progress>
+      <ui-progress value="60" color="indigo-500"></ui-progress>
+      <ui-progress value="60" size="large" color="indigo-500"></ui-progress>
+    </ui-layout-stack>
+    <ui-layout-spacer size="1em"></ui-layout-spacer>
+    <ui-layout-stack direction="horizontal" gap="1em" wrap>
+      <ui-progress type="ring" value="60" size="x-small" color="indigo-500" label></ui-progress>
+      <ui-progress type="ring" value="60" size="small" color="indigo-500" label></ui-progress>
+      <ui-progress type="ring" value="60" color="indigo-500" label></ui-progress>
+      <ui-progress type="ring" value="60" size="large" color="indigo-500" label></ui-progress>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-progress value="60" size="x-small"&gt;&lt;/ui-progress&gt;
+&lt;ui-progress value="60" size="small"&gt;&lt;/ui-progress&gt;
+&lt;ui-progress value="60"&gt;&lt;/ui-progress&gt;
+&lt;ui-progress value="60" size="large"&gt;&lt;/ui-progress&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Label ──────────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Label</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Add <code>label</code> to display the percentage. Works with both bar and
+  ring types.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack gap="1em">
+      <ui-progress value="75" label color="emerald-500"></ui-progress>
+      <ui-layout-stack direction="horizontal" gap="1em" wrap>
+        <ui-progress type="ring" value="42" label color="indigo-500"></ui-progress>
+        <ui-progress type="ring" value="88" label color="emerald-500"></ui-progress>
+      </ui-layout-stack>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-progress value="75" label&gt;&lt;/ui-progress&gt;
+&lt;ui-progress type="ring" value="42" label&gt;&lt;/ui-progress&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Playground ─────────────────────────────────────────── -->
+<ui-text type="heading" size="large">
+  <ui-icon color="indigo-500">play-circle</ui-icon>
+  Playground
+</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Change type, value, colours, and sizing interactively.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="playground">
+  <div class="playground-controls">
+    <ui-card elevation="1">
+      <ui-card-body>
+        <ui-text type="heading" size="small">Controls</ui-text>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-select id="progress-type" label="Type" size="small">
+          <option value="bar" selected>bar</option>
+          <option value="ring">ring</option>
+        </ui-input-select>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input id="progress-value" label="Value" size="small" value="60"></ui-input>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input id="progress-max" label="Max" size="small" value="100"></ui-input>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-select id="progress-size" label="Size" size="small">
+          <option value="">— (default)</option>
+          <option value="xx-small">xx-small</option>
+          <option value="x-small">x-small</option>
+          <option value="small">small</option>
+          <option value="medium">medium</option>
+          <option value="large">large</option>
+          <option value="x-large">x-large</option>
+        </ui-input-select>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-color id="progress-color" label="Color" size="small" value=""></ui-input-color>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-color id="progress-bg" label="Track" size="small" value=""></ui-input-color>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input id="progress-thickness" label="Thickness" size="small" value=""></ui-input>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-checkbox id="progress-label" label="Label"></ui-input-checkbox>
+      </ui-card-body>
+    </ui-card>
+  </div>
+
+  <div class="playground-preview">
+    <div class="demo-card">
+      <div class="demo-preview">
+        <ui-progress id="progress-playground" value="60"></ui-progress>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  const progress  = document.getElementById('progress-playground');
+  const typeCtrl  = document.getElementById('progress-type');
+  const value     = document.getElementById('progress-value');
+  const max       = document.getElementById('progress-max');
+  const sizeCtrl  = document.getElementById('progress-size');
+  const color     = document.getElementById('progress-color');
+  const bg        = document.getElementById('progress-bg');
+  const thickness = document.getElementById('progress-thickness');
+  const label     = document.getElementById('progress-label');
+
+  if (!progress || !typeCtrl || !value || !max || !color || !bg || !thickness || !label) return;
+
+  const setOrRemove = (attr, val) => {
+    val ? progress.setAttribute(attr, val) : progress.removeAttribute(attr);
+  };
+
+  const update = () => {
+    setOrRemove('value',     (value.value || '').trim());
+    setOrRemove('max',       (max.value || '').trim());
+    setOrRemove('color',     (color.value || '').trim());
+    setOrRemove('background',(bg.value || '').trim());
+    setOrRemove('thickness', (thickness.value || '').trim());
+  };
+
+  [value, max, color, bg, thickness].forEach(ctrl => {
+    ctrl.addEventListener('ui-input', update);
+    ctrl.addEventListener('ui-change', update);
+  });
+
+  typeCtrl.addEventListener('ui-change', () => {
+    setOrRemove('type', (typeCtrl.value || '').trim());
+  });
+
+  if (sizeCtrl) {
+    sizeCtrl.addEventListener('ui-change', () => {
+      setOrRemove('size', (sizeCtrl.value || '').trim());
+    });
+  }
+
+  label.addEventListener('ui-change', () => {
+    label.checked ? progress.setAttribute('label', '') : progress.removeAttribute('label');
+  });
+})();
+</script>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── API Reference ──────────────────────────────────────── -->
+<ui-text type="heading" size="large">API Reference</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead>
+      <tr><th>Attribute</th><th>Type</th><th>Default</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>value</code></td><td>Number</td><td>-1</td><td>Current progress value. <code>-1</code> or omitted = indeterminate.</td></tr>
+      <tr><td><code>max</code></td><td>Number</td><td>100</td><td>Maximum value (the 100% point)</td></tr>
+      <tr><td><code>type</code></td><td>String</td><td>bar</td><td>Display type: <code>bar</code> or <code>ring</code></td></tr>
+      <tr><td><code>color</code></td><td>String</td><td>—</td><td>Fill colour (palette token or CSS colour)</td></tr>
+      <tr><td><code>background</code></td><td>String</td><td>—</td><td>Track colour (palette token or CSS colour)</td></tr>
+      <tr><td><code>size</code></td><td>String</td><td>—</td><td>Overall scale: named keyword (<code>xx-small</code> … <code>xxx-large</code>) or CSS length</td></tr>
+      <tr><td><code>thickness</code></td><td>String</td><td>—</td><td>Bar height or ring stroke width (CSS length)</td></tr>
+      <tr><td><code>label</code></td><td>Boolean</td><td>false</td><td>Show the percentage text (e.g. "72%")</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>

@@ -1,0 +1,261 @@
+<!-- ============================================================
+     Skeleton — Component Documentation
+     ============================================================ -->
+
+<ui-layout-stack gap="0.25em" style="margin-bottom:2em;">
+  <ui-text type="heading" size="xx-large">Skeleton</ui-text>
+  <ui-text type="paragraph" color="gray-500">
+    <code>&lt;ui-skeleton&gt;</code> renders animated shimmer placeholders while
+    content is loading. Supports text lines, circles, and rectangles.
+  </ui-text>
+</ui-layout-stack>
+
+<!-- ── Basic Usage ────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Basic Usage</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Use <code>lines</code> for text-shaped skeletons, or
+  <code>variant="circle"</code> / <code>variant="rect"</code> for shapes.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack gap="1em">
+      <ui-skeleton lines="3"></ui-skeleton>
+      <ui-layout-stack direction="horizontal" gap="1em" align="center">
+        <ui-skeleton variant="circle"></ui-skeleton>
+        <ui-skeleton variant="rect" width="200px" height="80px"></ui-skeleton>
+      </ui-layout-stack>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-skeleton lines="3"&gt;&lt;/ui-skeleton&gt;
+&lt;ui-skeleton variant="circle"&gt;&lt;/ui-skeleton&gt;
+&lt;ui-skeleton variant="rect" width="200px" height="80px"&gt;&lt;/ui-skeleton&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Variants ──────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Variants</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Three variants for different content shapes.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack gap="1em">
+      <div>
+        <ui-text size="x-small" color="gray-400" weight="600" style="margin-bottom:0.35em">TEXT (default)</ui-text>
+        <ui-skeleton variant="text" lines="2"></ui-skeleton>
+      </div>
+      <div>
+        <ui-text size="x-small" color="gray-400" weight="600" style="margin-bottom:0.35em">CIRCLE</ui-text>
+        <ui-layout-stack direction="horizontal" gap="0.75em">
+          <ui-skeleton variant="circle"></ui-skeleton>
+          <ui-skeleton variant="circle" width="3em" height="3em"></ui-skeleton>
+          <ui-skeleton variant="circle" width="4em" height="4em"></ui-skeleton>
+        </ui-layout-stack>
+      </div>
+      <div>
+        <ui-text size="x-small" color="gray-400" weight="600" style="margin-bottom:0.35em">RECT</ui-text>
+        <ui-layout-stack direction="horizontal" gap="0.75em">
+          <ui-skeleton variant="rect" width="100px" height="60px"></ui-skeleton>
+          <ui-skeleton variant="rect" width="150px" height="60px" radius="1em"></ui-skeleton>
+        </ui-layout-stack>
+      </div>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-skeleton variant="text" lines="2"&gt;&lt;/ui-skeleton&gt;
+&lt;ui-skeleton variant="circle"&gt;&lt;/ui-skeleton&gt;
+&lt;ui-skeleton variant="rect" width="150px" height="60px"&gt;&lt;/ui-skeleton&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Sizes ──────────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Sizes</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Scale the skeleton with <code>size</code> keywords or any CSS length.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack gap="0.75em">
+      <ui-skeleton lines="1" size="x-small"></ui-skeleton>
+      <ui-skeleton lines="1" size="small"></ui-skeleton>
+      <ui-skeleton lines="1"></ui-skeleton>
+      <ui-skeleton lines="1" size="large"></ui-skeleton>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-skeleton size="x-small"&gt;&lt;/ui-skeleton&gt;
+&lt;ui-skeleton size="small"&gt;&lt;/ui-skeleton&gt;
+&lt;ui-skeleton&gt;&lt;/ui-skeleton&gt;
+&lt;ui-skeleton size="large"&gt;&lt;/ui-skeleton&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Content Composition ──────────────────────────────────── -->
+<ui-text type="heading" size="large">Content Composition</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Combine variants to mimic real layouts — for example, a user card.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-card elevation="1" style="max-width:320px">
+      <ui-card-body>
+        <ui-layout-stack direction="horizontal" gap="0.75em" align="center">
+          <ui-skeleton variant="circle" width="3em" height="3em"></ui-skeleton>
+          <ui-layout-stack gap="0.35em" style="flex:1">
+            <ui-skeleton lines="1" width="60%"></ui-skeleton>
+            <ui-skeleton lines="1" width="40%" size="x-small"></ui-skeleton>
+          </ui-layout-stack>
+        </ui-layout-stack>
+        <ui-layout-spacer size="0.75em"></ui-layout-spacer>
+        <ui-skeleton lines="3"></ui-skeleton>
+      </ui-card-body>
+    </ui-card>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-card elevation="1"&gt;
+  &lt;ui-card-body&gt;
+    &lt;ui-skeleton variant="circle" width="3em" height="3em"&gt;&lt;/ui-skeleton&gt;
+    &lt;ui-skeleton lines="1" width="60%"&gt;&lt;/ui-skeleton&gt;
+    &lt;ui-skeleton lines="3"&gt;&lt;/ui-skeleton&gt;
+  &lt;/ui-card-body&gt;
+&lt;/ui-card&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Playground ─────────────────────────────────────────── -->
+<ui-text type="heading" size="large">
+  <ui-icon color="indigo-500">play-circle</ui-icon>
+  Playground
+</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Adjust variant, lines, dimensions, and animation.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="playground">
+  <div class="playground-controls">
+    <ui-card elevation="1">
+      <ui-card-body>
+        <ui-text type="heading" size="small">Controls</ui-text>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-select id="skeleton-variant" label="Variant" size="small">
+          <option value="text" selected>text</option>
+          <option value="circle">circle</option>
+          <option value="rect">rect</option>
+        </ui-input-select>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input id="skeleton-lines" label="Lines" size="small" value="3"></ui-input>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-select id="skeleton-size" label="Size" size="small">
+          <option value="">— (default)</option>
+          <option value="xx-small">xx-small</option>
+          <option value="x-small">x-small</option>
+          <option value="small">small</option>
+          <option value="medium">medium</option>
+          <option value="large">large</option>
+          <option value="x-large">x-large</option>
+        </ui-input-select>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input id="skeleton-width" label="Width" size="small" value=""></ui-input>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input id="skeleton-height" label="Height" size="small" value=""></ui-input>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input id="skeleton-gap" label="Gap" size="small" value=""></ui-input>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input id="skeleton-radius" label="Radius" size="small" value=""></ui-input>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-checkbox id="skeleton-animated" label="Animated" checked></ui-input-checkbox>
+      </ui-card-body>
+    </ui-card>
+  </div>
+
+  <div class="playground-preview">
+    <div class="demo-card">
+      <div class="demo-preview">
+        <ui-skeleton id="skeleton-playground" lines="3"></ui-skeleton>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  const skeleton    = document.getElementById('skeleton-playground');
+  const variantCtrl = document.getElementById('skeleton-variant');
+  const sizeCtrl    = document.getElementById('skeleton-size');
+  const lines       = document.getElementById('skeleton-lines');
+  const width       = document.getElementById('skeleton-width');
+  const height      = document.getElementById('skeleton-height');
+  const gap         = document.getElementById('skeleton-gap');
+  const radius      = document.getElementById('skeleton-radius');
+  const animated    = document.getElementById('skeleton-animated');
+
+  if (!skeleton || !variantCtrl || !lines || !width || !height || !gap || !radius || !animated) return;
+
+  const setOrRemove = (attr, val) => {
+    val ? skeleton.setAttribute(attr, val) : skeleton.removeAttribute(attr);
+  };
+
+  const update = () => {
+    setOrRemove('lines',  (lines.value || '').trim());
+    setOrRemove('width',  (width.value || '').trim());
+    setOrRemove('height', (height.value || '').trim());
+    setOrRemove('gap',    (gap.value || '').trim());
+    setOrRemove('radius', (radius.value || '').trim());
+  };
+
+  [lines, width, height, gap, radius].forEach(ctrl => {
+    ctrl.addEventListener('ui-input', update);
+    ctrl.addEventListener('ui-change', update);
+  });
+
+  variantCtrl.addEventListener('ui-change', () => {
+    setOrRemove('variant', (variantCtrl.value || '').trim());
+  });
+
+  if (sizeCtrl) {
+    sizeCtrl.addEventListener('ui-change', () => {
+      setOrRemove('size', (sizeCtrl.value || '').trim());
+    });
+  }
+
+  animated.addEventListener('ui-change', () => {
+    animated.checked ? skeleton.setAttribute('animated', '') : skeleton.removeAttribute('animated');
+  });
+})();
+</script>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── API Reference ──────────────────────────────────────── -->
+<ui-text type="heading" size="large">API Reference</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead>
+      <tr><th>Attribute</th><th>Type</th><th>Default</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>variant</code></td><td>String</td><td>text</td><td>Shape: <code>text</code>, <code>circle</code>, or <code>rect</code></td></tr>
+      <tr><td><code>width</code></td><td>String</td><td>100%</td><td>Bone width (CSS length or percentage)</td></tr>
+      <tr><td><code>height</code></td><td>String</td><td>1em</td><td>Bone height (CSS length)</td></tr>
+      <tr><td><code>lines</code></td><td>Number</td><td>1</td><td>Number of text lines (applies to <code>text</code> variant)</td></tr>
+      <tr><td><code>gap</code></td><td>String</td><td>0.6em</td><td>Vertical gap between text lines</td></tr>
+      <tr><td><code>size</code></td><td>String</td><td>—</td><td>Overall scale: named keyword (<code>xx-small</code> … <code>xxx-large</code>) or CSS length</td></tr>
+      <tr><td><code>animated</code></td><td>Boolean</td><td>true</td><td>Enable shimmer animation</td></tr>
+      <tr><td><code>radius</code></td><td>String</td><td>0.25em</td><td>Border-radius (CSS length)</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>

@@ -1,0 +1,245 @@
+<!-- ============================================================
+     Kbd — Component Documentation
+     ============================================================ -->
+
+<ui-layout-stack gap="0.25em" style="margin-bottom:2em;">
+  <ui-text type="heading" size="xx-large">Kbd</ui-text>
+  <ui-text type="paragraph" color="gray-500">
+    <code>&lt;ui-kbd&gt;</code> renders keyboard shortcuts in a styled key-cap appearance. Automatically splits on <code>+</code> for multi-key combos.
+  </ui-text>
+</ui-layout-stack>
+
+<ui-text type="heading" size="large">Basic Usage</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Write the key combination as text content. Use <code>+</code> between keys — they are
+  split automatically into individual key caps.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack direction="horizontal" gap="1.5em" align="center" wrap>
+      <ui-kbd>⌘ + K</ui-kbd>
+      <ui-kbd>Ctrl + Shift + P</ui-kbd>
+      <ui-kbd>Enter</ui-kbd>
+      <ui-kbd>Esc</ui-kbd>
+      <ui-kbd>Tab</ui-kbd>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-kbd&gt;⌘ + K&lt;/ui-kbd&gt;
+&lt;ui-kbd&gt;Ctrl + Shift + P&lt;/ui-kbd&gt;
+&lt;ui-kbd&gt;Enter&lt;/ui-kbd&gt;
+&lt;ui-kbd&gt;Esc&lt;/ui-kbd&gt;
+&lt;ui-kbd&gt;Tab&lt;/ui-kbd&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<ui-text type="heading" size="large">Inline with Text</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  <code>&lt;ui-kbd&gt;</code> is <code>inline-flex</code>, so it flows naturally inside paragraphs and labels.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-text type="paragraph">
+      Press <ui-kbd>⌘ + S</ui-kbd> to save, or <ui-kbd>⌘ + Z</ui-kbd> to undo.
+      Use <ui-kbd>Ctrl + Shift + P</ui-kbd> to open the command palette.
+    </ui-text>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-text type="paragraph"&gt;
+  Press &lt;ui-kbd&gt;⌘ + S&lt;/ui-kbd&gt; to save, or &lt;ui-kbd&gt;⌘ + Z&lt;/ui-kbd&gt; to undo.
+  Use &lt;ui-kbd&gt;Ctrl + Shift + P&lt;/ui-kbd&gt; to open the command palette.
+&lt;/ui-text&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<ui-text type="heading" size="large">Coloured Keys</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Use <code>background</code> and <code>color</code> to style key caps with palette tokens or CSS colours.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack direction="horizontal" gap="1.5em" align="center" wrap>
+      <ui-kbd background="indigo-100" color="indigo-700">⌘ + K</ui-kbd>
+      <ui-kbd background="green-100" color="green-700">Enter</ui-kbd>
+      <ui-kbd background="red-100" color="red-700">Delete</ui-kbd>
+      <ui-kbd background="gray-800" color="gray-100">Esc</ui-kbd>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-kbd background="indigo-100" color="indigo-700"&gt;⌘ + K&lt;/ui-kbd&gt;
+&lt;ui-kbd background="green-100" color="green-700"&gt;Enter&lt;/ui-kbd&gt;
+&lt;ui-kbd background="red-100" color="red-700"&gt;Delete&lt;/ui-kbd&gt;
+&lt;ui-kbd background="gray-800" color="gray-100"&gt;Esc&lt;/ui-kbd&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<ui-text type="heading" size="large">Custom Separator</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  The default separator is <code>+</code>. Set <code>separator</code> to change the visual separator
+  between keys (e.g. <code>then</code> or an arrow).
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack direction="horizontal" gap="1.5em" align="center" wrap>
+      <ui-kbd>⌘ + K</ui-kbd>
+      <ui-kbd separator="→">⌘ + K</ui-kbd>
+      <ui-kbd separator="then">G + G</ui-kbd>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-kbd&gt;⌘ + K&lt;/ui-kbd&gt;
+&lt;ui-kbd separator="→"&gt;⌘ + K&lt;/ui-kbd&gt;
+&lt;ui-kbd separator="then"&gt;G + G&lt;/ui-kbd&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<ui-text type="heading" size="large">Sizes</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  The <code>size</code> attribute scales the entire component — key caps, font, and spacing.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack direction="horizontal" gap="1.5em" align="center" wrap>
+      <ui-kbd size="x-small">⌘ + S</ui-kbd>
+      <ui-kbd size="small">⌘ + S</ui-kbd>
+      <ui-kbd>⌘ + S</ui-kbd>
+      <ui-kbd size="large">⌘ + S</ui-kbd>
+      <ui-kbd size="x-large">⌘ + S</ui-kbd>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-kbd size="x-small"&gt;⌘ + S&lt;/ui-kbd&gt;
+&lt;ui-kbd size="small"&gt;⌘ + S&lt;/ui-kbd&gt;
+&lt;ui-kbd&gt;⌘ + S&lt;/ui-kbd&gt;
+&lt;ui-kbd size="large"&gt;⌘ + S&lt;/ui-kbd&gt;
+&lt;ui-kbd size="x-large"&gt;⌘ + S&lt;/ui-kbd&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Playground ─────────────────────────────────────────── -->
+<ui-text type="heading" size="large">
+  <ui-icon color="indigo-500">play-circle</ui-icon>
+  Playground
+</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Tweak kbd properties interactively.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="playground">
+  <div class="playground-controls">
+    <ui-card elevation="1">
+      <ui-card-body>
+        <ui-text type="heading" size="small">Controls</ui-text>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input id="kbd-keys" label="Keys" size="small" value="Ctrl + Shift + P"></ui-input>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-select id="kbd-size" label="Size" size="small">
+          <option value="">(default)</option>
+          <option value="xx-small">xx-small</option>
+          <option value="x-small">x-small</option>
+          <option value="small">small</option>
+          <option value="medium">medium</option>
+          <option value="large">large</option>
+          <option value="x-large">x-large</option>
+        </ui-input-select>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-color id="kbd-bg" label="Background" size="small" value=""></ui-input-color>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-color id="kbd-color" label="Colour" size="small" value=""></ui-input-color>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input id="kbd-sep" label="Separator" size="small" value=""></ui-input>
+      </ui-card-body>
+    </ui-card>
+  </div>
+
+  <div class="playground-preview">
+    <div class="demo-card">
+      <div class="demo-preview" style="display:flex;align-items:center;justify-content:center;min-height:4em;">
+        <ui-kbd id="kbd-playground">Ctrl + Shift + P</ui-kbd>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  const el = document.getElementById('kbd-playground');
+  if (!el) return;
+
+  /* Keys text input → replace text content */
+  const keysCtrl = document.getElementById('kbd-keys');
+  if (keysCtrl) {
+    const update = () => { el.textContent = keysCtrl.value || ''; };
+    keysCtrl.addEventListener('ui-input', update);
+    keysCtrl.addEventListener('ui-change', update);
+  }
+
+  /* Text inputs → attributes */
+  const texts = { 'kbd-bg': 'background', 'kbd-color': 'color', 'kbd-sep': 'separator' };
+  Object.entries(texts).forEach(([id, attr]) => {
+    const ctrl = document.getElementById(id);
+    if (!ctrl) return;
+    const up = () => {
+      const val = (ctrl.value || '').trim();
+      if (val) el.setAttribute(attr, val);
+      else el.removeAttribute(attr);
+    };
+    ctrl.addEventListener('ui-input', up);
+    ctrl.addEventListener('ui-change', up);
+  });
+
+  /* Size select */
+  const sizeCtrl = document.getElementById('kbd-size');
+  if (sizeCtrl) {
+    sizeCtrl.addEventListener('ui-change', () => {
+      const v = sizeCtrl.value;
+      if (v) el.setAttribute('size', v);
+      else el.removeAttribute('size');
+    });
+  }
+})();
+</script>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<ui-text type="heading" size="large">API Reference</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead><tr><th>Attribute</th><th>Type</th><th>Default</th><th>Description</th></tr></thead>
+    <tbody>
+      <tr><td><code>size</code></td><td>String</td><td>—</td><td>Component font-size (named keyword or CSS length) — scales key caps and spacing</td></tr>
+      <tr><td><code>background</code></td><td>String</td><td>—</td><td>Key cap background colour — palette token (e.g. <code>indigo-100</code>) or CSS colour</td></tr>
+      <tr><td><code>color</code></td><td>String</td><td>—</td><td>Key cap text colour — palette token or CSS colour</td></tr>
+      <tr><td><code>separator</code></td><td>String</td><td><code>+</code></td><td>Visual separator shown between keys (e.g. <code>→</code>, <code>then</code>)</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="1em"></ui-layout-spacer>
+
+<ui-text type="heading" size="medium">Slots</ui-text>
+<ui-layout-spacer size="0.5em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead><tr><th>Slot</th><th>Description</th></tr></thead>
+    <tbody>
+      <tr><td><code>(default)</code></td><td>Key text — use <code>+</code> to separate multi-key combos (e.g. <code>Ctrl + S</code>)</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>

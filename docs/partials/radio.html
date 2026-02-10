@@ -1,0 +1,374 @@
+<!-- ============================================================
+     Radio — Component Documentation
+     ============================================================ -->
+
+<ui-layout-stack gap="0.25em" style="margin-bottom:2em;">
+  <ui-text type="heading" size="xx-large">Radio</ui-text>
+  <ui-text type="paragraph" color="gray-500">
+    <code>&lt;ui-input-radio-group&gt;</code> manages single-choice options with
+    <code>&lt;ui-input-radio&gt;</code> children. Supports help text, error state,
+    sizes, and accent colours.
+  </ui-text>
+</ui-layout-stack>
+
+<!-- ── Basic Usage ────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Basic Usage</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Wrap <code>&lt;ui-input-radio&gt;</code> elements inside a group.
+  Set <code>value</code> on the group to pre-select an option.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-input-radio-group label="Plan" value="pro">
+      <ui-input-radio value="starter" label="Starter"></ui-input-radio>
+      <ui-input-radio value="pro" label="Pro"></ui-input-radio>
+      <ui-input-radio value="team" label="Team"></ui-input-radio>
+    </ui-input-radio-group>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-input-radio-group label="Plan" value="pro"&gt;
+  &lt;ui-input-radio value="starter" label="Starter"&gt;&lt;/ui-input-radio&gt;
+  &lt;ui-input-radio value="pro" label="Pro"&gt;&lt;/ui-input-radio&gt;
+  &lt;ui-input-radio value="team" label="Team"&gt;&lt;/ui-input-radio&gt;
+&lt;/ui-input-radio-group&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Help & Error ───────────────────────────────────────── -->
+<ui-text type="heading" size="large">Help &amp; Error Messages</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Use <code>help</code> for guidance text below the group.
+  Set <code>error</code> to show a red error message (replaces help text).
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack gap="1.5em">
+      <ui-input-radio-group label="Frequency" help="Choose how often you'd like updates" value="weekly">
+        <ui-input-radio value="daily" label="Daily"></ui-input-radio>
+        <ui-input-radio value="weekly" label="Weekly"></ui-input-radio>
+        <ui-input-radio value="monthly" label="Monthly"></ui-input-radio>
+      </ui-input-radio-group>
+      <ui-input-radio-group label="Priority" error="Please select a priority" required>
+        <ui-input-radio value="low" label="Low"></ui-input-radio>
+        <ui-input-radio value="medium" label="Medium"></ui-input-radio>
+        <ui-input-radio value="high" label="High"></ui-input-radio>
+      </ui-input-radio-group>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-input-radio-group label="Frequency" help="Choose how often you'd like updates" value="weekly"&gt;
+  &lt;ui-input-radio value="daily" label="Daily"&gt;&lt;/ui-input-radio&gt;
+  &lt;ui-input-radio value="weekly" label="Weekly"&gt;&lt;/ui-input-radio&gt;
+&lt;/ui-input-radio-group&gt;
+
+&lt;ui-input-radio-group label="Priority" error="Please select a priority" required&gt;
+  &lt;ui-input-radio value="low" label="Low"&gt;&lt;/ui-input-radio&gt;
+  &lt;ui-input-radio value="high" label="High"&gt;&lt;/ui-input-radio&gt;
+&lt;/ui-input-radio-group&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Disabled ───────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Disabled</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Add <code>disabled</code> to the group to disable all radios, or on individual
+  <code>&lt;ui-input-radio&gt;</code> elements selectively.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack direction="horizontal" gap="2em" wrap>
+      <ui-input-radio-group label="Entire group disabled" disabled value="a">
+        <ui-input-radio value="a" label="Option A"></ui-input-radio>
+        <ui-input-radio value="b" label="Option B"></ui-input-radio>
+      </ui-input-radio-group>
+      <ui-input-radio-group label="Single option disabled" value="yes">
+        <ui-input-radio value="yes" label="Yes"></ui-input-radio>
+        <ui-input-radio value="no" label="No" disabled></ui-input-radio>
+      </ui-input-radio-group>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-input-radio-group label="Group disabled" disabled value="a"&gt;
+  &lt;ui-input-radio value="a" label="Option A"&gt;&lt;/ui-input-radio&gt;
+  &lt;ui-input-radio value="b" label="Option B"&gt;&lt;/ui-input-radio&gt;
+&lt;/ui-input-radio-group&gt;
+
+&lt;ui-input-radio-group label="Single option disabled" value="yes"&gt;
+  &lt;ui-input-radio value="yes" label="Yes"&gt;&lt;/ui-input-radio&gt;
+  &lt;ui-input-radio value="no" label="No" disabled&gt;&lt;/ui-input-radio&gt;
+&lt;/ui-input-radio-group&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Sizes ──────────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Sizes</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Use <code>size</code> on the group with CSS keywords (<code>x-small</code> … <code>xx-large</code>) or any CSS length.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack direction="horizontal" gap="2em" wrap>
+      <ui-input-radio-group label="Small" size="small" value="a">
+        <ui-input-radio value="a" label="Alpha"></ui-input-radio>
+        <ui-input-radio value="b" label="Beta"></ui-input-radio>
+      </ui-input-radio-group>
+      <ui-input-radio-group label="Default" value="a">
+        <ui-input-radio value="a" label="Alpha"></ui-input-radio>
+        <ui-input-radio value="b" label="Beta"></ui-input-radio>
+      </ui-input-radio-group>
+      <ui-input-radio-group label="Large" size="large" value="a">
+        <ui-input-radio value="a" label="Alpha"></ui-input-radio>
+        <ui-input-radio value="b" label="Beta"></ui-input-radio>
+      </ui-input-radio-group>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-input-radio-group label="Small" size="small" value="a"&gt;
+  &lt;ui-input-radio value="a" label="Alpha"&gt;&lt;/ui-input-radio&gt;
+&lt;/ui-input-radio-group&gt;
+
+&lt;ui-input-radio-group label="Large" size="large" value="a"&gt;
+  &lt;ui-input-radio value="a" label="Alpha"&gt;&lt;/ui-input-radio&gt;
+&lt;/ui-input-radio-group&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Background & Color ─────────────────────────────────── -->
+<ui-text type="heading" size="large">Background &amp; Color</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Set <code>background</code> on the group to a palette token (e.g. <code>emerald-600</code>)
+  or any CSS colour to change the radio accent.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack direction="horizontal" gap="2em" wrap>
+      <ui-input-radio-group label="Indigo" background="indigo-600" value="a">
+        <ui-input-radio value="a" label="A"></ui-input-radio>
+        <ui-input-radio value="b" label="B"></ui-input-radio>
+      </ui-input-radio-group>
+      <ui-input-radio-group label="Emerald" background="emerald-600" value="a">
+        <ui-input-radio value="a" label="A"></ui-input-radio>
+        <ui-input-radio value="b" label="B"></ui-input-radio>
+      </ui-input-radio-group>
+      <ui-input-radio-group label="Rose" background="rose-600" value="a">
+        <ui-input-radio value="a" label="A"></ui-input-radio>
+        <ui-input-radio value="b" label="B"></ui-input-radio>
+      </ui-input-radio-group>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-input-radio-group label="Emerald" background="emerald-600" value="a"&gt;
+  &lt;ui-input-radio value="a" label="A"&gt;&lt;/ui-input-radio&gt;
+  &lt;ui-input-radio value="b" label="B"&gt;&lt;/ui-input-radio&gt;
+&lt;/ui-input-radio-group&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Playground ─────────────────────────────────────────── -->
+<ui-text type="heading" size="large">
+  <ui-icon color="indigo-500">play-circle</ui-icon>
+  Playground
+</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Switch selected value, size, accent colour, and error text.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="playground">
+  <div class="playground-controls">
+    <ui-card elevation="1">
+      <ui-card-body>
+        <ui-text type="heading" size="small">Controls</ui-text>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input id="radio-label" label="Group Label" size="small" value="Priority"></ui-input>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input id="radio-help" label="Help" size="small" value=""></ui-input>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input id="radio-error" label="Error" size="small" value=""></ui-input>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-color id="radio-bg" label="Background" size="small" value="" placeholder="e.g. emerald-600"></ui-input-color>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-select id="radio-size" label="Size" size="small">
+          <option value="">Default</option>
+          <option value="x-small">x-small</option>
+          <option value="small">small</option>
+          <option value="large">large</option>
+          <option value="x-large">x-large</option>
+          <option value="xx-large">xx-large</option>
+        </ui-input-select>
+        <ui-layout-spacer size="0.75em"></ui-layout-spacer>
+        <ui-layout-stack gap="0.35em">
+          <ui-input-checkbox id="radio-disabled" label="Disabled"></ui-input-checkbox>
+          <ui-input-checkbox id="radio-required" label="Required"></ui-input-checkbox>
+        </ui-layout-stack>
+      </ui-card-body>
+    </ui-card>
+  </div>
+
+  <div class="playground-preview">
+    <div class="demo-card">
+      <div class="demo-preview">
+        <ui-input-radio-group id="radio-playground" label="Priority" value="medium">
+          <ui-input-radio value="low" label="Low"></ui-input-radio>
+          <ui-input-radio value="medium" label="Medium"></ui-input-radio>
+          <ui-input-radio value="high" label="High"></ui-input-radio>
+        </ui-input-radio-group>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  const el = document.getElementById('radio-playground');
+  const label = document.getElementById('radio-label');
+  const help = document.getElementById('radio-help');
+  const error = document.getElementById('radio-error');
+  const bg = document.getElementById('radio-bg');
+  const size = document.getElementById('radio-size');
+  const disabled = document.getElementById('radio-disabled');
+  const required = document.getElementById('radio-required');
+
+  if (!el || !label) return;
+
+  function setOrRemove(attr, val) {
+    const v = (val || '').trim();
+    if (v) el.setAttribute(attr, v);
+    else el.removeAttribute(attr);
+  }
+
+  function bindText(input, attr) {
+    const handler = () => setOrRemove(attr, input.value);
+    input.addEventListener('ui-input', handler);
+    input.addEventListener('ui-change', handler);
+  }
+
+  function bindBool(input, attr) {
+    input.addEventListener('ui-change', () => {
+      if (input.checked) el.setAttribute(attr, '');
+      else el.removeAttribute(attr);
+    });
+  }
+
+  bindText(label, 'label');
+  bindText(help, 'help');
+  bindText(error, 'error');
+  bindText(bg, 'background');
+  size.addEventListener('ui-change', () => setOrRemove('size', size.value));
+  bindBool(disabled, 'disabled');
+  bindBool(required, 'required');
+})();
+</script>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── API Reference — Radio Group ────────────────────────── -->
+<ui-text type="heading" size="large">API Reference — Radio Group</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead>
+      <tr><th>Attribute</th><th>Type</th><th>Default</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>value</code></td><td>String</td><td>""</td><td>Currently selected value</td></tr>
+      <tr><td><code>name</code></td><td>String</td><td>""</td><td>Form field name</td></tr>
+      <tr><td><code>label</code></td><td>String</td><td>""</td><td>Group label</td></tr>
+      <tr><td><code>help</code></td><td>String</td><td>""</td><td>Help text below the group</td></tr>
+      <tr><td><code>error</code></td><td>String</td><td>""</td><td>Error message (replaces help text)</td></tr>
+      <tr><td><code>size</code></td><td>String</td><td>""</td><td>Size keyword or CSS length</td></tr>
+      <tr><td><code>background</code></td><td>String</td><td>""</td><td>Accent colour for radio dots (palette token or CSS colour)</td></tr>
+      <tr><td><code>disabled</code></td><td>Boolean</td><td>false</td><td>Disables all radios in the group</td></tr>
+      <tr><td><code>required</code></td><td>Boolean</td><td>false</td><td>Marks as required (shows asterisk)</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── API Reference — Radio ──────────────────────────────── -->
+<ui-text type="heading" size="large">API Reference — Radio</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead>
+      <tr><th>Attribute</th><th>Type</th><th>Default</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>checked</code></td><td>Boolean</td><td>false</td><td>Whether this radio is selected</td></tr>
+      <tr><td><code>value</code></td><td>String</td><td>""</td><td>Value for this option</td></tr>
+      <tr><td><code>label</code></td><td>String</td><td>""</td><td>Label text next to the radio</td></tr>
+      <tr><td><code>disabled</code></td><td>Boolean</td><td>false</td><td>Disables this radio</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── CSS Parts ──────────────────────────────────────────── -->
+<ui-text type="heading" size="large">CSS Parts</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<ui-text type="paragraph" color="gray-500" size="small"><strong>Radio Group</strong></ui-text>
+<ui-layout-spacer size="0.25em"></ui-layout-spacer>
+<ui-table size="small">
+  <table>
+    <thead>
+      <tr><th>Part</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>label</code></td><td>The group label element</td></tr>
+      <tr><td><code>radios</code></td><td>The container wrapping the slot</td></tr>
+      <tr><td><code>help</code></td><td>The help text element</td></tr>
+      <tr><td><code>error</code></td><td>The error message element</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="1em"></ui-layout-spacer>
+
+<ui-text type="paragraph" color="gray-500" size="small"><strong>Radio</strong></ui-text>
+<ui-layout-spacer size="0.25em"></ui-layout-spacer>
+<ui-table size="small">
+  <table>
+    <thead>
+      <tr><th>Part</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>container</code></td><td>The outer flex container</td></tr>
+      <tr><td><code>circle</code></td><td>The radio circle outline</td></tr>
+      <tr><td><code>dot</code></td><td>The filled dot when selected</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Events ──────────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Events</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead>
+      <tr><th>Event</th><th>Detail</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>ui-change</code></td><td><code>{ value }</code></td><td>Fires on <code>&lt;ui-input-radio-group&gt;</code> when the selected radio changes</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>

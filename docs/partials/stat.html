@@ -1,0 +1,289 @@
+<!-- ============================================================
+     Stat — Component Documentation
+     ============================================================ -->
+
+<ui-layout-stack gap="0.25em" style="margin-bottom:2em;">
+  <ui-text type="heading" size="xx-large">Stat</ui-text>
+  <ui-text type="paragraph" color="gray-500">
+    <code>&lt;ui-stat&gt;</code> displays a prominent statistic with a label and optional trend indicator — ideal for dashboards and summary cards.
+  </ui-text>
+</ui-layout-stack>
+
+<ui-text type="heading" size="large">Basic Usage</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Use <code>label</code>, <code>value</code>, and <code>trend</code> to show key metrics at a glance.
+  Trend accepts <code>"up"</code>, <code>"down"</code>, or a percentage string like <code>"+12%"</code> / <code>"-3%"</code>.
+  Values without a <code>+</code> or <code>-</code> prefix show a neutral indicator.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack direction="horizontal" gap="1em" wrap>
+      <ui-stat label="Total Users" value="12,345" trend="+12%"></ui-stat>
+      <ui-stat label="Bounce Rate" value="32.1%" trend="-3.2%"></ui-stat>
+      <ui-stat label="Uptime" value="99.9%" trend="up"></ui-stat>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-stat label="Total Users" value="12,345" trend="+12%"&gt;&lt;/ui-stat&gt;
+&lt;ui-stat label="Bounce Rate" value="32.1%" trend="-3.2%"&gt;&lt;/ui-stat&gt;
+&lt;ui-stat label="Uptime" value="99.9%" trend="up"&gt;&lt;/ui-stat&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<ui-text type="heading" size="large">With Icons</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Add an <code>icon</code> attribute to show an icon above (or beside in compact mode) the stat content.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack direction="horizontal" gap="1em" wrap>
+      <ui-stat label="Revenue" value="$48.2K" trend="+8%" icon="dollar-sign"></ui-stat>
+      <ui-stat label="Orders" value="1,284" trend="-2%" icon="shopping-cart"></ui-stat>
+      <ui-stat label="Visitors" value="64.7K" trend="12%" icon="eye"></ui-stat>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-stat label="Revenue" value="$48.2K" trend="+8%" icon="dollar-sign"&gt;&lt;/ui-stat&gt;
+&lt;ui-stat label="Orders" value="1,284" trend="-2%" icon="shopping-cart"&gt;&lt;/ui-stat&gt;
+&lt;ui-stat label="Visitors" value="64.7K" trend="12%" icon="eye"&gt;&lt;/ui-stat&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<ui-text type="heading" size="large">Coloured Backgrounds</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Set <code>background</code> to a palette token or CSS colour. Text and label colours
+  auto-contrast for readability, and the border becomes transparent.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack direction="horizontal" gap="1em" wrap>
+      <ui-stat label="Sales" value="$12.4K" trend="+18%" icon="trending-up" background="green-50"></ui-stat>
+      <ui-stat label="Errors" value="23" trend="-40%" icon="alert-triangle" background="red-50"></ui-stat>
+      <ui-stat label="Active Users" value="3,847" trend="+5%" icon="users" background="indigo-600"></ui-stat>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-stat label="Sales" value="$12.4K" trend="+18%"
+  icon="trending-up" background="green-50"&gt;&lt;/ui-stat&gt;
+
+&lt;ui-stat label="Errors" value="23" trend="-40%"
+  icon="alert-triangle" background="red-50"&gt;&lt;/ui-stat&gt;
+
+&lt;!-- Dark background — text auto-contrasts to white --&gt;
+&lt;ui-stat label="Active Users" value="3,847" trend="+5%"
+  icon="users" background="indigo-600"&gt;&lt;/ui-stat&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<ui-text type="heading" size="large">Compact Layout</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Add <code>compact</code> for a horizontal layout with the icon beside the content — useful for dense dashboards.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack gap="0.75em">
+      <ui-stat label="Active Sessions" value="2,847" trend="+4%" icon="users" compact></ui-stat>
+      <ui-stat label="CPU Usage" value="62%" trend="down" icon="cpu" compact></ui-stat>
+      <ui-stat label="Disk Space" value="480 GB" trend="73%" icon="hard-drive" compact></ui-stat>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-stat label="Active Sessions" value="2,847" trend="+4%" icon="users" compact&gt;&lt;/ui-stat&gt;
+&lt;ui-stat label="CPU Usage" value="62%" trend="down" icon="cpu" compact&gt;&lt;/ui-stat&gt;
+&lt;ui-stat label="Disk Space" value="480 GB" trend="73%" icon="hard-drive" compact&gt;&lt;/ui-stat&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<ui-text type="heading" size="large">Sizes</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  The <code>size</code> attribute scales the entire component — value, label, icon, and spacing.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack direction="horizontal" gap="1em" wrap>
+      <ui-stat label="Small" value="1,024" trend="+5%" size="small"></ui-stat>
+      <ui-stat label="Default" value="1,024" trend="+5%"></ui-stat>
+      <ui-stat label="Large" value="1,024" trend="+5%" size="large"></ui-stat>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-stat label="Small" value="1,024" trend="+5%" size="small"&gt;&lt;/ui-stat&gt;
+&lt;ui-stat label="Default" value="1,024" trend="+5%"&gt;&lt;/ui-stat&gt;
+&lt;ui-stat label="Large" value="1,024" trend="+5%" size="large"&gt;&lt;/ui-stat&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<ui-text type="heading" size="large">Slot Content</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  The default slot adds extra content below the stat — progress bars, helper text, or any <code>ui-*</code> component.
+  The slot area is automatically hidden when no content is provided.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack direction="horizontal" gap="1em" wrap>
+      <ui-stat label="Storage Used" value="480 GB" trend="73%" icon="hard-drive">
+        <ui-progress value="73" size="x-small" background="blue-500"></ui-progress>
+      </ui-stat>
+      <ui-stat label="Monthly Goal" value="$38.2K" trend="+22%" icon="target">
+        <ui-text size="x-small">Target: $50K</ui-text>
+      </ui-stat>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-stat label="Storage Used" value="480 GB" trend="73%" icon="hard-drive"&gt;
+  &lt;ui-progress value="73" size="x-small" background="blue-500"&gt;&lt;/ui-progress&gt;
+&lt;/ui-stat&gt;
+
+&lt;ui-stat label="Monthly Goal" value="$38.2K" trend="+22%" icon="target"&gt;
+  &lt;ui-text size="x-small"&gt;Target: $50K&lt;/ui-text&gt;
+&lt;/ui-stat&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Playground ─────────────────────────────────────────── -->
+<ui-text type="heading" size="large">
+  <ui-icon color="indigo-500">play-circle</ui-icon>
+  Playground
+</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Tweak stat properties interactively.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="playground">
+  <div class="playground-controls">
+    <ui-card elevation="1">
+      <ui-card-body>
+        <ui-text type="heading" size="small">Controls</ui-text>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input id="stat-label" label="Label" size="small" value="Total Users"></ui-input>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input id="stat-value" label="Value" size="small" value="12,345"></ui-input>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input id="stat-trend" label="Trend" size="small" value="+12%"></ui-input>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input id="stat-icon" label="Icon" size="small" value=""></ui-input>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-color id="stat-bg" label="Background" size="small" value=""></ui-input-color>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-color id="stat-color" label="Colour" size="small" value=""></ui-input-color>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-select id="stat-size" label="Size" size="small">
+          <option value="">(default)</option>
+          <option value="xx-small">xx-small</option>
+          <option value="x-small">x-small</option>
+          <option value="small">small</option>
+          <option value="medium">medium</option>
+          <option value="large">large</option>
+          <option value="x-large">x-large</option>
+        </ui-input-select>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-checkbox id="stat-compact" label="Compact" size="small"></ui-input-checkbox>
+      </ui-card-body>
+    </ui-card>
+  </div>
+
+  <div class="playground-preview">
+    <div class="demo-card">
+      <div class="demo-preview">
+        <ui-stat id="stat-playground" label="Total Users" value="12,345" trend="+12%"></ui-stat>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  const el = document.getElementById('stat-playground');
+  if (!el) return;
+
+  /* Text inputs → attributes */
+  const texts = {
+    'stat-label': 'label',
+    'stat-value': 'value',
+    'stat-trend': 'trend',
+    'stat-icon': 'icon',
+    'stat-bg': 'background',
+    'stat-color': 'color',
+  };
+  Object.entries(texts).forEach(([id, attr]) => {
+    const ctrl = document.getElementById(id);
+    if (!ctrl) return;
+    const update = () => {
+      const val = (ctrl.value || '').trim();
+      if (val) el.setAttribute(attr, val);
+      else el.removeAttribute(attr);
+    };
+    ctrl.addEventListener('ui-input', update);
+    ctrl.addEventListener('ui-change', update);
+  });
+
+  /* Size select */
+  const sizeCtrl = document.getElementById('stat-size');
+  if (sizeCtrl) {
+    sizeCtrl.addEventListener('ui-change', () => {
+      const v = sizeCtrl.value;
+      if (v) el.setAttribute('size', v);
+      else el.removeAttribute('size');
+    });
+  }
+
+  /* Compact checkbox */
+  const compactCtrl = document.getElementById('stat-compact');
+  if (compactCtrl) {
+    compactCtrl.addEventListener('ui-change', () => {
+      if (compactCtrl.checked) el.setAttribute('compact', '');
+      else el.removeAttribute('compact');
+    });
+  }
+})();
+</script>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<ui-text type="heading" size="large">API Reference</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead><tr><th>Attribute</th><th>Type</th><th>Default</th><th>Description</th></tr></thead>
+    <tbody>
+      <tr><td><code>label</code></td><td>String</td><td>—</td><td>Uppercase label text shown above the value (e.g. "Total Users")</td></tr>
+      <tr><td><code>value</code></td><td>String</td><td>—</td><td>Main stat value — displayed prominently at 1.75em (e.g. "12,345", "$48.2K")</td></tr>
+      <tr><td><code>trend</code></td><td>String</td><td>—</td><td>Trend indicator — <code>"up"</code> / <code>"down"</code> show icon only; <code>"+12%"</code> / <code>"-3%"</code> show coloured pill with direction; values without +/- show a neutral grey pill</td></tr>
+      <tr><td><code>icon</code></td><td>String</td><td>—</td><td>Icon name displayed above the stat (or beside in compact mode)</td></tr>
+      <tr><td><code>background</code></td><td>String</td><td>—</td><td>Background colour — palette token (e.g. <code>green-50</code>, <code>indigo-600</code>) or CSS colour. Text auto-contrasts on dark backgrounds.</td></tr>
+      <tr><td><code>color</code></td><td>String</td><td>—</td><td>Text colour — overrides auto-contrast when set explicitly</td></tr>
+      <tr><td><code>size</code></td><td>String</td><td>—</td><td>Component font-size (named keyword or CSS length) — scales all parts proportionally</td></tr>
+      <tr><td><code>compact</code></td><td>Boolean</td><td>false</td><td>Switches to a horizontal layout with the icon beside the content</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="1em"></ui-layout-spacer>
+
+<ui-text type="heading" size="medium">Slots</ui-text>
+<ui-layout-spacer size="0.5em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead><tr><th>Slot</th><th>Description</th></tr></thead>
+    <tbody>
+      <tr><td><code>(default)</code></td><td>Extra content below the value row — progress bars, helper text, badges, etc. Hidden automatically when empty.</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>

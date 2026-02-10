@@ -1,0 +1,362 @@
+<!-- ============================================================
+     Scroll Area — Component Documentation
+     ============================================================ -->
+
+<ui-layout-stack gap="0.25em" style="margin-bottom:2em;">
+  <ui-text type="heading" size="xx-large">Scroll Area</ui-text>
+  <ui-text type="paragraph" color="gray-500">
+    <code>&lt;ui-scroll-area&gt;</code> provides a styled scrollable container with customisable thin scrollbars that appear on hover, plus subtle scroll-shadow indicators at content edges.
+  </ui-text>
+</ui-layout-stack>
+
+<ui-text type="heading" size="large">Basic Usage</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Set a fixed <code>height</code> to enable vertical scrolling. Gradient shadows appear automatically at the top and bottom edges to indicate more content.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-scroll-area height="150px" padding="small" style="border:1px solid var(--ui-border-color);border-radius:0.5em;">
+      <ui-text type="paragraph">Line 1: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</ui-text>
+      <ui-text type="paragraph">Line 2: Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</ui-text>
+      <ui-text type="paragraph">Line 3: Ut enim ad minim veniam, quis nostrud exercitation ullamco.</ui-text>
+      <ui-text type="paragraph">Line 4: Duis aute irure dolor in reprehenderit in voluptate velit.</ui-text>
+      <ui-text type="paragraph">Line 5: Excepteur sint occaecat cupidatat non proident.</ui-text>
+      <ui-text type="paragraph">Line 6: Sunt in culpa qui officia deserunt mollit anim id est laborum.</ui-text>
+      <ui-text type="paragraph">Line 7: Nulla facilisi. Praesent commodo cursus magna.</ui-text>
+      <ui-text type="paragraph">Line 8: Vivamus sagittis lacus vel augue laoreet rutrum.</ui-text>
+    </ui-scroll-area>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-scroll-area height="150px" padding="small"&gt;
+  &lt;ui-text type="paragraph"&gt;Long scrollable content...&lt;/ui-text&gt;
+&lt;/ui-scroll-area&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<ui-text type="heading" size="large">Scrollbar Styles</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Choose between <code>thin</code> (hover-reveal), <code>auto</code> (system default), or <code>hidden</code>.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack direction="horizontal" gap="1em" wrap>
+      <ui-layout-stack gap="0.25em">
+        <ui-text size="x-small" color="gray-500">thin (default)</ui-text>
+        <ui-scroll-area height="80px" scrollbar="thin" padding="x-small" style="border:1px solid var(--ui-border-color);border-radius:0.5em;width:180px;">
+          <ui-text size="small">Thin scrollbar appears on hover. Scroll down to see it in action with this long content.</ui-text>
+        </ui-scroll-area>
+      </ui-layout-stack>
+      <ui-layout-stack gap="0.25em">
+        <ui-text size="x-small" color="gray-500">auto</ui-text>
+        <ui-scroll-area height="80px" scrollbar="auto" padding="x-small" style="border:1px solid var(--ui-border-color);border-radius:0.5em;width:180px;">
+          <ui-text size="small">System default scrollbar. Uses the native scrollbar style provided by the browser.</ui-text>
+        </ui-scroll-area>
+      </ui-layout-stack>
+      <ui-layout-stack gap="0.25em">
+        <ui-text size="x-small" color="gray-500">hidden</ui-text>
+        <ui-scroll-area height="80px" scrollbar="hidden" padding="x-small" style="border:1px solid var(--ui-border-color);border-radius:0.5em;width:180px;">
+          <ui-text size="small">Hidden scrollbar. Content is still scrollable but no scrollbar is shown.</ui-text>
+        </ui-scroll-area>
+      </ui-layout-stack>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-scroll-area height="80px" scrollbar="thin"&gt;...&lt;/ui-scroll-area&gt;
+&lt;ui-scroll-area height="80px" scrollbar="auto"&gt;...&lt;/ui-scroll-area&gt;
+&lt;ui-scroll-area height="80px" scrollbar="hidden"&gt;...&lt;/ui-scroll-area&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<ui-text type="heading" size="large">Horizontal Scrolling</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Set <code>direction="horizontal"</code> and a fixed <code>width</code> for horizontal scrolling.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-scroll-area direction="horizontal" height="auto" style="border:1px solid var(--ui-border-color);border-radius:0.5em;max-width:400px;">
+      <ui-layout-stack direction="horizontal" gap="0.75em" padding="small" style="width:max-content;">
+        <ui-card elevation="1" style="min-width:140px;"><ui-card-body><ui-text size="small">Card 1</ui-text></ui-card-body></ui-card>
+        <ui-card elevation="1" style="min-width:140px;"><ui-card-body><ui-text size="small">Card 2</ui-text></ui-card-body></ui-card>
+        <ui-card elevation="1" style="min-width:140px;"><ui-card-body><ui-text size="small">Card 3</ui-text></ui-card-body></ui-card>
+        <ui-card elevation="1" style="min-width:140px;"><ui-card-body><ui-text size="small">Card 4</ui-text></ui-card-body></ui-card>
+        <ui-card elevation="1" style="min-width:140px;"><ui-card-body><ui-text size="small">Card 5</ui-text></ui-card-body></ui-card>
+      </ui-layout-stack>
+    </ui-scroll-area>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-scroll-area direction="horizontal" style="max-width:400px;"&gt;
+  &lt;ui-layout-stack direction="horizontal" gap="0.75em" style="width:max-content;"&gt;
+    &lt;ui-card&gt;...&lt;/ui-card&gt;
+    &lt;ui-card&gt;...&lt;/ui-card&gt;
+  &lt;/ui-layout-stack&gt;
+&lt;/ui-scroll-area&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<ui-text type="heading" size="large">Scroll Shadows</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Gradient shadows appear automatically at scroll edges to indicate more content. Customise with CSS custom properties.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack direction="horizontal" gap="1em" wrap>
+      <ui-layout-stack gap="0.25em">
+        <ui-text size="x-small" color="gray-500">Default shadow</ui-text>
+        <ui-scroll-area height="100px" padding="x-small" style="border:1px solid var(--ui-border-color);border-radius:0.5em;width:200px;">
+          <ui-text size="small">Scroll down to see the top shadow appear. The bottom shadow shows there is more content below. Shadows transition smoothly as you scroll.</ui-text>
+          <ui-layout-spacer size="1em"></ui-layout-spacer>
+          <ui-text size="small">More content here to enable scrolling past the visible area.</ui-text>
+        </ui-scroll-area>
+      </ui-layout-stack>
+      <ui-layout-stack gap="0.25em">
+        <ui-text size="x-small" color="gray-500">Custom colour &amp; size</ui-text>
+        <ui-scroll-area height="100px" padding="x-small" style="--ui-scroll-shadow-color:rgba(99,102,241,0.15);--ui-scroll-shadow-size:2em;border:1px solid var(--ui-border-color);border-radius:0.5em;width:200px;">
+          <ui-text size="small">This scroll area uses a custom indigo shadow colour and larger shadow size via CSS custom properties.</ui-text>
+          <ui-layout-spacer size="1em"></ui-layout-spacer>
+          <ui-text size="small">More content here to demonstrate the custom shadow.</ui-text>
+        </ui-scroll-area>
+      </ui-layout-stack>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;!-- Default shadows --&gt;
+&lt;ui-scroll-area height="100px"&gt;...&lt;/ui-scroll-area&gt;
+
+&lt;!-- Custom shadow colour &amp; size --&gt;
+&lt;ui-scroll-area height="100px"
+  style="--ui-scroll-shadow-color: rgba(99,102,241,0.15);
+         --ui-scroll-shadow-size: 2em;"&gt;
+  ...
+&lt;/ui-scroll-area&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<ui-text type="heading" size="large">Scroll End Event</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  The <code>ui-scroll-end</code> event fires once when the user scrolls to the bottom — useful for infinite-scroll or load-more patterns.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack gap="0.5em">
+      <ui-scroll-area id="sa-event-demo" height="100px" padding="x-small" style="border:1px solid var(--ui-border-color);border-radius:0.5em;">
+        <ui-text size="small" type="paragraph">Scroll to the bottom to trigger the event.</ui-text>
+        <ui-text size="small" type="paragraph">Line 2: Keep scrolling...</ui-text>
+        <ui-text size="small" type="paragraph">Line 3: Almost there...</ui-text>
+        <ui-text size="small" type="paragraph">Line 4: Just a bit more...</ui-text>
+        <ui-text size="small" type="paragraph">Line 5: You're at the bottom!</ui-text>
+      </ui-scroll-area>
+      <ui-text id="sa-event-output" size="x-small" color="gray-400">Scroll to bottom to see the event fire.</ui-text>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-scroll-area id="feed" height="400px"&gt;
+  &lt;!-- content --&gt;
+&lt;/ui-scroll-area&gt;
+
+&lt;script&gt;
+  document.getElementById('feed')
+    .addEventListener('ui-scroll-end', () =&gt; {
+      // Load more content...
+    });
+&lt;/script&gt;</ui-input-code>
+</div>
+
+<script>
+(function() {
+  const area = document.getElementById('sa-event-demo');
+  const output = document.getElementById('sa-event-output');
+  if (!area || !output) return;
+  let count = 0;
+  area.addEventListener('ui-scroll-end', () => {
+    count++;
+    output.textContent = `ui-scroll-end fired! (${count} time${count > 1 ? 's' : ''})`;
+    output.setAttribute('color', 'emerald-600');
+  });
+})();
+</script>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Playground ─────────────────────────────────────────── -->
+<ui-text type="heading" size="large">
+  <ui-icon color="indigo-500">play-circle</ui-icon>
+  Playground
+</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Adjust scroll-area properties interactively.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="playground">
+  <div class="playground-controls">
+    <ui-card elevation="1">
+      <ui-card-body>
+        <ui-text type="heading" size="small">Controls</ui-text>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input id="sa-height" label="Height" size="small" value="150px"></ui-input>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input id="sa-max-height" label="Max Height" size="small" placeholder="e.g. 200px"></ui-input>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input id="sa-width" label="Width" size="small" placeholder="e.g. 300px"></ui-input>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-select id="sa-direction" label="Direction" size="small" value="vertical">
+          <option value="vertical">vertical</option>
+          <option value="horizontal">horizontal</option>
+          <option value="both">both</option>
+        </ui-input-select>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-select id="sa-scrollbar" label="Scrollbar" size="small" value="thin">
+          <option value="thin">thin</option>
+          <option value="auto">auto</option>
+          <option value="hidden">hidden</option>
+        </ui-input-select>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-select id="sa-padding" label="Padding" size="small">
+          <option value="">—</option>
+          <option value="xx-small">xx-small</option>
+          <option value="x-small">x-small</option>
+          <option value="small">small</option>
+          <option value="medium">medium</option>
+          <option value="large">large</option>
+          <option value="x-large">x-large</option>
+        </ui-input-select>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-select id="sa-size" label="Size" size="small">
+          <option value="">—</option>
+          <option value="xx-small">xx-small</option>
+          <option value="x-small">x-small</option>
+          <option value="small">small</option>
+          <option value="medium">medium</option>
+          <option value="large">large</option>
+          <option value="x-large">x-large</option>
+          <option value="xx-large">xx-large</option>
+        </ui-input-select>
+      </ui-card-body>
+    </ui-card>
+  </div>
+
+  <div class="playground-preview">
+    <div class="demo-card">
+      <div class="demo-preview">
+        <ui-scroll-area id="sa-playground" height="150px" style="border:1px solid var(--ui-border-color);border-radius:0.5em;">
+          <ui-text type="paragraph">Line 1: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</ui-text>
+          <ui-text type="paragraph">Line 2: Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</ui-text>
+          <ui-text type="paragraph">Line 3: Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</ui-text>
+          <ui-text type="paragraph">Line 4: Duis aute irure dolor in reprehenderit in voluptate velit esse.</ui-text>
+          <ui-text type="paragraph">Line 5: Excepteur sint occaecat cupidatat non proident, sunt in culpa.</ui-text>
+          <ui-text type="paragraph">Line 6: Nulla facilisi. Praesent commodo cursus magna.</ui-text>
+          <ui-text type="paragraph">Line 7: Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor.</ui-text>
+          <ui-text type="paragraph">Line 8: Integer posuere erat a ante venenatis dapibus posuere velit.</ui-text>
+          <ui-text type="paragraph">Line 9: Cras mattis consectetur purus sit amet fermentum.</ui-text>
+          <ui-text type="paragraph">Line 10: Aenean lacinia bibendum nulla sed consectetur.</ui-text>
+        </ui-scroll-area>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  const el = document.getElementById('sa-playground');
+  if (!el) return;
+
+  const controls = {
+    'sa-height':     'height',
+    'sa-max-height': 'max-height',
+    'sa-width':      'width',
+    'sa-direction':  'direction',
+    'sa-scrollbar':  'scrollbar',
+    'sa-padding':    'padding',
+    'sa-size':       'size',
+  };
+
+  Object.entries(controls).forEach(([id, attr]) => {
+    const ctrl = document.getElementById(id);
+    if (!ctrl) return;
+    const update = () => {
+      const val = (ctrl.value || '').trim();
+      if (val) el.setAttribute(attr, val);
+      else el.removeAttribute(attr);
+    };
+    ctrl.addEventListener('ui-change', update);
+    ctrl.addEventListener('ui-input', update);
+  });
+})();
+</script>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<ui-text type="heading" size="large">API Reference</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead><tr><th>Attribute</th><th>Type</th><th>Default</th><th>Description</th></tr></thead>
+    <tbody>
+      <tr><td><code>height</code></td><td>String</td><td>—</td><td>Container height (required for vertical scrolling)</td></tr>
+      <tr><td><code>max-height</code></td><td>String</td><td>—</td><td>Maximum height before scrolling begins</td></tr>
+      <tr><td><code>width</code></td><td>String</td><td>—</td><td>Container width</td></tr>
+      <tr><td><code>size</code></td><td>String</td><td>—</td><td>Component font-size (named keyword or CSS length)</td></tr>
+      <tr><td><code>direction</code></td><td>String</td><td>vertical</td><td>Scroll direction: <code>vertical</code>, <code>horizontal</code>, <code>both</code></td></tr>
+      <tr><td><code>scrollbar</code></td><td>String</td><td>thin</td><td>Scrollbar style: <code>thin</code>, <code>auto</code>, <code>hidden</code></td></tr>
+      <tr><td><code>padding</code></td><td>String</td><td>—</td><td>Inner padding (named size or CSS length)</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="1em"></ui-layout-spacer>
+
+<ui-text type="heading" size="medium">Methods</ui-text>
+<ui-layout-spacer size="0.5em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead><tr><th>Method</th><th>Description</th></tr></thead>
+    <tbody>
+      <tr><td><code>scrollToTop(behavior)</code></td><td>Scroll to the top (default: <code>'smooth'</code>)</td></tr>
+      <tr><td><code>scrollToBottom(behavior)</code></td><td>Scroll to the bottom (default: <code>'smooth'</code>)</td></tr>
+      <tr><td><code>scrollToLeft(behavior)</code></td><td>Scroll to the left edge (default: <code>'smooth'</code>)</td></tr>
+      <tr><td><code>scrollToRight(behavior)</code></td><td>Scroll to the right edge (default: <code>'smooth'</code>)</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="1em"></ui-layout-spacer>
+
+<ui-text type="heading" size="medium">Events</ui-text>
+<ui-layout-spacer size="0.5em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead><tr><th>Event</th><th>Description</th></tr></thead>
+    <tbody>
+      <tr><td><code>ui-scroll-end</code></td><td>Fired once when the user scrolls to the bottom. Re-fires if the user scrolls away and back down.</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="1em"></ui-layout-spacer>
+
+<ui-text type="heading" size="medium">CSS Custom Properties</ui-text>
+<ui-layout-spacer size="0.5em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead><tr><th>Property</th><th>Default</th><th>Description</th></tr></thead>
+    <tbody>
+      <tr><td><code>--ui-scroll-shadow-size</code></td><td><code>1.5em</code></td><td>Height of the scroll-edge gradient shadows</td></tr>
+      <tr><td><code>--ui-scroll-shadow-color</code></td><td><code>rgba(0,0,0,0.07)</code></td><td>Base colour of the scroll shadows</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>

@@ -1,0 +1,214 @@
+<!-- ============================================================
+     Pagination — Component Documentation
+     ============================================================ -->
+
+<ui-layout-stack gap="0.25em" style="margin-bottom:2em;">
+  <ui-text type="heading" size="xx-large">Pagination</ui-text>
+  <ui-text type="paragraph" color="gray-500">
+    <code>&lt;ui-pagination&gt;</code> renders page navigation with smart ellipsis truncation, previous/next arrows, and an optional compact mode.
+  </ui-text>
+</ui-layout-stack>
+
+<ui-text type="heading" size="large">Basic Usage</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Set <code>total</code> for the number of pages and <code>current</code> for the active page.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack gap="1em">
+      <ui-pagination total="20" current="5" background="indigo-500"></ui-pagination>
+      <ui-pagination total="20" current="5" background="emerald-500" compact></ui-pagination>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-pagination total="20" current="5" background="indigo-500"&gt;&lt;/ui-pagination&gt;
+&lt;ui-pagination total="20" current="5" background="emerald-500" compact&gt;&lt;/ui-pagination&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Sizes ────────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Sizes</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Scale pagination with the <code>size</code> attribute.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack gap="1em">
+      <ui-pagination total="10" current="3" background="indigo-500" size="x-small"></ui-pagination>
+      <ui-pagination total="10" current="3" background="indigo-500"></ui-pagination>
+      <ui-pagination total="10" current="3" background="indigo-500" size="large"></ui-pagination>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-pagination total="10" current="3" size="x-small"&gt;&lt;/ui-pagination&gt;
+&lt;ui-pagination total="10" current="3"&gt;&lt;/ui-pagination&gt;
+&lt;ui-pagination total="10" current="3" size="large"&gt;&lt;/ui-pagination&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Siblings ─────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Siblings</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Control how many page numbers appear on each side of the current page.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack gap="1em">
+      <ui-pagination total="30" current="15" siblings="0" background="indigo-500"></ui-pagination>
+      <ui-pagination total="30" current="15" siblings="1" background="indigo-500"></ui-pagination>
+      <ui-pagination total="30" current="15" siblings="3" background="indigo-500"></ui-pagination>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-pagination total="30" current="15" siblings="0"&gt;&lt;/ui-pagination&gt;
+&lt;ui-pagination total="30" current="15" siblings="1"&gt;&lt;/ui-pagination&gt;
+&lt;ui-pagination total="30" current="15" siblings="3"&gt;&lt;/ui-pagination&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Disabled ─────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Disabled</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Add <code>disabled</code> to prevent all interaction.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-pagination total="10" current="4" background="indigo-500" disabled></ui-pagination>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-pagination total="10" current="4" background="indigo-500" disabled&gt;&lt;/ui-pagination&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Playground ─────────────────────────────────────────── -->
+<ui-text type="heading" size="large">
+  <ui-icon color="indigo-500">play-circle</ui-icon>
+  Playground
+</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Adjust pagination settings interactively.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="playground">
+  <div class="playground-controls">
+    <ui-card elevation="1">
+      <ui-card-body>
+        <ui-text type="heading" size="small">Controls</ui-text>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-number id="pg-total" label="Total pages" size="small" value="20" min="1" max="100"></ui-input-number>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-number id="pg-current" label="Current page" size="small" value="5" min="1" max="100"></ui-input-number>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-number id="pg-siblings" label="Siblings" size="small" value="1" min="0" max="5"></ui-input-number>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-layout-stack gap="0.35em">
+          <ui-input-checkbox id="pg-compact" label="Compact"></ui-input-checkbox>
+          <ui-input-checkbox id="pg-disabled" label="Disabled"></ui-input-checkbox>
+        </ui-layout-stack>
+        <ui-layout-spacer size="0.75em"></ui-layout-spacer>
+        <ui-input-color id="pg-bg" label="Background" size="small" value="indigo-500"></ui-input-color>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-color id="pg-color" label="Text Color" size="small" value=""></ui-input-color>
+        <ui-layout-spacer size="0.75em"></ui-layout-spacer>
+        <ui-input-select id="pg-size" label="Size" size="small" placeholder="Default">
+          <option value="">Default</option>
+          <option value="xx-small">XX-Small</option>
+          <option value="x-small">X-Small</option>
+          <option value="small">Small</option>
+          <option value="medium">Medium</option>
+          <option value="large">Large</option>
+          <option value="x-large">X-Large</option>
+          <option value="xx-large">XX-Large</option>
+        </ui-input-select>
+      </ui-card-body>
+    </ui-card>
+  </div>
+  <div class="playground-preview">
+    <div class="demo-card">
+      <div class="demo-preview">
+        <ui-pagination id="pg-playground" total="20" current="5" background="indigo-500"></ui-pagination>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  const pg = document.getElementById('pg-playground');
+  const total = document.getElementById('pg-total');
+  const current = document.getElementById('pg-current');
+  const siblings = document.getElementById('pg-siblings');
+  const compact = document.getElementById('pg-compact');
+  const disabled = document.getElementById('pg-disabled');
+  if (!pg) return;
+
+  const setOrRemove = (attr, val) => val ? pg.setAttribute(attr, val) : pg.removeAttribute(attr);
+  const setBool = (name, on) => on ? pg.setAttribute(name, '') : pg.removeAttribute(name);
+
+  total?.addEventListener('ui-change', () => pg.setAttribute('total', total.value));
+  current?.addEventListener('ui-change', () => pg.setAttribute('current', current.value));
+  siblings?.addEventListener('ui-change', () => pg.setAttribute('siblings', siblings.value));
+  compact?.addEventListener('ui-change', () => setBool('compact', compact.checked));
+  disabled?.addEventListener('ui-change', () => setBool('disabled', disabled.checked));
+
+  pg.addEventListener('ui-change', (e) => {
+    if (current) current.value = e.detail.page;
+  });
+
+  document.getElementById('pg-bg')?.addEventListener('ui-change', function() {
+    setOrRemove('background', (this.value || '').trim());
+  });
+  document.getElementById('pg-color')?.addEventListener('ui-change', function() {
+    setOrRemove('color', (this.value || '').trim());
+  });
+  document.getElementById('pg-size')?.addEventListener('ui-change', function() {
+    setOrRemove('size', (this.value || '').trim());
+  });
+})();
+</script>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<ui-text type="heading" size="large">API Reference</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead><tr><th>Attribute</th><th>Type</th><th>Default</th><th>Description</th></tr></thead>
+    <tbody>
+      <tr><td><code>total</code></td><td>Number</td><td>1</td><td>Total number of pages</td></tr>
+      <tr><td><code>current</code></td><td>Number</td><td>1</td><td>Active page (1-based)</td></tr>
+      <tr><td><code>siblings</code></td><td>Number</td><td>1</td><td>Pages shown on each side of current</td></tr>
+      <tr><td><code>background</code></td><td>String</td><td>indigo-500</td><td>Active page background colour</td></tr>
+      <tr><td><code>color</code></td><td>String</td><td>—</td><td>Active page text colour (auto-detected)</td></tr>
+      <tr><td><code>size</code></td><td>String</td><td>—</td><td>Component size</td></tr>
+      <tr><td><code>disabled</code></td><td>Boolean</td><td>false</td><td>Disable all interaction</td></tr>
+      <tr><td><code>compact</code></td><td>Boolean</td><td>false</td><td>Show only prev/next with "1 / 20" label</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<ui-text type="heading" size="large">Events</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead><tr><th>Event</th><th>Detail</th><th>Description</th></tr></thead>
+    <tbody>
+      <tr><td><code>ui-change</code></td><td><code>{ page }</code></td><td>Emitted when the page changes</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>

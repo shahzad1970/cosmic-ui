@@ -1,0 +1,154 @@
+<!-- ============================================================
+     Steps — Component Documentation
+     ============================================================ -->
+
+<ui-layout-stack gap="0.25em" style="margin-bottom:2em;">
+  <ui-text type="heading" size="xx-large">Steps</ui-text>
+  <ui-text type="paragraph" color="gray-500">
+    <code>&lt;ui-steps&gt;</code> renders a step wizard / stepper for multi-step flows like checkout, onboarding, or setup wizards.
+  </ui-text>
+</ui-layout-stack>
+
+<ui-text type="heading" size="large">Basic Usage</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Set <code>current</code> (0-based) to the active step. Completed steps show a checkmark.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-steps current="1" background="indigo-500">
+      <ui-step label="Account" description="Create your account"></ui-step>
+      <ui-step label="Profile" description="Setup your profile"></ui-step>
+      <ui-step label="Review" description="Confirm details"></ui-step>
+    </ui-steps>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-steps current="1" background="indigo-500"&gt;
+  &lt;ui-step label="Account" description="Create your account"&gt;&lt;/ui-step&gt;
+  &lt;ui-step label="Profile" description="Setup your profile"&gt;&lt;/ui-step&gt;
+  &lt;ui-step label="Review" description="Confirm details"&gt;&lt;/ui-step&gt;
+&lt;/ui-steps&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Playground ─────────────────────────────────────────── -->
+<ui-text type="heading" size="large">
+  <ui-icon color="indigo-500">play-circle</ui-icon>
+  Playground
+</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Navigate through steps interactively.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="playground">
+  <div class="playground-controls">
+    <ui-card elevation="1">
+      <ui-card-body>
+        <ui-text type="heading" size="small">Controls</ui-text>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-number id="steps-current" label="Current step" size="small" value="1" min="0" max="3"></ui-input-number>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-checkbox id="steps-vertical" label="Vertical layout"></ui-input-checkbox>
+        <ui-layout-spacer size="0.75em"></ui-layout-spacer>
+        <ui-layout-stack direction="horizontal" gap="0.35em">
+          <ui-button size="xx-small" id="steps-prev">← Prev</ui-button>
+          <ui-button size="xx-small" id="steps-next">Next →</ui-button>
+        </ui-layout-stack>
+      </ui-card-body>
+    </ui-card>
+  </div>
+  <div class="playground-preview">
+    <div class="demo-card">
+      <div class="demo-preview">
+        <ui-steps id="steps-playground" current="1" background="indigo-500">
+          <ui-step label="Account" description="Create your account"></ui-step>
+          <ui-step label="Profile" description="Setup your profile"></ui-step>
+          <ui-step label="Review" description="Confirm details"></ui-step>
+          <ui-step label="Done" description="All finished!"></ui-step>
+        </ui-steps>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  const steps = document.getElementById('steps-playground');
+  const currentInput = document.getElementById('steps-current');
+  const vertical = document.getElementById('steps-vertical');
+  const prev = document.getElementById('steps-prev');
+  const next = document.getElementById('steps-next');
+  if (!steps) return;
+
+  const setBool = (el, name, on) => on ? el.setAttribute(name, '') : el.removeAttribute(name);
+
+  currentInput?.addEventListener('ui-change', () => steps.setAttribute('current', currentInput.value));
+  vertical?.addEventListener('ui-change', () => setBool(steps, 'vertical', vertical.checked));
+  prev?.addEventListener('click', () => {
+    const c = Math.max(0, parseInt(steps.getAttribute('current') || '0') - 1);
+    steps.setAttribute('current', c);
+    if (currentInput) currentInput.value = c;
+  });
+  next?.addEventListener('click', () => {
+    const c = Math.min(3, parseInt(steps.getAttribute('current') || '0') + 1);
+    steps.setAttribute('current', c);
+    if (currentInput) currentInput.value = c;
+  });
+})();
+</script>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<ui-text type="heading" size="large">API Reference</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<ui-text type="heading" size="medium">ui-steps</ui-text>
+<ui-layout-spacer size="0.5em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead><tr><th>Attribute</th><th>Type</th><th>Default</th><th>Description</th></tr></thead>
+    <tbody>
+      <tr><td><code>current</code></td><td>Number</td><td>0</td><td>Active step index (0-based)</td></tr>
+      <tr><td><code>background</code></td><td>String</td><td>indigo-500</td><td>Active step colour</td></tr>
+      <tr><td><code>color</code></td><td>String</td><td>—</td><td>Active step text colour</td></tr>
+      <tr><td><code>size</code></td><td>String</td><td>—</td><td>Component size</td></tr>
+      <tr><td><code>vertical</code></td><td>Boolean</td><td>false</td><td>Vertical layout</td></tr>
+      <tr><td><code>clickable</code></td><td>Boolean</td><td>false</td><td>Allow clicking completed steps</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="1em"></ui-layout-spacer>
+
+<ui-text type="heading" size="medium">ui-step</ui-text>
+<ui-layout-spacer size="0.5em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead><tr><th>Attribute</th><th>Type</th><th>Default</th><th>Description</th></tr></thead>
+    <tbody>
+      <tr><td><code>label</code></td><td>String</td><td>—</td><td>Step label text</td></tr>
+      <tr><td><code>description</code></td><td>String</td><td>—</td><td>Optional step description</td></tr>
+      <tr><td><code>icon</code></td><td>String</td><td>—</td><td>Icon name for the step circle</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<ui-text type="heading" size="large">Events</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead><tr><th>Event</th><th>Detail</th><th>Description</th></tr></thead>
+    <tbody>
+      <tr><td><code>ui-change</code></td><td><code>{ index }</code></td><td>Emitted when a completed step is clicked (requires <code>clickable</code>)</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>

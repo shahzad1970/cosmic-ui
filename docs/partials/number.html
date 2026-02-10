@@ -1,0 +1,269 @@
+<!-- ============================================================
+     Number — Component Documentation
+     ============================================================ -->
+
+<ui-layout-stack gap="0.25em" style="margin-bottom:2em;">
+  <ui-text type="heading" size="xx-large">Number</ui-text>
+  <ui-text type="paragraph" color="gray-500">
+    <code>&lt;ui-input-number&gt;</code> is a numeric stepper with increment and
+    decrement buttons, keyboard arrow support, and configurable min/max/step.
+  </ui-text>
+</ui-layout-stack>
+
+<!-- ── Basic Usage ────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Basic Usage</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Set <code>min</code>, <code>max</code>, and <code>step</code> to configure the
+  range and increment. The <code>value</code> attribute sets the initial number.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-input-number label="Quantity" min="0" max="20" step="1" value="3"></ui-input-number>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-input-number label="Quantity" min="0" max="20" step="1" value="3"&gt;&lt;/ui-input-number&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Help & Error ───────────────────────────────────────── -->
+<ui-text type="heading" size="large">Help &amp; Error</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Use <code>help</code> for guidance text and <code>error</code> for validation
+  messages. When <code>error</code> is set, the wrapper shows a red border and
+  focus ring, and the help text is hidden.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview" style="display:flex;gap:1.5em;flex-wrap:wrap;">
+    <ui-input-number label="With help" help="Choose a number 1–10" min="1" max="10" value="5" style="flex:1;min-width:10em;"></ui-input-number>
+    <ui-input-number label="With error" error="Value out of range" min="1" max="10" value="0" style="flex:1;min-width:10em;"></ui-input-number>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-input-number label="With help" help="Choose a number 1–10" min="1" max="10" value="5"&gt;&lt;/ui-input-number&gt;
+&lt;ui-input-number label="With error" error="Value out of range" min="1" max="10" value="0"&gt;&lt;/ui-input-number&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Decimal / Float Steps ──────────────────────────────── -->
+<ui-text type="heading" size="large">Decimal Steps</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Use a fractional <code>step</code> for decimal values. The component
+  rounds results to avoid floating-point artifacts.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview" style="display:flex;gap:1.5em;flex-wrap:wrap;">
+    <ui-input-number label="Temperature" min="-40" max="50" step="0.5" value="20.0" style="flex:1;min-width:10em;"></ui-input-number>
+    <ui-input-number label="Opacity" min="0" max="1" step="0.01" value="0.75" style="flex:1;min-width:10em;"></ui-input-number>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-input-number label="Temperature" min="-40" max="50" step="0.5" value="20.0"&gt;&lt;/ui-input-number&gt;
+&lt;ui-input-number label="Opacity" min="0" max="1" step="0.01" value="0.75"&gt;&lt;/ui-input-number&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Sizes ──────────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Sizes</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Use the <code>size</code> attribute with CSS named sizes or any CSS length.
+  Everything scales proportionally via <code>em</code>.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview" style="display:flex;gap:1em;flex-wrap:wrap;align-items:flex-end;">
+    <ui-input-number label="Small" size="small" min="0" max="10" value="2" style="flex:1;min-width:8em;"></ui-input-number>
+    <ui-input-number label="Default" min="0" max="10" value="5" style="flex:1;min-width:8em;"></ui-input-number>
+    <ui-input-number label="Large" size="large" min="0" max="10" value="8" style="flex:1;min-width:8em;"></ui-input-number>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-input-number label="Small" size="small" min="0" max="10" value="2"&gt;&lt;/ui-input-number&gt;
+&lt;ui-input-number label="Default" min="0" max="10" value="5"&gt;&lt;/ui-input-number&gt;
+&lt;ui-input-number label="Large" size="large" min="0" max="10" value="8"&gt;&lt;/ui-input-number&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Disabled & Readonly ────────────────────────────────── -->
+<ui-text type="heading" size="large">Disabled &amp; Readonly</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  <code>disabled</code> dims the component and prevents all interaction.
+  <code>readonly</code> allows focus but prevents value changes.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview" style="display:flex;gap:1.5em;flex-wrap:wrap;">
+    <ui-input-number label="Disabled" value="7" disabled style="flex:1;min-width:10em;"></ui-input-number>
+    <ui-input-number label="Readonly" value="42" readonly style="flex:1;min-width:10em;"></ui-input-number>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-input-number label="Disabled" value="7" disabled&gt;&lt;/ui-input-number&gt;
+&lt;ui-input-number label="Readonly" value="42" readonly&gt;&lt;/ui-input-number&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Playground ─────────────────────────────────────────── -->
+<ui-text type="heading" size="large">
+  <ui-icon color="indigo-500">play-circle</ui-icon>
+  Playground
+</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Interactively configure every property.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="playground">
+  <div class="playground-controls">
+    <ui-card elevation="1">
+      <ui-card-body>
+        <ui-text type="heading" size="small">Controls</ui-text>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input id="num-value" label="Value" size="small" value="3"></ui-input>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input id="num-label" label="Label" size="small" value="Quantity"></ui-input>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input id="num-help" label="Help" size="small"></ui-input>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input id="num-error" label="Error" size="small"></ui-input>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input id="num-min" label="Min" size="small" value="0"></ui-input>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input id="num-max" label="Max" size="small" value="20"></ui-input>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input id="num-step" label="Step" size="small" value="1"></ui-input>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-select id="num-size" label="Size" size="small">
+          <option value="">Default</option>
+          <option value="small">Small</option>
+          <option value="large">Large</option>
+          <option value="x-large">X-Large</option>
+        </ui-input-select>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-color id="num-bg" label="Background" size="small"></ui-input-color>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-color id="num-color" label="Color" size="small"></ui-input-color>
+        <ui-layout-spacer size="0.75em"></ui-layout-spacer>
+        <ui-layout-stack direction="horizontal" gap="1em">
+          <ui-input-checkbox id="num-disabled" label="Disabled"></ui-input-checkbox>
+          <ui-input-checkbox id="num-readonly" label="Readonly"></ui-input-checkbox>
+          <ui-input-checkbox id="num-required" label="Required"></ui-input-checkbox>
+        </ui-layout-stack>
+      </ui-card-body>
+    </ui-card>
+  </div>
+
+  <div class="playground-preview">
+    <div class="demo-card">
+      <div class="demo-preview">
+        <ui-input-number id="num-playground" label="Quantity" min="0" max="20" step="1" value="3"></ui-input-number>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  const el    = document.getElementById('num-playground');
+  const value = document.getElementById('num-value');
+  const label = document.getElementById('num-label');
+  const help  = document.getElementById('num-help');
+  const error = document.getElementById('num-error');
+  const min   = document.getElementById('num-min');
+  const max   = document.getElementById('num-max');
+  const step  = document.getElementById('num-step');
+  const size  = document.getElementById('num-size');
+  const bg    = document.getElementById('num-bg');
+  const color = document.getElementById('num-color');
+  const dis   = document.getElementById('num-disabled');
+  const ro    = document.getElementById('num-readonly');
+  const req   = document.getElementById('num-required');
+
+  if (!el || !value || !label || !help || !error || !min || !max || !step || !size || !bg || !color || !dis || !ro || !req) return;
+
+  const setOrRemove = (attr, v) => v ? el.setAttribute(attr, v) : el.removeAttribute(attr);
+
+  const listen = (ctrl, fn) => {
+    ctrl.addEventListener('ui-input', fn);
+    ctrl.addEventListener('ui-change', fn);
+  };
+
+  listen(value, () => setOrRemove('value', value.value));
+  listen(label, () => setOrRemove('label', label.value));
+  listen(help,  () => setOrRemove('help',  help.value));
+  listen(error, () => setOrRemove('error', error.value));
+  listen(min,   () => setOrRemove('min',   min.value));
+  listen(max,   () => setOrRemove('max',   max.value));
+  listen(step,  () => setOrRemove('step',  step.value));
+  listen(size,  () => setOrRemove('size',  size.value));
+  listen(bg,    () => setOrRemove('background', bg.value));
+  listen(color, () => setOrRemove('color', color.value));
+
+  dis.addEventListener('ui-change', () => {
+    if (dis.checked) el.setAttribute('disabled', '');
+    else el.removeAttribute('disabled');
+  });
+  ro.addEventListener('ui-change', () => {
+    if (ro.checked) el.setAttribute('readonly', '');
+    else el.removeAttribute('readonly');
+  });
+  req.addEventListener('ui-change', () => {
+    if (req.checked) el.setAttribute('required', '');
+    else el.removeAttribute('required');
+  });
+})();
+</script>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── API Reference ──────────────────────────────────────── -->
+<ui-text type="heading" size="large">API Reference</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead>
+      <tr><th>Attribute</th><th>Type</th><th>Default</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>value</code></td><td>Number</td><td><code>0</code></td><td>Current value</td></tr>
+      <tr><td><code>min</code></td><td>Number</td><td><code>-Infinity</code></td><td>Minimum allowed value</td></tr>
+      <tr><td><code>max</code></td><td>Number</td><td><code>Infinity</code></td><td>Maximum allowed value</td></tr>
+      <tr><td><code>step</code></td><td>Number</td><td><code>1</code></td><td>Increment/decrement step size</td></tr>
+      <tr><td><code>placeholder</code></td><td>String</td><td>—</td><td>Placeholder text for the input</td></tr>
+      <tr><td><code>name</code></td><td>String</td><td>—</td><td>Form field name</td></tr>
+      <tr><td><code>label</code></td><td>String</td><td>—</td><td>Label text displayed above the input</td></tr>
+      <tr><td><code>help</code></td><td>String</td><td>—</td><td>Help text below the input</td></tr>
+      <tr><td><code>error</code></td><td>String</td><td>—</td><td>Error message (replaces help, turns border red)</td></tr>
+      <tr><td><code>size</code></td><td>String</td><td>—</td><td>Size keyword (<code>small</code>, <code>large</code>, etc.) or CSS length</td></tr>
+      <tr><td><code>background</code></td><td>String</td><td>—</td><td>Background colour (palette token or CSS colour)</td></tr>
+      <tr><td><code>color</code></td><td>String</td><td>—</td><td>Text colour (palette token or CSS colour)</td></tr>
+      <tr><td><code>disabled</code></td><td>Boolean</td><td><code>false</code></td><td>Dims the component and prevents interaction</td></tr>
+      <tr><td><code>readonly</code></td><td>Boolean</td><td><code>false</code></td><td>Allows focus but prevents value changes</td></tr>
+      <tr><td><code>required</code></td><td>Boolean</td><td><code>false</code></td><td>Marks field as required (shows asterisk)</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Events ──────────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Events</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead>
+      <tr><th>Event</th><th>Detail</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>ui-input</code></td><td><code>{ value }</code></td><td>Fires on every keystroke and +/− button click</td></tr>
+      <tr><td><code>ui-change</code></td><td><code>{ value }</code></td><td>Fires on blur commit and +/− button click</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>

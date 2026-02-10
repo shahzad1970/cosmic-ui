@@ -1,0 +1,220 @@
+<!-- ============================================================
+     Breadcrumb — Component Documentation
+     ============================================================ -->
+
+<ui-layout-stack gap="0.25em" style="margin-bottom:2em;">
+  <ui-text type="heading" size="xx-large">Breadcrumb</ui-text>
+  <ui-text type="paragraph" color="gray-500">
+    <code>&lt;ui-breadcrumb&gt;</code> renders a navigation trail using
+    <code>&lt;ui-breadcrumb-item&gt;</code> children.
+  </ui-text>
+</ui-layout-stack>
+
+<ui-text type="heading" size="large">Basic Usage</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Use links for ancestors and mark the current page as active.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-breadcrumb>
+      <ui-breadcrumb-item href="#">Home</ui-breadcrumb-item>
+      <ui-breadcrumb-item href="#">Settings</ui-breadcrumb-item>
+      <ui-breadcrumb-item active>Profile</ui-breadcrumb-item>
+    </ui-breadcrumb>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-breadcrumb&gt;
+  &lt;ui-breadcrumb-item href="#"&gt;Home&lt;/ui-breadcrumb-item&gt;
+  &lt;ui-breadcrumb-item href="#"&gt;Settings&lt;/ui-breadcrumb-item&gt;
+  &lt;ui-breadcrumb-item active&gt;Profile&lt;/ui-breadcrumb-item&gt;
+&lt;/ui-breadcrumb&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<ui-text type="heading" size="large">Separator & Styling</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Customize the separator, size, and colors.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack gap="0.75em">
+      <ui-breadcrumb separator=">">
+        <ui-breadcrumb-item href="#">Docs</ui-breadcrumb-item>
+        <ui-breadcrumb-item href="#">Navigation</ui-breadcrumb-item>
+        <ui-breadcrumb-item active>Breadcrumb</ui-breadcrumb-item>
+      </ui-breadcrumb>
+      <ui-breadcrumb background="indigo-600" size="small">
+        <ui-breadcrumb-item href="#">Workspace</ui-breadcrumb-item>
+        <ui-breadcrumb-item active>Design</ui-breadcrumb-item>
+      </ui-breadcrumb>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-breadcrumb separator="&gt;"&gt;...&lt;/ui-breadcrumb&gt;
+&lt;ui-breadcrumb background="indigo-600" size="small"&gt;...&lt;/ui-breadcrumb&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Sizes ──────────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Sizes</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Scale breadcrumbs with the <code>size</code> attribute.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack gap="0.75em">
+      <ui-breadcrumb size="x-small">
+        <ui-breadcrumb-item href="#">Home</ui-breadcrumb-item>
+        <ui-breadcrumb-item active>x-small</ui-breadcrumb-item>
+      </ui-breadcrumb>
+      <ui-breadcrumb>
+        <ui-breadcrumb-item href="#">Home</ui-breadcrumb-item>
+        <ui-breadcrumb-item active>Default</ui-breadcrumb-item>
+      </ui-breadcrumb>
+      <ui-breadcrumb size="large">
+        <ui-breadcrumb-item href="#">Home</ui-breadcrumb-item>
+        <ui-breadcrumb-item active>Large</ui-breadcrumb-item>
+      </ui-breadcrumb>
+      <ui-breadcrumb size="x-large">
+        <ui-breadcrumb-item href="#">Home</ui-breadcrumb-item>
+        <ui-breadcrumb-item active>x-large</ui-breadcrumb-item>
+      </ui-breadcrumb>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-breadcrumb size="x-small"&gt;...&lt;/ui-breadcrumb&gt;
+&lt;ui-breadcrumb&gt;...&lt;/ui-breadcrumb&gt;
+&lt;ui-breadcrumb size="large"&gt;...&lt;/ui-breadcrumb&gt;
+&lt;ui-breadcrumb size="x-large"&gt;...&lt;/ui-breadcrumb&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Playground ─────────────────────────────────────────── -->
+<ui-text type="heading" size="large">
+  <ui-icon color="indigo-500">play-circle</ui-icon>
+  Playground
+</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Adjust separator, size, and colors.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="playground">
+  <div class="playground-controls">
+    <ui-card elevation="1">
+      <ui-card-body>
+        <ui-text type="heading" size="small">Controls</ui-text>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input id="breadcrumb-separator" label="Separator" size="small" value="/"></ui-input>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-select id="breadcrumb-size" label="Size" size="small" placeholder="Default">
+          <option value="">Default</option>
+          <option value="xx-small">XX-Small</option>
+          <option value="x-small">X-Small</option>
+          <option value="small">Small</option>
+          <option value="medium">Medium</option>
+          <option value="large">Large</option>
+          <option value="x-large">X-Large</option>
+          <option value="xx-large">XX-Large</option>
+        </ui-input-select>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-color id="breadcrumb-bg" label="Background" size="small" value=""></ui-input-color>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-color id="breadcrumb-color" label="Color" size="small" value=""></ui-input-color>
+      </ui-card-body>
+    </ui-card>
+  </div>
+
+  <div class="playground-preview">
+    <div class="demo-card">
+      <div class="demo-preview">
+        <ui-breadcrumb id="breadcrumb-playground">
+          <ui-breadcrumb-item href="#">Home</ui-breadcrumb-item>
+          <ui-breadcrumb-item href="#">Library</ui-breadcrumb-item>
+          <ui-breadcrumb-item active>Items</ui-breadcrumb-item>
+        </ui-breadcrumb>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  const breadcrumb = document.getElementById('breadcrumb-playground');
+  const separator = document.getElementById('breadcrumb-separator');
+  const size = document.getElementById('breadcrumb-size');
+  const bg = document.getElementById('breadcrumb-bg');
+  const color = document.getElementById('breadcrumb-color');
+
+  if (!breadcrumb || !separator || !size || !bg || !color) return;
+
+  const update = () => {
+    const sepVal = (separator.value || '').trim();
+    const sizeVal = (size.value || '').trim();
+    const bgVal = (bg.value || '').trim();
+    const colorVal = (color.value || '').trim();
+    if (sepVal) breadcrumb.setAttribute('separator', sepVal);
+    else breadcrumb.removeAttribute('separator');
+    if (sizeVal) breadcrumb.setAttribute('size', sizeVal);
+    else breadcrumb.removeAttribute('size');
+    if (bgVal) breadcrumb.setAttribute('background', bgVal);
+    else breadcrumb.removeAttribute('background');
+    if (colorVal) breadcrumb.setAttribute('color', colorVal);
+    else breadcrumb.removeAttribute('color');
+  };
+
+  separator.addEventListener('ui-input', update);
+  separator.addEventListener('ui-change', update);
+  size.addEventListener('ui-change', update);
+  bg.addEventListener('ui-input', update);
+  bg.addEventListener('ui-change', update);
+  color.addEventListener('ui-input', update);
+  color.addEventListener('ui-change', update);
+})();
+</script>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<ui-text type="heading" size="large">API Reference</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<ui-text type="heading" size="small">Breadcrumb</ui-text>
+<ui-layout-spacer size="0.5em"></ui-layout-spacer>
+<ui-table size="small">
+  <table>
+    <thead>
+      <tr><th>Attribute</th><th>Type</th><th>Default</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>separator</code></td><td>String</td><td>/</td><td>Separator character</td></tr>
+      <tr><td><code>background</code></td><td>String</td><td>—</td><td>Background color</td></tr>
+      <tr><td><code>color</code></td><td>String</td><td>—</td><td>Text color</td></tr>
+      <tr><td><code>size</code></td><td>String</td><td>—</td><td>Size keyword or CSS length</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="1.5em"></ui-layout-spacer>
+
+<ui-text type="heading" size="small">Breadcrumb Item</ui-text>
+<ui-layout-spacer size="0.5em"></ui-layout-spacer>
+<ui-table size="small">
+  <table>
+    <thead>
+      <tr><th>Attribute</th><th>Type</th><th>Default</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>href</code></td><td>String</td><td>—</td><td>Link URL</td></tr>
+      <tr><td><code>target</code></td><td>String</td><td>—</td><td>Link target</td></tr>
+      <tr><td><code>active</code></td><td>Boolean</td><td>false</td><td>Mark as current page</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>

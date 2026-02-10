@@ -1,0 +1,339 @@
+<!-- ============================================================
+     Wiki — Component Documentation
+     ============================================================ -->
+
+<ui-layout-stack gap="0.25em" style="margin-bottom:2em;">
+  <ui-text type="heading" size="xx-large">Wiki</ui-text>
+  <ui-text type="paragraph" color="gray-500">
+    <code>&lt;ui-wiki&gt;</code> fetches a Markdown (<code>.md</code>) file and
+    renders it as beautifully styled HTML — headings, code blocks, tables, lists,
+    blockquotes, and more. Zero external dependencies.
+  </ui-text>
+</ui-layout-stack>
+
+<!-- ── Basic Usage ────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Basic Usage</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Point <code>src</code> at any <code>.md</code> file. Content inside the tag
+  is shown as a loading placeholder until the fetch completes.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-wiki src="../assets/sample.md">
+      <ui-layout-stack direction="horizontal" gap="0.5em" align="center">
+        <ui-spinner size="small"></ui-spinner>
+        <ui-text size="small" color="gray-500">Loading Markdown…</ui-text>
+      </ui-layout-stack>
+    </ui-wiki>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-wiki src="/docs/readme.md"&gt;
+  &lt;ui-spinner size="small"&gt;&lt;/ui-spinner&gt;
+&lt;/ui-wiki&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Table of Contents ──────────────────────────────────── -->
+<ui-text type="heading" size="large">Table of Contents</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Add <code>toc</code> to display a sticky sidebar generated automatically from
+  the document's headings. On mobile the TOC collapses above the content.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-wiki src="../assets/sample.md" toc></ui-wiki>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-wiki src="/docs/readme.md" toc&gt;&lt;/ui-wiki&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Styling ────────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Styling</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Customise the container with <code>background</code>, <code>color</code>,
+  <code>size</code>, and <code>padding</code>.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack gap="1em">
+      <ui-wiki src="../assets/sample.md" background="gray-50" padding="1.5em" style="border-radius: var(--ui-radius, 0.5em);"></ui-wiki>
+      <ui-wiki src="../assets/sample.md" background="indigo-50" color="indigo-900" size="small" padding="1.5em" style="border-radius: var(--ui-radius, 0.5em);"></ui-wiki>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-wiki src="/readme.md" background="gray-50" padding="1.5em"&gt;&lt;/ui-wiki&gt;
+
+&lt;ui-wiki src="/readme.md" background="indigo-50" color="indigo-900" size="small"&gt;
+&lt;/ui-wiki&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Caching ────────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Caching</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Fetched Markdown is cached by URL. Add <code>nocache</code> to always refetch,
+  or call <code>UIWiki.clearCache()</code> to flush the cache programmatically.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-wiki src="../assets/sample.md" nocache>
+      <ui-text size="small" color="gray-500">Always refetches…</ui-text>
+    </ui-wiki>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-wiki src="/docs/live.md" nocache&gt;&lt;/ui-wiki&gt;
+
+&lt;script type="module"&gt;
+  import { UIWiki } from 'ui-components';
+  UIWiki.clearCache();
+&lt;/script&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Markdown Features ──────────────────────────────────── -->
+<ui-text type="heading" size="large">Markdown Support</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  The built-in parser handles all common Markdown constructs with no
+  external library required.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead>
+      <tr><th>Feature</th><th>Syntax</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Headings (h1–h6)</td><td><code># Heading</code></td></tr>
+      <tr><td>Bold</td><td><code>**text**</code></td></tr>
+      <tr><td>Italic</td><td><code>*text*</code></td></tr>
+      <tr><td>Strikethrough</td><td><code>~~text~~</code></td></tr>
+      <tr><td>Inline code</td><td><code>`code`</code></td></tr>
+      <tr><td>Fenced code blocks</td><td><code>```lang … ```</code></td></tr>
+      <tr><td>Blockquotes</td><td><code>&gt; text</code></td></tr>
+      <tr><td>Unordered lists</td><td><code>- item</code></td></tr>
+      <tr><td>Ordered lists</td><td><code>1. item</code></td></tr>
+      <tr><td>Task lists</td><td><code>- [x] done</code></td></tr>
+      <tr><td>GFM tables</td><td><code>| col | col |</code></td></tr>
+      <tr><td>Links</td><td><code>[text](url)</code></td></tr>
+      <tr><td>Images</td><td><code>![alt](url)</code></td></tr>
+      <tr><td>Horizontal rules</td><td><code>---</code></td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Sizes ──────────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Sizes</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  The <code>size</code> attribute sets the base font-size. Named keywords
+  (<code>xx-small</code> – <code>xxx-large</code>) and CSS lengths are accepted.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack gap="1em">
+      <div>
+        <ui-badge size="x-small" background="gray-200">x-small</ui-badge>
+        <ui-wiki src="../assets/sample.md" size="x-small" background="gray-50" padding="1em" style="border-radius:var(--ui-radius);margin-top:0.5em;max-height:8em;overflow:auto;"></ui-wiki>
+      </div>
+      <div>
+        <ui-badge size="x-small" background="gray-200">medium (default)</ui-badge>
+        <ui-wiki src="../assets/sample.md" size="medium" background="gray-50" padding="1em" style="border-radius:var(--ui-radius);margin-top:0.5em;max-height:8em;overflow:auto;"></ui-wiki>
+      </div>
+      <div>
+        <ui-badge size="x-small" background="gray-200">large</ui-badge>
+        <ui-wiki src="../assets/sample.md" size="large" background="gray-50" padding="1em" style="border-radius:var(--ui-radius);margin-top:0.5em;max-height:8em;overflow:auto;"></ui-wiki>
+      </div>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-wiki src="/readme.md" size="x-small"&gt;&lt;/ui-wiki&gt;
+&lt;ui-wiki src="/readme.md" size="medium"&gt;&lt;/ui-wiki&gt;
+&lt;ui-wiki src="/readme.md" size="large"&gt;&lt;/ui-wiki&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Playground ─────────────────────────────────────────── -->
+<ui-text type="heading" size="large">
+  <ui-icon color="indigo-500">play-circle</ui-icon>
+  Playground
+</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Change the source, styling, and options interactively.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="playground">
+  <div class="playground-controls">
+    <ui-card elevation="1">
+      <ui-card-body>
+        <ui-text type="heading" size="small">Controls</ui-text>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input id="wiki-pg-src" label="Src (URL)" size="small" value="../assets/sample.md"></ui-input>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-select id="wiki-pg-size" label="Size" size="small">
+          <option value="">— (default)</option>
+          <option value="xx-small">xx-small</option>
+          <option value="x-small">x-small</option>
+          <option value="small">small</option>
+          <option value="medium">medium</option>
+          <option value="large">large</option>
+          <option value="x-large">x-large</option>
+        </ui-input-select>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input id="wiki-pg-padding" label="Padding" size="small" value="1.5em"></ui-input>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-color id="wiki-pg-bg" label="Background" size="small" value=""></ui-input-color>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-color id="wiki-pg-color" label="Color" size="small" value=""></ui-input-color>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-layout-stack gap="0.35em">
+          <ui-input-checkbox id="wiki-pg-toc" label="Table of Contents"></ui-input-checkbox>
+          <ui-input-checkbox id="wiki-pg-nocache" label="No Cache"></ui-input-checkbox>
+        </ui-layout-stack>
+        <ui-layout-spacer size="0.75em"></ui-layout-spacer>
+        <ui-button id="wiki-pg-reload" size="small" background="indigo-600" full>Reload</ui-button>
+      </ui-card-body>
+    </ui-card>
+  </div>
+
+  <div class="playground-preview">
+    <div class="demo-card">
+      <div class="demo-preview">
+        <ui-wiki id="wiki-playground" src="../assets/sample.md" padding="1.5em">
+          <ui-spinner size="small"></ui-spinner>
+        </ui-wiki>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  const wiki     = document.getElementById('wiki-playground');
+  const srcCtrl  = document.getElementById('wiki-pg-src');
+  const sizeCtrl = document.getElementById('wiki-pg-size');
+  const padCtrl  = document.getElementById('wiki-pg-padding');
+  const bgCtrl   = document.getElementById('wiki-pg-bg');
+  const colorCtrl= document.getElementById('wiki-pg-color');
+  const tocCtrl  = document.getElementById('wiki-pg-toc');
+  const nocache  = document.getElementById('wiki-pg-nocache');
+  const reloadBtn= document.getElementById('wiki-pg-reload');
+
+  if (!wiki || !srcCtrl) return;
+
+  const setOrRemove = (attr, val) => {
+    val ? wiki.setAttribute(attr, val) : wiki.removeAttribute(attr);
+  };
+
+  const update = () => {
+    setOrRemove('background', (bgCtrl.value || '').trim());
+    setOrRemove('color',      (colorCtrl.value || '').trim());
+    setOrRemove('padding',    (padCtrl.value || '').trim());
+  };
+
+  [bgCtrl, colorCtrl, padCtrl].forEach(ctrl => {
+    ctrl.addEventListener('ui-input', update);
+    ctrl.addEventListener('ui-change', update);
+  });
+
+  sizeCtrl.addEventListener('ui-change', () => {
+    setOrRemove('size', (sizeCtrl.value || '').trim());
+  });
+
+  tocCtrl.addEventListener('ui-change', () => {
+    tocCtrl.checked ? wiki.setAttribute('toc', '') : wiki.removeAttribute('toc');
+  });
+
+  nocache.addEventListener('ui-change', () => {
+    nocache.checked ? wiki.setAttribute('nocache', '') : wiki.removeAttribute('nocache');
+  });
+
+  // Src change + reload
+  const loadSrc = () => {
+    const src = (srcCtrl.value || '').trim();
+    if (src) wiki.setAttribute('src', src);
+  };
+
+  srcCtrl.addEventListener('ui-change', loadSrc);
+
+  reloadBtn.addEventListener('click', () => {
+    loadSrc();
+    wiki.reload();
+  });
+})();
+</script>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── API Reference ──────────────────────────────────────── -->
+<ui-text type="heading" size="large">API Reference</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead>
+      <tr><th>Attribute</th><th>Type</th><th>Default</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>src</code></td><td>String</td><td>—</td><td>URL of the <code>.md</code> file to fetch and render</td></tr>
+      <tr><td><code>background</code></td><td>String</td><td>—</td><td>Container background (palette token or CSS colour)</td></tr>
+      <tr><td><code>color</code></td><td>String</td><td>—</td><td>Text colour (palette token or CSS colour)</td></tr>
+      <tr><td><code>size</code></td><td>String</td><td>—</td><td>Base font size: named keyword or CSS length</td></tr>
+      <tr><td><code>padding</code></td><td>String</td><td>—</td><td>Container padding</td></tr>
+      <tr><td><code>toc</code></td><td>Boolean</td><td>false</td><td>Show auto-generated table of contents sidebar</td></tr>
+      <tr><td><code>nocache</code></td><td>Boolean</td><td>false</td><td>Bypass internal fetch cache (always refetch)</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Methods ────────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Methods</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead>
+      <tr><th>Method</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>reload()</code></td><td>Re-fetch the current <code>src</code> (bypasses cache)</td></tr>
+      <tr><td><code>UIWiki.clearCache()</code></td><td>Clear the internal fetch cache (static method)</td></tr>
+      <tr><td><code>UIWiki.parseMarkdown(md)</code></td><td>Parse a Markdown string to HTML (static, usable stand-alone)</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Events ─────────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Events</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead>
+      <tr><th>Event</th><th>Detail</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>ui-load</code></td><td><code>{ src, markdown }</code></td><td>Fired after Markdown is fetched and rendered</td></tr>
+      <tr><td><code>ui-error</code></td><td><code>{ src, error }</code></td><td>Fired when the fetch fails</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>

@@ -1,0 +1,308 @@
+<!-- ============================================================
+     Include — Component Documentation
+     ============================================================ -->
+
+<ui-layout-stack gap="0.25em" style="margin-bottom:2em;">
+  <ui-text type="heading" size="xx-large">Include</ui-text>
+  <ui-text type="paragraph" color="gray-500">
+    <code>&lt;ui-include&gt;</code> fetches and injects remote HTML fragments
+    into the current document. Unlike <code>&lt;iframe&gt;</code>, included
+    content lives in the same DOM — inheriting styles and layout.
+  </ui-text>
+</ui-layout-stack>
+
+<!-- ── Basic Usage ────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Basic Usage</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Provide a <code>src</code> URL. Content inside the tag acts as a loading
+  placeholder until the fetch completes.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-include class="include-frame include-frame--small" src="../partials/installation.html">
+      <ui-layout-stack direction="horizontal" gap="0.5em" align="center">
+        <ui-spinner size="small"></ui-spinner>
+        <ui-text size="small" color="gray-500">Loading snippet...</ui-text>
+      </ui-layout-stack>
+    </ui-include>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-include src="/partials/installation.html"&gt;
+  &lt;ui-spinner size="small"&gt;&lt;/ui-spinner&gt;
+&lt;/ui-include&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Insertion Modes ────────────────────────────────────── -->
+<ui-text type="heading" size="large">Insertion Modes</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Control how fetched HTML is inserted with <code>mode</code>:
+  <code>replace</code> (default) clears children first,
+  <code>append</code> adds after existing content, and
+  <code>prepend</code> inserts before it.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack gap="0.5em">
+      <ui-layout-stack direction="horizontal" gap="0.5em" wrap>
+        <ui-button id="include-mode-replace" size="small" background="indigo-600">Replace</ui-button>
+        <ui-button id="include-mode-append"  size="small">Append</ui-button>
+        <ui-button id="include-mode-prepend" size="small">Prepend</ui-button>
+      </ui-layout-stack>
+      <ui-include id="include-modes-demo" class="include-frame include-frame--small" src="../partials/home.html" mode="replace">
+        <ui-text size="small" color="gray-500">Loading…</ui-text>
+      </ui-include>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-include src="/partials/home.html" mode="replace"&gt;…&lt;/ui-include&gt;
+&lt;ui-include src="/partials/home.html" mode="append"&gt;…&lt;/ui-include&gt;
+&lt;ui-include src="/partials/home.html" mode="prepend"&gt;…&lt;/ui-include&gt;</ui-input-code>
+</div>
+
+<script>
+(function () {
+  const el = document.getElementById('include-modes-demo');
+  const btns = {
+    replace: document.getElementById('include-mode-replace'),
+    append:  document.getElementById('include-mode-append'),
+    prepend: document.getElementById('include-mode-prepend'),
+  };
+  if (!el || !btns.replace) return;
+
+  for (const [mode, btn] of Object.entries(btns)) {
+    btn.addEventListener('click', () => {
+      el.setAttribute('mode', mode);
+      el.reload();
+    });
+  }
+})();
+</script>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Channel Updates ────────────────────────────────────── -->
+<ui-text type="heading" size="large">Channel Updates</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Set <code>channel</code> to listen for a named <code>CustomEvent</code> on
+  <code>document</code>. When fired with <code>detail.src</code>, the component
+  updates its source. Combine with <code>base</code> to prepend a path prefix.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack gap="0.75em">
+      <ui-layout-stack direction="horizontal" gap="0.5em" wrap>
+        <ui-button id="include-ch-home" size="small">Home</ui-button>
+        <ui-button id="include-ch-install" size="small">Install</ui-button>
+        <ui-button id="include-ch-theme" size="small">Theming</ui-button>
+      </ui-layout-stack>
+      <ui-include id="include-channel" class="include-frame" channel="include-demo" base="../partials/" nocache>
+        <ui-text size="small" color="gray-500">Select a partial above.</ui-text>
+      </ui-include>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="javascript" readonly height="auto">document.dispatchEvent(new CustomEvent('include-demo', {
+  detail: { src: 'home.html' }
+}));</ui-input-code>
+</div>
+
+<script>
+(function () {
+  const fire = (src) => {
+    document.dispatchEvent(new CustomEvent('include-demo', { detail: { src } }));
+  };
+  document.getElementById('include-ch-home')?.addEventListener('click', () => fire('home.html'));
+  document.getElementById('include-ch-install')?.addEventListener('click', () => fire('installation.html'));
+  document.getElementById('include-ch-theme')?.addEventListener('click', () => fire('theming.html'));
+})();
+</script>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Lazy Loading ───────────────────────────────────────── -->
+<ui-text type="heading" size="large">Lazy Loading</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Add <code>lazy</code> to defer loading until the element scrolls into view
+  (via <code>IntersectionObserver</code> with 200 px root-margin).
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-include class="include-frame include-frame--small" src="../partials/home.html" lazy>
+      <ui-text size="small" color="gray-500">Waiting for viewport…</ui-text>
+    </ui-include>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-include src="/partials/section.html" lazy&gt;
+  Loading…
+&lt;/ui-include&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Caching behaviour ─────────────────────────────────── -->
+<ui-text type="heading" size="large">Caching</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Fetched HTML is cached internally by URL. Add <code>nocache</code> to always
+  refetch, or call <code>UIInclude.clearCache()</code> to flush all entries.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-include class="include-frame include-frame--small" src="../partials/home.html" nocache>
+      <ui-text size="small" color="gray-500">Always refetches…</ui-text>
+    </ui-include>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-include src="/partials/live-data.html" nocache&gt;…&lt;/ui-include&gt;
+
+&lt;!-- clear entire cache programmatically --&gt;
+&lt;script&gt;
+  import { UIInclude } from 'ui-components';
+  UIInclude.clearCache();
+&lt;/script&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Playground ─────────────────────────────────────────── -->
+<ui-text type="heading" size="large">
+  <ui-icon color="indigo-500">play-circle</ui-icon>
+  Playground
+</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Experiment with source, mode, and loading behaviour.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="playground">
+  <div class="playground-controls">
+    <ui-card elevation="1">
+      <ui-card-body>
+        <ui-text type="heading" size="small">Controls</ui-text>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input id="include-pg-src" label="Src" size="small" value="../partials/home.html"></ui-input>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-select id="include-pg-mode" label="Mode" size="small" value="replace">
+          <option value="replace">replace</option>
+          <option value="append">append</option>
+          <option value="prepend">prepend</option>
+        </ui-input-select>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-layout-stack gap="0.35em">
+          <ui-input-checkbox id="include-pg-lazy" label="Lazy"></ui-input-checkbox>
+          <ui-input-checkbox id="include-pg-nocache" label="No Cache"></ui-input-checkbox>
+        </ui-layout-stack>
+        <ui-layout-spacer size="0.75em"></ui-layout-spacer>
+        <ui-button id="include-pg-reload" background="indigo-600" size="small">Reload</ui-button>
+      </ui-card-body>
+    </ui-card>
+  </div>
+
+  <div class="playground-preview">
+    <div class="demo-card">
+      <div class="demo-preview">
+        <ui-include id="include-pg" class="include-frame include-frame--small" src="../partials/home.html">
+          <ui-text size="small" color="gray-500">Loading content…</ui-text>
+        </ui-include>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  const el   = document.getElementById('include-pg');
+  const src  = document.getElementById('include-pg-src');
+  const mode = document.getElementById('include-pg-mode');
+  const lazy = document.getElementById('include-pg-lazy');
+  const nc   = document.getElementById('include-pg-nocache');
+  const btn  = document.getElementById('include-pg-reload');
+  if (!el || !src || !mode) return;
+
+  const setOrRemove = (attr, val) => val ? el.setAttribute(attr, val) : el.removeAttribute(attr);
+
+  const update = () => {
+    setOrRemove('src', (src.value || '').trim());
+    setOrRemove('mode', (mode.value || '').trim());
+  };
+
+  src.addEventListener('ui-input', update);
+  src.addEventListener('ui-change', update);
+  mode.addEventListener('ui-change', update);
+
+  lazy?.addEventListener('ui-change', () => {
+    lazy.checked ? el.setAttribute('lazy', '') : el.removeAttribute('lazy');
+  });
+  nc?.addEventListener('ui-change', () => {
+    nc.checked ? el.setAttribute('nocache', '') : el.removeAttribute('nocache');
+  });
+
+  btn?.addEventListener('click', () => el.reload());
+})();
+</script>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── API Reference ─────────────────────────────────────── -->
+<ui-text type="heading" size="large">API Reference</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead>
+      <tr><th>Attribute</th><th>Type</th><th>Default</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>src</code></td><td>String</td><td>—</td><td>URL of the HTML fragment to fetch and inject</td></tr>
+      <tr><td><code>mode</code></td><td>String</td><td>replace</td><td>Insertion mode: <code>replace</code>, <code>append</code>, or <code>prepend</code></td></tr>
+      <tr><td><code>channel</code></td><td>String</td><td>—</td><td>Document-level event name to listen for; updates <code>src</code> from <code>event.detail.src</code></td></tr>
+      <tr><td><code>base</code></td><td>String</td><td>—</td><td>Path prefix prepended to <code>src</code> received via channel events</td></tr>
+      <tr><td><code>lazy</code></td><td>Boolean</td><td>false</td><td>Defer loading until the element is visible (IntersectionObserver)</td></tr>
+      <tr><td><code>nocache</code></td><td>Boolean</td><td>false</td><td>Bypass the internal fetch cache; always refetch</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Methods ─────────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Methods</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead>
+      <tr><th>Method</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>reload()</code></td><td>Refetch the current <code>src</code>, bypassing the cache</td></tr>
+      <tr><td><code>UIInclude.clearCache()</code></td><td>Static — flush the internal URL→HTML fetch cache</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Events ──────────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Events</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead>
+      <tr><th>Event</th><th>Detail</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>ui-load</code></td><td><code>{ src, html }</code></td><td>Emitted after content is successfully fetched and injected</td></tr>
+      <tr><td><code>ui-error</code></td><td><code>{ src, error }</code></td><td>Emitted when the fetch fails (network error or non-OK status)</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>

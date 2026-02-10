@@ -1,0 +1,728 @@
+<!-- ============================================================
+     Theming — Customisation Guide
+     ============================================================ -->
+
+<!-- Page header -->
+<ui-layout-stack gap="0.25em" style="margin-bottom:2em;">
+  <ui-text type="heading" size="xx-large">Theming</ui-text>
+  <ui-text type="paragraph" color="gray-500">
+    Cosmic UI is fully themeable through CSS custom properties. Every design token
+    uses the <code>--ui-</code> prefix and can be overridden at any level — globally
+    on <code>:root</code>, scoped to a container, or on individual components.
+  </ui-text>
+</ui-layout-stack>
+
+<!-- ── How It Works ───────────────────────────────────────── -->
+<ui-text type="heading" size="large">How It Works</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  On first import, Cosmic UI injects a <code>:root</code> stylesheet with all design tokens.
+  Components reference these tokens internally. Override any <code>--ui-*</code> variable
+  to change the look-and-feel — no build step, no config files.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <ui-input-code language="html" readonly height="auto">&lt;!-- Cosmic UI injects tokens automatically --&gt;
+&lt;script type="module" src="path/to/cosmic-ui/src/index.js"&gt;&lt;/script&gt;
+
+&lt;!-- Override any token in your own stylesheet --&gt;
+&lt;style&gt;
+  :root {
+    --ui-focus-ring: var(--ui-emerald-500);
+    --ui-border-color: var(--ui-gray-200);
+    --ui-radius: 0.5em;
+  }
+&lt;/style&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Colour Palette ─────────────────────────────────────── -->
+<ui-text type="heading" size="large">Colour Palette</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  The palette includes 19 colour families, each with shades from 50 (lightest) to 950 (darkest).
+  Derived from the Tailwind CSS colour system.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<!-- Gray -->
+<ui-text type="heading" size="medium">Gray</ui-text>
+<ui-layout-spacer size="0.25em"></ui-layout-spacer>
+<ui-layout-stack direction="horizontal" gap="0.25em" wrap>
+  <ui-badge background="gray-50" color="gray-700" size="small">50</ui-badge>
+  <ui-badge background="gray-100" color="gray-700" size="small">100</ui-badge>
+  <ui-badge background="gray-200" color="gray-700" size="small">200</ui-badge>
+  <ui-badge background="gray-300" color="gray-800" size="small">300</ui-badge>
+  <ui-badge background="gray-400" color="white" size="small">400</ui-badge>
+  <ui-badge background="gray-500" color="white" size="small">500</ui-badge>
+  <ui-badge background="gray-600" color="white" size="small">600</ui-badge>
+  <ui-badge background="gray-700" color="white" size="small">700</ui-badge>
+  <ui-badge background="gray-800" color="white" size="small">800</ui-badge>
+  <ui-badge background="gray-900" color="white" size="small">900</ui-badge>
+  <ui-badge background="gray-950" color="white" size="small">950</ui-badge>
+</ui-layout-stack>
+
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<!-- Red -->
+<ui-text type="heading" size="medium">Red</ui-text>
+<ui-layout-spacer size="0.25em"></ui-layout-spacer>
+<ui-layout-stack direction="horizontal" gap="0.25em" wrap>
+  <ui-badge background="red-50" color="red-700" size="small">50</ui-badge>
+  <ui-badge background="red-100" color="red-700" size="small">100</ui-badge>
+  <ui-badge background="red-200" color="red-700" size="small">200</ui-badge>
+  <ui-badge background="red-300" color="red-800" size="small">300</ui-badge>
+  <ui-badge background="red-400" color="white" size="small">400</ui-badge>
+  <ui-badge background="red-500" color="white" size="small">500</ui-badge>
+  <ui-badge background="red-600" color="white" size="small">600</ui-badge>
+  <ui-badge background="red-700" color="white" size="small">700</ui-badge>
+  <ui-badge background="red-800" color="white" size="small">800</ui-badge>
+  <ui-badge background="red-900" color="white" size="small">900</ui-badge>
+  <ui-badge background="red-950" color="white" size="small">950</ui-badge>
+</ui-layout-stack>
+
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<!-- Orange -->
+<ui-text type="heading" size="medium">Orange</ui-text>
+<ui-layout-spacer size="0.25em"></ui-layout-spacer>
+<ui-layout-stack direction="horizontal" gap="0.25em" wrap>
+  <ui-badge background="orange-50" color="orange-700" size="small">50</ui-badge>
+  <ui-badge background="orange-100" color="orange-700" size="small">100</ui-badge>
+  <ui-badge background="orange-200" color="orange-700" size="small">200</ui-badge>
+  <ui-badge background="orange-300" color="orange-800" size="small">300</ui-badge>
+  <ui-badge background="orange-400" color="white" size="small">400</ui-badge>
+  <ui-badge background="orange-500" color="white" size="small">500</ui-badge>
+  <ui-badge background="orange-600" color="white" size="small">600</ui-badge>
+  <ui-badge background="orange-700" color="white" size="small">700</ui-badge>
+  <ui-badge background="orange-800" color="white" size="small">800</ui-badge>
+  <ui-badge background="orange-900" color="white" size="small">900</ui-badge>
+  <ui-badge background="orange-950" color="white" size="small">950</ui-badge>
+</ui-layout-stack>
+
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<!-- Amber -->
+<ui-text type="heading" size="medium">Amber</ui-text>
+<ui-layout-spacer size="0.25em"></ui-layout-spacer>
+<ui-layout-stack direction="horizontal" gap="0.25em" wrap>
+  <ui-badge background="amber-50" color="amber-700" size="small">50</ui-badge>
+  <ui-badge background="amber-100" color="amber-700" size="small">100</ui-badge>
+  <ui-badge background="amber-200" color="amber-700" size="small">200</ui-badge>
+  <ui-badge background="amber-300" color="amber-800" size="small">300</ui-badge>
+  <ui-badge background="amber-400" color="amber-900" size="small">400</ui-badge>
+  <ui-badge background="amber-500" color="white" size="small">500</ui-badge>
+  <ui-badge background="amber-600" color="white" size="small">600</ui-badge>
+  <ui-badge background="amber-700" color="white" size="small">700</ui-badge>
+  <ui-badge background="amber-800" color="white" size="small">800</ui-badge>
+  <ui-badge background="amber-900" color="white" size="small">900</ui-badge>
+  <ui-badge background="amber-950" color="white" size="small">950</ui-badge>
+</ui-layout-stack>
+
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<!-- Yellow -->
+<ui-text type="heading" size="medium">Yellow</ui-text>
+<ui-layout-spacer size="0.25em"></ui-layout-spacer>
+<ui-layout-stack direction="horizontal" gap="0.25em" wrap>
+  <ui-badge background="yellow-50" color="yellow-700" size="small">50</ui-badge>
+  <ui-badge background="yellow-100" color="yellow-700" size="small">100</ui-badge>
+  <ui-badge background="yellow-200" color="yellow-700" size="small">200</ui-badge>
+  <ui-badge background="yellow-300" color="yellow-800" size="small">300</ui-badge>
+  <ui-badge background="yellow-400" color="yellow-900" size="small">400</ui-badge>
+  <ui-badge background="yellow-500" color="white" size="small">500</ui-badge>
+  <ui-badge background="yellow-600" color="white" size="small">600</ui-badge>
+  <ui-badge background="yellow-700" color="white" size="small">700</ui-badge>
+  <ui-badge background="yellow-800" color="white" size="small">800</ui-badge>
+  <ui-badge background="yellow-900" color="white" size="small">900</ui-badge>
+  <ui-badge background="yellow-950" color="white" size="small">950</ui-badge>
+</ui-layout-stack>
+
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<!-- Green -->
+<ui-text type="heading" size="medium">Green</ui-text>
+<ui-layout-spacer size="0.25em"></ui-layout-spacer>
+<ui-layout-stack direction="horizontal" gap="0.25em" wrap>
+  <ui-badge background="green-50" color="green-700" size="small">50</ui-badge>
+  <ui-badge background="green-100" color="green-700" size="small">100</ui-badge>
+  <ui-badge background="green-200" color="green-700" size="small">200</ui-badge>
+  <ui-badge background="green-300" color="green-800" size="small">300</ui-badge>
+  <ui-badge background="green-400" color="white" size="small">400</ui-badge>
+  <ui-badge background="green-500" color="white" size="small">500</ui-badge>
+  <ui-badge background="green-600" color="white" size="small">600</ui-badge>
+  <ui-badge background="green-700" color="white" size="small">700</ui-badge>
+  <ui-badge background="green-800" color="white" size="small">800</ui-badge>
+  <ui-badge background="green-900" color="white" size="small">900</ui-badge>
+  <ui-badge background="green-950" color="white" size="small">950</ui-badge>
+</ui-layout-stack>
+
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<!-- Emerald -->
+<ui-text type="heading" size="medium">Emerald</ui-text>
+<ui-layout-spacer size="0.25em"></ui-layout-spacer>
+<ui-layout-stack direction="horizontal" gap="0.25em" wrap>
+  <ui-badge background="emerald-50" color="emerald-700" size="small">50</ui-badge>
+  <ui-badge background="emerald-100" color="emerald-700" size="small">100</ui-badge>
+  <ui-badge background="emerald-200" color="emerald-700" size="small">200</ui-badge>
+  <ui-badge background="emerald-300" color="emerald-800" size="small">300</ui-badge>
+  <ui-badge background="emerald-400" color="white" size="small">400</ui-badge>
+  <ui-badge background="emerald-500" color="white" size="small">500</ui-badge>
+  <ui-badge background="emerald-600" color="white" size="small">600</ui-badge>
+  <ui-badge background="emerald-700" color="white" size="small">700</ui-badge>
+  <ui-badge background="emerald-800" color="white" size="small">800</ui-badge>
+  <ui-badge background="emerald-900" color="white" size="small">900</ui-badge>
+  <ui-badge background="emerald-950" color="white" size="small">950</ui-badge>
+</ui-layout-stack>
+
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<!-- Teal -->
+<ui-text type="heading" size="medium">Teal</ui-text>
+<ui-layout-spacer size="0.25em"></ui-layout-spacer>
+<ui-layout-stack direction="horizontal" gap="0.25em" wrap>
+  <ui-badge background="teal-50" color="teal-700" size="small">50</ui-badge>
+  <ui-badge background="teal-100" color="teal-700" size="small">100</ui-badge>
+  <ui-badge background="teal-200" color="teal-700" size="small">200</ui-badge>
+  <ui-badge background="teal-300" color="teal-800" size="small">300</ui-badge>
+  <ui-badge background="teal-400" color="white" size="small">400</ui-badge>
+  <ui-badge background="teal-500" color="white" size="small">500</ui-badge>
+  <ui-badge background="teal-600" color="white" size="small">600</ui-badge>
+  <ui-badge background="teal-700" color="white" size="small">700</ui-badge>
+  <ui-badge background="teal-800" color="white" size="small">800</ui-badge>
+  <ui-badge background="teal-900" color="white" size="small">900</ui-badge>
+  <ui-badge background="teal-950" color="white" size="small">950</ui-badge>
+</ui-layout-stack>
+
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<!-- Cyan -->
+<ui-text type="heading" size="medium">Cyan</ui-text>
+<ui-layout-spacer size="0.25em"></ui-layout-spacer>
+<ui-layout-stack direction="horizontal" gap="0.25em" wrap>
+  <ui-badge background="cyan-50" color="cyan-700" size="small">50</ui-badge>
+  <ui-badge background="cyan-100" color="cyan-700" size="small">100</ui-badge>
+  <ui-badge background="cyan-200" color="cyan-700" size="small">200</ui-badge>
+  <ui-badge background="cyan-300" color="cyan-800" size="small">300</ui-badge>
+  <ui-badge background="cyan-400" color="white" size="small">400</ui-badge>
+  <ui-badge background="cyan-500" color="white" size="small">500</ui-badge>
+  <ui-badge background="cyan-600" color="white" size="small">600</ui-badge>
+  <ui-badge background="cyan-700" color="white" size="small">700</ui-badge>
+  <ui-badge background="cyan-800" color="white" size="small">800</ui-badge>
+  <ui-badge background="cyan-900" color="white" size="small">900</ui-badge>
+  <ui-badge background="cyan-950" color="white" size="small">950</ui-badge>
+</ui-layout-stack>
+
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<!-- Sky -->
+<ui-text type="heading" size="medium">Sky</ui-text>
+<ui-layout-spacer size="0.25em"></ui-layout-spacer>
+<ui-layout-stack direction="horizontal" gap="0.25em" wrap>
+  <ui-badge background="sky-50" color="sky-700" size="small">50</ui-badge>
+  <ui-badge background="sky-100" color="sky-700" size="small">100</ui-badge>
+  <ui-badge background="sky-200" color="sky-700" size="small">200</ui-badge>
+  <ui-badge background="sky-300" color="sky-800" size="small">300</ui-badge>
+  <ui-badge background="sky-400" color="white" size="small">400</ui-badge>
+  <ui-badge background="sky-500" color="white" size="small">500</ui-badge>
+  <ui-badge background="sky-600" color="white" size="small">600</ui-badge>
+  <ui-badge background="sky-700" color="white" size="small">700</ui-badge>
+  <ui-badge background="sky-800" color="white" size="small">800</ui-badge>
+  <ui-badge background="sky-900" color="white" size="small">900</ui-badge>
+  <ui-badge background="sky-950" color="white" size="small">950</ui-badge>
+</ui-layout-stack>
+
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<!-- Blue -->
+<ui-text type="heading" size="medium">Blue</ui-text>
+<ui-layout-spacer size="0.25em"></ui-layout-spacer>
+<ui-layout-stack direction="horizontal" gap="0.25em" wrap>
+  <ui-badge background="blue-50" color="blue-700" size="small">50</ui-badge>
+  <ui-badge background="blue-100" color="blue-700" size="small">100</ui-badge>
+  <ui-badge background="blue-200" color="blue-700" size="small">200</ui-badge>
+  <ui-badge background="blue-300" color="blue-800" size="small">300</ui-badge>
+  <ui-badge background="blue-400" color="white" size="small">400</ui-badge>
+  <ui-badge background="blue-500" color="white" size="small">500</ui-badge>
+  <ui-badge background="blue-600" color="white" size="small">600</ui-badge>
+  <ui-badge background="blue-700" color="white" size="small">700</ui-badge>
+  <ui-badge background="blue-800" color="white" size="small">800</ui-badge>
+  <ui-badge background="blue-900" color="white" size="small">900</ui-badge>
+  <ui-badge background="blue-950" color="white" size="small">950</ui-badge>
+</ui-layout-stack>
+
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<!-- Indigo -->
+<ui-text type="heading" size="medium">Indigo</ui-text>
+<ui-layout-spacer size="0.25em"></ui-layout-spacer>
+<ui-layout-stack direction="horizontal" gap="0.25em" wrap>
+  <ui-badge background="indigo-50" color="indigo-700" size="small">50</ui-badge>
+  <ui-badge background="indigo-100" color="indigo-700" size="small">100</ui-badge>
+  <ui-badge background="indigo-200" color="indigo-700" size="small">200</ui-badge>
+  <ui-badge background="indigo-300" color="indigo-800" size="small">300</ui-badge>
+  <ui-badge background="indigo-400" color="white" size="small">400</ui-badge>
+  <ui-badge background="indigo-500" color="white" size="small">500</ui-badge>
+  <ui-badge background="indigo-600" color="white" size="small">600</ui-badge>
+  <ui-badge background="indigo-700" color="white" size="small">700</ui-badge>
+  <ui-badge background="indigo-800" color="white" size="small">800</ui-badge>
+  <ui-badge background="indigo-900" color="white" size="small">900</ui-badge>
+  <ui-badge background="indigo-950" color="white" size="small">950</ui-badge>
+</ui-layout-stack>
+
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<!-- Violet -->
+<ui-text type="heading" size="medium">Violet</ui-text>
+<ui-layout-spacer size="0.25em"></ui-layout-spacer>
+<ui-layout-stack direction="horizontal" gap="0.25em" wrap>
+  <ui-badge background="violet-50" color="violet-700" size="small">50</ui-badge>
+  <ui-badge background="violet-100" color="violet-700" size="small">100</ui-badge>
+  <ui-badge background="violet-200" color="violet-700" size="small">200</ui-badge>
+  <ui-badge background="violet-300" color="violet-800" size="small">300</ui-badge>
+  <ui-badge background="violet-400" color="white" size="small">400</ui-badge>
+  <ui-badge background="violet-500" color="white" size="small">500</ui-badge>
+  <ui-badge background="violet-600" color="white" size="small">600</ui-badge>
+  <ui-badge background="violet-700" color="white" size="small">700</ui-badge>
+  <ui-badge background="violet-800" color="white" size="small">800</ui-badge>
+  <ui-badge background="violet-900" color="white" size="small">900</ui-badge>
+  <ui-badge background="violet-950" color="white" size="small">950</ui-badge>
+</ui-layout-stack>
+
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<!-- Purple -->
+<ui-text type="heading" size="medium">Purple</ui-text>
+<ui-layout-spacer size="0.25em"></ui-layout-spacer>
+<ui-layout-stack direction="horizontal" gap="0.25em" wrap>
+  <ui-badge background="purple-50" color="purple-700" size="small">50</ui-badge>
+  <ui-badge background="purple-100" color="purple-700" size="small">100</ui-badge>
+  <ui-badge background="purple-200" color="purple-700" size="small">200</ui-badge>
+  <ui-badge background="purple-300" color="purple-800" size="small">300</ui-badge>
+  <ui-badge background="purple-400" color="white" size="small">400</ui-badge>
+  <ui-badge background="purple-500" color="white" size="small">500</ui-badge>
+  <ui-badge background="purple-600" color="white" size="small">600</ui-badge>
+  <ui-badge background="purple-700" color="white" size="small">700</ui-badge>
+  <ui-badge background="purple-800" color="white" size="small">800</ui-badge>
+  <ui-badge background="purple-900" color="white" size="small">900</ui-badge>
+  <ui-badge background="purple-950" color="white" size="small">950</ui-badge>
+</ui-layout-stack>
+
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<!-- Fuchsia -->
+<ui-text type="heading" size="medium">Fuchsia</ui-text>
+<ui-layout-spacer size="0.25em"></ui-layout-spacer>
+<ui-layout-stack direction="horizontal" gap="0.25em" wrap>
+  <ui-badge background="fuchsia-50" color="fuchsia-700" size="small">50</ui-badge>
+  <ui-badge background="fuchsia-100" color="fuchsia-700" size="small">100</ui-badge>
+  <ui-badge background="fuchsia-200" color="fuchsia-700" size="small">200</ui-badge>
+  <ui-badge background="fuchsia-300" color="fuchsia-800" size="small">300</ui-badge>
+  <ui-badge background="fuchsia-400" color="white" size="small">400</ui-badge>
+  <ui-badge background="fuchsia-500" color="white" size="small">500</ui-badge>
+  <ui-badge background="fuchsia-600" color="white" size="small">600</ui-badge>
+  <ui-badge background="fuchsia-700" color="white" size="small">700</ui-badge>
+  <ui-badge background="fuchsia-800" color="white" size="small">800</ui-badge>
+  <ui-badge background="fuchsia-900" color="white" size="small">900</ui-badge>
+  <ui-badge background="fuchsia-950" color="white" size="small">950</ui-badge>
+</ui-layout-stack>
+
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<!-- Pink -->
+<ui-text type="heading" size="medium">Pink</ui-text>
+<ui-layout-spacer size="0.25em"></ui-layout-spacer>
+<ui-layout-stack direction="horizontal" gap="0.25em" wrap>
+  <ui-badge background="pink-50" color="pink-700" size="small">50</ui-badge>
+  <ui-badge background="pink-100" color="pink-700" size="small">100</ui-badge>
+  <ui-badge background="pink-200" color="pink-700" size="small">200</ui-badge>
+  <ui-badge background="pink-300" color="pink-800" size="small">300</ui-badge>
+  <ui-badge background="pink-400" color="white" size="small">400</ui-badge>
+  <ui-badge background="pink-500" color="white" size="small">500</ui-badge>
+  <ui-badge background="pink-600" color="white" size="small">600</ui-badge>
+  <ui-badge background="pink-700" color="white" size="small">700</ui-badge>
+  <ui-badge background="pink-800" color="white" size="small">800</ui-badge>
+  <ui-badge background="pink-900" color="white" size="small">900</ui-badge>
+  <ui-badge background="pink-950" color="white" size="small">950</ui-badge>
+</ui-layout-stack>
+
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<!-- Rose -->
+<ui-text type="heading" size="medium">Rose</ui-text>
+<ui-layout-spacer size="0.25em"></ui-layout-spacer>
+<ui-layout-stack direction="horizontal" gap="0.25em" wrap>
+  <ui-badge background="rose-50" color="rose-700" size="small">50</ui-badge>
+  <ui-badge background="rose-100" color="rose-700" size="small">100</ui-badge>
+  <ui-badge background="rose-200" color="rose-700" size="small">200</ui-badge>
+  <ui-badge background="rose-300" color="rose-800" size="small">300</ui-badge>
+  <ui-badge background="rose-400" color="white" size="small">400</ui-badge>
+  <ui-badge background="rose-500" color="white" size="small">500</ui-badge>
+  <ui-badge background="rose-600" color="white" size="small">600</ui-badge>
+  <ui-badge background="rose-700" color="white" size="small">700</ui-badge>
+  <ui-badge background="rose-800" color="white" size="small">800</ui-badge>
+  <ui-badge background="rose-900" color="white" size="small">900</ui-badge>
+  <ui-badge background="rose-950" color="white" size="small">950</ui-badge>
+</ui-layout-stack>
+
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<!-- Lime -->
+<ui-text type="heading" size="medium">Lime</ui-text>
+<ui-layout-spacer size="0.25em"></ui-layout-spacer>
+<ui-layout-stack direction="horizontal" gap="0.25em" wrap>
+  <ui-badge background="lime-50" color="lime-700" size="small">50</ui-badge>
+  <ui-badge background="lime-100" color="lime-700" size="small">100</ui-badge>
+  <ui-badge background="lime-200" color="lime-700" size="small">200</ui-badge>
+  <ui-badge background="lime-300" color="lime-800" size="small">300</ui-badge>
+  <ui-badge background="lime-400" color="lime-900" size="small">400</ui-badge>
+  <ui-badge background="lime-500" color="white" size="small">500</ui-badge>
+  <ui-badge background="lime-600" color="white" size="small">600</ui-badge>
+  <ui-badge background="lime-700" color="white" size="small">700</ui-badge>
+  <ui-badge background="lime-800" color="white" size="small">800</ui-badge>
+  <ui-badge background="lime-900" color="white" size="small">900</ui-badge>
+  <ui-badge background="lime-950" color="white" size="small">950</ui-badge>
+</ui-layout-stack>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Using Colours ──────────────────────────────────────── -->
+<ui-text type="heading" size="large">Using Colours</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Most components accept <code>background</code> and <code>color</code> attributes.
+  Pass a palette token like <code>indigo-600</code> or any valid CSS colour.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack direction="horizontal" gap="0.5em" wrap>
+      <ui-button background="indigo-600">Indigo</ui-button>
+      <ui-button background="emerald-500">Emerald</ui-button>
+      <ui-button background="rose-500">Rose</ui-button>
+      <ui-button background="#6366f1">Hex</ui-button>
+      <ui-button background="salmon">CSS Named</ui-button>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-button background="indigo-600"&gt;Indigo&lt;/ui-button&gt;
+&lt;ui-button background="emerald-500"&gt;Emerald&lt;/ui-button&gt;
+&lt;ui-button background="rose-500"&gt;Rose&lt;/ui-button&gt;
+&lt;ui-button background="#6366f1"&gt;Hex&lt;/ui-button&gt;
+&lt;ui-button background="salmon"&gt;CSS Named&lt;/ui-button&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="1.5em"></ui-layout-spacer>
+
+<ui-text type="paragraph" color="gray-500" size="small">
+  You can also reference tokens directly in CSS using <code>var(--ui-*)</code>:
+</ui-text>
+<ui-layout-spacer size="0.5em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <ui-input-code language="css" readonly height="auto">.my-custom-card {
+  background: var(--ui-indigo-50);
+  border: 1px solid var(--ui-indigo-200);
+  color: var(--ui-indigo-900);
+}</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Shared Tokens ──────────────────────────────────────── -->
+<ui-text type="heading" size="large">Shared UI Tokens</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Beyond the colour palette, Cosmic UI defines shared design tokens that
+  control typography, focus rings, borders, and more.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead>
+      <tr>
+        <th>Token</th>
+        <th>Default</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>--ui-font</code></td>
+        <td>System font stack</td>
+        <td>Base font family for all components</td>
+      </tr>
+      <tr>
+        <td><code>--ui-font-mono</code></td>
+        <td>Monospace stack</td>
+        <td>Font for code, OTP, and monospaced content</td>
+      </tr>
+      <tr>
+        <td><code>--ui-focus-ring</code></td>
+        <td><code>indigo-500</code></td>
+        <td>Outline colour for focused elements</td>
+      </tr>
+      <tr>
+        <td><code>--ui-border-color</code></td>
+        <td><code>gray-300</code></td>
+        <td>Default border colour for inputs, cards, etc.</td>
+      </tr>
+      <tr>
+        <td><code>--ui-text-color</code></td>
+        <td><code>gray-900</code></td>
+        <td>Primary text colour</td>
+      </tr>
+      <tr>
+        <td><code>--ui-text-muted</code></td>
+        <td><code>gray-500</code></td>
+        <td>Secondary / muted text colour</td>
+      </tr>
+      <tr>
+        <td><code>--ui-bg</code></td>
+        <td><code>#fff</code></td>
+        <td>Page background</td>
+      </tr>
+      <tr>
+        <td><code>--ui-bg-subtle</code></td>
+        <td><code>gray-50</code></td>
+        <td>Subtle background for alternating rows, etc.</td>
+      </tr>
+      <tr>
+        <td><code>--ui-radius</code></td>
+        <td><code>0.375em</code></td>
+        <td>Default border-radius</td>
+      </tr>
+      <tr>
+        <td><code>--ui-button-radius</code></td>
+        <td><code>var(--ui-radius)</code></td>
+        <td>Border-radius specifically for buttons</td>
+      </tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Overriding Tokens ──────────────────────────────────── -->
+<ui-text type="heading" size="large">Overriding Tokens</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Override tokens at any level — globally, per section, or per component.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<ui-text type="heading" size="medium">Global Override</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Change the entire app's look by overriding <code>:root</code> tokens.
+</ui-text>
+<ui-layout-spacer size="0.5em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <ui-input-code language="html" readonly height="auto">&lt;style&gt;
+  :root {
+    /* Rounded buttons */
+    --ui-button-radius: 9999px;
+
+    /* Custom focus ring */
+    --ui-focus-ring: var(--ui-emerald-400);
+
+    /* Softer borders */
+    --ui-border-color: var(--ui-gray-200);
+
+    /* Custom font */
+    --ui-font: "Inter", sans-serif;
+  }
+&lt;/style&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="1.5em"></ui-layout-spacer>
+
+<ui-text type="heading" size="medium">Scoped Override</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Apply tokens to a specific section without affecting the rest of the page.
+</ui-text>
+<ui-layout-spacer size="0.5em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <div style="--ui-button-radius: 9999px;">
+      <ui-layout-stack direction="horizontal" gap="0.5em">
+        <ui-button background="indigo-600" size="small">Pill Button</ui-button>
+        <ui-button background="emerald-500" size="small">Rounded</ui-button>
+      </ui-layout-stack>
+    </div>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;div style="--ui-button-radius: 9999px;"&gt;
+  &lt;ui-button background="indigo-600"&gt;Pill Button&lt;/ui-button&gt;
+  &lt;ui-button background="emerald-500"&gt;Rounded&lt;/ui-button&gt;
+&lt;/div&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Sizing ─────────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Sizing System</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  All component dimensions use <code>em</code> units. Change a component's
+  <code>size</code> attribute to scale everything proportionally — padding,
+  border-radius, icons, and text all adjust together.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack direction="horizontal" gap="0.5em" wrap style="align-items: center;">
+      <ui-button background="indigo-600" size="xx-small">xx-small</ui-button>
+      <ui-button background="indigo-600" size="x-small">x-small</ui-button>
+      <ui-button background="indigo-600" size="small">small</ui-button>
+      <ui-button background="indigo-600" size="medium">medium</ui-button>
+      <ui-button background="indigo-600" size="large">large</ui-button>
+      <ui-button background="indigo-600" size="x-large">x-large</ui-button>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-button background="indigo-600" size="xx-small"&gt;xx-small&lt;/ui-button&gt;
+&lt;ui-button background="indigo-600" size="x-small"&gt;x-small&lt;/ui-button&gt;
+&lt;ui-button background="indigo-600" size="small"&gt;small&lt;/ui-button&gt;
+&lt;ui-button background="indigo-600" size="medium"&gt;medium&lt;/ui-button&gt;
+&lt;ui-button background="indigo-600" size="large"&gt;large&lt;/ui-button&gt;
+&lt;ui-button background="indigo-600" size="x-large"&gt;x-large&lt;/ui-button&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="1em"></ui-layout-spacer>
+
+<ui-text type="paragraph" color="gray-500" size="small">
+  Named size keywords and their <code>em</code> equivalents:
+</ui-text>
+<ui-layout-spacer size="0.5em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead>
+      <tr>
+        <th>Keyword</th>
+        <th>em Value</th>
+        <th>Approx. px (at 16px base)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td><code>xx-small</code></td><td>0.5625em</td><td>9px</td></tr>
+      <tr><td><code>x-small</code></td><td>0.625em</td><td>10px</td></tr>
+      <tr><td><code>small</code></td><td>0.8125em</td><td>13px</td></tr>
+      <tr><td><code>medium</code></td><td>1em</td><td>16px</td></tr>
+      <tr><td><code>large</code></td><td>1.125em</td><td>18px</td></tr>
+      <tr><td><code>x-large</code></td><td>1.5em</td><td>24px</td></tr>
+      <tr><td><code>xx-large</code></td><td>2em</td><td>32px</td></tr>
+      <tr><td><code>xxx-large</code></td><td>3em</td><td>48px</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="1em"></ui-layout-spacer>
+
+<ui-text type="paragraph" color="gray-500" size="small">
+  You can also pass any CSS length — <code>10px</code>, <code>2rem</code>,
+  <code>clamp(0.8em, 2vw, 1.5em)</code> — for fine-grained control.
+</ui-text>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Elevation ──────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Elevation</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Add depth with the <code>elevation</code> attribute. Values range from
+  <code>0</code> (flat) to <code>5</code> (highest shadow).
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack direction="horizontal" gap="1em" wrap>
+      <ui-card elevation="0" style="padding: 1em; min-width: 5em; text-align: center;">
+        <ui-text size="small">0</ui-text>
+      </ui-card>
+      <ui-card elevation="1" style="padding: 1em; min-width: 5em; text-align: center;">
+        <ui-text size="small">1</ui-text>
+      </ui-card>
+      <ui-card elevation="2" style="padding: 1em; min-width: 5em; text-align: center;">
+        <ui-text size="small">2</ui-text>
+      </ui-card>
+      <ui-card elevation="3" style="padding: 1em; min-width: 5em; text-align: center;">
+        <ui-text size="small">3</ui-text>
+      </ui-card>
+      <ui-card elevation="4" style="padding: 1em; min-width: 5em; text-align: center;">
+        <ui-text size="small">4</ui-text>
+      </ui-card>
+      <ui-card elevation="5" style="padding: 1em; min-width: 5em; text-align: center;">
+        <ui-text size="small">5</ui-text>
+      </ui-card>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-card elevation="0"&gt;Flat&lt;/ui-card&gt;
+&lt;ui-card elevation="1"&gt;Subtle&lt;/ui-card&gt;
+&lt;ui-card elevation="2"&gt;Default&lt;/ui-card&gt;
+&lt;ui-card elevation="3"&gt;Raised&lt;/ui-card&gt;
+&lt;ui-card elevation="4"&gt;High&lt;/ui-card&gt;
+&lt;ui-card elevation="5"&gt;Highest&lt;/ui-card&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Dark Mode Tips ─────────────────────────────────────── -->
+<ui-text type="heading" size="large">Dark Mode</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Cosmic UI doesn't ship a built-in dark mode toggle, but it's trivial to build
+  one by swapping token values.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <ui-input-code language="html" readonly height="auto">&lt;style&gt;
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --ui-bg:            var(--ui-gray-900);
+      --ui-bg-subtle:     var(--ui-gray-800);
+      --ui-text-color:    var(--ui-gray-100);
+      --ui-text-muted:    var(--ui-gray-400);
+      --ui-border-color:  var(--ui-gray-700);
+    }
+  }
+
+  /* Or use a class toggle */
+  .dark {
+    --ui-bg:            var(--ui-gray-900);
+    --ui-bg-subtle:     var(--ui-gray-800);
+    --ui-text-color:    var(--ui-gray-100);
+    --ui-text-muted:    var(--ui-gray-400);
+    --ui-border-color:  var(--ui-gray-700);
+  }
+&lt;/style&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Token Reference ────────────────────────────────────── -->
+<ui-text type="heading" size="large">Quick Reference</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Common theming recipes at a glance.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<ui-layout-stack gap="0.5em">
+  <ui-callout background="indigo-50" color="indigo-700" size="small">
+    <strong>Change brand colour:</strong> Override <code>--ui-indigo-*</code> shades
+    with your brand's primary hue, or use a different palette family on components.
+  </ui-callout>
+  <ui-callout background="emerald-50" color="emerald-700" size="small">
+    <strong>Rounded everything:</strong> Set <code>--ui-radius: 9999px</code> on
+    <code>:root</code> for fully-rounded corners on all components.
+  </ui-callout>
+  <ui-callout background="amber-50" color="amber-700" size="small">
+    <strong>Custom font:</strong> Set <code>--ui-font: "YourFont", sans-serif</code>
+    on <code>:root</code>. All components inherit from <code>&lt;ui-app&gt;</code>.
+  </ui-callout>
+  <ui-callout background="sky-50" color="sky-700" size="small">
+    <strong>Scale globally:</strong> Change <code>font-size</code> on <code>&lt;ui-app&gt;</code>
+    and all <code>em</code>-based components scale proportionally.
+  </ui-callout>
+</ui-layout-stack>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>

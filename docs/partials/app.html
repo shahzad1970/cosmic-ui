@@ -1,0 +1,897 @@
+<!-- ============================================================
+     App Shell — Component Documentation
+     ============================================================ -->
+
+<!-- Page header -->
+<ui-layout-stack gap="0.25em" style="margin-bottom:2em;">
+  <ui-text type="heading" size="xx-large">App Shell</ui-text>
+  <ui-text type="paragraph" color="gray-500">
+    The <code>&lt;ui-app&gt;</code> component provides a full-page layout system
+    using CSS Grid. It supports a banner, header, subheader, left navigation,
+    main content, right drawer, and footer — all optional. Empty slots collapse
+    automatically.
+  </ui-text>
+</ui-layout-stack>
+
+<!-- ── Import ─────────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Import</ui-text>
+<ui-layout-spacer size="0.5em"></ui-layout-spacer>
+<ui-input-code language="html" readonly height="auto">&lt;script type="module" src="path/to/cosmic-ui/src/index.js"&gt;&lt;/script&gt;</ui-input-code>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Grid Layout ────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Grid Layout</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  The layout is a 3-column × 7-row CSS Grid. All child components are optional —
+  empty columns and rows collapse to zero automatically.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <svg viewBox="0 0 560 240" width="100%" height="240" role="img" aria-label="App shell grid diagram">
+      <rect x="12" y="12" width="536" height="216" rx="10" fill="#f9fafb" stroke="#e5e7eb" />
+
+      <rect x="24" y="24" width="512" height="24" rx="6" fill="#e0e7ff" stroke="#c7d2fe" />
+      <rect x="24" y="54" width="512" height="24" rx="6" fill="#dbeafe" stroke="#bfdbfe" />
+      <rect x="24" y="84" width="512" height="24" rx="6" fill="#e5e7eb" stroke="#d1d5db" />
+
+      <rect x="24" y="114" width="150" height="28" rx="6" fill="#f3f4f6" stroke="#e5e7eb" />
+      <rect x="184" y="114" width="232" height="28" rx="6" fill="#eef2ff" stroke="#c7d2fe" />
+      <rect x="426" y="114" width="110" height="84" rx="6" fill="#fef3c7" stroke="#fde68a" />
+
+      <rect x="24" y="148" width="150" height="32" rx="6" fill="#f3f4f6" stroke="#e5e7eb" />
+      <rect x="184" y="148" width="232" height="32" rx="6" fill="#eef2ff" stroke="#c7d2fe" />
+
+      <rect x="24" y="186" width="150" height="24" rx="6" fill="#f3f4f6" stroke="#e5e7eb" />
+      <rect x="184" y="186" width="232" height="24" rx="6" fill="#eef2ff" stroke="#c7d2fe" />
+
+      <rect x="24" y="214" width="512" height="24" rx="6" fill="#e5e7eb" stroke="#d1d5db" />
+
+      <text x="280" y="40" text-anchor="middle" font-size="10" fill="#6b7280" font-family="var(--ui-font, system-ui, sans-serif)">Banner</text>
+      <text x="280" y="70" text-anchor="middle" font-size="10" fill="#6b7280" font-family="var(--ui-font, system-ui, sans-serif)">Header</text>
+      <text x="280" y="100" text-anchor="middle" font-size="10" fill="#6b7280" font-family="var(--ui-font, system-ui, sans-serif)">Subheader</text>
+      <text x="99" y="132" text-anchor="middle" font-size="10" fill="#6b7280" font-family="var(--ui-font, system-ui, sans-serif)">Nav Header</text>
+      <text x="300" y="132" text-anchor="middle" font-size="10" fill="#6b7280" font-family="var(--ui-font, system-ui, sans-serif)">Main Header</text>
+      <text x="481" y="132" text-anchor="middle" font-size="10" fill="#6b7280" font-family="var(--ui-font, system-ui, sans-serif)">Drawer</text>
+      <text x="99" y="166" text-anchor="middle" font-size="10" fill="#6b7280" font-family="var(--ui-font, system-ui, sans-serif)">Nav</text>
+      <text x="300" y="166" text-anchor="middle" font-size="10" fill="#6b7280" font-family="var(--ui-font, system-ui, sans-serif)">Main</text>
+      <text x="99" y="202" text-anchor="middle" font-size="10" fill="#6b7280" font-family="var(--ui-font, system-ui, sans-serif)">Nav Footer</text>
+      <text x="300" y="202" text-anchor="middle" font-size="10" fill="#6b7280" font-family="var(--ui-font, system-ui, sans-serif)">Main Footer</text>
+      <text x="280" y="232" text-anchor="middle" font-size="10" fill="#6b7280" font-family="var(--ui-font, system-ui, sans-serif)">Footer</text>
+    </svg>
+  </div>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Child Components ───────────────────────────────────── -->
+<ui-text type="heading" size="large">Child Components</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Place these directly inside <code>&lt;ui-app&gt;</code>. Order in the HTML does not
+  matter — CSS Grid assigns each to its named area.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead>
+      <tr>
+        <th>Element</th>
+        <th>Grid Area</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>&lt;ui-app-banner&gt;</code></td>
+        <td>Full width, row 1</td>
+        <td>Top-level branding bar (logo, app name)</td>
+      </tr>
+      <tr>
+        <td><code>&lt;ui-app-header&gt;</code></td>
+        <td>Full width, row 2</td>
+        <td>Page header (title, breadcrumbs, actions)</td>
+      </tr>
+      <tr>
+        <td><code>&lt;ui-app-subheader&gt;</code></td>
+        <td>Full width, row 3</td>
+        <td>Secondary header (tabs, filters)</td>
+      </tr>
+      <tr>
+        <td><code>&lt;ui-app-nav-header&gt;</code></td>
+        <td>Left column, row 4</td>
+        <td>Nav panel header</td>
+      </tr>
+      <tr>
+        <td><code>&lt;ui-app-nav&gt;</code></td>
+        <td>Left column, row 5</td>
+        <td>Left navigation / sidebar (scrollable)</td>
+      </tr>
+      <tr>
+        <td><code>&lt;ui-app-nav-footer&gt;</code></td>
+        <td>Left column, row 6</td>
+        <td>Nav panel footer</td>
+      </tr>
+      <tr>
+        <td><code>&lt;ui-app-main-header&gt;</code></td>
+        <td>Center column, row 4</td>
+        <td>Main content area header</td>
+      </tr>
+      <tr>
+        <td><code>&lt;ui-app-main&gt;</code></td>
+        <td>Center column, row 5</td>
+        <td>Primary scrollable content area</td>
+      </tr>
+      <tr>
+        <td><code>&lt;ui-app-main-footer&gt;</code></td>
+        <td>Center column, row 6</td>
+        <td>Main area footer (status bar)</td>
+      </tr>
+      <tr>
+        <td><code>&lt;ui-app-drawer&gt;</code></td>
+        <td>Right column, rows 4–6</td>
+        <td>Right sidebar panel (toggleable)</td>
+      </tr>
+      <tr>
+        <td><code>&lt;ui-app-footer&gt;</code></td>
+        <td>Full width, row 7</td>
+        <td>Application footer (copyright, links)</td>
+      </tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Minimal Example ────────────────────────────────────── -->
+<ui-text type="heading" size="large">Minimal Example</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Only include the slots you need. Here's the simplest possible layout — just a
+  header and main content area.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview" style="height: 200px; padding: 0;">
+    <ui-app style="height: 200px; font-size: 0.75em; border: 1px solid var(--ui-border-color);">
+      <ui-app-header background="indigo-600">My App</ui-app-header>
+      <ui-app-main>
+        <ui-text type="paragraph">Your content goes here.</ui-text>
+      </ui-app-main>
+    </ui-app>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-app&gt;
+  &lt;ui-app-header background="indigo-600"&gt;My App&lt;/ui-app-header&gt;
+  &lt;ui-app-main&gt;
+    &lt;p&gt;Your content goes here.&lt;/p&gt;
+  &lt;/ui-app-main&gt;
+&lt;/ui-app&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Full Layout Example ────────────────────────────────── -->
+<ui-text type="heading" size="large">Full Layout</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  A complete application shell using every available slot.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview" style="height: 380px; padding: 0;">
+    <ui-app nav-open style="height: 380px; font-size: 0.65em; border: 1px solid var(--ui-border-color);">
+      <ui-app-banner background="indigo-700">
+        <ui-icon size="small">rocket</ui-icon> Cosmic App
+      </ui-app-banner>
+      <ui-app-header>Dashboard</ui-app-header>
+      <ui-app-subheader background="gray-50">
+        <ui-badge background="indigo-100" color="indigo-700" size="x-small">Analytics</ui-badge>
+        <ui-badge background="gray-100" color="gray-600" size="x-small">Reports</ui-badge>
+      </ui-app-subheader>
+      <ui-app-nav-header background="gray-100">
+        <ui-text size="x-small" style="font-weight: 600;">Navigation</ui-text>
+      </ui-app-nav-header>
+      <ui-app-nav background="gray-100" width="10rem">
+        <ui-layout-stack gap="0.25em">
+          <ui-text size="x-small">📊 Dashboard</ui-text>
+          <ui-text size="x-small">👥 Users</ui-text>
+          <ui-text size="x-small">⚙️ Settings</ui-text>
+        </ui-layout-stack>
+      </ui-app-nav>
+      <ui-app-nav-footer background="gray-100">
+        <ui-text size="xx-small" color="gray-400">v1.0.0</ui-text>
+      </ui-app-nav-footer>
+      <ui-app-main-header>
+        <ui-text size="x-small" style="font-weight: 600;">Overview</ui-text>
+      </ui-app-main-header>
+      <ui-app-main>
+        <ui-layout-stack gap="0.5em">
+          <ui-card elevation="1">
+            <ui-card-body>
+              <ui-text type="heading" size="x-small">Welcome</ui-text>
+              <ui-text size="xx-small" color="gray-500">Main content goes here.</ui-text>
+            </ui-card-body>
+          </ui-card>
+        </ui-layout-stack>
+      </ui-app-main>
+      <ui-app-main-footer>
+        <ui-text size="xx-small" color="gray-400">3 items loaded</ui-text>
+      </ui-app-main-footer>
+      <ui-app-drawer width="8rem" open>
+        <ui-layout-stack gap="0.25em">
+          <ui-text size="x-small" style="font-weight: 600;">Details</ui-text>
+          <ui-text size="xx-small" color="gray-500">Drawer panel content.</ui-text>
+        </ui-layout-stack>
+      </ui-app-drawer>
+      <ui-app-footer background="gray-800">
+        <ui-text size="xx-small" color="gray-400">© 2026 My Company</ui-text>
+      </ui-app-footer>
+    </ui-app>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-app nav-open&gt;
+  &lt;ui-app-banner background="indigo-700"&gt;Cosmic App&lt;/ui-app-banner&gt;
+  &lt;ui-app-header&gt;Dashboard&lt;/ui-app-header&gt;
+  &lt;ui-app-subheader background="gray-50"&gt;Analytics | Reports&lt;/ui-app-subheader&gt;
+
+  &lt;ui-app-nav-header background="gray-100"&gt;Navigation&lt;/ui-app-nav-header&gt;
+  &lt;ui-app-nav background="gray-100" width="16rem"&gt;
+    Menu items...
+  &lt;/ui-app-nav&gt;
+  &lt;ui-app-nav-footer background="gray-100"&gt;v1.0.0&lt;/ui-app-nav-footer&gt;
+
+  &lt;ui-app-main-header&gt;Overview&lt;/ui-app-main-header&gt;
+  &lt;ui-app-main&gt;Main content...&lt;/ui-app-main&gt;
+  &lt;ui-app-main-footer&gt;Status bar&lt;/ui-app-main-footer&gt;
+
+  &lt;ui-app-drawer width="16rem" open&gt;Details panel&lt;/ui-app-drawer&gt;
+
+  &lt;ui-app-footer background="gray-800"&gt;© 2026&lt;/ui-app-footer&gt;
+&lt;/ui-app&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── App Shell vs Page Mode ─────────────────────────────── -->
+<ui-text type="heading" size="large">App Shell vs Page Mode</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  By default, <code>&lt;ui-app&gt;</code> creates a fixed-height app shell
+  (<code>height: 100dvh</code>) where only <code>&lt;ui-app-main&gt;</code> scrolls.
+  Add the <code>page</code> attribute for a normal scrolling document.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<ui-layout-grid columns="2" gap="1em">
+  <ui-card elevation="1">
+    <ui-card-body>
+      <ui-text type="heading" size="small">
+        <ui-icon color="indigo-500" size="small">monitor</ui-icon>
+        App Shell (default)
+      </ui-text>
+      <ui-layout-spacer size="0.25em"></ui-layout-spacer>
+      <ui-text type="paragraph" color="gray-500" size="x-small">
+        Fixed to viewport. Banner, header, and footer stay visible.
+        Only <code>&lt;ui-app-main&gt;</code> scrolls. Ideal for dashboards
+        and admin panels.
+      </ui-text>
+      <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+      <ui-input-code language="html" readonly height="auto">&lt;ui-app&gt;...&lt;/ui-app&gt;</ui-input-code>
+    </ui-card-body>
+  </ui-card>
+  <ui-card elevation="1">
+    <ui-card-body>
+      <ui-text type="heading" size="small">
+        <ui-icon color="indigo-500" size="small">file-text</ui-icon>
+        Page Mode
+      </ui-text>
+      <ui-layout-spacer size="0.25em"></ui-layout-spacer>
+      <ui-text type="paragraph" color="gray-500" size="x-small">
+        Normal document flow. The entire page scrolls naturally.
+        <code>min-height: 100dvh</code> ensures the footer stays at
+        the bottom. Ideal for content sites and docs.
+      </ui-text>
+      <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+      <ui-input-code language="html" readonly height="auto">&lt;ui-app page&gt;...&lt;/ui-app&gt;</ui-input-code>
+    </ui-card-body>
+  </ui-card>
+</ui-layout-grid>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Navigation Panel ───────────────────────────────────── -->
+<ui-text type="heading" size="large">Navigation Panel</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  The left navigation is hidden by default. Add <code>nav-open</code> to
+  <code>&lt;ui-app&gt;</code> to show it. The nav panel scrolls independently
+  and supports a custom <code>width</code>.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview" style="height: 220px; padding: 0;">
+    <ui-app nav-open style="height: 220px; font-size: 0.7em; border: 1px solid var(--ui-border-color);">
+      <ui-app-header background="indigo-600">With Navigation</ui-app-header>
+      <ui-app-nav background="gray-50" width="10rem">
+        <ui-layout-stack gap="0.25em">
+          <ui-text size="x-small" style="font-weight:600;">Menu</ui-text>
+          <ui-text size="x-small" color="indigo-600">🏠 Home</ui-text>
+          <ui-text size="x-small">📋 Projects</ui-text>
+          <ui-text size="x-small">👥 Team</ui-text>
+          <ui-text size="x-small">⚙️ Settings</ui-text>
+        </ui-layout-stack>
+      </ui-app-nav>
+      <ui-app-main>
+        <ui-text size="x-small" color="gray-500">Main content area.</ui-text>
+      </ui-app-main>
+    </ui-app>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-app nav-open&gt;
+  &lt;ui-app-header background="indigo-600"&gt;With Navigation&lt;/ui-app-header&gt;
+  &lt;ui-app-nav background="gray-50" width="16rem"&gt;
+    Menu items...
+  &lt;/ui-app-nav&gt;
+  &lt;ui-app-main&gt;Main content&lt;/ui-app-main&gt;
+&lt;/ui-app&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Drawer Panel ───────────────────────────────────────── -->
+<ui-text type="heading" size="large">Drawer (Right Panel)</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  The drawer sits on the right side and is toggled via the <code>open</code>
+  attribute. It shares the same scrollable design as the nav panel.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview" style="height: 200px; padding: 0;">
+    <ui-app style="height: 200px; font-size: 0.7em; border: 1px solid var(--ui-border-color);">
+      <ui-app-header background="emerald-600">With Drawer</ui-app-header>
+      <ui-app-main>
+        <ui-text size="x-small">Main content area.</ui-text>
+      </ui-app-main>
+      <ui-app-drawer width="10rem" open background="gray-50">
+        <ui-layout-stack gap="0.25em">
+          <ui-text size="x-small" style="font-weight:600;">Details</ui-text>
+          <ui-text size="xx-small" color="gray-500">Property: Value</ui-text>
+          <ui-text size="xx-small" color="gray-500">Status: Active</ui-text>
+          <ui-text size="xx-small" color="gray-500">Created: 2026-02-08</ui-text>
+        </ui-layout-stack>
+      </ui-app-drawer>
+    </ui-app>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-app&gt;
+  &lt;ui-app-header background="emerald-600"&gt;With Drawer&lt;/ui-app-header&gt;
+  &lt;ui-app-main&gt;Content&lt;/ui-app-main&gt;
+  &lt;ui-app-drawer width="16rem" open&gt;
+    Details panel...
+  &lt;/ui-app-drawer&gt;
+&lt;/ui-app&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Colours & Theming ──────────────────────────────────── -->
+<ui-text type="heading" size="large">Colours &amp; Theming</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Each child component accepts <code>background</code> and <code>color</code> attributes.
+  Text contrast is auto-detected when only <code>background</code> is set.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview" style="height: 220px; padding: 0;">
+    <ui-app nav-open style="height: 220px; font-size: 0.7em; border: 1px solid var(--ui-border-color);">
+      <ui-app-banner background="gray-900">
+        <ui-text size="x-small">Dark Banner</ui-text>
+      </ui-app-banner>
+      <ui-app-header background="rose-600">
+        <ui-text size="x-small">Rose Header</ui-text>
+      </ui-app-header>
+      <ui-app-nav background="indigo-50" width="9rem">
+        <ui-text size="x-small" color="indigo-700">Indigo Nav</ui-text>
+      </ui-app-nav>
+      <ui-app-main background="gray-50">
+        <ui-text size="x-small" color="gray-500">Light main area</ui-text>
+      </ui-app-main>
+      <ui-app-footer background="gray-900">
+        <ui-text size="xx-small" color="gray-400">Dark Footer</ui-text>
+      </ui-app-footer>
+    </ui-app>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-app-banner background="gray-900"&gt;Dark Banner&lt;/ui-app-banner&gt;
+&lt;ui-app-header background="rose-600"&gt;Rose Header&lt;/ui-app-header&gt;
+&lt;ui-app-nav background="indigo-50"&gt;Indigo Nav&lt;/ui-app-nav&gt;
+&lt;ui-app-main background="gray-50"&gt;Content&lt;/ui-app-main&gt;
+&lt;ui-app-footer background="gray-900"&gt;Footer&lt;/ui-app-footer&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Responsive Behaviour ───────────────────────────────── -->
+<ui-text type="heading" size="large">Responsive Behaviour</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  The layout is automatically responsive with no consumer media queries needed.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<ui-layout-grid columns="2" gap="1em">
+  <ui-card elevation="1">
+    <ui-card-body>
+      <ui-text type="heading" size="small">
+        <ui-icon color="indigo-500" size="small">monitor</ui-icon>
+        Desktop (≥ 769px)
+      </ui-text>
+      <ui-text type="paragraph" color="gray-500" size="x-small">
+        Full 3-column grid. Nav, main, and drawer all visible side by side.
+        Nav visibility controlled by <code>nav-open</code>.
+      </ui-text>
+    </ui-card-body>
+  </ui-card>
+  <ui-card elevation="1">
+    <ui-card-body>
+      <ui-text type="heading" size="small">
+        <ui-icon color="indigo-500" size="small">smartphone</ui-icon>
+        Mobile (≤ 768px)
+      </ui-text>
+      <ui-text type="paragraph" color="gray-500" size="x-small">
+        Single column. Nav, nav-header, nav-footer, and drawer are hidden.
+        When <code>nav-open</code> is set, nav replaces main content.
+        Padding and font sizes reduce.
+      </ui-text>
+    </ui-card-body>
+  </ui-card>
+</ui-layout-grid>
+
+<ui-layout-spacer size="1em"></ui-layout-spacer>
+
+<ui-callout background="sky-50" color="sky-700" size="small">
+  <strong>Tip:</strong> <code>&lt;ui-app&gt;</code> auto-injects a
+  <code>&lt;meta name="viewport"&gt;</code> tag if one isn't present, ensuring proper
+  mobile scaling without any extra setup.
+</ui-callout>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Toggling Nav Programmatically ──────────────────────── -->
+<ui-text type="heading" size="large">Toggling the Nav</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Toggle the navigation panel by adding or removing the <code>nav-open</code>
+  attribute. Commonly done with a hamburger button.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <ui-input-code language="html" readonly height="auto">&lt;!-- HTML --&gt;
+&lt;ui-app&gt;
+  &lt;ui-app-header&gt;
+    &lt;button onclick="toggleNav()"&gt;☰ Menu&lt;/button&gt;
+    My App
+  &lt;/ui-app-header&gt;
+  &lt;ui-app-nav&gt;...&lt;/ui-app-nav&gt;
+  &lt;ui-app-main&gt;...&lt;/ui-app-main&gt;
+&lt;/ui-app&gt;
+
+&lt;script&gt;
+function toggleNav() {
+  const app = document.querySelector('ui-app');
+  if (app.hasAttribute('nav-open')) {
+    app.removeAttribute('nav-open');
+  } else {
+    app.setAttribute('nav-open', '');
+  }
+}
+&lt;/script&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Global Reset ───────────────────────────────────────── -->
+<ui-text type="heading" size="large">Built-in Global Reset</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  <code>&lt;ui-app&gt;</code> automatically injects a minimal CSS reset onto
+  <code>&lt;html&gt;</code> and <code>&lt;body&gt;</code>. You don't need a
+  separate reset stylesheet.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<ui-layout-stack gap="0.5em">
+  <ui-callout background="gray-50" color="gray-700" size="small">
+    <code>*, *::before, *::after { box-sizing: border-box; }</code>
+  </ui-callout>
+  <ui-callout background="gray-50" color="gray-700" size="small">
+    <code>body { margin: 0; padding: 0; }</code>
+  </ui-callout>
+  <ui-callout background="gray-50" color="gray-700" size="small">
+    <code>img, picture, video, canvas, svg { display: block; max-width: 100%; }</code>
+  </ui-callout>
+  <ui-callout background="gray-50" color="gray-700" size="small">
+    <code>input, button, textarea, select { font: inherit; }</code>
+  </ui-callout>
+</ui-layout-stack>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Playground ─────────────────────────────────────────── -->
+<ui-text type="heading" size="large">
+  <ui-icon color="indigo-500">play-circle</ui-icon>
+  Playground
+</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Toggle parts of the app shell on and off to see how the grid adapts.
+  All slots are optional — the layout adjusts automatically.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="playground">
+  <!-- Playground controls -->
+  <div class="playground-controls">
+    <ui-card elevation="1">
+      <ui-card-body>
+        <ui-text type="heading" size="small">Controls</ui-text>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+
+        <ui-layout-grid columns="2" gap="0.5em">
+          <ui-input-checkbox id="pg-banner" checked label="Banner"></ui-input-checkbox>
+          <ui-input-checkbox id="pg-header" checked label="Header"></ui-input-checkbox>
+          <ui-input-checkbox id="pg-subheader" label="Subheader"></ui-input-checkbox>
+          <ui-input-checkbox id="pg-nav-header" label="Nav Header"></ui-input-checkbox>
+          <ui-input-checkbox id="pg-nav" checked label="Navigation"></ui-input-checkbox>
+          <ui-input-checkbox id="pg-nav-footer" label="Nav Footer"></ui-input-checkbox>
+          <ui-input-checkbox id="pg-main-header" label="Main Header"></ui-input-checkbox>
+          <ui-input-checkbox id="pg-main" checked label="Main Content"></ui-input-checkbox>
+          <ui-input-checkbox id="pg-main-footer" label="Main Footer"></ui-input-checkbox>
+          <ui-input-checkbox id="pg-drawer" label="Drawer"></ui-input-checkbox>
+          <ui-input-checkbox id="pg-footer" checked label="Footer"></ui-input-checkbox>
+          <ui-input-checkbox id="pg-page-mode" label="Page Mode"></ui-input-checkbox>
+        </ui-layout-grid>
+
+        <ui-layout-spacer size="0.75em"></ui-layout-spacer>
+        <ui-input-color id="pg-banner-bg" label="Banner colour" size="small" value="indigo-700"></ui-input-color>
+      </ui-card-body>
+    </ui-card>
+  </div>
+
+  <!-- Playground preview -->
+  <div class="playground-preview">
+    <div class="demo-card">
+      <div class="demo-preview" style="height: 360px; padding: 0;">
+        <ui-app id="pg-app" nav-open style="height: 360px; font-size: 0.65em; border: 1px solid var(--ui-border-color);">
+      <ui-app-banner id="pg-el-banner" background="indigo-700">
+        <ui-icon size="x-small">rocket</ui-icon>
+        <ui-text size="x-small">Cosmic App</ui-text>
+      </ui-app-banner>
+      <ui-app-header id="pg-el-header">
+        <ui-text size="x-small">Dashboard</ui-text>
+      </ui-app-header>
+      <ui-app-subheader id="pg-el-subheader" background="gray-50" style="display:none;">
+        <ui-badge background="indigo-100" color="indigo-700" size="xx-small">Tab 1</ui-badge>
+        <ui-badge background="gray-100" color="gray-600" size="xx-small">Tab 2</ui-badge>
+      </ui-app-subheader>
+      <ui-app-nav-header id="pg-el-nav-header" background="gray-100" style="display:none;">
+        <ui-text size="xx-small" style="font-weight:600;">Navigation</ui-text>
+      </ui-app-nav-header>
+      <ui-app-nav id="pg-el-nav" background="gray-100" width="10rem">
+        <ui-layout-stack gap="0.25em">
+          <ui-text size="x-small" color="indigo-600">📊 Dashboard</ui-text>
+          <ui-text size="x-small">👥 Users</ui-text>
+          <ui-text size="x-small">📋 Projects</ui-text>
+          <ui-text size="x-small">⚙️ Settings</ui-text>
+        </ui-layout-stack>
+      </ui-app-nav>
+      <ui-app-nav-footer id="pg-el-nav-footer" background="gray-100" style="display:none;">
+        <ui-text size="xx-small" color="gray-400">v2.0.0</ui-text>
+      </ui-app-nav-footer>
+      <ui-app-main-header id="pg-el-main-header" style="display:none;">
+        <ui-text size="x-small" style="font-weight:600;">Page Title</ui-text>
+      </ui-app-main-header>
+      <ui-app-main id="pg-el-main">
+        <ui-layout-stack gap="0.5em">
+          <ui-card elevation="1">
+            <ui-card-body>
+              <ui-text type="heading" size="x-small">Welcome!</ui-text>
+              <ui-text size="xx-small" color="gray-500">
+                Toggle the checkboxes above to add or remove parts of the shell.
+              </ui-text>
+            </ui-card-body>
+          </ui-card>
+          <ui-layout-grid columns="2" gap="0.5em">
+            <ui-card elevation="1">
+              <ui-card-body>
+                <ui-text size="xx-small" style="font-weight:600;">Revenue</ui-text>
+                <ui-text size="x-small" color="emerald-600" style="font-weight:700;">$24,500</ui-text>
+              </ui-card-body>
+            </ui-card>
+            <ui-card elevation="1">
+              <ui-card-body>
+                <ui-text size="xx-small" style="font-weight:600;">Users</ui-text>
+                <ui-text size="x-small" color="indigo-600" style="font-weight:700;">1,234</ui-text>
+              </ui-card-body>
+            </ui-card>
+          </ui-layout-grid>
+        </ui-layout-stack>
+      </ui-app-main>
+      <ui-app-main-footer id="pg-el-main-footer" style="display:none;">
+        <ui-text size="xx-small" color="gray-400">3 items loaded</ui-text>
+      </ui-app-main-footer>
+      <ui-app-drawer id="pg-el-drawer" width="8rem" style="display:none;">
+        <ui-layout-stack gap="0.25em">
+          <ui-text size="x-small" style="font-weight:600;">Details</ui-text>
+          <ui-text size="xx-small" color="gray-500">Status: Active</ui-text>
+          <ui-text size="xx-small" color="gray-500">Role: Admin</ui-text>
+        </ui-layout-stack>
+      </ui-app-drawer>
+      <ui-app-footer id="pg-el-footer" background="gray-800">
+        <ui-text size="xx-small" color="gray-400">© 2026 Cosmic App</ui-text>
+      </ui-app-footer>
+        </ui-app>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  // Map checkbox ID → element ID, plus any extra toggle logic
+  const slots = {
+    'pg-banner':      { el: 'pg-el-banner' },
+    'pg-header':      { el: 'pg-el-header' },
+    'pg-subheader':   { el: 'pg-el-subheader' },
+    'pg-nav-header':  { el: 'pg-el-nav-header' },
+    'pg-nav':         { el: 'pg-el-nav',         navOpen: true },
+    'pg-nav-footer':  { el: 'pg-el-nav-footer' },
+    'pg-main-header': { el: 'pg-el-main-header' },
+    'pg-main':        { el: 'pg-el-main' },
+    'pg-main-footer': { el: 'pg-el-main-footer' },
+    'pg-drawer':      { el: 'pg-el-drawer',       drawerOpen: true },
+    'pg-footer':      { el: 'pg-el-footer' },
+  };
+
+  function bind(checkboxId, config) {
+    const cb = document.getElementById(checkboxId);
+    if (!cb) return;
+    cb.addEventListener('ui-change', () => {
+      const el = document.getElementById(config.el);
+      const app = document.getElementById('pg-app');
+      if (!el) return;
+      const on = cb.checked;
+      el.style.display = on ? '' : 'none';
+
+      if (config.navOpen && app) {
+        if (on) app.setAttribute('nav-open', '');
+        else app.removeAttribute('nav-open');
+      }
+      if (config.drawerOpen && el) {
+        if (on) el.setAttribute('open', '');
+        else el.removeAttribute('open');
+      }
+    });
+  }
+
+  for (const [id, cfg] of Object.entries(slots)) bind(id, cfg);
+
+  // Page mode toggle
+  const pageMode = document.getElementById('pg-page-mode');
+  if (pageMode) {
+    pageMode.addEventListener('ui-change', () => {
+      const app = document.getElementById('pg-app');
+      if (!app) return;
+      if (pageMode.checked) app.setAttribute('page', '');
+      else app.removeAttribute('page');
+    });
+  }
+
+  // Banner colour picker
+  const bannerBg = document.getElementById('pg-banner-bg');
+  if (bannerBg) {
+    bannerBg.addEventListener('ui-change', () => {
+      const banner = document.getElementById('pg-el-banner');
+      const val = (bannerBg.value || '').trim();
+      if (banner && val) banner.setAttribute('background', val);
+    });
+  }
+})();
+</script>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── API Reference ──────────────────────────────────────── -->
+<ui-text type="heading" size="large">API Reference</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<!-- ui-app -->
+<ui-text type="heading" size="medium">&lt;ui-app&gt;</ui-text>
+<ui-layout-spacer size="0.25em"></ui-layout-spacer>
+<ui-table size="small">
+  <table>
+    <thead>
+      <tr><th>Attribute</th><th>Type</th><th>Default</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>page</code></td><td>Boolean</td><td><code>false</code></td><td>Use normal page scrolling instead of fixed app shell</td></tr>
+      <tr><td><code>nav-open</code></td><td>Boolean</td><td><code>false</code></td><td>Show the left navigation panel</td></tr>
+      <tr><td><code>background</code></td><td>String</td><td>—</td><td>Background colour (palette token or CSS)</td></tr>
+      <tr><td><code>color</code></td><td>String</td><td>auto</td><td>Text colour (auto-detected from background)</td></tr>
+      <tr><td><code>size</code></td><td>String</td><td>—</td><td>Font size — CSS keyword (<code>small</code>, <code>large</code>, etc.) or any CSS length</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="1.5em"></ui-layout-spacer>
+
+<!-- ui-app-banner -->
+<ui-text type="heading" size="medium">&lt;ui-app-banner&gt;</ui-text>
+<ui-layout-spacer size="0.25em"></ui-layout-spacer>
+<ui-table size="small">
+  <table>
+    <thead>
+      <tr><th>Attribute</th><th>Type</th><th>Default</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>background</code></td><td>String</td><td>—</td><td>Background colour (palette token or CSS)</td></tr>
+      <tr><td><code>color</code></td><td>String</td><td>auto</td><td>Text colour (auto-detected from background)</td></tr>
+      <tr><td><code>elevation</code></td><td>String</td><td>—</td><td>Box shadow level (0–5)</td></tr>
+      <tr><td><code>size</code></td><td>String</td><td>—</td><td>Font size — CSS keyword or any CSS length</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="1.5em"></ui-layout-spacer>
+
+<!-- ui-app-header -->
+<ui-text type="heading" size="medium">&lt;ui-app-header&gt;</ui-text>
+<ui-layout-spacer size="0.25em"></ui-layout-spacer>
+<ui-table size="small">
+  <table>
+    <thead>
+      <tr><th>Attribute</th><th>Type</th><th>Default</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>background</code></td><td>String</td><td>—</td><td>Background colour</td></tr>
+      <tr><td><code>color</code></td><td>String</td><td>auto</td><td>Text colour</td></tr>
+      <tr><td><code>elevation</code></td><td>String</td><td>—</td><td>Box shadow level (0–5)</td></tr>
+      <tr><td><code>size</code></td><td>String</td><td>—</td><td>Font size — CSS keyword or any CSS length</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="1.5em"></ui-layout-spacer>
+
+<!-- ui-app-subheader -->
+<ui-text type="heading" size="medium">&lt;ui-app-subheader&gt;</ui-text>
+<ui-layout-spacer size="0.25em"></ui-layout-spacer>
+<ui-table size="small">
+  <table>
+    <thead>
+      <tr><th>Attribute</th><th>Type</th><th>Default</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>background</code></td><td>String</td><td>—</td><td>Background colour</td></tr>
+      <tr><td><code>color</code></td><td>String</td><td>auto</td><td>Text colour</td></tr>
+      <tr><td><code>elevation</code></td><td>String</td><td>—</td><td>Box shadow level (0–5)</td></tr>
+      <tr><td><code>size</code></td><td>String</td><td>—</td><td>Font size — CSS keyword or any CSS length</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="1.5em"></ui-layout-spacer>
+
+<!-- ui-app-nav -->
+<ui-text type="heading" size="medium">&lt;ui-app-nav&gt;</ui-text>
+<ui-layout-spacer size="0.25em"></ui-layout-spacer>
+<ui-table size="small">
+  <table>
+    <thead>
+      <tr><th>Attribute</th><th>Type</th><th>Default</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>background</code></td><td>String</td><td>—</td><td>Background colour</td></tr>
+      <tr><td><code>color</code></td><td>String</td><td>auto</td><td>Text colour</td></tr>
+      <tr><td><code>width</code></td><td>String</td><td><code>16rem</code></td><td>Panel width (CSS length)</td></tr>
+      <tr><td><code>elevation</code></td><td>String</td><td>—</td><td>Box shadow level (0–5)</td></tr>
+      <tr><td><code>size</code></td><td>String</td><td>—</td><td>Font size — CSS keyword or any CSS length</td></tr>
+      <tr><td><code>channel</code></td><td>String</td><td>—</td><td>Document event name to listen for; toggles nav open/close on parent <code>&lt;ui-app&gt;</code></td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="1.5em"></ui-layout-spacer>
+
+<!-- ui-app-nav-header / nav-footer -->
+<ui-text type="heading" size="medium">&lt;ui-app-nav-header&gt; / &lt;ui-app-nav-footer&gt;</ui-text>
+<ui-layout-spacer size="0.25em"></ui-layout-spacer>
+<ui-table size="small">
+  <table>
+    <thead>
+      <tr><th>Attribute</th><th>Type</th><th>Default</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>background</code></td><td>String</td><td>—</td><td>Background colour</td></tr>
+      <tr><td><code>color</code></td><td>String</td><td>auto</td><td>Text colour</td></tr>
+      <tr><td><code>elevation</code></td><td>String</td><td>—</td><td>Box shadow level (0–5)</td></tr>
+      <tr><td><code>size</code></td><td>String</td><td>—</td><td>Font size — CSS keyword or any CSS length</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="1.5em"></ui-layout-spacer>
+
+<!-- ui-app-main -->
+<ui-text type="heading" size="medium">&lt;ui-app-main&gt;</ui-text>
+<ui-layout-spacer size="0.25em"></ui-layout-spacer>
+<ui-table size="small">
+  <table>
+    <thead>
+      <tr><th>Attribute</th><th>Type</th><th>Default</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>background</code></td><td>String</td><td>—</td><td>Background colour</td></tr>
+      <tr><td><code>color</code></td><td>String</td><td>auto</td><td>Text colour</td></tr>
+      <tr><td><code>elevation</code></td><td>String</td><td>—</td><td>Box shadow level (0–5)</td></tr>
+      <tr><td><code>size</code></td><td>String</td><td>—</td><td>Font size — CSS keyword or any CSS length</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="1.5em"></ui-layout-spacer>
+
+<!-- ui-app-main-header / main-footer -->
+<ui-text type="heading" size="medium">&lt;ui-app-main-header&gt; / &lt;ui-app-main-footer&gt;</ui-text>
+<ui-layout-spacer size="0.25em"></ui-layout-spacer>
+<ui-table size="small">
+  <table>
+    <thead>
+      <tr><th>Attribute</th><th>Type</th><th>Default</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>background</code></td><td>String</td><td>—</td><td>Background colour</td></tr>
+      <tr><td><code>color</code></td><td>String</td><td>auto</td><td>Text colour</td></tr>
+      <tr><td><code>elevation</code></td><td>String</td><td>—</td><td>Box shadow level (0–5)</td></tr>
+      <tr><td><code>size</code></td><td>String</td><td>—</td><td>Font size — CSS keyword or any CSS length</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="1.5em"></ui-layout-spacer>
+
+<!-- ui-app-drawer -->
+<ui-text type="heading" size="medium">&lt;ui-app-drawer&gt;</ui-text>
+<ui-layout-spacer size="0.25em"></ui-layout-spacer>
+<ui-table size="small">
+  <table>
+    <thead>
+      <tr><th>Attribute</th><th>Type</th><th>Default</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>background</code></td><td>String</td><td>—</td><td>Background colour</td></tr>
+      <tr><td><code>color</code></td><td>String</td><td>auto</td><td>Text colour</td></tr>
+      <tr><td><code>width</code></td><td>String</td><td><code>16rem</code></td><td>Panel width (CSS length)</td></tr>
+      <tr><td><code>open</code></td><td>Boolean</td><td><code>true</code></td><td>Toggle drawer visibility</td></tr>
+      <tr><td><code>elevation</code></td><td>String</td><td>—</td><td>Box shadow level (0–5)</td></tr>
+      <tr><td><code>size</code></td><td>String</td><td>—</td><td>Font size — CSS keyword or any CSS length</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="1.5em"></ui-layout-spacer>
+
+<!-- ui-app-footer -->
+<ui-text type="heading" size="medium">&lt;ui-app-footer&gt;</ui-text>
+<ui-layout-spacer size="0.25em"></ui-layout-spacer>
+<ui-table size="small">
+  <table>
+    <thead>
+      <tr><th>Attribute</th><th>Type</th><th>Default</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>background</code></td><td>String</td><td>—</td><td>Background colour</td></tr>
+      <tr><td><code>color</code></td><td>String</td><td>auto</td><td>Text colour</td></tr>
+      <tr><td><code>elevation</code></td><td>String</td><td>—</td><td>Box shadow level (0–5)</td></tr>
+      <tr><td><code>size</code></td><td>String</td><td>—</td><td>Font size — CSS keyword or any CSS length</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>

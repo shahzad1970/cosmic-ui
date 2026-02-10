@@ -1,0 +1,346 @@
+<!-- ============================================================
+     Dropdown — Component Documentation
+     ============================================================ -->
+
+<ui-layout-stack gap="0.25em" style="margin-bottom:2em;">
+  <ui-text type="heading" size="xx-large">Dropdown</ui-text>
+  <ui-text type="paragraph" color="gray-500">
+    <code>&lt;ui-dropdown&gt;</code> creates a trigger button that opens a
+    menu of <code>&lt;ui-dropdown-item&gt;</code> actions.
+  </ui-text>
+</ui-layout-stack>
+
+<ui-text type="heading" size="large">Basic Usage</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Provide a trigger label and one or more menu items.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-dropdown background="indigo-600">
+      Actions
+      <ui-dropdown-item value="edit">Edit</ui-dropdown-item>
+      <ui-dropdown-item value="duplicate">Duplicate</ui-dropdown-item>
+      <ui-dropdown-item value="archive">Archive</ui-dropdown-item>
+    </ui-dropdown>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-dropdown background="indigo-600"&gt;
+  Actions
+  &lt;ui-dropdown-item value="edit"&gt;Edit&lt;/ui-dropdown-item&gt;
+  &lt;ui-dropdown-item value="duplicate"&gt;Duplicate&lt;/ui-dropdown-item&gt;
+&lt;/ui-dropdown&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<ui-text type="heading" size="large">Split Actions</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Pair a primary action with a compact dropdown for secondary actions.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack direction="horizontal" gap="0.35em" wrap>
+      <ui-button background="indigo-600">Save</ui-button>
+      <ui-dropdown background="indigo-600" outline>
+        More
+        <ui-dropdown-item value="save-copy">Save as Copy</ui-dropdown-item>
+        <ui-dropdown-item value="export">Export</ui-dropdown-item>
+        <ui-dropdown-item value="archive">Archive</ui-dropdown-item>
+      </ui-dropdown>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-button background="indigo-600"&gt;Save&lt;/ui-button&gt;
+&lt;ui-dropdown background="indigo-600" outline&gt;
+  More
+  &lt;ui-dropdown-item value="save-copy"&gt;Save as Copy&lt;/ui-dropdown-item&gt;
+  &lt;ui-dropdown-item value="export"&gt;Export&lt;/ui-dropdown-item&gt;
+&lt;/ui-dropdown&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<ui-text type="heading" size="large">Submenus</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Nest items to create multi-level menus.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-dropdown background="gray-200">
+      Share
+      <ui-dropdown-item>
+        Channels
+        <ui-dropdown-item value="email">Email</ui-dropdown-item>
+        <ui-dropdown-item value="slack">Slack</ui-dropdown-item>
+      </ui-dropdown-item>
+      <ui-dropdown-item value="copy">Copy link</ui-dropdown-item>
+    </ui-dropdown>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-dropdown&gt;
+  Share
+  &lt;ui-dropdown-item&gt;
+    Channels
+    &lt;ui-dropdown-item value="email"&gt;Email&lt;/ui-dropdown-item&gt;
+  &lt;/ui-dropdown-item&gt;
+&lt;/ui-dropdown&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Sizes ────────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Sizes</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Scale the dropdown trigger with the <code>size</code> attribute.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack direction="horizontal" gap="0.5em" wrap align="center">
+      <ui-dropdown background="indigo-600" size="x-small">
+        x-small
+        <ui-dropdown-item value="a">Item A</ui-dropdown-item>
+        <ui-dropdown-item value="b">Item B</ui-dropdown-item>
+      </ui-dropdown>
+      <ui-dropdown background="indigo-600" size="small">
+        Small
+        <ui-dropdown-item value="a">Item A</ui-dropdown-item>
+        <ui-dropdown-item value="b">Item B</ui-dropdown-item>
+      </ui-dropdown>
+      <ui-dropdown background="indigo-600" size="medium">
+        Medium
+        <ui-dropdown-item value="a">Item A</ui-dropdown-item>
+        <ui-dropdown-item value="b">Item B</ui-dropdown-item>
+      </ui-dropdown>
+      <ui-dropdown background="indigo-600" size="large">
+        Large
+        <ui-dropdown-item value="a">Item A</ui-dropdown-item>
+        <ui-dropdown-item value="b">Item B</ui-dropdown-item>
+      </ui-dropdown>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-dropdown size="x-small"&gt;...&lt;/ui-dropdown&gt;
+&lt;ui-dropdown size="small"&gt;...&lt;/ui-dropdown&gt;
+&lt;ui-dropdown size="medium"&gt;...&lt;/ui-dropdown&gt;
+&lt;ui-dropdown size="large"&gt;...&lt;/ui-dropdown&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Disabled ─────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Disabled</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Add <code>disabled</code> to prevent the dropdown from opening.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-dropdown background="indigo-600" disabled>
+      Disabled
+      <ui-dropdown-item value="a">Item A</ui-dropdown-item>
+    </ui-dropdown>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-dropdown background="indigo-600" disabled&gt;...&lt;/ui-dropdown&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Playground ─────────────────────────────────────────── -->
+<ui-text type="heading" size="large">
+  <ui-icon color="indigo-500">play-circle</ui-icon>
+  Playground
+</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Change placement and trigger styles.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="playground">
+  <div class="playground-controls">
+    <ui-card elevation="1">
+      <ui-card-body>
+        <ui-text type="heading" size="small">Controls</ui-text>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input id="dropdown-label" label="Label" size="small" value="Actions"></ui-input>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-select id="dropdown-size" label="Size" size="small" value="medium">
+          <option value="xx-small">XX-Small</option>
+          <option value="x-small">X-Small</option>
+          <option value="small">Small</option>
+          <option value="medium">Medium</option>
+          <option value="large">Large</option>
+          <option value="x-large">X-Large</option>
+          <option value="xx-large">XX-Large</option>
+        </ui-input-select>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input id="dropdown-elevation" label="Elevation" size="small" value="2"></ui-input>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-layout-stack gap="0.35em">
+          <ui-input-checkbox id="dropdown-disabled" label="Disabled"></ui-input-checkbox>
+          <ui-input-checkbox id="dropdown-pill" label="Pill"></ui-input-checkbox>
+          <ui-input-checkbox id="dropdown-outline" label="Outline"></ui-input-checkbox>
+          <ui-input-checkbox id="dropdown-flat" label="Flat"></ui-input-checkbox>
+        </ui-layout-stack>
+        <ui-layout-spacer size="0.75em"></ui-layout-spacer>
+        <ui-text size="x-small" color="gray-500">Placement</ui-text>
+        <ui-layout-spacer size="0.35em"></ui-layout-spacer>
+        <ui-layout-stack direction="horizontal" gap="0.35em" wrap>
+          <ui-button size="xx-small" id="dropdown-place-bs">Bottom Start</ui-button>
+          <ui-button size="xx-small" id="dropdown-place-be">Bottom End</ui-button>
+          <ui-button size="xx-small" id="dropdown-place-ts">Top Start</ui-button>
+          <ui-button size="xx-small" id="dropdown-place-te">Top End</ui-button>
+        </ui-layout-stack>
+        <ui-layout-spacer size="0.75em"></ui-layout-spacer>
+        <ui-input-color id="dropdown-bg" label="Background" size="small" value="indigo-600"></ui-input-color>
+      </ui-card-body>
+    </ui-card>
+  </div>
+
+  <div class="playground-preview">
+    <div class="demo-card">
+      <div class="demo-preview">
+        <ui-dropdown id="dropdown-playground" background="indigo-600">
+          <span id="dropdown-playground-label">Actions</span>
+          <ui-dropdown-item value="edit">Edit</ui-dropdown-item>
+          <ui-dropdown-item value="duplicate">Duplicate</ui-dropdown-item>
+          <ui-dropdown-item value="archive">Archive</ui-dropdown-item>
+        </ui-dropdown>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  const dropdown = document.getElementById('dropdown-playground');
+  const label = document.getElementById('dropdown-label');
+  const labelSpan = document.getElementById('dropdown-playground-label');
+  const size = document.getElementById('dropdown-size');
+  const elevation = document.getElementById('dropdown-elevation');
+  const disabled = document.getElementById('dropdown-disabled');
+  const pill = document.getElementById('dropdown-pill');
+  const outline = document.getElementById('dropdown-outline');
+  const flat = document.getElementById('dropdown-flat');
+  const placeBs = document.getElementById('dropdown-place-bs');
+  const placeBe = document.getElementById('dropdown-place-be');
+  const placeTs = document.getElementById('dropdown-place-ts');
+  const placeTe = document.getElementById('dropdown-place-te');
+  const bgPicker = document.getElementById('dropdown-bg');
+
+  if (!dropdown || !label || !labelSpan) return;
+
+  const setBool = (el, name, on) => {
+    if (on) el.setAttribute(name, '');
+    else el.removeAttribute(name);
+  };
+
+  const updateLabel = () => {
+    const val = (label.value || '').trim() || 'Actions';
+    labelSpan.textContent = val;
+  };
+
+  const updateSize = () => {
+    const val = (size.value || '').trim();
+    if (val) dropdown.setAttribute('size', val);
+    else dropdown.removeAttribute('size');
+  };
+
+  const updateElevation = () => {
+    const val = (elevation.value || '').trim();
+    if (val) dropdown.setAttribute('elevation', val);
+    else dropdown.removeAttribute('elevation');
+  };
+
+  label.addEventListener('ui-input', updateLabel);
+  label.addEventListener('ui-change', updateLabel);
+  size.addEventListener('ui-change', updateSize);
+  elevation.addEventListener('ui-input', updateElevation);
+  elevation.addEventListener('ui-change', updateElevation);
+
+  disabled.addEventListener('ui-change', () => setBool(dropdown, 'disabled', disabled.checked));
+  pill.addEventListener('ui-change', () => setBool(dropdown, 'pill', pill.checked));
+  outline.addEventListener('ui-change', () => setBool(dropdown, 'outline', outline.checked));
+  flat.addEventListener('ui-change', () => setBool(dropdown, 'flat', flat.checked));
+
+  placeBs?.addEventListener('click', () => dropdown.setAttribute('placement', 'bottom-start'));
+  placeBe?.addEventListener('click', () => dropdown.setAttribute('placement', 'bottom-end'));
+  placeTs?.addEventListener('click', () => dropdown.setAttribute('placement', 'top-start'));
+  placeTe?.addEventListener('click', () => dropdown.setAttribute('placement', 'top-end'));
+
+  bgPicker?.addEventListener('ui-change', () => {
+    const val = (bgPicker.value || '').trim();
+    if (val) dropdown.setAttribute('background', val);
+    else dropdown.removeAttribute('background');
+  });
+})();
+</script>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<ui-text type="heading" size="large">API Reference</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<ui-text type="heading" size="small">Dropdown</ui-text>
+<ui-layout-spacer size="0.5em"></ui-layout-spacer>
+<ui-table size="small">
+  <table>
+    <thead>
+      <tr><th>Attribute</th><th>Type</th><th>Default</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>background</code></td><td>String</td><td>gray-200</td><td>Trigger background</td></tr>
+      <tr><td><code>color</code></td><td>String</td><td>—</td><td>Trigger text color</td></tr>
+      <tr><td><code>size</code></td><td>String</td><td>medium</td><td>Trigger size</td></tr>
+      <tr><td><code>disabled</code></td><td>Boolean</td><td>false</td><td>Disable trigger</td></tr>
+      <tr><td><code>pill</code></td><td>Boolean</td><td>false</td><td>Capsule trigger</td></tr>
+      <tr><td><code>outline</code></td><td>Boolean</td><td>false</td><td>Outline trigger</td></tr>
+      <tr><td><code>flat</code></td><td>Boolean</td><td>false</td><td>Flat trigger</td></tr>
+      <tr><td><code>elevation</code></td><td>String</td><td>2</td><td>Menu shadow depth</td></tr>
+      <tr><td><code>placement</code></td><td>String</td><td>bottom-start</td><td>Menu placement</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="1.5em"></ui-layout-spacer>
+
+<ui-text type="heading" size="small">Dropdown Item</ui-text>
+<ui-layout-spacer size="0.5em"></ui-layout-spacer>
+<ui-table size="small">
+  <table>
+    <thead>
+      <tr><th>Attribute</th><th>Type</th><th>Default</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>value</code></td><td>String</td><td>—</td><td>Value emitted on select</td></tr>
+      <tr><td><code>disabled</code></td><td>Boolean</td><td>false</td><td>Disable item</td></tr>
+      <tr><td><code>href</code></td><td>String</td><td>—</td><td>Render as link</td></tr>
+      <tr><td><code>target</code></td><td>String</td><td>—</td><td>Link target</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Events ──────────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Events</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead>
+      <tr><th>Event</th><th>Detail</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>ui-open</code></td><td>—</td><td>Dropdown menu opened</td></tr>
+      <tr><td><code>ui-close</code></td><td>—</td><td>Dropdown menu closed</td></tr>
+      <tr><td><code>ui-select</code></td><td><code>{ item, value }</code></td><td>An item was selected</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>

@@ -1,0 +1,237 @@
+<!-- ============================================================
+     Layout Split — Component Documentation
+     ============================================================ -->
+
+<ui-layout-stack gap="0.25em" style="margin-bottom:2em;">
+  <ui-text type="heading" size="xx-large">Split</ui-text>
+  <ui-text type="paragraph" color="gray-500">
+    <code>&lt;ui-layout-split&gt;</code> creates a resizable two-panel layout with
+    a draggable gutter.
+  </ui-text>
+</ui-layout-stack>
+
+<ui-text type="heading" size="large">Diagram</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Two panels separated by a draggable gutter.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <svg viewBox="0 0 520 140" width="100%" height="140" role="img" aria-label="Split layout diagram">
+      <rect x="10" y="20" width="500" height="100" rx="8" fill="#f9fafb" stroke="#e5e7eb" />
+      <rect x="28" y="38" width="190" height="64" rx="6" fill="#e0e7ff" stroke="#c7d2fe" />
+      <rect x="232" y="38" width="8" height="64" rx="4" fill="#cbd5f5" />
+      <rect x="250" y="38" width="232" height="64" rx="6" fill="#d1fae5" stroke="#a7f3d0" />
+      <text x="122" y="32" text-anchor="middle" font-size="10" fill="#6b7280" font-family="var(--ui-font, system-ui, sans-serif)">Panel A</text>
+      <text x="366" y="32" text-anchor="middle" font-size="10" fill="#6b7280" font-family="var(--ui-font, system-ui, sans-serif)">Panel B</text>
+      <text x="236" y="118" text-anchor="middle" font-size="10" fill="#6b7280" font-family="var(--ui-font, system-ui, sans-serif)">Gutter</text>
+    </svg>
+  </div>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<ui-text type="heading" size="large">Horizontal Split</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Drag the gutter to resize the panels. Use <code>position</code> to set
+  the initial split percentage.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview" style="padding: 0;">
+    <ui-layout-split position="35" style="height: 220px;">
+      <ui-card elevation="1"><ui-card-body><ui-text>Panel A</ui-text></ui-card-body></ui-card>
+      <ui-card elevation="1"><ui-card-body><ui-text>Panel B</ui-text></ui-card-body></ui-card>
+    </ui-layout-split>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-layout-split position="35" style="height: 220px;"&gt;
+  &lt;ui-card&gt;Panel A&lt;/ui-card&gt;
+  &lt;ui-card&gt;Panel B&lt;/ui-card&gt;
+&lt;/ui-layout-split&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<ui-text type="heading" size="large">Vertical Split</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Add <code>vertical</code> for a top/bottom layout.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview" style="padding: 0;">
+    <ui-layout-split vertical position="60" style="height: 240px;">
+      <ui-card elevation="1"><ui-card-body><ui-text>Top Panel</ui-text></ui-card-body></ui-card>
+      <ui-card elevation="1"><ui-card-body><ui-text>Bottom Panel</ui-text></ui-card-body></ui-card>
+    </ui-layout-split>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-layout-split vertical position="60" style="height: 240px;"&gt;
+  &lt;ui-card&gt;Top Panel&lt;/ui-card&gt;
+  &lt;ui-card&gt;Bottom Panel&lt;/ui-card&gt;
+&lt;/ui-layout-split&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Playground ─────────────────────────────────────────── -->
+<ui-text type="heading" size="large">
+  <ui-icon color="indigo-500">play-circle</ui-icon>
+  Playground
+</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Adjust the split position and orientation.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="playground">
+  <div class="playground-controls">
+    <ui-card elevation="1">
+      <ui-card-body>
+        <ui-text type="heading" size="small">Controls</ui-text>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+
+        <ui-input-select id="split-position" label="Position (%)" size="small" value="40">
+          <option value="20">20%</option>
+          <option value="30">30%</option>
+          <option value="40">40%</option>
+          <option value="50">50%</option>
+          <option value="60">60%</option>
+          <option value="70">70%</option>
+          <option value="80">80%</option>
+        </ui-input-select>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+
+        <ui-input-select id="split-min" label="Min (%)" size="small" value="10">
+          <option value="5">5%</option>
+          <option value="10">10%</option>
+          <option value="15">15%</option>
+          <option value="20">20%</option>
+          <option value="25">25%</option>
+          <option value="30">30%</option>
+        </ui-input-select>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+
+        <ui-input-select id="split-max" label="Max (%)" size="small" value="90">
+          <option value="70">70%</option>
+          <option value="75">75%</option>
+          <option value="80">80%</option>
+          <option value="85">85%</option>
+          <option value="90">90%</option>
+          <option value="95">95%</option>
+        </ui-input-select>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+
+        <ui-input-select id="split-gutter" label="Gutter Size (px)" size="small" value="6">
+          <option value="2">2</option>
+          <option value="4">4</option>
+          <option value="6">6</option>
+          <option value="8">8</option>
+          <option value="10">10</option>
+          <option value="12">12</option>
+        </ui-input-select>
+        <ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+        <ui-layout-stack gap="0.35em">
+          <ui-input-checkbox id="split-vertical" label="Vertical"></ui-input-checkbox>
+          <ui-input-checkbox id="split-disabled" label="Disabled"></ui-input-checkbox>
+          <ui-input-checkbox id="split-full" label="Full"></ui-input-checkbox>
+        </ui-layout-stack>
+      </ui-card-body>
+    </ui-card>
+  </div>
+
+  <div class="playground-preview">
+    <div class="demo-card">
+      <div class="demo-preview" style="padding: 0;">
+        <ui-layout-split id="split-playground" position="40" style="height: 280px;">
+          <ui-card elevation="1"><ui-card-body><ui-text>Panel A</ui-text></ui-card-body></ui-card>
+          <ui-card elevation="1"><ui-card-body><ui-text>Panel B</ui-text></ui-card-body></ui-card>
+        </ui-layout-split>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  const split = document.getElementById('split-playground');
+  if (!split) return;
+
+  const el = id => document.getElementById(id);
+
+  const setAttr = (name, val) => {
+    if (val) split.setAttribute(name, val);
+    else split.removeAttribute(name);
+  };
+
+  const setBool = (name, on) => {
+    if (on) split.setAttribute(name, '');
+    else split.removeAttribute(name);
+  };
+
+  // Select controls
+  for (const [id, attr] of [
+    ['split-position', 'position'],
+    ['split-min',      'min'],
+    ['split-max',      'max'],
+    ['split-gutter',   'gutter-size'],
+  ]) {
+    const ctrl = el(id);
+    if (ctrl) ctrl.addEventListener('ui-change', () => setAttr(attr, ctrl.value));
+  }
+
+  // Boolean controls
+  for (const [id, attr] of [
+    ['split-vertical', 'vertical'],
+    ['split-disabled', 'disabled'],
+    ['split-full',     'full'],
+  ]) {
+    const ctrl = el(id);
+    if (ctrl) ctrl.addEventListener('ui-change', () => setBool(attr, ctrl.checked));
+  }
+})();
+</script>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<ui-text type="heading" size="large">API Reference</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead>
+      <tr><th>Attribute</th><th>Type</th><th>Default</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>vertical</code></td><td>Boolean</td><td>false</td><td>Stack panels vertically</td></tr>
+      <tr><td><code>position</code></td><td>String</td><td>50</td><td>Initial split position (%)</td></tr>
+      <tr><td><code>min</code></td><td>String</td><td>10</td><td>Minimum panel size (%)</td></tr>
+      <tr><td><code>max</code></td><td>String</td><td>90</td><td>Maximum panel size (%)</td></tr>
+      <tr><td><code>gutter-size</code></td><td>String</td><td>6</td><td>Gutter width/height in px</td></tr>
+      <tr><td><code>disabled</code></td><td>Boolean</td><td>false</td><td>Disable resizing</td></tr>
+      <tr><td><code>width</code></td><td>String</td><td>—</td><td>CSS width</td></tr>
+      <tr><td><code>height</code></td><td>String</td><td>—</td><td>CSS height</td></tr>
+      <tr><td><code>full</code></td><td>Boolean</td><td>false</td><td>100% width and height</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<ui-text type="heading" size="large">Events</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead>
+      <tr><th>Event</th><th>Detail</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>ui-resize</code></td><td><code>{ position }</code></td><td>Fired while the split divider is being dragged</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>

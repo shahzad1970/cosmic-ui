@@ -1,0 +1,273 @@
+<!-- ============================================================
+     Date — Component Documentation
+     ============================================================ -->
+
+<ui-layout-stack gap="0.25em" style="margin-bottom:2em;">
+  <ui-text type="heading" size="xx-large">Date</ui-text>
+  <ui-text type="paragraph" color="gray-500">
+    <code>&lt;ui-input-date&gt;</code> is a date picker with a calendar dropdown,
+    manual text input, and support for min/max constraints.
+  </ui-text>
+</ui-layout-stack>
+
+<!-- ── Basic Usage ────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Basic Usage</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Click the calendar icon or type a date directly.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-input-date label="Start date"></ui-input-date>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-input-date label="Start date"&gt;&lt;/ui-input-date&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Help & Error ───────────────────────────────────────── -->
+<ui-text type="heading" size="large">Help &amp; Error</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Use <code>help</code> for guidance and <code>error</code> for validation
+  messages. When <code>required</code> is set, an asterisk appears next to the label.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack gap="1em">
+      <ui-input-date label="Birthday" help="Enter your date of birth" required></ui-input-date>
+      <ui-input-date label="Deadline" error="A deadline is required"></ui-input-date>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-input-date label="Birthday" help="Enter your date of birth" required&gt;&lt;/ui-input-date&gt;
+&lt;ui-input-date label="Deadline" error="A deadline is required"&gt;&lt;/ui-input-date&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Min / Max Constraints ──────────────────────────────── -->
+<ui-text type="heading" size="large">Min / Max Constraints</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Set <code>min</code> and/or <code>max</code> to restrict selectable dates. Dates outside the range are greyed out.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-input-date label="Appointment" min="2026-02-01" max="2026-02-28" placeholder="Feb 2026 only"></ui-input-date>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-input-date label="Appointment" min="2026-02-01" max="2026-02-28" placeholder="Feb 2026 only"&gt;&lt;/ui-input-date&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Sizes ──────────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Sizes</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Use the <code>size</code> attribute with named keywords or any CSS length.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack gap="1em">
+      <ui-input-date label="Small" size="small"></ui-input-date>
+      <ui-input-date label="Default"></ui-input-date>
+      <ui-input-date label="Large" size="large"></ui-input-date>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-input-date label="Small" size="small"&gt;&lt;/ui-input-date&gt;
+&lt;ui-input-date label="Default"&gt;&lt;/ui-input-date&gt;
+&lt;ui-input-date label="Large" size="large"&gt;&lt;/ui-input-date&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Disabled ───────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Disabled</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-input-date label="Locked" value="2026-01-15" disabled></ui-input-date>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-input-date label="Locked" value="2026-01-15" disabled&gt;&lt;/ui-input-date&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Date Range ─────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Date Range</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Add the <code>range</code> attribute to enable two-click date range selection.
+  Click once for the start date, then again for the end date. The calendar
+  highlights the selected range, and a preview band follows your cursor.
+  The value is stored as <code>YYYY-MM-DD / YYYY-MM-DD</code>.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-input-date label="Trip dates" range></ui-input-date>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-input-date label="Trip dates" range&gt;&lt;/ui-input-date&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="1.5em"></ui-layout-spacer>
+
+<ui-text type="paragraph" color="gray-500" size="small">
+  Combine <code>range</code> with <code>min</code> / <code>max</code> to
+  constrain the selectable window.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-input-date label="Booking window" range min="2026-02-01" max="2026-03-31"></ui-input-date>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-input-date label="Booking window" range min="2026-02-01" max="2026-03-31"&gt;&lt;/ui-input-date&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Playground ─────────────────────────────────────── -->
+<ui-text type="heading" size="large">
+  <ui-icon color="indigo-500">play-circle</ui-icon>
+  Playground
+</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Experiment with value, constraints, and states.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="playground">
+  <div class="playground-controls">
+    <ui-card elevation="1">
+      <ui-card-body>
+        <ui-text type="heading" size="small">Controls</ui-text>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input id="date-value" label="Value" size="small" value=""></ui-input>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input id="date-label" label="Label" size="small" value="Date"></ui-input>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input id="date-help" label="Help" size="small" value=""></ui-input>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input id="date-error" label="Error" size="small" value=""></ui-input>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input id="date-min" label="Min" size="small" value="" placeholder="YYYY-MM-DD"></ui-input>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input id="date-max" label="Max" size="small" value="" placeholder="YYYY-MM-DD"></ui-input>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-checkbox id="date-required" label="Required"></ui-input-checkbox>
+        <ui-layout-spacer size="0.35em"></ui-layout-spacer>
+        <ui-input-checkbox id="date-disabled" label="Disabled"></ui-input-checkbox>
+        <ui-layout-spacer size="0.35em"></ui-layout-spacer>
+        <ui-input-checkbox id="date-range" label="Range"></ui-input-checkbox>
+      </ui-card-body>
+    </ui-card>
+  </div>
+
+  <div class="playground-preview">
+    <div class="demo-card">
+      <div class="demo-preview">
+        <ui-input-date id="date-playground" label="Date"></ui-input-date>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  const date     = document.getElementById('date-playground');
+  const value    = document.getElementById('date-value');
+  const label    = document.getElementById('date-label');
+  const help     = document.getElementById('date-help');
+  const error    = document.getElementById('date-error');
+  const min      = document.getElementById('date-min');
+  const max      = document.getElementById('date-max');
+  const required = document.getElementById('date-required');
+  const disabled = document.getElementById('date-disabled');
+  const rangeCtl  = document.getElementById('date-range');
+
+  if (!date || !value || !label || !help || !error || !min || !max || !required || !disabled || !rangeCtl) return;
+
+  const setOrRemove = (attr, val) => {
+    const v = (val || '').trim();
+    if (v) date.setAttribute(attr, v); else date.removeAttribute(attr);
+  };
+
+  const listen = (el, attr) => {
+    el.addEventListener('ui-input',  () => setOrRemove(attr, el.value));
+    el.addEventListener('ui-change', () => setOrRemove(attr, el.value));
+  };
+
+  listen(value, 'value');
+  listen(label, 'label');
+  listen(help,  'help');
+  listen(error, 'error');
+  listen(min,   'min');
+  listen(max,   'max');
+
+  required.addEventListener('ui-change', () => {
+    if (required.checked) date.setAttribute('required', '');
+    else date.removeAttribute('required');
+  });
+  disabled.addEventListener('ui-change', () => {
+    if (disabled.checked) date.setAttribute('disabled', '');
+    else date.removeAttribute('disabled');
+  });
+  rangeCtl.addEventListener('ui-change', () => {
+    if (rangeCtl.checked) date.setAttribute('range', '');
+    else date.removeAttribute('range');
+  });
+})();
+</script>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── API Reference ──────────────────────────────────────── -->
+<ui-text type="heading" size="large">API Reference</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead>
+      <tr><th>Attribute</th><th>Type</th><th>Default</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>value</code></td><td>String</td><td>—</td><td>Selected date (YYYY-MM-DD)</td></tr>
+      <tr><td><code>placeholder</code></td><td>String</td><td><code>YYYY-MM-DD</code></td><td>Placeholder text</td></tr>
+      <tr><td><code>name</code></td><td>String</td><td>—</td><td>Form field name</td></tr>
+      <tr><td><code>label</code></td><td>String</td><td>—</td><td>Label text</td></tr>
+      <tr><td><code>help</code></td><td>String</td><td>—</td><td>Help text below the input</td></tr>
+      <tr><td><code>error</code></td><td>String</td><td>—</td><td>Error message (replaces help)</td></tr>
+      <tr><td><code>size</code></td><td>String</td><td>—</td><td>Size keyword or CSS length</td></tr>
+      <tr><td><code>min</code></td><td>String</td><td>—</td><td>Minimum selectable date (YYYY-MM-DD)</td></tr>
+      <tr><td><code>max</code></td><td>String</td><td>—</td><td>Maximum selectable date (YYYY-MM-DD)</td></tr>
+      <tr><td><code>range</code></td><td>Boolean</td><td><code>false</code></td><td>Enable date range selection (start / end)</td></tr>
+      <tr><td><code>disabled</code></td><td>Boolean</td><td><code>false</code></td><td>Disables the picker</td></tr>
+      <tr><td><code>required</code></td><td>Boolean</td><td><code>false</code></td><td>Marks as required (shows asterisk)</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Events ──────────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Events</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead>
+      <tr><th>Event</th><th>Detail</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>ui-change</code></td><td><code>{ value }</code> or <code>{ value, start, end }</code></td><td>Fires when the date changes. In range mode, includes <code>start</code> and <code>end</code> fields.</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>

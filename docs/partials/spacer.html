@@ -1,0 +1,153 @@
+<!-- ============================================================
+     Spacer — Component Documentation
+     ============================================================ -->
+
+<ui-layout-stack gap="0.25em" style="margin-bottom:2em;">
+  <ui-text type="heading" size="xx-large">Spacer</ui-text>
+  <ui-text type="paragraph" color="gray-500">
+    <code>&lt;ui-layout-spacer&gt;</code> is a flexible space filler. Without a
+    <code>size</code> it grows to fill available space; with <code>size</code>
+    it becomes a fixed gap.
+  </ui-text>
+</ui-layout-stack>
+
+<ui-text type="heading" size="large">Diagram</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Flexible spacer pushes content apart.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <svg viewBox="0 0 520 120" width="100%" height="120" role="img" aria-label="Spacer diagram">
+      <rect x="24" y="42" width="80" height="36" rx="6" fill="#e0e7ff" stroke="#c7d2fe" />
+      <text x="64" y="64" text-anchor="middle" font-size="11" fill="#4b5563" font-family="var(--ui-font, system-ui, sans-serif)">Logo</text>
+      <rect x="120" y="52" width="280" height="16" rx="8" fill="#f3f4f6" stroke="#e5e7eb" />
+      <text x="260" y="64" text-anchor="middle" font-size="10" fill="#9ca3af" font-family="var(--ui-font, system-ui, sans-serif)">Spacer</text>
+      <rect x="416" y="42" width="80" height="36" rx="6" fill="#d1fae5" stroke="#a7f3d0" />
+      <text x="456" y="64" text-anchor="middle" font-size="11" fill="#4b5563" font-family="var(--ui-font, system-ui, sans-serif)">Button</text>
+    </svg>
+  </div>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<ui-text type="heading" size="large">Flexible Spacer</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Use in a horizontal stack to push content to the edges.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack horizontal align="center" gap="0.5em">
+      <ui-text size="small">Left</ui-text>
+      <ui-layout-spacer></ui-layout-spacer>
+      <ui-button size="small" background="indigo-600">Action</ui-button>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-layout-stack horizontal align="center"&gt;
+  &lt;ui-text&gt;Left&lt;/ui-text&gt;
+  &lt;ui-layout-spacer&gt;&lt;/ui-layout-spacer&gt;
+  &lt;ui-button&gt;Action&lt;/ui-button&gt;
+&lt;/ui-layout-stack&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<ui-text type="heading" size="large">Fixed Gap</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Set <code>size</code> to create a fixed vertical or horizontal gap.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack>
+      <ui-text>Above</ui-text>
+      <ui-layout-spacer size="1.5em"></ui-layout-spacer>
+      <ui-text>Below</ui-text>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-layout-stack&gt;
+  &lt;ui-text&gt;Above&lt;/ui-text&gt;
+  &lt;ui-layout-spacer size="1.5em"&gt;&lt;/ui-layout-spacer&gt;
+  &lt;ui-text&gt;Below&lt;/ui-text&gt;
+&lt;/ui-layout-stack&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Playground ─────────────────────────────────────────── -->
+<ui-text type="heading" size="large">
+  <ui-icon color="indigo-500">play-circle</ui-icon>
+  Playground
+</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Toggle between flexible and fixed spacing.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="playground">
+  <div class="playground-controls">
+    <ui-card elevation="1">
+      <ui-card-body>
+        <ui-text type="heading" size="small">Controls</ui-text>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input id="spacer-size" label="Size" size="small" value="2em"></ui-input>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-checkbox id="spacer-flex" label="Flexible"></ui-input-checkbox>
+      </ui-card-body>
+    </ui-card>
+  </div>
+
+  <div class="playground-preview">
+    <div class="demo-card">
+      <div class="demo-preview">
+        <ui-layout-stack horizontal align="center" gap="0.5em">
+          <ui-text size="small">Left</ui-text>
+          <ui-layout-spacer id="spacer-playground" size="2em"></ui-layout-spacer>
+          <ui-button size="small" background="indigo-600">Right</ui-button>
+        </ui-layout-stack>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  const spacer = document.getElementById('spacer-playground');
+  const size = document.getElementById('spacer-size');
+  const flex = document.getElementById('spacer-flex');
+
+  if (!spacer || !size || !flex) return;
+
+  const updateSize = () => {
+    const val = (size.value || '').trim();
+    if (flex.checked || !val) spacer.removeAttribute('size');
+    else spacer.setAttribute('size', val);
+  };
+
+  flex.addEventListener('ui-change', updateSize);
+  size.addEventListener('ui-input', updateSize);
+  size.addEventListener('ui-change', updateSize);
+})();
+</script>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<ui-text type="heading" size="large">API Reference</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead>
+      <tr><th>Attribute</th><th>Type</th><th>Default</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>size</code></td><td>String</td><td>—</td><td>Fixed size for the spacer</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>

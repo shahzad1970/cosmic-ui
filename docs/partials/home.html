@@ -1,0 +1,242 @@
+<!-- Hero -->
+<div class="hero">
+  <img class="hero-logo" src="../assets/logo.svg" alt="Cosmic UI" />
+  <ui-text type="heading" size="xx-large">Cosmic UI</ui-text>
+  <ui-layout-spacer size="0.25em"></ui-layout-spacer>
+  <ui-text type="paragraph" size="large" color="gray-500">
+    A pure-JavaScript web component framework. Zero dependencies.
+    Shadow DOM. No build step.
+  </ui-text>
+  <div class="hero-actions">
+    <ui-button id="hero-get-started" background="indigo-600" size="large">Get Started</ui-button>
+    <ui-button id="hero-browse" background="gray-100" color="gray-800" size="large">Browse Components</ui-button>
+  </div>
+</div>
+
+<script>
+(function() {
+  const go = (href) => {
+    document.dispatchEvent(new CustomEvent('docs-nav', { detail: { src: href } }));
+    const mainInclude = document.querySelector('ui-app-main ui-include');
+    if (mainInclude) {
+      const base = mainInclude.getAttribute('base') || '';
+      mainInclude.setAttribute('src', base + href);
+    }
+  };
+  document.getElementById('hero-get-started')?.addEventListener('click', () => go('installation.html'));
+  document.getElementById('hero-browse')?.addEventListener('click', () => go('button.html'));
+})();
+</script>
+
+<ui-divider></ui-divider>
+
+<!-- Feature cards -->
+<ui-layout-container>
+  <ui-text type="heading" size="x-large" style="text-align:center; margin:1em 0 0.25em;">Why Cosmic UI?</ui-text>
+  <ui-text type="paragraph" color="gray-500" style="text-align:center; margin-bottom:1.5em;">
+    Everything you need to build modern interfaces — in one tiny, dependency-free library.
+  </ui-text>
+</ui-layout-container>
+
+<div class="features">
+
+  <ui-card elevation="1">
+    <ui-card-body>
+      <ui-text type="heading" size="medium">
+        <ui-icon color="indigo-500">box</ui-icon>
+        Zero Dependencies
+      </ui-text>
+      <ui-text type="paragraph" color="gray-500" size="small">
+        Pure vanilla JavaScript and standard Web APIs. No framework lock-in,
+        no bundler, no transpiler. Just import and go.
+      </ui-text>
+    </ui-card-body>
+  </ui-card>
+
+  <ui-card elevation="1">
+    <ui-card-body>
+      <ui-text type="heading" size="medium">
+        <ui-icon color="indigo-500">layers</ui-icon>
+        Shadow DOM
+      </ui-text>
+      <ui-text type="paragraph" color="gray-500" size="small">
+        Every component is fully encapsulated. Styles don't leak in or out.
+        Safe to use alongside any existing CSS or framework.
+      </ui-text>
+    </ui-card-body>
+  </ui-card>
+
+  <ui-card elevation="1">
+    <ui-card-body>
+      <ui-text type="heading" size="medium">
+        <ui-icon color="indigo-500">zap</ui-icon>
+        No Build Step
+      </ui-text>
+      <ui-text type="paragraph" color="gray-500" size="small">
+        Ship ES modules directly. Works with a simple
+        <code>&lt;script type="module"&gt;</code> tag. Perfect for
+        prototyping and production alike.
+      </ui-text>
+    </ui-card-body>
+  </ui-card>
+
+  <ui-card elevation="1">
+    <ui-card-body>
+      <ui-text type="heading" size="medium">
+        <ui-icon color="indigo-500">palette</ui-icon>
+        Themeable
+      </ui-text>
+      <ui-text type="paragraph" color="gray-500" size="small">
+        Full colour palette with 19 hues × 11 shades. Override any
+        <code>--ui-*</code> token to match your brand in seconds.
+      </ui-text>
+    </ui-card-body>
+  </ui-card>
+
+  <ui-card elevation="1">
+    <ui-card-body>
+      <ui-text type="heading" size="medium">
+        <ui-icon color="indigo-500">accessibility</ui-icon>
+        Accessible
+      </ui-text>
+      <ui-text type="paragraph" color="gray-500" size="small">
+        Semantic roles, keyboard support, and focus management are baked in.
+        Components use native elements internally for best-in-class a11y.
+      </ui-text>
+    </ui-card-body>
+  </ui-card>
+
+  <ui-card elevation="1">
+    <ui-card-body>
+      <ui-text type="heading" size="medium">
+        <ui-icon color="indigo-500">maximize</ui-icon>
+        Responsive
+      </ui-text>
+      <ui-text type="paragraph" color="gray-500" size="small">
+        The app shell collapses automatically on small screens.
+        All sizing uses <code>em</code> units — scale by changing font-size.
+      </ui-text>
+    </ui-card-body>
+  </ui-card>
+
+</div>
+
+<ui-divider></ui-divider>
+
+<!-- Quick Start -->
+<ui-layout-container>
+  <ui-text type="heading" size="x-large" style="text-align:center; margin:1em 0 0.25em;">Quick Start</ui-text>
+  <ui-text type="paragraph" color="gray-500" style="text-align:center; margin-bottom:1.5em;">
+    Add a single <code>&lt;script&gt;</code> tag and start building.
+  </ui-text>
+</ui-layout-container>
+
+<ui-input-code language="html" readonly height="auto">&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;script type="module" src="path/to/cosmic-ui/src/index.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+  &lt;ui-app&gt;
+    &lt;ui-app-banner background="indigo-700"&gt;My App&lt;/ui-app-banner&gt;
+    &lt;ui-app-header&gt;Dashboard&lt;/ui-app-header&gt;
+    &lt;ui-app-main&gt;
+      &lt;ui-card elevation="2"&gt;
+        &lt;ui-card-body&gt;Hello, Cosmic UI!&lt;/ui-card-body&gt;
+      &lt;/ui-card&gt;
+    &lt;/ui-app-main&gt;
+    &lt;ui-app-footer&gt;© 2025&lt;/ui-app-footer&gt;
+  &lt;/ui-app&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</ui-input-code>
+
+<ui-divider></ui-divider>
+
+<!-- Component Showcase -->
+<ui-layout-container>
+  <ui-text type="heading" size="x-large" style="text-align:center; margin:1em 0 0.25em;">Components</ui-text>
+  <ui-text type="paragraph" color="gray-500" style="text-align:center; margin-bottom:1.5em;">
+    42+ components covering layout, forms, navigation, feedback, and more.
+  </ui-text>
+</ui-layout-container>
+
+<div class="showcase">
+
+  <ui-card elevation="1">
+    <ui-card-body>
+      <ui-text type="heading" size="small">Buttons</ui-text>
+      <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+      <ui-layout-stack direction="horizontal" gap="0.5em" wrap>
+        <ui-button background="indigo-600" size="small">Primary</ui-button>
+        <ui-button background="gray-200" color="gray-800" size="small">Secondary</ui-button>
+        <ui-button background="red-500" size="small">Danger</ui-button>
+      </ui-layout-stack>
+    </ui-card-body>
+  </ui-card>
+
+  <ui-card elevation="1">
+    <ui-card-body>
+      <ui-text type="heading" size="small">Badges</ui-text>
+      <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+      <ui-layout-stack direction="horizontal" gap="0.5em" wrap>
+        <ui-badge background="indigo-100" color="indigo-700">New</ui-badge>
+        <ui-badge background="green-100" color="green-700">Active</ui-badge>
+        <ui-badge background="amber-100" color="amber-700">Pending</ui-badge>
+        <ui-badge background="red-100" color="red-700">Error</ui-badge>
+      </ui-layout-stack>
+    </ui-card-body>
+  </ui-card>
+
+  <ui-card elevation="1">
+    <ui-card-body>
+      <ui-text type="heading" size="small">Inputs</ui-text>
+      <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+      <ui-input label="Email" placeholder="you@example.com" size="small"></ui-input>
+    </ui-card-body>
+  </ui-card>
+
+  <ui-card elevation="1">
+    <ui-card-body>
+      <ui-text type="heading" size="small">Callout</ui-text>
+      <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+      <ui-callout background="sky-50" color="sky-700" size="small">
+        Informational callout message.
+      </ui-callout>
+    </ui-card-body>
+  </ui-card>
+
+  <ui-card elevation="1">
+    <ui-card-body>
+      <ui-text type="heading" size="small">Include</ui-text>
+      <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+      <ui-include class="include-frame include-frame--small" src="../partials/installation.html" nocache>
+        <ui-text size="x-small" color="gray-500">Loading snippet...</ui-text>
+      </ui-include>
+    </ui-card-body>
+  </ui-card>
+
+  <ui-card elevation="1">
+    <ui-card-body>
+      <ui-text type="heading" size="small">Progress</ui-text>
+      <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+      <ui-progress value="65" background="indigo-500"></ui-progress>
+    </ui-card-body>
+  </ui-card>
+
+  <ui-card elevation="1">
+    <ui-card-body>
+      <ui-text type="heading" size="small">Avatars</ui-text>
+      <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+      <ui-layout-stack direction="horizontal" gap="0.5em">
+        <ui-avatar initials="CU" background="indigo-500" size="small"></ui-avatar>
+        <ui-avatar initials="AB" background="emerald-500" size="small"></ui-avatar>
+        <ui-avatar initials="XY" background="rose-500" size="small"></ui-avatar>
+      </ui-layout-stack>
+    </ui-card-body>
+  </ui-card>
+
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>

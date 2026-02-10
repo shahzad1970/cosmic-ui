@@ -1,0 +1,18 @@
+{
+  "type": "pie",
+  "data": {
+    "labels": ["Desktop", "Mobile", "Tablet"],
+    "datasets": [
+      {
+        "data": [52, 34, 14],
+        "backgroundColor": ["#6366f1", "#14b8a6", "#f59e0b"],
+        "borderWidth": 0
+      }
+    ]
+  },
+  "options": {
+    "responsive": true,
+    "maintainAspectRatio": false,
+    "plugins": { "legend": { "position": "bottom", "labels": { "color": "#6b7280" } } }
+  }
+}

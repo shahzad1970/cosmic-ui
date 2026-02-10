@@ -1,0 +1,290 @@
+<!-- ============================================================
+     Slider — Component Documentation
+     ============================================================ -->
+
+<ui-layout-stack gap="0.25em" style="margin-bottom:2em;">
+  <ui-text type="heading" size="xx-large">Slider</ui-text>
+  <ui-text type="paragraph" color="gray-500">
+    <code>&lt;ui-input-slider&gt;</code> provides a range slider with optional
+    value display, label, help/error text, and accent colour.
+  </ui-text>
+</ui-layout-stack>
+
+<!-- ── Basic Usage ────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Basic Usage</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Set <code>min</code>, <code>max</code>, <code>step</code>, and
+  <code>value</code>. Add <code>showvalue</code> to display the current number.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-input-slider label="Volume" min="0" max="100" value="35" showvalue></ui-input-slider>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-input-slider label="Volume" min="0" max="100" value="35" showvalue&gt;&lt;/ui-input-slider&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Help & Error ───────────────────────────────────────── -->
+<ui-text type="heading" size="large">Help &amp; Error</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Use <code>help</code> for guidance and <code>error</code> for validation
+  messages. When <code>required</code> is set, an asterisk appears next to the label.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack gap="1em">
+      <ui-input-slider label="Brightness" help="Drag to adjust brightness" value="70" showvalue required></ui-input-slider>
+      <ui-input-slider label="Contrast" error="Contrast must be above 30" value="20" showvalue></ui-input-slider>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-input-slider label="Brightness" help="Drag to adjust" required showvalue&gt;
+&lt;/ui-input-slider&gt;
+
+&lt;ui-input-slider label="Contrast" error="Contrast must be above 30" showvalue&gt;
+&lt;/ui-input-slider&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Disabled ────────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Disabled</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Add the <code>disabled</code> attribute to prevent interaction.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-input-slider label="Locked" value="60" showvalue disabled></ui-input-slider>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-input-slider label="Locked" value="60" showvalue disabled&gt;&lt;/ui-input-slider&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Sizes ───────────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Sizes</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  The <code>size</code> attribute accepts CSS named sizes (<code>x-small</code> …
+  <code>xx-large</code>) or any CSS length.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack gap="0.75em">
+      <ui-input-slider label="Small" size="small" value="30" showvalue></ui-input-slider>
+      <ui-input-slider label="Default" value="50" showvalue></ui-input-slider>
+      <ui-input-slider label="Large" size="large" value="70" showvalue></ui-input-slider>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-input-slider label="Small" size="small" showvalue&gt;&lt;/ui-input-slider&gt;
+&lt;ui-input-slider label="Default" showvalue&gt;&lt;/ui-input-slider&gt;
+&lt;ui-input-slider label="Large" size="large" showvalue&gt;&lt;/ui-input-slider&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Background ─────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Background (Accent)</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Use palette tokens or any CSS colour for the slider thumb and focus ring.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack gap="0.75em">
+      <ui-input-slider label="Emerald" background="emerald-500" value="45" showvalue></ui-input-slider>
+      <ui-input-slider label="Rose" background="rose-500" value="70" showvalue></ui-input-slider>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-input-slider background="emerald-500" showvalue&gt;&lt;/ui-input-slider&gt;
+&lt;ui-input-slider background="rose-500" showvalue&gt;&lt;/ui-input-slider&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Playground ─────────────────────────────────────────── -->
+<ui-text type="heading" size="large">
+  <ui-icon color="indigo-500">play-circle</ui-icon>
+  Playground
+</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Experiment with every attribute in real time.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="playground">
+  <div class="playground-controls">
+    <ui-card elevation="1">
+      <ui-card-body>
+        <ui-text type="heading" size="small">Controls</ui-text>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input id="sl-label" label="Label" size="small" value="Range"></ui-input>
+        <ui-layout-spacer size="0.35em"></ui-layout-spacer>
+        <ui-input id="sl-help" label="Help" size="small"></ui-input>
+        <ui-layout-spacer size="0.35em"></ui-layout-spacer>
+        <ui-input id="sl-error" label="Error" size="small"></ui-input>
+        <ui-layout-spacer size="0.35em"></ui-layout-spacer>
+        <ui-input id="sl-min" label="Min" size="small" value="0"></ui-input>
+        <ui-layout-spacer size="0.35em"></ui-layout-spacer>
+        <ui-input id="sl-max" label="Max" size="small" value="100"></ui-input>
+        <ui-layout-spacer size="0.35em"></ui-layout-spacer>
+        <ui-input id="sl-step" label="Step" size="small" value="1"></ui-input>
+        <ui-layout-spacer size="0.35em"></ui-layout-spacer>
+        <ui-input id="sl-value" label="Value" size="small" value="40"></ui-input>
+        <ui-layout-spacer size="0.35em"></ui-layout-spacer>
+        <ui-input-select id="sl-size" label="Size" size="small" placeholder="Default">
+          <option value="x-small">x-small</option>
+          <option value="small">small</option>
+          <option value="large">large</option>
+          <option value="x-large">x-large</option>
+          <option value="xx-large">xx-large</option>
+        </ui-input-select>
+        <ui-layout-spacer size="0.35em"></ui-layout-spacer>
+        <ui-input-color id="sl-bg" label="Background" size="small" placeholder="e.g. emerald-500"></ui-input-color>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-layout-stack gap="0.35em">
+          <ui-input-checkbox id="sl-showvalue" label="Show Value"></ui-input-checkbox>
+          <ui-input-checkbox id="sl-disabled" label="Disabled"></ui-input-checkbox>
+          <ui-input-checkbox id="sl-required" label="Required"></ui-input-checkbox>
+        </ui-layout-stack>
+      </ui-card-body>
+    </ui-card>
+  </div>
+
+  <div class="playground-preview">
+    <div class="demo-card">
+      <div class="demo-preview">
+        <ui-input-slider id="sl-playground" label="Range" min="0" max="100" value="40"></ui-input-slider>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  const el = document.getElementById('sl-playground');
+  if (!el) return;
+
+  const strings = { label: 'sl-label', help: 'sl-help', error: 'sl-error', background: 'sl-bg' };
+  for (const [attr, id] of Object.entries(strings)) {
+    const ctrl = document.getElementById(id);
+    if (!ctrl) continue;
+    const handler = () => {
+      const v = (ctrl.value || '').trim();
+      if (v) el.setAttribute(attr, v);
+      else el.removeAttribute(attr);
+    };
+    ctrl.addEventListener('ui-input', handler);
+    ctrl.addEventListener('ui-change', handler);
+  }
+
+  const nums = { min: 'sl-min', max: 'sl-max', step: 'sl-step', value: 'sl-value' };
+  for (const [attr, id] of Object.entries(nums)) {
+    const ctrl = document.getElementById(id);
+    if (!ctrl) continue;
+    const handler = () => {
+      const v = (ctrl.value || '').trim();
+      if (v) el.setAttribute(attr, v);
+    };
+    ctrl.addEventListener('ui-input', handler);
+    ctrl.addEventListener('ui-change', handler);
+  }
+
+  const sizeCtrl = document.getElementById('sl-size');
+  if (sizeCtrl) {
+    sizeCtrl.addEventListener('ui-change', () => {
+      const v = (sizeCtrl.value || '').trim();
+      if (v) el.setAttribute('size', v);
+      else el.removeAttribute('size');
+    });
+  }
+
+  const bools = { showvalue: 'sl-showvalue', disabled: 'sl-disabled', required: 'sl-required' };
+  for (const [attr, id] of Object.entries(bools)) {
+    const ctrl = document.getElementById(id);
+    if (!ctrl) continue;
+    ctrl.addEventListener('ui-change', () => {
+      if (ctrl.checked) el.setAttribute(attr, '');
+      else el.removeAttribute(attr);
+    });
+  }
+})();
+</script>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── API Reference ──────────────────────────────────────── -->
+<ui-text type="heading" size="large">API Reference</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead>
+      <tr><th>Attribute</th><th>Type</th><th>Default</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>value</code></td><td>Number</td><td><code>50</code></td><td>Current slider value</td></tr>
+      <tr><td><code>min</code></td><td>Number</td><td><code>0</code></td><td>Minimum value</td></tr>
+      <tr><td><code>max</code></td><td>Number</td><td><code>100</code></td><td>Maximum value</td></tr>
+      <tr><td><code>step</code></td><td>Number</td><td><code>1</code></td><td>Step increment</td></tr>
+      <tr><td><code>name</code></td><td>String</td><td><code>""</code></td><td>Form field name</td></tr>
+      <tr><td><code>label</code></td><td>String</td><td><code>""</code></td><td>Label text</td></tr>
+      <tr><td><code>help</code></td><td>String</td><td><code>""</code></td><td>Help text below the slider</td></tr>
+      <tr><td><code>error</code></td><td>String</td><td><code>""</code></td><td>Error message below the slider</td></tr>
+      <tr><td><code>size</code></td><td>String</td><td><code>""</code></td><td>CSS named size or any CSS length</td></tr>
+      <tr><td><code>background</code></td><td>String</td><td><code>""</code></td><td>Accent colour (palette token or CSS colour)</td></tr>
+      <tr><td><code>disabled</code></td><td>Boolean</td><td><code>false</code></td><td>Prevents interaction</td></tr>
+      <tr><td><code>required</code></td><td>Boolean</td><td><code>false</code></td><td>Marks the field as required (asterisk on label)</td></tr>
+      <tr><td><code>showvalue</code></td><td>Boolean</td><td><code>false</code></td><td>Show the current numeric value</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── CSS Parts ──────────────────────────────────────────── -->
+<ui-text type="heading" size="large">CSS Parts</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead>
+      <tr><th>Part</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>label</code></td><td>The label element</td></tr>
+      <tr><td><code>slider</code></td><td>The native range input</td></tr>
+      <tr><td><code>value</code></td><td>The inline value display</td></tr>
+      <tr><td><code>help</code></td><td>The help text element</td></tr>
+      <tr><td><code>error</code></td><td>The error message element</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Events ──────────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Events</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead>
+      <tr><th>Event</th><th>Detail</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>ui-input</code></td><td><code>{ value }</code></td><td>Fires continuously while dragging</td></tr>
+      <tr><td><code>ui-change</code></td><td><code>{ value }</code></td><td>Fires when the slider is released</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>

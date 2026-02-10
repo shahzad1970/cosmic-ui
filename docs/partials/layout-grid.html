@@ -1,0 +1,331 @@
+<!-- ============================================================
+     Layout Grid — Component Documentation
+     ============================================================ -->
+
+<ui-layout-stack gap="0.25em" style="margin-bottom:2em;">
+  <ui-text type="heading" size="xx-large">Grid</ui-text>
+  <ui-text type="paragraph" color="gray-500">
+    <code>&lt;ui-layout-grid&gt;</code> is a declarative CSS Grid container with
+    simple column, row, and gap controls.
+  </ui-text>
+</ui-layout-stack>
+
+<ui-text type="heading" size="large">Diagram</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  A simple 3-column grid layout.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <svg viewBox="0 0 520 140" width="100%" height="140" role="img" aria-label="Grid layout diagram">
+      <rect x="10" y="10" width="500" height="120" rx="8" fill="#f9fafb" stroke="#e5e7eb" />
+      <rect x="28" y="26" width="140" height="40" rx="6" fill="#e0e7ff" stroke="#c7d2fe" />
+      <rect x="190" y="26" width="140" height="40" rx="6" fill="#d1fae5" stroke="#a7f3d0" />
+      <rect x="352" y="26" width="140" height="40" rx="6" fill="#fee2e2" stroke="#fecaca" />
+      <rect x="28" y="78" width="140" height="40" rx="6" fill="#e0e7ff" stroke="#c7d2fe" />
+      <rect x="190" y="78" width="140" height="40" rx="6" fill="#d1fae5" stroke="#a7f3d0" />
+      <rect x="352" y="78" width="140" height="40" rx="6" fill="#fee2e2" stroke="#fecaca" />
+      <text x="260" y="20" text-anchor="middle" font-size="10" fill="#6b7280" font-family="var(--ui-font, system-ui, sans-serif)">3-Column Grid</text>
+    </svg>
+  </div>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<ui-text type="heading" size="large">Basic Grid</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Set <code>columns</code> to a number for equal-width columns.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-grid columns="3" gap="0.75em">
+      <ui-card elevation="1"><ui-card-body><ui-text>One</ui-text></ui-card-body></ui-card>
+      <ui-card elevation="1"><ui-card-body><ui-text>Two</ui-text></ui-card-body></ui-card>
+      <ui-card elevation="1"><ui-card-body><ui-text>Three</ui-text></ui-card-body></ui-card>
+      <ui-card elevation="1"><ui-card-body><ui-text>Four</ui-text></ui-card-body></ui-card>
+      <ui-card elevation="1"><ui-card-body><ui-text>Five</ui-text></ui-card-body></ui-card>
+      <ui-card elevation="1"><ui-card-body><ui-text>Six</ui-text></ui-card-body></ui-card>
+    </ui-layout-grid>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-layout-grid columns="3" gap="0.75em"&gt;
+  &lt;ui-card&gt;...&lt;/ui-card&gt;
+  &lt;ui-card&gt;...&lt;/ui-card&gt;
+  &lt;ui-card&gt;...&lt;/ui-card&gt;
+&lt;/ui-layout-grid&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<ui-text type="heading" size="large">Responsive Grid</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Use <code>min-col-width</code> to create responsive auto-fill columns.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-grid min-col-width="12rem" gap="0.75em">
+      <ui-card elevation="1"><ui-card-body><ui-text>Alpha</ui-text></ui-card-body></ui-card>
+      <ui-card elevation="1"><ui-card-body><ui-text>Beta</ui-text></ui-card-body></ui-card>
+      <ui-card elevation="1"><ui-card-body><ui-text>Gamma</ui-text></ui-card-body></ui-card>
+      <ui-card elevation="1"><ui-card-body><ui-text>Delta</ui-text></ui-card-body></ui-card>
+    </ui-layout-grid>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-layout-grid min-col-width="12rem" gap="0.75em"&gt;
+  &lt;ui-card&gt;...&lt;/ui-card&gt;
+  &lt;ui-card&gt;...&lt;/ui-card&gt;
+  &lt;ui-card&gt;...&lt;/ui-card&gt;
+&lt;/ui-layout-grid&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<ui-text type="heading" size="large">Custom Template</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Pass a full CSS grid template for custom layouts.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-grid columns="12rem 1fr" gap="0.75em">
+      <ui-card elevation="1"><ui-card-body><ui-text>Sidebar</ui-text></ui-card-body></ui-card>
+      <ui-card elevation="1"><ui-card-body><ui-text>Main Content</ui-text></ui-card-body></ui-card>
+    </ui-layout-grid>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-layout-grid columns="12rem 1fr" gap="0.75em"&gt;
+  &lt;ui-card&gt;Sidebar&lt;/ui-card&gt;
+  &lt;ui-card&gt;Main Content&lt;/ui-card&gt;
+&lt;/ui-layout-grid&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Playground ─────────────────────────────────────────── -->
+<ui-text type="heading" size="large">
+  <ui-icon color="indigo-500">play-circle</ui-icon>
+  Playground
+</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Switch between fixed columns and responsive auto-fill.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="playground">
+  <div class="playground-controls">
+    <ui-card elevation="1">
+      <ui-card-body>
+        <ui-text type="heading" size="small">Controls</ui-text>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+
+        <ui-input id="grid-columns" label="Columns" size="small" value="3" placeholder="e.g. 3, 1fr 2fr 1fr"></ui-input>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+
+        <ui-input id="grid-rows" label="Rows" size="small" value="" placeholder="e.g. auto 1fr auto"></ui-input>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+
+        <ui-input id="grid-min-col" label="Min Col Width" size="small" value="" placeholder="e.g. 12rem"></ui-input>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+
+        <ui-input-select id="grid-gap" label="Gap" size="small" value="0.75em">
+          <option value="">none</option>
+          <option value="0.25em">0.25em</option>
+          <option value="0.5em">0.5em</option>
+          <option value="0.75em">0.75em</option>
+          <option value="1em">1em</option>
+          <option value="1.5em">1.5em</option>
+          <option value="2em">2em</option>
+        </ui-input-select>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+
+        <ui-input-select id="grid-align" label="Align Items" size="small" value="">
+          <option value="">—</option>
+          <option value="start">start</option>
+          <option value="center">center</option>
+          <option value="end">end</option>
+          <option value="stretch">stretch</option>
+        </ui-input-select>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+
+        <ui-input-select id="grid-justify" label="Justify Items" size="small" value="">
+          <option value="">—</option>
+          <option value="start">start</option>
+          <option value="center">center</option>
+          <option value="end">end</option>
+          <option value="stretch">stretch</option>
+        </ui-input-select>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+
+        <ui-input-select id="grid-align-content" label="Align Content" size="small" value="">
+          <option value="">—</option>
+          <option value="start">start</option>
+          <option value="center">center</option>
+          <option value="end">end</option>
+          <option value="stretch">stretch</option>
+          <option value="between">between</option>
+          <option value="around">around</option>
+          <option value="evenly">evenly</option>
+        </ui-input-select>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+
+        <ui-input-select id="grid-justify-content" label="Justify Content" size="small" value="">
+          <option value="">—</option>
+          <option value="start">start</option>
+          <option value="center">center</option>
+          <option value="end">end</option>
+          <option value="stretch">stretch</option>
+          <option value="between">between</option>
+          <option value="around">around</option>
+          <option value="evenly">evenly</option>
+        </ui-input-select>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+
+        <ui-input-select id="grid-flow" label="Flow" size="small" value="">
+          <option value="">—</option>
+          <option value="row">row</option>
+          <option value="column">column</option>
+          <option value="dense">dense</option>
+          <option value="row dense">row dense</option>
+          <option value="column dense">column dense</option>
+        </ui-input-select>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+
+        <ui-input id="grid-padding" label="Padding" size="small" value="" placeholder="e.g. 1em"></ui-input>
+        <ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+        <ui-layout-stack gap="0.35em">
+          <ui-input-checkbox id="grid-inline" label="Inline"></ui-input-checkbox>
+          <ui-input-checkbox id="grid-full" label="Full"></ui-input-checkbox>
+        </ui-layout-stack>
+      </ui-card-body>
+    </ui-card>
+  </div>
+
+  <div class="playground-preview">
+    <div class="demo-card">
+      <div class="demo-preview">
+        <ui-layout-grid id="grid-playground" columns="3" gap="0.75em" style="min-height:120px;">
+          <ui-card elevation="1"><ui-card-body><ui-text>One</ui-text></ui-card-body></ui-card>
+          <ui-card elevation="1"><ui-card-body><ui-text>Two</ui-text></ui-card-body></ui-card>
+          <ui-card elevation="1"><ui-card-body><ui-text>Three</ui-text></ui-card-body></ui-card>
+          <ui-card elevation="1"><ui-card-body><ui-text>Four</ui-text></ui-card-body></ui-card>
+          <ui-card elevation="1"><ui-card-body><ui-text>Five</ui-text></ui-card-body></ui-card>
+          <ui-card elevation="1"><ui-card-body><ui-text>Six</ui-text></ui-card-body></ui-card>
+        </ui-layout-grid>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  const grid = document.getElementById('grid-playground');
+  if (!grid) return;
+
+  const el = id => document.getElementById(id);
+
+  const setAttr = (name, val) => {
+    if (val) grid.setAttribute(name, val);
+    else grid.removeAttribute(name);
+  };
+
+  const setBool = (name, on) => {
+    if (on) grid.setAttribute(name, '');
+    else grid.removeAttribute(name);
+  };
+
+  // Select controls
+  for (const [id, attr] of [
+    ['grid-gap',             'gap'],
+    ['grid-align',           'align'],
+    ['grid-justify',         'justify'],
+    ['grid-align-content',   'align-content'],
+    ['grid-justify-content', 'justify-content'],
+    ['grid-flow',            'flow'],
+  ]) {
+    const ctrl = el(id);
+    if (ctrl) ctrl.addEventListener('ui-change', () => setAttr(attr, ctrl.value));
+  }
+
+  // Text input controls
+  for (const [id, attr] of [
+    ['grid-columns', 'columns'],
+    ['grid-rows',    'rows'],
+    ['grid-padding', 'padding'],
+  ]) {
+    const ctrl = el(id);
+    if (ctrl) {
+      const handler = () => setAttr(attr, (ctrl.value || '').trim());
+      ctrl.addEventListener('ui-input', handler);
+      ctrl.addEventListener('ui-change', handler);
+    }
+  }
+
+  // Min-col-width — when set, remove columns; when cleared, restore columns
+  const minColCtrl = el('grid-min-col');
+  const colCtrl = el('grid-columns');
+  if (minColCtrl) {
+    const handler = () => {
+      const val = (minColCtrl.value || '').trim();
+      if (val) {
+        grid.setAttribute('min-col-width', val);
+        grid.removeAttribute('columns');
+      } else {
+        grid.removeAttribute('min-col-width');
+        const colVal = (colCtrl?.value || '').trim();
+        if (colVal) grid.setAttribute('columns', colVal);
+      }
+    };
+    minColCtrl.addEventListener('ui-input', handler);
+    minColCtrl.addEventListener('ui-change', handler);
+  }
+
+  // Boolean controls
+  for (const [id, attr] of [
+    ['grid-inline', 'inline'],
+    ['grid-full',   'full'],
+  ]) {
+    const ctrl = el(id);
+    if (ctrl) ctrl.addEventListener('ui-change', () => setBool(attr, ctrl.checked));
+  }
+})();
+</script>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<ui-text type="heading" size="large">API Reference</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead>
+      <tr><th>Attribute</th><th>Type</th><th>Default</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>columns</code></td><td>String</td><td>—</td><td>Grid columns: number (e.g. "3") or CSS template (e.g. "1fr 2fr 1fr")</td></tr>
+      <tr><td><code>rows</code></td><td>String</td><td>—</td><td>Grid rows: same format as columns</td></tr>
+      <tr><td><code>gap</code></td><td>String</td><td>—</td><td>Gap between cells (named size or CSS length)</td></tr>
+      <tr><td><code>column-gap</code></td><td>String</td><td>—</td><td>Column gap override</td></tr>
+      <tr><td><code>row-gap</code></td><td>String</td><td>—</td><td>Row gap override</td></tr>
+      <tr><td><code>align</code></td><td>String</td><td>—</td><td>Align items: start, center, end, stretch</td></tr>
+      <tr><td><code>justify</code></td><td>String</td><td>—</td><td>Justify items: start, center, end, stretch</td></tr>
+      <tr><td><code>align-content</code></td><td>String</td><td>—</td><td>Align content: start, center, end, stretch, between, around, evenly</td></tr>
+      <tr><td><code>justify-content</code></td><td>String</td><td>—</td><td>Justify content: same values as align-content</td></tr>
+      <tr><td><code>flow</code></td><td>String</td><td>—</td><td>Grid auto flow: row, column, dense, row dense, column dense</td></tr>
+      <tr><td><code>auto-rows</code></td><td>String</td><td>—</td><td>grid-auto-rows value</td></tr>
+      <tr><td><code>auto-cols</code></td><td>String</td><td>—</td><td>grid-auto-columns value</td></tr>
+      <tr><td><code>areas</code></td><td>String</td><td>—</td><td>Grid template areas (pipe-separated rows)</td></tr>
+      <tr><td><code>min-col-width</code></td><td>String</td><td>—</td><td>Responsive auto-fill columns with this min width</td></tr>
+      <tr><td><code>padding</code></td><td>String</td><td>—</td><td>Inner padding (named size or CSS value)</td></tr>
+      <tr><td><code>width</code></td><td>String</td><td>—</td><td>CSS width</td></tr>
+      <tr><td><code>height</code></td><td>String</td><td>—</td><td>CSS height</td></tr>
+      <tr><td><code>inline</code></td><td>Boolean</td><td>false</td><td>Inline-grid display</td></tr>
+      <tr><td><code>full</code></td><td>Boolean</td><td>false</td><td>100% width and height</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>

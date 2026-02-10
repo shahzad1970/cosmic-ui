@@ -1,0 +1,148 @@
+/* ============================================================
+   Cosmic UI — Docs-site styles
+   ============================================================
+   Supplements the ui-* components with docs-specific visuals.
+   Avoid styling native HTML tags here — prefer ui-* components.
+   ============================================================ */
+
+
+
+
+/* ---- Hamburger button ---- */
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  padding: 0.25em;
+  line-height: 1;
+  font-size: 1.5em;
+}
+
+@media (max-width: 768px) {
+  .hamburger { display: inline-flex; }
+}
+
+/* Also show on desktop so nav can be toggled */
+@media (min-width: 769px) {
+  .hamburger { display: inline-flex; }
+}
+
+/* ---- Hero section ---- */
+.hero {
+  text-align: center;
+  padding: 3em 1em;
+}
+
+.hero-logo {
+  width: 5em;
+  height: 5em;
+  margin: 0 auto 1em;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 0.75em;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 1.5em;
+}
+
+/* ---- Feature grid ---- */
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16em, 1fr));
+  gap: 1.5em;
+  padding: 2em 1.5em;
+}
+
+/* ---- Component showcase grid ---- */
+.showcase {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(14em, 1fr));
+  gap: 1.25em;
+  padding: 2em 1.5em;
+}
+
+/* ---- Quick-start code block ---- */
+.code-block {
+  background: var(--ui-gray-900, #111827);
+  color: var(--ui-gray-100, #f3f4f6);
+  padding: 1.25em 1.5em;
+  border-radius: var(--ui-radius, 0.375em);
+  font-family: var(--ui-font-mono, "SF Mono", "Fira Code", "Fira Mono", monospace);
+  font-size: 0.85em;
+  line-height: 1.7;
+  overflow-x: auto;
+  white-space: pre;
+  margin: 0 1.5em;
+}
+
+/* ---- Footer content ---- */
+.footer-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+  font-size: 0.85em;
+  color: var(--ui-text-muted, #6b7280);
+}
+
+/* ---- Demo cards (component doc pages) ---- */
+.demo-card {
+  margin-bottom: 0;
+}
+
+.demo-preview {
+  border: 1px solid var(--ui-border-color, #e5e7eb);
+  border-radius: var(--ui-radius, 0.5em);
+  overflow: visible;
+  padding: 1.5em;
+}
+
+.demo-card > ui-input-code {
+  margin-top: 0.75em;
+}
+
+.demo-card .code-block {
+  margin: 0;
+  font-size: 0.8em;
+}
+
+/* ---- App docs playground ---- */
+.playground {
+  display: grid;
+  grid-template-columns: minmax(16rem, 20rem) minmax(0, 1fr);
+  gap: 1.25em;
+  align-items: start;
+}
+
+.playground-controls ui-card {
+  overflow: visible;
+}
+
+.playground-preview .demo-preview {
+  background: var(--ui-gray-50, #f9fafb);
+}
+
+/* ---- Include demo framing ---- */
+.include-frame {
+  display: block;
+  padding: 0.75em;
+  border: 1px dashed var(--ui-border-color, #e5e7eb);
+  border-radius: var(--ui-radius, 0.5em);
+  background: var(--ui-gray-50, #f9fafb);
+  max-height: 12em;
+  overflow: auto;
+}
+
+.include-frame--small {
+  max-height: 8em;
+}
+
+@media (max-width: 900px) {
+  .playground {
+    grid-template-columns: 1fr;
+  }
+}

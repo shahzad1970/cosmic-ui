@@ -1,0 +1,11 @@
+{
+  "center": [40.7128, -74.006],
+  "zoom": 13,
+  "markers": [
+    { "lat": 40.7484, "lng": -73.9857, "popup": "Empire State Building" },
+    { "address": "Statue of Liberty, New York", "popup": "Statue of Liberty" },
+    { "address": "Times Square, New York", "popup": "Times Square" },
+    { "lat": 40.7527, "lng": -73.9772, "popup": "Grand Central Terminal" },
+    { "address": "Brooklyn Bridge, New York", "popup": "Brooklyn Bridge" }
+  ]
+}

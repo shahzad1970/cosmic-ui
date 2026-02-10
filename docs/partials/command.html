@@ -1,0 +1,336 @@
+<!-- ============================================================
+     Command Palette — Component Documentation
+     ============================================================ -->
+
+<ui-layout-stack gap="0.25em" style="margin-bottom:2em;">
+  <ui-text type="heading" size="xx-large">Command Palette</ui-text>
+  <ui-text type="paragraph" color="gray-500">
+    <code>&lt;ui-command&gt;</code> is a full-screen search overlay for navigating commands, pages, or actions — triggered via <ui-kbd>⌘K</ui-kbd> / <ui-kbd>Ctrl+K</ui-kbd>.
+  </ui-text>
+</ui-layout-stack>
+
+<!-- ── Basic Usage ─────────────────────────────────────── -->
+<ui-text type="heading" size="large">Basic Usage</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Press <ui-kbd>⌘ + K</ui-kbd> (or <ui-kbd>Ctrl + K</ui-kbd>) to open, or use a button. Populate items with <code>&lt;ui-command-item&gt;</code> children.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-button id="cmd-open-btn" size="small" background="indigo-500">Open Command Palette</ui-button>
+    <ui-command id="cmd-demo" placeholder="Search components…" no-shortcut>
+      <ui-command-item value="button" label="Button" description="Click actions" group="Components"></ui-command-item>
+      <ui-command-item value="input" label="Input" description="Text entry" group="Components"></ui-command-item>
+      <ui-command-item value="dialog" label="Dialog" description="Modal overlay" group="Components"></ui-command-item>
+      <ui-command-item value="theme" label="Toggle Theme" description="Switch light/dark" group="Actions" icon="sun"></ui-command-item>
+      <ui-command-item value="docs" label="Documentation" description="View docs" group="Actions" icon="book"></ui-command-item>
+    </ui-command>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-button id="trigger"&gt;Open Command Palette&lt;/ui-button&gt;
+&lt;ui-command placeholder="Search components…"&gt;
+  &lt;ui-command-item value="button" label="Button" description="Click actions" group="Components"&gt;&lt;/ui-command-item&gt;
+  &lt;ui-command-item value="input" label="Input" description="Text entry" group="Components"&gt;&lt;/ui-command-item&gt;
+  &lt;ui-command-item value="theme" label="Toggle Theme" group="Actions" icon="sun"&gt;&lt;/ui-command-item&gt;
+&lt;/ui-command&gt;</ui-input-code>
+</div>
+
+<script>
+(function() {
+  const btn = document.getElementById('cmd-open-btn');
+  const cmd = document.getElementById('cmd-demo');
+  if (btn && cmd) btn.addEventListener('click', () => cmd.show());
+})();
+</script>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── JavaScript Items ───────────────────────────────── -->
+<ui-text type="heading" size="large">JavaScript Items</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Use the <code>items</code> JS property for dynamic data. Items can have <code>label</code>, <code>value</code>, <code>description</code>, <code>icon</code>, and <code>group</code>.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-button id="cmd-js-btn" size="small" background="emerald-500">JS Items Demo</ui-button>
+    <ui-command id="cmd-js" placeholder="Search pages…" no-shortcut></ui-command>
+  </div>
+  <ui-input-code language="javascript" readonly height="auto">const cmd = document.querySelector('ui-command');
+cmd.items = [
+  { label: 'Home',     value: '/',        group: 'Pages',   icon: 'home' },
+  { label: 'Settings', value: '/settings', group: 'Pages',   icon: 'settings' },
+  { label: 'Logout',   value: 'logout',   group: 'Actions', icon: 'log-out' },
+];</ui-input-code>
+</div>
+
+<script>
+(function() {
+  const btn = document.getElementById('cmd-js-btn');
+  const cmd = document.getElementById('cmd-js');
+  if (!btn || !cmd) return;
+  cmd.items = [
+    { label: 'Home',     value: '/',          group: 'Pages',   icon: 'home' },
+    { label: 'Settings', value: '/settings',  group: 'Pages',   icon: 'settings' },
+    { label: 'Profile',  value: '/profile',   group: 'Pages',   icon: 'user' },
+    { label: 'Logout',   value: 'logout',     group: 'Actions', icon: 'log-out' },
+    { label: 'Help',     value: 'help',       group: 'Actions', icon: 'help-circle' },
+  ];
+  btn.addEventListener('click', () => cmd.show());
+})();
+</script>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Keyboard Shortcuts ─────────────────────────────── -->
+<ui-text type="heading" size="large">Keyboard Shortcuts</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  By default the palette binds <ui-kbd>⌘K</ui-kbd> / <ui-kbd>Ctrl+K</ui-kbd>. Change the key with
+  <code>shortcut</code>, or disable it entirely with <code>no-shortcut</code>.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <ui-input-code language="html" readonly height="auto">&lt;!-- Default: ⌘K / Ctrl+K --&gt;
+&lt;ui-command&gt;…&lt;/ui-command&gt;
+
+&lt;!-- Custom: ⌘P / Ctrl+P --&gt;
+&lt;ui-command shortcut="p"&gt;…&lt;/ui-command&gt;
+
+&lt;!-- No keyboard shortcut —  open programmatically only --&gt;
+&lt;ui-command no-shortcut&gt;…&lt;/ui-command&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Sizes ──────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Sizes</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Control the panel text size with <code>size</code> and the panel width with <code>width</code>.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack direction="horizontal" gap="0.75em" wrap>
+      <ui-button id="cmd-sm-btn" size="x-small">Small</ui-button>
+      <ui-command id="cmd-sm" size="small" no-shortcut placeholder="Small palette…">
+        <ui-command-item value="a" label="Alpha"></ui-command-item>
+        <ui-command-item value="b" label="Bravo"></ui-command-item>
+      </ui-command>
+
+      <ui-button id="cmd-lg-btn" size="x-small">Large</ui-button>
+      <ui-command id="cmd-lg" size="large" no-shortcut placeholder="Large palette…">
+        <ui-command-item value="a" label="Alpha"></ui-command-item>
+        <ui-command-item value="b" label="Bravo"></ui-command-item>
+      </ui-command>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-command size="small"&gt;…&lt;/ui-command&gt;
+&lt;ui-command size="large"&gt;…&lt;/ui-command&gt;</ui-input-code>
+</div>
+
+<script>
+(function() {
+  const smBtn = document.getElementById('cmd-sm-btn');
+  const smCmd = document.getElementById('cmd-sm');
+  const lgBtn = document.getElementById('cmd-lg-btn');
+  const lgCmd = document.getElementById('cmd-lg');
+  if (smBtn && smCmd) smBtn.addEventListener('click', () => smCmd.show());
+  if (lgBtn && lgCmd) lgBtn.addEventListener('click', () => lgCmd.show());
+})();
+</script>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Listening for Selection ────────────────────────── -->
+<ui-text type="heading" size="large">Listening for Selection</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Listen for <code>ui-select</code> to react when an item is picked.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <ui-input-code language="javascript" readonly height="auto">const cmd = document.querySelector('ui-command');
+cmd.addEventListener('ui-select', (e) => {
+  console.log('Selected:', e.detail.value, e.detail.label);
+});</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Playground ─────────────────────────────────────── -->
+<ui-text type="heading" size="large">
+  <ui-icon color="indigo-500">play-circle</ui-icon>
+  Playground
+</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Tweak size, width, elevation, and placeholder. Click the button to test.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="playground">
+  <div class="playground-controls">
+    <ui-card elevation="1">
+      <ui-card-body>
+        <ui-text type="heading" size="small">Controls</ui-text>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input id="pg-cmd-placeholder" label="Placeholder" size="small" value="Type a command…"></ui-input>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input id="pg-cmd-width" label="Width" size="small" value="" placeholder="e.g. 700px"></ui-input>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-select id="pg-cmd-size" label="Size" size="small">
+          <option value="">Default</option>
+          <option value="xx-small">XX-Small</option>
+          <option value="x-small">X-Small</option>
+          <option value="small">Small</option>
+          <option value="medium">Medium</option>
+          <option value="large">Large</option>
+          <option value="x-large">X-Large</option>
+          <option value="xx-large">XX-Large</option>
+        </ui-input-select>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-select id="pg-cmd-elev" label="Elevation" size="small">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5" selected>5</option>
+        </ui-input-select>
+      </ui-card-body>
+    </ui-card>
+  </div>
+
+  <div class="playground-preview">
+    <div class="demo-card">
+      <div class="demo-preview">
+        <ui-button id="pg-cmd-btn" background="indigo-500">Open Palette</ui-button>
+        <ui-command id="pg-cmd" no-shortcut placeholder="Type a command…">
+          <ui-command-item value="button" label="Button" description="Click actions" group="Components"></ui-command-item>
+          <ui-command-item value="input" label="Input" description="Text entry" group="Components"></ui-command-item>
+          <ui-command-item value="dialog" label="Dialog" description="Modal overlay" group="Components"></ui-command-item>
+          <ui-command-item value="table" label="Table" description="Data display" group="Components"></ui-command-item>
+          <ui-command-item value="theme" label="Toggle Theme" group="Actions" icon="sun"></ui-command-item>
+          <ui-command-item value="help" label="Help" group="Actions" icon="help-circle"></ui-command-item>
+        </ui-command>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  const el = document.getElementById('pg-cmd');
+  const btn = document.getElementById('pg-cmd-btn');
+  const placeholder = document.getElementById('pg-cmd-placeholder');
+  const width = document.getElementById('pg-cmd-width');
+  const size = document.getElementById('pg-cmd-size');
+  const elev = document.getElementById('pg-cmd-elev');
+  if (!el || !btn) return;
+
+  const setOrRemove = (attr, val) => val ? el.setAttribute(attr, val) : el.removeAttribute(attr);
+
+  btn.addEventListener('click', () => el.show());
+
+  const listen = (ctrl, attr) => {
+    ctrl?.addEventListener('ui-input', function() { setOrRemove(attr, (this.value || '').trim()); });
+    ctrl?.addEventListener('ui-change', function() { setOrRemove(attr, (this.value || '').trim()); });
+  };
+
+  listen(placeholder, 'placeholder');
+  listen(width, 'width');
+  listen(size, 'size');
+  listen(elev, 'elevation');
+})();
+</script>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── API Reference ──────────────────────────────────── -->
+<ui-text type="heading" size="large">API Reference</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<ui-text type="heading" size="medium">ui-command</ui-text>
+<ui-layout-spacer size="0.5em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead><tr><th>Attribute</th><th>Type</th><th>Default</th><th>Description</th></tr></thead>
+    <tbody>
+      <tr><td><code>open</code></td><td>Boolean</td><td>false</td><td>Whether the palette is visible</td></tr>
+      <tr><td><code>placeholder</code></td><td>String</td><td>Type a command…</td><td>Search input placeholder text</td></tr>
+      <tr><td><code>shortcut</code></td><td>String</td><td>k</td><td>Key for the ⌘/Ctrl keyboard shortcut</td></tr>
+      <tr><td><code>no-shortcut</code></td><td>Boolean</td><td>false</td><td>Disable the automatic keyboard shortcut</td></tr>
+      <tr><td><code>elevation</code></td><td>String</td><td>5</td><td>Shadow depth (1–5)</td></tr>
+      <tr><td><code>size</code></td><td>String</td><td>—</td><td>Font size (keyword or CSS length)</td></tr>
+      <tr><td><code>width</code></td><td>String</td><td>—</td><td>Panel width (e.g. <code>700px</code>)</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="1em"></ui-layout-spacer>
+
+<ui-text type="heading" size="medium">ui-command (JS properties)</ui-text>
+<ui-layout-spacer size="0.5em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead><tr><th>Property</th><th>Type</th><th>Description</th></tr></thead>
+    <tbody>
+      <tr><td><code>items</code></td><td>Array</td><td>Array of <code>{ label, value, description?, icon?, group? }</code></td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="1em"></ui-layout-spacer>
+
+<ui-text type="heading" size="medium">ui-command-item</ui-text>
+<ui-layout-spacer size="0.5em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead><tr><th>Attribute</th><th>Type</th><th>Default</th><th>Description</th></tr></thead>
+    <tbody>
+      <tr><td><code>value</code></td><td>String</td><td>—</td><td>Item value emitted on selection</td></tr>
+      <tr><td><code>label</code></td><td>String</td><td>—</td><td>Display label in the results list</td></tr>
+      <tr><td><code>description</code></td><td>String</td><td>—</td><td>Secondary description text</td></tr>
+      <tr><td><code>icon</code></td><td>String</td><td>—</td><td>Icon name (renders via <code>&lt;ui-icon&gt;</code>)</td></tr>
+      <tr><td><code>group</code></td><td>String</td><td>—</td><td>Group heading for categorisation</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="1em"></ui-layout-spacer>
+
+<ui-text type="heading" size="medium">Methods</ui-text>
+<ui-layout-spacer size="0.5em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead><tr><th>Method</th><th>Description</th></tr></thead>
+    <tbody>
+      <tr><td><code>show()</code></td><td>Open the command palette</td></tr>
+      <tr><td><code>hide()</code></td><td>Close the command palette</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Events ─────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Events</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead><tr><th>Event</th><th>Detail</th><th>Description</th></tr></thead>
+    <tbody>
+      <tr><td><code>ui-select</code></td><td><code>{ value, label, item }</code></td><td>Emitted when an item is picked</td></tr>
+      <tr><td><code>ui-open</code></td><td>—</td><td>Emitted when the palette opens</td></tr>
+      <tr><td><code>ui-close</code></td><td>—</td><td>Emitted when the palette closes</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>

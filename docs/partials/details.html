@@ -1,0 +1,473 @@
+<!-- ============================================================
+     Details — Component Documentation
+     ============================================================ -->
+
+<!-- Page header -->
+<ui-layout-stack gap="0.25em" style="margin-bottom:2em;">
+  <ui-text type="heading" size="xx-large">Details</ui-text>
+  <ui-text type="paragraph" color="gray-500">
+    An expandable disclosure widget. Click the summary to reveal or hide content.
+    Built on native <code>&lt;details&gt;</code> / <code>&lt;summary&gt;</code> for
+    full accessibility and keyboard support.
+  </ui-text>
+</ui-layout-stack>
+
+<!-- ── Import ─────────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Import</ui-text>
+<ui-layout-spacer size="0.5em"></ui-layout-spacer>
+<ui-input-code language="html" readonly height="auto">&lt;script type="module" src="path/to/cosmic-ui/src/index.js"&gt;&lt;/script&gt;</ui-input-code>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Basic usage ────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Basic Usage</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Set the <code>summary</code> attribute for the clickable heading. Place content inside
+  the default slot.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-details summary="What is Cosmic UI?">
+      Cosmic UI is a pure-JavaScript web component library with zero dependencies.
+      It uses Shadow DOM, adopted stylesheets, and vanilla JS — no build step required.
+    </ui-details>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-details summary="What is Cosmic UI?"&gt;
+  Cosmic UI is a pure-JavaScript web component library with zero dependencies.
+&lt;/ui-details&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Open by default ────────────────────────────────────── -->
+<ui-text type="heading" size="large">Open by Default</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Add the <code>open</code> attribute to expand the content on load.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-details summary="Already expanded" open>
+      This details section starts in its expanded state.
+    </ui-details>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-details summary="Already expanded" open&gt;
+  This details section starts in its expanded state.
+&lt;/ui-details&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Colours ────────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Colours</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Use <code>background</code> and <code>color</code> attributes with palette tokens
+  or any CSS colour value.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack gap="1em">
+      <ui-details summary="Indigo theme" background="indigo-600">
+        Styled with a bold indigo background and auto-contrasted text.
+      </ui-details>
+      <ui-details summary="Emerald theme" background="emerald-500">
+        A fresh green accent for success-related disclosures.
+      </ui-details>
+      <ui-details summary="Custom colours" background="amber-100" color="amber-900">
+        Soft amber background with explicit dark text colour.
+      </ui-details>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-details summary="Indigo theme" background="indigo-600"&gt;...&lt;/ui-details&gt;
+&lt;ui-details summary="Emerald theme" background="emerald-500"&gt;...&lt;/ui-details&gt;
+&lt;ui-details summary="Custom colours" background="amber-100" color="amber-900"&gt;...&lt;/ui-details&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Sizes ──────────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Sizes</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Control the overall scale with the <code>size</code> attribute.
+  Accepts CSS keywords (<code>small</code>, <code>large</code>, etc.) or any CSS length.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack gap="1em">
+      <ui-details summary="Small details" size="small">
+        Compact size for dense layouts.
+      </ui-details>
+      <ui-details summary="Default details">
+        Standard sizing — no size attribute needed.
+      </ui-details>
+      <ui-details summary="Large details" size="large">
+        Larger text and padding for prominent sections.
+      </ui-details>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-details summary="Small details" size="small"&gt;...&lt;/ui-details&gt;
+&lt;ui-details summary="Default details"&gt;...&lt;/ui-details&gt;
+&lt;ui-details summary="Large details" size="large"&gt;...&lt;/ui-details&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Variants ───────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Variants</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Choose from three visual styles: the default bordered style, <code>outline</code>
+  (border, no shadow), or <code>flat</code> (no border, no shadow).
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack gap="1em">
+      <ui-details summary="Default (bordered)">
+        Standard style with a subtle border.
+      </ui-details>
+      <ui-details summary="Outline variant" outline>
+        Clean outline style — border with no shadow.
+      </ui-details>
+      <ui-details summary="Flat variant" flat>
+        Minimal style — no border or shadow.
+      </ui-details>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-details summary="Default (bordered)"&gt;...&lt;/ui-details&gt;
+&lt;ui-details summary="Outline variant" outline&gt;...&lt;/ui-details&gt;
+&lt;ui-details summary="Flat variant" flat&gt;...&lt;/ui-details&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Elevation ──────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Elevation</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Add depth with the <code>elevation</code> attribute (levels 1–5).
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack gap="1em">
+      <ui-details summary="Elevation 1" elevation="1">
+        A subtle lift off the page.
+      </ui-details>
+      <ui-details summary="Elevation 3" elevation="3">
+        Medium depth — great for cards and panels.
+      </ui-details>
+      <ui-details summary="Elevation 5" elevation="5">
+        Maximum shadow depth for floating elements.
+      </ui-details>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-details summary="Elevation 1" elevation="1"&gt;...&lt;/ui-details&gt;
+&lt;ui-details summary="Elevation 3" elevation="3"&gt;...&lt;/ui-details&gt;
+&lt;ui-details summary="Elevation 5" elevation="5"&gt;...&lt;/ui-details&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Rich content ───────────────────────────────────────── -->
+<ui-text type="heading" size="large">Rich Content</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Place any components inside the slot — cards, forms, layout stacks, etc.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-details summary="Account settings" open>
+      <ui-layout-stack gap="0.75em">
+        <ui-input label="Display name" placeholder="Jane Doe" size="small"></ui-input>
+        <ui-input label="Email" placeholder="jane@example.com" size="small"></ui-input>
+        <ui-layout-stack direction="horizontal" gap="0.5em">
+          <ui-button background="indigo-600" size="small">Save</ui-button>
+          <ui-button size="small" outline>Cancel</ui-button>
+        </ui-layout-stack>
+      </ui-layout-stack>
+    </ui-details>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-details summary="Account settings" open&gt;
+  &lt;ui-layout-stack gap="0.75em"&gt;
+    &lt;ui-input label="Display name" placeholder="Jane Doe"&gt;&lt;/ui-input&gt;
+    &lt;ui-input label="Email" placeholder="jane@example.com"&gt;&lt;/ui-input&gt;
+    &lt;ui-button background="indigo-600" size="small"&gt;Save&lt;/ui-button&gt;
+  &lt;/ui-layout-stack&gt;
+&lt;/ui-details&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Accordion (multiple) ───────────────────────────────── -->
+<ui-text type="heading" size="large">Accordion Pattern</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Stack multiple <code>&lt;ui-details&gt;</code> items. To build a true accordion
+  (only one open at a time), listen for <code>ui-toggle</code> and close siblings.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack gap="0.5em">
+      <ui-details summary="What is Shadow DOM?" flat>
+        Shadow DOM encapsulates a component's internal structure, style, and
+        behaviour — keeping them separate from the rest of the page.
+      </ui-details>
+      <ui-divider></ui-divider>
+      <ui-details summary="Do I need a bundler?" flat>
+        No. Cosmic UI ships as ES modules. Add a single
+        <code>&lt;script type="module"&gt;</code> tag and you're ready.
+      </ui-details>
+      <ui-divider></ui-divider>
+      <ui-details summary="Is it accessible?" flat>
+        Yes. Components use native semantics (roles, ARIA attributes) and
+        full keyboard navigation out of the box.
+      </ui-details>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-layout-stack gap="0.5em"&gt;
+  &lt;ui-details summary="What is Shadow DOM?" flat&gt;...&lt;/ui-details&gt;
+  &lt;ui-divider&gt;&lt;/ui-divider&gt;
+  &lt;ui-details summary="Do I need a bundler?" flat&gt;...&lt;/ui-details&gt;
+  &lt;ui-divider&gt;&lt;/ui-divider&gt;
+  &lt;ui-details summary="Is it accessible?" flat&gt;...&lt;/ui-details&gt;
+&lt;/ui-layout-stack&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Playground ─────────────────────────────────────────── -->
+<ui-text type="heading" size="large">
+  <ui-icon color="indigo-500">play-circle</ui-icon>
+  Playground
+</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Adjust summary text, open state, and styling.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="playground">
+  <div class="playground-controls">
+    <ui-card elevation="1">
+      <ui-card-body>
+        <ui-text type="heading" size="small">Controls</ui-text>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input id="details-summary" label="Summary" size="small" value="Playground details"></ui-input>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input id="details-size" label="Size" size="small" value=""></ui-input>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-color id="details-bg" label="Background" size="small" value=""></ui-input-color>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-color id="details-color" label="Color" size="small" value=""></ui-input-color>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input id="details-elevation" label="Elevation" size="small" value=""></ui-input>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-layout-stack gap="0.35em">
+          <ui-input-checkbox id="details-open" label="Open"></ui-input-checkbox>
+          <ui-input-checkbox id="details-outline" label="Outline"></ui-input-checkbox>
+          <ui-input-checkbox id="details-flat" label="Flat"></ui-input-checkbox>
+        </ui-layout-stack>
+      </ui-card-body>
+    </ui-card>
+  </div>
+
+  <div class="playground-preview">
+    <div class="demo-card">
+      <div class="demo-preview">
+        <ui-details id="details-playground" summary="Playground details">
+          This is sample content for the details component.
+        </ui-details>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  const details = document.getElementById('details-playground');
+  const summary = document.getElementById('details-summary');
+  const size = document.getElementById('details-size');
+  const bg = document.getElementById('details-bg');
+  const color = document.getElementById('details-color');
+  const elevation = document.getElementById('details-elevation');
+  const open = document.getElementById('details-open');
+  const outline = document.getElementById('details-outline');
+  const flat = document.getElementById('details-flat');
+
+  if (!details || !summary || !size || !bg || !color || !elevation || !open || !outline || !flat) return;
+
+  const update = () => {
+    const summaryVal = (summary.value || '').trim();
+    const sizeVal = (size.value || '').trim();
+    const bgVal = (bg.value || '').trim();
+    const colorVal = (color.value || '').trim();
+    const elevationVal = (elevation.value || '').trim();
+    if (summaryVal) details.setAttribute('summary', summaryVal);
+    else details.removeAttribute('summary');
+    if (sizeVal) details.setAttribute('size', sizeVal);
+    else details.removeAttribute('size');
+    if (bgVal) details.setAttribute('background', bgVal);
+    else details.removeAttribute('background');
+    if (colorVal) details.setAttribute('color', colorVal);
+    else details.removeAttribute('color');
+    if (elevationVal) details.setAttribute('elevation', elevationVal);
+    else details.removeAttribute('elevation');
+  };
+
+  summary.addEventListener('ui-input', update);
+  summary.addEventListener('ui-change', update);
+  size.addEventListener('ui-input', update);
+  size.addEventListener('ui-change', update);
+  bg.addEventListener('ui-input', update);
+  bg.addEventListener('ui-change', update);
+  color.addEventListener('ui-input', update);
+  color.addEventListener('ui-change', update);
+  elevation.addEventListener('ui-input', update);
+  elevation.addEventListener('ui-change', update);
+
+  open.addEventListener('ui-change', () => {
+    if (open.checked) details.setAttribute('open', '');
+    else details.removeAttribute('open');
+  });
+  outline.addEventListener('ui-change', () => {
+    if (outline.checked) details.setAttribute('outline', '');
+    else details.removeAttribute('outline');
+  });
+  flat.addEventListener('ui-change', () => {
+    if (flat.checked) details.setAttribute('flat', '');
+    else details.removeAttribute('flat');
+  });
+})();
+</script>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── API Reference ──────────────────────────────────────── -->
+<ui-text type="heading" size="large">API Reference</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<!-- Attributes -->
+<ui-text type="heading" size="medium">Attributes</ui-text>
+<ui-layout-spacer size="0.5em"></ui-layout-spacer>
+
+<ui-table>
+  <table>
+    <thead>
+      <tr>
+        <th>Attribute</th>
+        <th>Type</th>
+        <th>Default</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>summary</code></td>
+        <td>String</td>
+        <td><code>"Details"</code></td>
+        <td>Text shown in the clickable header</td>
+      </tr>
+      <tr>
+        <td><code>open</code></td>
+        <td>Boolean</td>
+        <td><code>false</code></td>
+        <td>Whether the content is expanded</td>
+      </tr>
+      <tr>
+        <td><code>background</code></td>
+        <td>String</td>
+        <td>—</td>
+        <td>Background colour (palette token or CSS colour)</td>
+      </tr>
+      <tr>
+        <td><code>color</code></td>
+        <td>String</td>
+        <td>—</td>
+        <td>Text colour (palette token or CSS colour)</td>
+      </tr>
+      <tr>
+        <td><code>size</code></td>
+        <td>String</td>
+        <td>—</td>
+        <td>Font-size keyword or CSS length</td>
+      </tr>
+      <tr>
+        <td><code>elevation</code></td>
+        <td>String</td>
+        <td>—</td>
+        <td>Shadow depth 1–5, or raw CSS box-shadow</td>
+      </tr>
+      <tr>
+        <td><code>outline</code></td>
+        <td>Boolean</td>
+        <td><code>false</code></td>
+        <td>Border style with no shadow</td>
+      </tr>
+      <tr>
+        <td><code>flat</code></td>
+        <td>Boolean</td>
+        <td><code>false</code></td>
+        <td>No border or shadow</td>
+      </tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="1.5em"></ui-layout-spacer>
+
+<!-- Events -->
+<ui-text type="heading" size="medium">Events</ui-text>
+<ui-layout-spacer size="0.5em"></ui-layout-spacer>
+
+<ui-table>
+  <table>
+    <thead>
+      <tr>
+        <th>Event</th>
+        <th>Detail</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>ui-toggle</code></td>
+        <td><code>{ open: Boolean }</code></td>
+        <td>Fired when the open state changes</td>
+      </tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="1.5em"></ui-layout-spacer>
+
+<!-- Slots -->
+<ui-text type="heading" size="medium">Slots</ui-text>
+<ui-layout-spacer size="0.5em"></ui-layout-spacer>
+
+<ui-table>
+  <table>
+    <thead>
+      <tr>
+        <th>Slot</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>(default)</td>
+        <td>The expandable content revealed when opened</td>
+      </tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>

@@ -1,0 +1,239 @@
+<!-- ============================================================
+     Button Group — Component Documentation
+     ============================================================ -->
+
+<ui-layout-stack gap="0.25em" style="margin-bottom:2em;">
+  <ui-text type="heading" size="xx-large">Button Group</ui-text>
+  <ui-text type="paragraph" color="gray-500">
+    <code>&lt;ui-button-group&gt;</code> groups buttons into a connected strip
+    with merged borders and radii.
+  </ui-text>
+</ui-layout-stack>
+
+<!-- ── Basic Usage ─────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Basic Usage</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Wrap <code>&lt;ui-button&gt;</code> elements to create a seamless toolbar.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-button-group>
+      <ui-button background="indigo-600">Left</ui-button>
+      <ui-button background="indigo-600">Center</ui-button>
+      <ui-button background="indigo-600">Right</ui-button>
+    </ui-button-group>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-button-group&gt;
+  &lt;ui-button background="indigo-600"&gt;Left&lt;/ui-button&gt;
+  &lt;ui-button background="indigo-600"&gt;Center&lt;/ui-button&gt;
+  &lt;ui-button background="indigo-600"&gt;Right&lt;/ui-button&gt;
+&lt;/ui-button-group&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Vertical ────────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Vertical</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Add the <code>vertical</code> attribute to stack buttons top-to-bottom.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-button-group vertical>
+      <ui-button background="gray-200">Top</ui-button>
+      <ui-button background="gray-200">Middle</ui-button>
+      <ui-button background="gray-200">Bottom</ui-button>
+    </ui-button-group>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-button-group vertical&gt;
+  &lt;ui-button background="gray-200"&gt;Top&lt;/ui-button&gt;
+  &lt;ui-button background="gray-200"&gt;Middle&lt;/ui-button&gt;
+  &lt;ui-button background="gray-200"&gt;Bottom&lt;/ui-button&gt;
+&lt;/ui-button-group&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Outline & Flat ──────────────────────────────────────── -->
+<ui-text type="heading" size="large">Outline &amp; Flat Variants</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Set variants on the child buttons — the group handles border merging automatically.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack gap="0.75em">
+      <ui-button-group>
+        <ui-button background="indigo-600" outline>Left</ui-button>
+        <ui-button background="indigo-600" outline>Center</ui-button>
+        <ui-button background="indigo-600" outline>Right</ui-button>
+      </ui-button-group>
+      <ui-button-group>
+        <ui-button background="indigo-600" flat>Left</ui-button>
+        <ui-button background="indigo-600" flat>Center</ui-button>
+        <ui-button background="indigo-600" flat>Right</ui-button>
+      </ui-button-group>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-button-group&gt;
+  &lt;ui-button background="indigo-600" outline&gt;Left&lt;/ui-button&gt;
+  &lt;ui-button background="indigo-600" outline&gt;Center&lt;/ui-button&gt;
+  &lt;ui-button background="indigo-600" outline&gt;Right&lt;/ui-button&gt;
+&lt;/ui-button-group&gt;
+
+&lt;ui-button-group&gt;
+  &lt;ui-button background="indigo-600" flat&gt;Left&lt;/ui-button&gt;
+  &lt;ui-button background="indigo-600" flat&gt;Center&lt;/ui-button&gt;
+  &lt;ui-button background="indigo-600" flat&gt;Right&lt;/ui-button&gt;
+&lt;/ui-button-group&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Sizes ───────────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Sizes</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Set the <code>size</code> attribute on the group to apply a uniform size to all child buttons.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack gap="0.75em" style="align-items:flex-start;">
+      <ui-button-group size="x-small">
+        <ui-button background="emerald-600">A</ui-button>
+        <ui-button background="emerald-600">B</ui-button>
+        <ui-button background="emerald-600">C</ui-button>
+      </ui-button-group>
+      <ui-button-group>
+        <ui-button background="emerald-600">A</ui-button>
+        <ui-button background="emerald-600">B</ui-button>
+        <ui-button background="emerald-600">C</ui-button>
+      </ui-button-group>
+      <ui-button-group size="large">
+        <ui-button background="emerald-600">A</ui-button>
+        <ui-button background="emerald-600">B</ui-button>
+        <ui-button background="emerald-600">C</ui-button>
+      </ui-button-group>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-button-group size="x-small"&gt;…&lt;/ui-button-group&gt;
+&lt;ui-button-group&gt;…&lt;/ui-button-group&gt;
+&lt;ui-button-group size="large"&gt;…&lt;/ui-button-group&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Playground ─────────────────────────────────────────── -->
+<ui-text type="heading" size="large">
+  <ui-icon color="indigo-500">play-circle</ui-icon>
+  Playground
+</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Toggle orientation, size, and button variants.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="playground">
+  <div class="playground-controls">
+    <ui-card elevation="1">
+      <ui-card-body>
+        <ui-text type="heading" size="small">Controls</ui-text>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-layout-stack gap="0.35em">
+          <ui-input-checkbox id="group-vertical" label="Vertical"></ui-input-checkbox>
+          <ui-input-checkbox id="group-outline" label="Outline buttons"></ui-input-checkbox>
+          <ui-input-checkbox id="group-flat" label="Flat buttons"></ui-input-checkbox>
+        </ui-layout-stack>
+        <ui-layout-spacer size="0.75em"></ui-layout-spacer>
+        <ui-input-color id="group-bg" label="Background" size="small" value="indigo-600"></ui-input-color>
+        <ui-layout-spacer size="0.75em"></ui-layout-spacer>
+        <ui-input-select id="group-size" label="Size" size="small" placeholder="Default">
+          <option value="">Default</option>
+          <option value="xx-small">XX-Small</option>
+          <option value="x-small">X-Small</option>
+          <option value="small">Small</option>
+          <option value="medium">Medium</option>
+          <option value="large">Large</option>
+          <option value="x-large">X-Large</option>
+          <option value="xx-large">XX-Large</option>
+        </ui-input-select>
+      </ui-card-body>
+    </ui-card>
+  </div>
+
+  <div class="playground-preview">
+    <div class="demo-card">
+      <div class="demo-preview">
+        <ui-button-group id="group-playground">
+          <ui-button background="indigo-600">Alpha</ui-button>
+          <ui-button background="indigo-600">Beta</ui-button>
+          <ui-button background="indigo-600">Gamma</ui-button>
+        </ui-button-group>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  const el = document.getElementById('group-playground');
+  if (!el) return;
+
+  const setOrRemove = (attr, val) => val ? el.setAttribute(attr, val) : el.removeAttribute(attr);
+  const setBool     = (attr, on)  => on ? el.setAttribute(attr, '') : el.removeAttribute(attr);
+  const getButtons  = () => [...el.querySelectorAll('ui-button')];
+
+  const listen = (id, cb) => {
+    const ctrl = document.getElementById(id);
+    ctrl?.addEventListener('ui-change', () => cb(ctrl));
+  };
+
+  /* Toggles */
+  listen('group-vertical', c => setBool('vertical', c.checked));
+
+  listen('group-outline', c => {
+    getButtons().forEach(b => c.checked ? b.setAttribute('outline', '') : b.removeAttribute('outline'));
+  });
+
+  listen('group-flat', c => {
+    getButtons().forEach(b => c.checked ? b.setAttribute('flat', '') : b.removeAttribute('flat'));
+  });
+
+  /* Background */
+  document.getElementById('group-bg')?.addEventListener('ui-change', function() {
+    const v = (this.value || '').trim();
+    getButtons().forEach(b => v ? b.setAttribute('background', v) : b.removeAttribute('background'));
+  });
+
+  /* Size */
+  document.getElementById('group-size')?.addEventListener('ui-change', function() {
+    setOrRemove('size', (this.value || '').trim());
+  });
+})();
+</script>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── API Reference ───────────────────────────────────────── -->
+<ui-text type="heading" size="large">API Reference</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead>
+      <tr><th>Attribute</th><th>Type</th><th>Default</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>size</code></td><td>String</td><td>—</td><td>Uniform size for all child buttons (keyword or CSS length)</td></tr>
+      <tr><td><code>vertical</code></td><td>Boolean</td><td>false</td><td>Stack buttons vertically</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>

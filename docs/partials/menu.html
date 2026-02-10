@@ -1,0 +1,356 @@
+<!-- ============================================================
+     Menu — Component Documentation
+     ============================================================ -->
+
+<ui-layout-stack gap="0.25em" style="margin-bottom:2em;">
+  <ui-text type="heading" size="xx-large">Menu</ui-text>
+  <ui-text type="paragraph" color="gray-500">
+    <code>&lt;ui-menu&gt;</code> is a context menu that can be triggered by right-clicking a target element or opened programmatically at any position.
+  </ui-text>
+</ui-layout-stack>
+
+<!-- ── Basic Usage ─────────────────────────────────────── -->
+<ui-text type="heading" size="large">Basic Usage</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Point the <code>target</code> attribute at a CSS selector. Right-click that element to open the menu.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-button id="menu-demo-trigger" background="gray-200">Right-click me</ui-button>
+    <ui-menu target="#menu-demo-trigger">
+      <ui-menu-item value="cut"><ui-icon size="small">scissors</ui-icon> Cut</ui-menu-item>
+      <ui-menu-item value="copy"><ui-icon size="small">copy</ui-icon> Copy</ui-menu-item>
+      <ui-menu-item value="paste"><ui-icon size="small">clipboard</ui-icon> Paste</ui-menu-item>
+      <ui-menu-item divider></ui-menu-item>
+      <ui-menu-item value="delete" disabled><ui-icon size="small">trash-2</ui-icon> Delete</ui-menu-item>
+    </ui-menu>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-button id="my-target"&gt;Right-click me&lt;/ui-button&gt;
+&lt;ui-menu target="#my-target"&gt;
+  &lt;ui-menu-item value="cut"&gt;Cut&lt;/ui-menu-item&gt;
+  &lt;ui-menu-item value="copy"&gt;Copy&lt;/ui-menu-item&gt;
+  &lt;ui-menu-item value="paste"&gt;Paste&lt;/ui-menu-item&gt;
+  &lt;ui-menu-item divider&gt;&lt;/ui-menu-item&gt;
+  &lt;ui-menu-item value="delete" disabled&gt;Delete&lt;/ui-menu-item&gt;
+&lt;/ui-menu&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Programmatic Trigger ───────────────────────────── -->
+<ui-text type="heading" size="large">Programmatic Trigger</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Call <code>show(x, y)</code> to position the menu at exact viewport coordinates. Useful for custom triggers (e.g. a button click).
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-button id="menu-prog-btn" size="small" background="indigo-500">Click to open menu</ui-button>
+    <ui-menu id="menu-prog">
+      <ui-menu-item value="new">New file</ui-menu-item>
+      <ui-menu-item value="open">Open…</ui-menu-item>
+      <ui-menu-item value="save">Save</ui-menu-item>
+    </ui-menu>
+  </div>
+  <ui-input-code language="javascript" readonly height="auto">const btn = document.querySelector('#trigger');
+const menu = document.querySelector('ui-menu');
+btn.addEventListener('click', (e) => {
+  menu.show(e.clientX, e.clientY);
+});</ui-input-code>
+</div>
+
+<script>
+(function() {
+  const btn = document.getElementById('menu-prog-btn');
+  const menu = document.getElementById('menu-prog');
+  if (btn && menu) btn.addEventListener('click', (e) => menu.show(e.clientX, e.clientY));
+})();
+</script>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Dividers & Disabled Items ──────────────────────── -->
+<ui-text type="heading" size="large">Dividers &amp; Disabled Items</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Add <code>divider</code> to insert a visual separator. Add <code>disabled</code> to grey-out an item.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-button id="menu-div-btn" size="small">Open menu</ui-button>
+    <ui-menu id="menu-div">
+      <ui-menu-item value="undo">Undo</ui-menu-item>
+      <ui-menu-item value="redo" disabled>Redo</ui-menu-item>
+      <ui-menu-item divider></ui-menu-item>
+      <ui-menu-item value="cut">Cut</ui-menu-item>
+      <ui-menu-item value="copy">Copy</ui-menu-item>
+      <ui-menu-item value="paste">Paste</ui-menu-item>
+      <ui-menu-item divider></ui-menu-item>
+      <ui-menu-item value="selectAll">Select All</ui-menu-item>
+    </ui-menu>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-menu-item value="undo"&gt;Undo&lt;/ui-menu-item&gt;
+&lt;ui-menu-item value="redo" disabled&gt;Redo&lt;/ui-menu-item&gt;
+&lt;ui-menu-item divider&gt;&lt;/ui-menu-item&gt;
+&lt;ui-menu-item value="cut"&gt;Cut&lt;/ui-menu-item&gt;</ui-input-code>
+</div>
+
+<script>
+(function() {
+  const btn = document.getElementById('menu-div-btn');
+  const menu = document.getElementById('menu-div');
+  if (btn && menu) btn.addEventListener('click', (e) => menu.show(e.clientX, e.clientY));
+})();
+</script>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Sizes ──────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Sizes</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Use the <code>size</code> attribute to control font size.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack direction="horizontal" gap="0.75em" wrap>
+      <ui-button id="menu-sm-btn" size="x-small">Small menu</ui-button>
+      <ui-menu id="menu-sm" size="small">
+        <ui-menu-item value="a">Alpha</ui-menu-item>
+        <ui-menu-item value="b">Bravo</ui-menu-item>
+      </ui-menu>
+
+      <ui-button id="menu-lg-btn" size="x-small">Large menu</ui-button>
+      <ui-menu id="menu-lg" size="large">
+        <ui-menu-item value="a">Alpha</ui-menu-item>
+        <ui-menu-item value="b">Bravo</ui-menu-item>
+      </ui-menu>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-menu size="small"&gt;…&lt;/ui-menu&gt;
+&lt;ui-menu size="large"&gt;…&lt;/ui-menu&gt;</ui-input-code>
+</div>
+
+<script>
+(function() {
+  const smBtn = document.getElementById('menu-sm-btn');
+  const smMenu = document.getElementById('menu-sm');
+  const lgBtn = document.getElementById('menu-lg-btn');
+  const lgMenu = document.getElementById('menu-lg');
+  if (smBtn && smMenu) smBtn.addEventListener('click', (e) => smMenu.show(e.clientX, e.clientY));
+  if (lgBtn && lgMenu) lgBtn.addEventListener('click', (e) => lgMenu.show(e.clientX, e.clientY));
+})();
+</script>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Styled ─────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Styled</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Set <code>background</code> and <code>color</code> for a custom look. Control shadow depth with <code>elevation</code>.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-button id="menu-styled-btn" size="small" background="violet-500">Styled menu</ui-button>
+    <ui-menu id="menu-styled" background="gray-900" color="gray-100" elevation="5">
+      <ui-menu-item value="profile">Profile</ui-menu-item>
+      <ui-menu-item value="settings">Settings</ui-menu-item>
+      <ui-menu-item divider></ui-menu-item>
+      <ui-menu-item value="logout">Log out</ui-menu-item>
+    </ui-menu>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-menu background="gray-900" color="gray-100" elevation="5"&gt;
+  &lt;ui-menu-item value="profile"&gt;Profile&lt;/ui-menu-item&gt;
+  &lt;ui-menu-item value="settings"&gt;Settings&lt;/ui-menu-item&gt;
+&lt;/ui-menu&gt;</ui-input-code>
+</div>
+
+<script>
+(function() {
+  const btn = document.getElementById('menu-styled-btn');
+  const menu = document.getElementById('menu-styled');
+  if (btn && menu) btn.addEventListener('click', (e) => menu.show(e.clientX, e.clientY));
+})();
+</script>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Listening for Selection ────────────────────────── -->
+<ui-text type="heading" size="large">Listening for Selection</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Listen for <code>ui-select</code> to react when an item is picked.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <ui-input-code language="javascript" readonly height="auto">const menu = document.querySelector('ui-menu');
+menu.addEventListener('ui-select', (e) => {
+  console.log('Selected:', e.detail.value);
+});</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Playground ─────────────────────────────────────── -->
+<ui-text type="heading" size="large">
+  <ui-icon color="indigo-500">play-circle</ui-icon>
+  Playground
+</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Tweak size, colours, and elevation. Click the button to test.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="playground">
+  <div class="playground-controls">
+    <ui-card elevation="1">
+      <ui-card-body>
+        <ui-text type="heading" size="small">Controls</ui-text>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-color id="pg-menu-bg" label="Background" size="small" value=""></ui-input-color>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-color id="pg-menu-color" label="Color" size="small" value=""></ui-input-color>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-select id="pg-menu-size" label="Size" size="small">
+          <option value="">Default</option>
+          <option value="xx-small">XX-Small</option>
+          <option value="x-small">X-Small</option>
+          <option value="small">Small</option>
+          <option value="medium">Medium</option>
+          <option value="large">Large</option>
+          <option value="x-large">X-Large</option>
+          <option value="xx-large">XX-Large</option>
+        </ui-input-select>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-select id="pg-menu-elev" label="Elevation" size="small">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3" selected>3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </ui-input-select>
+      </ui-card-body>
+    </ui-card>
+  </div>
+
+  <div class="playground-preview">
+    <div class="demo-card">
+      <div class="demo-preview">
+        <ui-button id="pg-menu-btn" background="gray-200">Click to open menu</ui-button>
+        <ui-menu id="pg-menu">
+          <ui-menu-item value="cut"><ui-icon size="small">scissors</ui-icon> Cut</ui-menu-item>
+          <ui-menu-item value="copy"><ui-icon size="small">copy</ui-icon> Copy</ui-menu-item>
+          <ui-menu-item value="paste"><ui-icon size="small">clipboard</ui-icon> Paste</ui-menu-item>
+          <ui-menu-item divider></ui-menu-item>
+          <ui-menu-item value="delete">Delete</ui-menu-item>
+        </ui-menu>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  const el = document.getElementById('pg-menu');
+  const btn = document.getElementById('pg-menu-btn');
+  const bg = document.getElementById('pg-menu-bg');
+  const color = document.getElementById('pg-menu-color');
+  const size = document.getElementById('pg-menu-size');
+  const elev = document.getElementById('pg-menu-elev');
+  if (!el || !btn) return;
+
+  const setOrRemove = (attr, val) => val ? el.setAttribute(attr, val) : el.removeAttribute(attr);
+
+  btn.addEventListener('click', (e) => el.show(e.clientX, e.clientY));
+
+  const listen = (ctrl, attr) => {
+    ctrl?.addEventListener('ui-input', function() { setOrRemove(attr, (this.value || '').trim()); });
+    ctrl?.addEventListener('ui-change', function() { setOrRemove(attr, (this.value || '').trim()); });
+  };
+
+  listen(bg, 'background');
+  listen(color, 'color');
+  listen(size, 'size');
+  listen(elev, 'elevation');
+})();
+</script>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── API Reference ──────────────────────────────────── -->
+<ui-text type="heading" size="large">API Reference</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<ui-text type="heading" size="medium">ui-menu</ui-text>
+<ui-layout-spacer size="0.5em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead><tr><th>Attribute</th><th>Type</th><th>Default</th><th>Description</th></tr></thead>
+    <tbody>
+      <tr><td><code>target</code></td><td>String</td><td>—</td><td>CSS selector for the right-click target element</td></tr>
+      <tr><td><code>elevation</code></td><td>String</td><td>3</td><td>Shadow depth (1–5)</td></tr>
+      <tr><td><code>size</code></td><td>String</td><td>—</td><td>Font size (keyword or CSS length)</td></tr>
+      <tr><td><code>background</code></td><td>String</td><td>—</td><td>Menu background colour (palette token or CSS colour)</td></tr>
+      <tr><td><code>color</code></td><td>String</td><td>—</td><td>Menu text colour (palette token or CSS colour)</td></tr>
+      <tr><td><code>open</code></td><td>Boolean</td><td>false</td><td>Whether the menu is currently visible</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="1em"></ui-layout-spacer>
+
+<ui-text type="heading" size="medium">ui-menu-item</ui-text>
+<ui-layout-spacer size="0.5em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead><tr><th>Attribute</th><th>Type</th><th>Default</th><th>Description</th></tr></thead>
+    <tbody>
+      <tr><td><code>value</code></td><td>String</td><td>—</td><td>Item value emitted in <code>ui-select</code> event</td></tr>
+      <tr><td><code>disabled</code></td><td>Boolean</td><td>false</td><td>Disable this item (greyed out, not clickable)</td></tr>
+      <tr><td><code>divider</code></td><td>Boolean</td><td>false</td><td>Render as a horizontal separator line</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="1em"></ui-layout-spacer>
+
+<ui-text type="heading" size="medium">Methods</ui-text>
+<ui-layout-spacer size="0.5em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead><tr><th>Method</th><th>Description</th></tr></thead>
+    <tbody>
+      <tr><td><code>show(x, y)</code></td><td>Open the menu at viewport coordinates (x, y)</td></tr>
+      <tr><td><code>hide()</code></td><td>Close the menu</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Events ─────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Events</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead><tr><th>Event</th><th>Detail</th><th>Description</th></tr></thead>
+    <tbody>
+      <tr><td><code>ui-select</code></td><td><code>{ value, item }</code></td><td>Emitted when a menu item is clicked</td></tr>
+      <tr><td><code>ui-open</code></td><td>—</td><td>Emitted when the menu opens</td></tr>
+      <tr><td><code>ui-close</code></td><td>—</td><td>Emitted when the menu closes</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>

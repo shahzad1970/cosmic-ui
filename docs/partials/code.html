@@ -1,0 +1,401 @@
+<!-- ============================================================
+     Code Editor — Component Documentation
+     ============================================================ -->
+
+<ui-layout-stack gap="0.25em" style="margin-bottom:2em;">
+  <ui-text type="heading" size="xx-large">Code Editor</ui-text>
+  <ui-text type="paragraph" color="gray-500">
+    <code>&lt;ui-input-code&gt;</code> is a CodeMirror-powered editor with syntax
+    highlighting and line numbers, loaded only when used. Dark theme is enabled
+    by default.
+  </ui-text>
+</ui-layout-stack>
+
+<!-- ── Basic Usage ────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Basic Usage</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Provide a JSON string as the value and pick a language. The editor defaults to
+  dark mode with the Catppuccin Mocha colour scheme.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-input-code id="code-basic" language="json" height="12em"></ui-input-code>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-input-code language="json" height="12em"&gt;&lt;/ui-input-code&gt;</ui-input-code>
+</div>
+
+<script>
+(function() {
+  const editor = document.getElementById('code-basic');
+  if (!editor) return;
+  editor.value = `{
+  "type": "bar",
+  "data": {
+    "labels": ["A", "B", "C"],
+    "datasets": [{ "label": "Series", "data": [12, 18, 9] }]
+  }
+}`;
+})();
+</script>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Inline Content ─────────────────────────────────────── -->
+<ui-text type="heading" size="large">Inline Content (textContent)</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Place code directly inside the element as text content. Leading indentation is
+  automatically stripped. Combined with <code>height="auto"</code> the editor
+  sizes to fit its content — ideal for read-only code samples.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-input-code language="javascript" readonly height="auto">const greeting = "Hello, Cosmic UI!";
+console.log(greeting);</ui-input-code>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-input-code language="javascript" readonly height="auto"&gt;
+const greeting = "Hello, Cosmic UI!";
+console.log(greeting);
+&lt;/ui-input-code&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Languages ──────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Languages</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Supported languages: <code>json</code>, <code>javascript</code> (or <code>js</code>),
+  <code>html</code>, <code>css</code>, and <code>xml</code>. Each gets full syntax highlighting.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack gap="1em">
+      <ui-input-code language="javascript" readonly height="auto" label="JavaScript">function hello(name) {
+  return `Hello, ${name}!`;
+}</ui-input-code>
+      <ui-input-code language="css" readonly height="auto" label="CSS">.card {
+  background: var(--ui-bg);
+  border-radius: 0.5em;
+  padding: 1em;
+}</ui-input-code>
+      <ui-input-code language="html" readonly height="auto" label="HTML">&lt;ui-button background="indigo-600" color="white"&gt;
+  Click me
+&lt;/ui-button&gt;</ui-input-code>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-input-code language="javascript" label="JavaScript"&gt;...&lt;/ui-input-code&gt;
+&lt;ui-input-code language="css" label="CSS"&gt;...&lt;/ui-input-code&gt;
+&lt;ui-input-code language="html" label="HTML"&gt;...&lt;/ui-input-code&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Light Theme ────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Light Theme</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Remove the <code>dark</code> attribute for a light editor.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-input-code id="code-light" language="json" height="6em"></ui-input-code>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-input-code language="json" height="6em"&gt;&lt;/ui-input-code&gt;
+&lt;script&gt;
+  document.querySelector('ui-input-code').removeAttribute('dark');
+&lt;/script&gt;</ui-input-code>
+</div>
+
+<script>
+(function() {
+  const editor = document.getElementById('code-light');
+  if (!editor) return;
+  editor.removeAttribute('dark');
+  editor.value = '{ "theme": "light", "accent": "#6366f1" }';
+})();
+</script>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Label & Placeholder ────────────────────────────────── -->
+<ui-text type="heading" size="large">Label &amp; Placeholder</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Add a <code>label</code> above the editor and a <code>placeholder</code> shown when empty.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-input-code label="Configuration" placeholder="Paste JSON here…" height="6em"></ui-input-code>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-input-code label="Configuration" placeholder="Paste JSON here…" height="6em"&gt;&lt;/ui-input-code&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Read-only & Disabled ───────────────────────────────── -->
+<ui-text type="heading" size="large">Read-only &amp; Disabled</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Use <code>readonly</code> to prevent editing while keeping the editor interactive
+  (selectable text, scrollable). Use <code>disabled</code> to grey out entirely.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack gap="1em">
+      <ui-input-code language="javascript" readonly height="auto" label="Read-only">const PI = 3.14159265;</ui-input-code>
+      <ui-input-code language="javascript" disabled height="auto" label="Disabled">const PI = 3.14159265;</ui-input-code>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-input-code readonly label="Read-only"&gt;...&lt;/ui-input-code&gt;
+&lt;ui-input-code disabled label="Disabled"&gt;...&lt;/ui-input-code&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Sizes ──────────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Sizes</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  The <code>size</code> attribute controls font size. Use named keywords
+  (<code>small</code>, <code>large</code>, etc.) or any CSS length.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack gap="1em">
+      <ui-input-code language="json" readonly height="auto" size="small" label="Small">{ "size": "small" }</ui-input-code>
+      <ui-input-code language="json" readonly height="auto" label="Default">{ "size": "default" }</ui-input-code>
+      <ui-input-code language="json" readonly height="auto" size="large" label="Large">{ "size": "large" }</ui-input-code>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-input-code size="small" label="Small"&gt;...&lt;/ui-input-code&gt;
+&lt;ui-input-code label="Default"&gt;...&lt;/ui-input-code&gt;
+&lt;ui-input-code size="large" label="Large"&gt;...&lt;/ui-input-code&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Playground ─────────────────────────────────────────── -->
+<ui-text type="heading" size="large">
+  <ui-icon color="indigo-500">play-circle</ui-icon>
+  Playground
+</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Change every attribute and see the editor update.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="playground">
+  <div class="playground-controls">
+    <ui-card elevation="1">
+      <ui-card-body>
+        <ui-text type="heading" size="small">Controls</ui-text>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-textarea id="code-value" label="Value" rows="6"></ui-input-textarea>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-select id="code-language" label="Language" size="small" value="json">
+          <option value="json">json</option>
+          <option value="javascript">javascript</option>
+          <option value="html">html</option>
+          <option value="css">css</option>
+          <option value="xml">xml</option>
+        </ui-input-select>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input id="code-height" label="Height" size="small" value="14em"></ui-input>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-select id="code-size" label="Size" size="small" placeholder="Default">
+          <option value="">Default</option>
+          <option value="xx-small">xx-small</option>
+          <option value="x-small">x-small</option>
+          <option value="small">small</option>
+          <option value="medium">medium</option>
+          <option value="large">large</option>
+          <option value="x-large">x-large</option>
+          <option value="xx-large">xx-large</option>
+        </ui-input-select>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input id="code-label" label="Label" size="small" placeholder="Editor label"></ui-input>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input id="code-placeholder" label="Placeholder" size="small" placeholder="Placeholder text"></ui-input>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input id="code-tab-size" label="Tab Size" size="small" value="2"></ui-input>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-checkbox id="code-line-numbers" label="Line Numbers" checked></ui-input-checkbox>
+        <ui-layout-spacer size="0.25em"></ui-layout-spacer>
+        <ui-input-checkbox id="code-wrap" label="Line Wrapping"></ui-input-checkbox>
+        <ui-layout-spacer size="0.25em"></ui-layout-spacer>
+        <ui-input-checkbox id="code-dark" label="Dark" checked></ui-input-checkbox>
+        <ui-layout-spacer size="0.25em"></ui-layout-spacer>
+        <ui-input-checkbox id="code-readonly" label="Read-only"></ui-input-checkbox>
+        <ui-layout-spacer size="0.25em"></ui-layout-spacer>
+        <ui-input-checkbox id="code-disabled" label="Disabled"></ui-input-checkbox>
+      </ui-card-body>
+    </ui-card>
+  </div>
+
+  <div class="playground-preview">
+    <div class="demo-card">
+      <div class="demo-preview">
+        <ui-input-code id="code-playground" language="json" height="14em"></ui-input-code>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  const editor = document.getElementById('code-playground');
+  const valueInput = document.getElementById('code-value');
+  const language = document.getElementById('code-language');
+  const height = document.getElementById('code-height');
+  const sizeInput = document.getElementById('code-size');
+  const labelInput = document.getElementById('code-label');
+  const phInput = document.getElementById('code-placeholder');
+  const tabSizeInput = document.getElementById('code-tab-size');
+  const lineNumbers = document.getElementById('code-line-numbers');
+  const wrapCheck = document.getElementById('code-wrap');
+  const darkCheck = document.getElementById('code-dark');
+  const readonlyCheck = document.getElementById('code-readonly');
+  const disabledCheck = document.getElementById('code-disabled');
+
+  if (!editor || !valueInput) return;
+
+  const initialValue = `{
+  "type": "line",
+  "data": {
+    "labels": ["Mon", "Tue", "Wed", "Thu", "Fri"],
+    "datasets": [{ "label": "Sales", "data": [6, 12, 8, 16, 10] }]
+  }
+}`;
+  editor.value = initialValue;
+  valueInput.value = initialValue;
+
+  const setOrRemove = (el, attr, val) => {
+    if (val) el.setAttribute(attr, val); else el.removeAttribute(attr);
+  };
+
+  const update = () => {
+    setOrRemove(editor, 'language', (language?.value || '').trim());
+    setOrRemove(editor, 'height', (height?.value || '').trim());
+    setOrRemove(editor, 'size', (sizeInput?.value || '').trim());
+    setOrRemove(editor, 'label', (labelInput?.value || '').trim());
+    setOrRemove(editor, 'placeholder', (phInput?.value || '').trim());
+    const ts = parseInt(tabSizeInput?.value, 10);
+    if (ts > 0) editor.setAttribute('tab-size', String(ts)); else editor.removeAttribute('tab-size');
+  };
+
+  const updateValue = () => {
+    editor.value = valueInput.value || '';
+  };
+
+  const updateFlags = () => {
+    if (lineNumbers?.checked) editor.setAttribute('line-numbers', ''); else editor.removeAttribute('line-numbers');
+    if (wrapCheck?.checked) editor.setAttribute('wrap', ''); else editor.removeAttribute('wrap');
+    if (darkCheck?.checked) editor.setAttribute('dark', ''); else editor.removeAttribute('dark');
+    if (readonlyCheck?.checked) editor.setAttribute('readonly', ''); else editor.removeAttribute('readonly');
+    if (disabledCheck?.checked) editor.setAttribute('disabled', ''); else editor.removeAttribute('disabled');
+  };
+
+  const listen = (el, fn) => {
+    if (!el) return;
+    el.addEventListener('ui-input', fn);
+    el.addEventListener('ui-change', fn);
+  };
+
+  listen(valueInput, updateValue);
+  listen(language, update);
+  listen(height, update);
+  listen(sizeInput, update);
+  listen(labelInput, update);
+  listen(phInput, update);
+  listen(tabSizeInput, update);
+  if (lineNumbers) lineNumbers.addEventListener('ui-change', updateFlags);
+  if (wrapCheck) wrapCheck.addEventListener('ui-change', updateFlags);
+  if (darkCheck) darkCheck.addEventListener('ui-change', updateFlags);
+  if (readonlyCheck) readonlyCheck.addEventListener('ui-change', updateFlags);
+  if (disabledCheck) disabledCheck.addEventListener('ui-change', updateFlags);
+
+  update();
+  updateFlags();
+  updateValue();
+})();
+</script>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── API Reference ──────────────────────────────────────── -->
+<ui-text type="heading" size="large">API Reference</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead>
+      <tr><th>Attribute</th><th>Type</th><th>Default</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>value</code></td><td>String</td><td>—</td><td>Editor content (JS property, not reflected). Also reads initial <code>textContent</code>.</td></tr>
+      <tr><td><code>language</code></td><td>String</td><td><code>json</code></td><td>Language id — <code>json</code>, <code>javascript</code> (<code>js</code>), <code>html</code>, <code>css</code>, <code>xml</code></td></tr>
+      <tr><td><code>height</code></td><td>String</td><td><code>12em</code></td><td>Editor height. Use <code>auto</code> to fit content.</td></tr>
+      <tr><td><code>size</code></td><td>String</td><td>—</td><td>Font size (named keyword or CSS length)</td></tr>
+      <tr><td><code>dark</code></td><td>Boolean</td><td><code>true</code></td><td>Dark editor theme (Catppuccin Mocha)</td></tr>
+      <tr><td><code>label</code></td><td>String</td><td>—</td><td>Label text above the editor</td></tr>
+      <tr><td><code>placeholder</code></td><td>String</td><td>—</td><td>Placeholder text when empty</td></tr>
+      <tr><td><code>line-numbers</code></td><td>Boolean</td><td><code>true</code></td><td>Show line numbers</td></tr>
+      <tr><td><code>wrap</code></td><td>Boolean</td><td><code>false</code></td><td>Enable line wrapping</td></tr>
+      <tr><td><code>readonly</code></td><td>Boolean</td><td><code>false</code></td><td>Read-only mode</td></tr>
+      <tr><td><code>disabled</code></td><td>Boolean</td><td><code>false</code></td><td>Disables the editor (greyed out, no interaction)</td></tr>
+      <tr><td><code>tab-size</code></td><td>Number</td><td><code>2</code></td><td>Tab / indent width</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Events ─────────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Events</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead>
+      <tr><th>Event</th><th>Detail</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>ui-input</code></td><td><code>{ value }</code></td><td>Fires on every keystroke / content change</td></tr>
+      <tr><td><code>ui-change</code></td><td><code>{ value }</code></td><td>Fires on blur (final value)</td></tr>
+      <tr><td><code>ui-focus</code></td><td>—</td><td>Editor gained focus</td></tr>
+      <tr><td><code>ui-blur</code></td><td>—</td><td>Editor lost focus</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── CSS Parts ──────────────────────────────────────────── -->
+<ui-text type="heading" size="large">CSS Parts</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead>
+      <tr><th>Part</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>label</code></td><td>The label element above the editor</td></tr>
+      <tr><td><code>frame</code></td><td>The outer frame wrapping the editor</td></tr>
+      <tr><td><code>textarea</code></td><td>The underlying <code>&lt;textarea&gt;</code> (fallback / CodeMirror source)</td></tr>
+      <tr><td><code>loading</code></td><td>Loading overlay shown while CodeMirror initialises</td></tr>
+      <tr><td><code>error</code></td><td>Error overlay shown if CodeMirror fails to load</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>

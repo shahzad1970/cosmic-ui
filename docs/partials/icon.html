@@ -1,0 +1,351 @@
+<!-- ============================================================
+     Icon — Component Documentation
+     ============================================================ -->
+
+<ui-layout-stack gap="0.25em" style="margin-bottom:2em;">
+  <ui-text type="heading" size="xx-large">Icon</ui-text>
+  <ui-text type="paragraph" color="gray-500">
+    <code>&lt;ui-icon&gt;</code> renders SVG icons from built-in sets with
+    size, colour, spin, and accessibility controls.
+  </ui-text>
+</ui-layout-stack>
+
+<ui-text type="heading" size="large">Basic Usage</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Icon name is the text content of the element. Icons inherit <code>currentColor</code> by default.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack direction="horizontal" gap="0.75em" align="center">
+      <ui-icon size="large">check</ui-icon>
+      <ui-icon size="large">star</ui-icon>
+      <ui-icon size="large">heart</ui-icon>
+      <ui-icon size="large">bell</ui-icon>
+      <ui-icon size="large">settings</ui-icon>
+      <ui-icon size="large">search</ui-icon>
+      <ui-icon size="large">home</ui-icon>
+      <ui-icon size="large">mail</ui-icon>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-icon&gt;check&lt;/ui-icon&gt;
+&lt;ui-icon&gt;star&lt;/ui-icon&gt;
+&lt;ui-icon&gt;heart&lt;/ui-icon&gt;
+&lt;ui-icon&gt;bell&lt;/ui-icon&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<ui-text type="heading" size="large">Sizes</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Use named keywords (<code>xx-small</code> through <code>xxx-large</code>) or any CSS length.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack direction="horizontal" gap="1em" align="center">
+      <ui-layout-stack align="center" gap="0.25em">
+        <ui-icon size="xx-small">star</ui-icon>
+        <ui-text size="xx-small" color="gray-400">xx-small</ui-text>
+      </ui-layout-stack>
+      <ui-layout-stack align="center" gap="0.25em">
+        <ui-icon size="x-small">star</ui-icon>
+        <ui-text size="xx-small" color="gray-400">x-small</ui-text>
+      </ui-layout-stack>
+      <ui-layout-stack align="center" gap="0.25em">
+        <ui-icon size="small">star</ui-icon>
+        <ui-text size="xx-small" color="gray-400">small</ui-text>
+      </ui-layout-stack>
+      <ui-layout-stack align="center" gap="0.25em">
+        <ui-icon size="medium">star</ui-icon>
+        <ui-text size="xx-small" color="gray-400">medium</ui-text>
+      </ui-layout-stack>
+      <ui-layout-stack align="center" gap="0.25em">
+        <ui-icon size="large">star</ui-icon>
+        <ui-text size="xx-small" color="gray-400">large</ui-text>
+      </ui-layout-stack>
+      <ui-layout-stack align="center" gap="0.25em">
+        <ui-icon size="x-large">star</ui-icon>
+        <ui-text size="xx-small" color="gray-400">x-large</ui-text>
+      </ui-layout-stack>
+      <ui-layout-stack align="center" gap="0.25em">
+        <ui-icon size="xx-large">star</ui-icon>
+        <ui-text size="xx-small" color="gray-400">xx-large</ui-text>
+      </ui-layout-stack>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-icon size="xx-small"&gt;star&lt;/ui-icon&gt;
+&lt;ui-icon size="small"&gt;star&lt;/ui-icon&gt;
+&lt;ui-icon size="large"&gt;star&lt;/ui-icon&gt;
+&lt;ui-icon size="xx-large"&gt;star&lt;/ui-icon&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<ui-text type="heading" size="large">Colours</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Use palette tokens or any CSS colour value.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack direction="horizontal" gap="0.75em" align="center">
+      <ui-icon size="x-large" color="rose-500">heart</ui-icon>
+      <ui-icon size="x-large" color="amber-500">star</ui-icon>
+      <ui-icon size="x-large" color="emerald-500">check-circle</ui-icon>
+      <ui-icon size="x-large" color="indigo-500">zap</ui-icon>
+      <ui-icon size="x-large" color="sky-500">cloud</ui-icon>
+      <ui-icon size="x-large" color="fuchsia-500">sparkles</ui-icon>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-icon color="rose-500"&gt;heart&lt;/ui-icon&gt;
+&lt;ui-icon color="amber-500"&gt;star&lt;/ui-icon&gt;
+&lt;ui-icon color="emerald-500"&gt;check-circle&lt;/ui-icon&gt;
+&lt;ui-icon color="indigo-500"&gt;zap&lt;/ui-icon&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<ui-text type="heading" size="large">Spin &amp; Stroke</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Use <code>spin</code> for loading indicators. Override <code>stroke</code> weight for thicker/thinner lines.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack direction="horizontal" gap="1.5em" align="center">
+      <ui-layout-stack align="center" gap="0.25em">
+        <ui-icon size="x-large" spin>loader</ui-icon>
+        <ui-text size="xx-small" color="gray-400">spin</ui-text>
+      </ui-layout-stack>
+      <ui-layout-stack align="center" gap="0.25em">
+        <ui-icon size="x-large" spin color="indigo-500">refresh-cw</ui-icon>
+        <ui-text size="xx-small" color="gray-400">spin + colour</ui-text>
+      </ui-layout-stack>
+      <ui-layout-stack align="center" gap="0.25em">
+        <ui-icon size="x-large" stroke="1">star</ui-icon>
+        <ui-text size="xx-small" color="gray-400">stroke 1</ui-text>
+      </ui-layout-stack>
+      <ui-layout-stack align="center" gap="0.25em">
+        <ui-icon size="x-large" stroke="3">star</ui-icon>
+        <ui-text size="xx-small" color="gray-400">stroke 3</ui-text>
+      </ui-layout-stack>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-icon spin&gt;loader&lt;/ui-icon&gt;
+&lt;ui-icon spin color="indigo-500"&gt;refresh-cw&lt;/ui-icon&gt;
+&lt;ui-icon stroke="1"&gt;star&lt;/ui-icon&gt;
+&lt;ui-icon stroke="3"&gt;star&lt;/ui-icon&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<ui-text type="heading" size="large">Icon Sets</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Switch between built-in sets (Lucide, Heroicons) or register custom sets.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack direction="horizontal" gap="1.5em" align="center">
+      <ui-layout-stack align="center" gap="0.25em">
+        <ui-icon set="lucide" size="x-large">bell</ui-icon>
+        <ui-text size="xx-small" color="gray-400">lucide</ui-text>
+      </ui-layout-stack>
+      <ui-layout-stack align="center" gap="0.25em">
+        <ui-icon set="heroicons" size="x-large">bell-alert</ui-icon>
+        <ui-text size="xx-small" color="gray-400">heroicons</ui-text>
+      </ui-layout-stack>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-icon set="lucide"&gt;bell&lt;/ui-icon&gt;
+&lt;ui-icon set="heroicons"&gt;bell-alert&lt;/ui-icon&gt;
+
+&lt;!-- Register a custom set --&gt;
+&lt;script&gt;
+  import { UIIcon } from 'ui-components';
+  UIIcon.registerSet('my-icons', { basePath: '/assets/icons/' });
+&lt;/script&gt;
+&lt;ui-icon set="my-icons"&gt;logo&lt;/ui-icon&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<ui-text type="heading" size="large">Inline with Text</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Icons are inline-flex and vertically centred, so they sit naturally alongside text.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack gap="0.5em">
+      <ui-text><ui-icon color="emerald-500">check-circle</ui-icon> Task completed successfully</ui-text>
+      <ui-text><ui-icon color="amber-500">alert-triangle</ui-icon> Warning: check your input</ui-text>
+      <ui-text><ui-icon color="rose-500">x-circle</ui-icon> Error: something went wrong</ui-text>
+      <ui-text size="small" muted><ui-icon>clock</ui-icon> Last updated 5 minutes ago</ui-text>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-text&gt;&lt;ui-icon color="emerald-500"&gt;check-circle&lt;/ui-icon&gt; Task completed&lt;/ui-text&gt;
+&lt;ui-text&gt;&lt;ui-icon color="amber-500"&gt;alert-triangle&lt;/ui-icon&gt; Warning&lt;/ui-text&gt;
+&lt;ui-text&gt;&lt;ui-icon color="rose-500"&gt;x-circle&lt;/ui-icon&gt; Error&lt;/ui-text&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Playground ─────────────────────────────────────────── -->
+<ui-text type="heading" size="large">
+  <ui-icon color="indigo-500">play-circle</ui-icon>
+  Playground
+</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Adjust icon properties interactively.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="playground">
+  <div class="playground-controls">
+    <ui-card elevation="1">
+      <ui-card-body>
+        <ui-text type="heading" size="small">Controls</ui-text>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input id="icon-name" label="Icon Name" size="small" value="sparkles"></ui-input>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-color id="icon-color" label="Color" size="small" placeholder="e.g. indigo-500"></ui-input-color>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-select id="icon-size" label="Size" size="small" value="x-large">
+          <option value="xx-small">xx-small</option>
+          <option value="x-small">x-small</option>
+          <option value="small">small</option>
+          <option value="medium">medium</option>
+          <option value="large">large</option>
+          <option value="x-large">x-large</option>
+          <option value="xx-large">xx-large</option>
+          <option value="xxx-large">xxx-large</option>
+        </ui-input-select>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-select id="icon-set" label="Set" size="small" value="lucide">
+          <option value="lucide">lucide</option>
+          <option value="heroicons">heroicons</option>
+        </ui-input-select>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-select id="icon-stroke" label="Stroke" size="small">
+          <option value="">— (default)</option>
+          <option value="1">1 (thin)</option>
+          <option value="1.5">1.5</option>
+          <option value="2">2 (default)</option>
+          <option value="2.5">2.5</option>
+          <option value="3">3 (thick)</option>
+        </ui-input-select>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-checkbox id="icon-spin" label="Spin"></ui-input-checkbox>
+      </ui-card-body>
+    </ui-card>
+  </div>
+
+  <div class="playground-preview">
+    <div class="demo-card">
+      <div class="demo-preview">
+        <ui-icon id="icon-playground" size="x-large">sparkles</ui-icon>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  const el = document.getElementById('icon-playground');
+  if (!el) return;
+
+  /* Name input */
+  const nameCtrl = document.getElementById('icon-name');
+  if (nameCtrl) {
+    const updateName = () => { el.textContent = (nameCtrl.value || 'sparkles').trim() || 'sparkles'; };
+    nameCtrl.addEventListener('ui-input', updateName);
+    nameCtrl.addEventListener('ui-change', updateName);
+  }
+
+  /* Colour input */
+  const colorCtrl = document.getElementById('icon-color');
+  if (colorCtrl) {
+    const updateColor = () => {
+      const val = (colorCtrl.value || '').trim();
+      if (val) el.setAttribute('color', val);
+      else el.removeAttribute('color');
+    };
+    colorCtrl.addEventListener('ui-input', updateColor);
+    colorCtrl.addEventListener('ui-change', updateColor);
+  }
+
+  /* Select-based attrs */
+  const selects = {
+    'icon-size':   'size',
+    'icon-set':    'set',
+    'icon-stroke': 'stroke',
+  };
+  Object.entries(selects).forEach(([id, attr]) => {
+    const ctrl = document.getElementById(id);
+    if (!ctrl) return;
+    ctrl.addEventListener('ui-change', () => {
+      const val = (ctrl.value || '').trim();
+      if (val) el.setAttribute(attr, val);
+      else el.removeAttribute(attr);
+    });
+  });
+
+  /* Spin checkbox */
+  const spinCtrl = document.getElementById('icon-spin');
+  if (spinCtrl) {
+    spinCtrl.addEventListener('ui-change', () => {
+      if (spinCtrl.checked) el.setAttribute('spin', '');
+      else el.removeAttribute('spin');
+    });
+  }
+})();
+</script>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<ui-text type="heading" size="large">API Reference</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead>
+      <tr><th>Attribute</th><th>Type</th><th>Default</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>src</code></td><td>String</td><td>—</td><td>Direct URL to an SVG file (bypasses set lookup)</td></tr>
+      <tr><td><code>set</code></td><td>String</td><td>lucide</td><td>Icon set: <code>lucide</code>, <code>heroicons</code>, or a custom-registered set</td></tr>
+      <tr><td><code>color</code></td><td>String</td><td>currentColor</td><td>Icon colour (palette token or CSS colour)</td></tr>
+      <tr><td><code>size</code></td><td>String</td><td>1em</td><td>Icon size (named keyword or CSS length)</td></tr>
+      <tr><td><code>label</code></td><td>String</td><td>—</td><td>Accessible label (adds <code>role="img"</code> + <code>aria-label</code>)</td></tr>
+      <tr><td><code>spin</code></td><td>Boolean</td><td>false</td><td>Continuously rotate the icon (loading indicators)</td></tr>
+      <tr><td><code>stroke</code></td><td>Number</td><td>0</td><td>Override the SVG <code>stroke-width</code> (0 = use icon default)</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="1em"></ui-layout-spacer>
+
+<ui-text type="heading" size="medium">Static Methods</ui-text>
+<ui-layout-spacer size="0.5em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead><tr><th>Method</th><th>Description</th></tr></thead>
+    <tbody>
+      <tr><td><code>UIIcon.registerSet(name, { basePath })</code></td><td>Register a custom icon set with base URL for SVG files</td></tr>
+      <tr><td><code>UIIcon.useSet(name)</code></td><td>Change the global default icon set</td></tr>
+      <tr><td><code>UIIcon.register(name, svg, set?)</code></td><td>Pre-cache an inline SVG icon</td></tr>
+      <tr><td><code>UIIcon.clearCache(set?)</code></td><td>Clear cached SVGs (optionally by set)</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>

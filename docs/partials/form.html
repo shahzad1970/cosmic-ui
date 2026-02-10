@@ -1,0 +1,355 @@
+<!-- ============================================================
+     Form — Component Documentation
+     ============================================================ -->
+
+<ui-layout-stack gap="0.25em" style="margin-bottom:2em;">
+  <ui-text type="heading" size="xx-large">Form</ui-text>
+  <ui-text type="paragraph" color="gray-500">
+    <code>&lt;ui-form&gt;</code> collects values from child <code>ui-input-*</code>
+    components, validates required fields, and can submit data as JSON to a server
+    with a single attribute — no manual <code>fetch()</code> wiring needed.
+  </ui-text>
+</ui-layout-stack>
+
+<!-- ── Basic Usage ────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Basic Usage</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Wrap named inputs inside <code>&lt;ui-form&gt;</code> and add a
+  <code>&lt;ui-button type="submit"&gt;</code>. The form auto-validates
+  required fields on submit and shows inline error messages.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-form id="form-demo-basic">
+      <ui-layout-stack gap="0.75em">
+        <ui-input name="email" label="Email" type="email" required></ui-input>
+        <ui-input name="password" label="Password" type="password" required></ui-input>
+        <ui-input-checkbox name="terms" label="Accept terms" required></ui-input-checkbox>
+        <ui-layout-stack direction="horizontal" gap="0.5em">
+          <ui-button type="submit" background="indigo-600">Submit</ui-button>
+          <ui-button id="form-demo-reset" background="gray-200">Reset</ui-button>
+        </ui-layout-stack>
+      </ui-layout-stack>
+    </ui-form>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-form&gt;
+  &lt;ui-input name="email" label="Email" type="email" required&gt;&lt;/ui-input&gt;
+  &lt;ui-input name="password" label="Password" type="password" required&gt;&lt;/ui-input&gt;
+  &lt;ui-input-checkbox name="terms" label="Accept terms" required&gt;&lt;/ui-input-checkbox&gt;
+  &lt;ui-button type="submit" background="indigo-600"&gt;Submit&lt;/ui-button&gt;
+&lt;/ui-form&gt;</ui-input-code>
+</div>
+
+<script>
+(function() {
+  const resetBtn = document.getElementById('form-demo-reset');
+  const form = document.getElementById('form-demo-basic');
+  if (resetBtn && form) resetBtn.addEventListener('click', () => form.reset());
+})();
+</script>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── JSON Submission ────────────────────────────────────── -->
+<ui-text type="heading" size="large">JSON Submission</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Add an <code>action</code> attribute to automatically send form values as
+  JSON when the user clicks submit. The form sets <code>Content-Type: application/json</code>,
+  shows a loading state during the request, and emits <code>ui-response</code>
+  or <code>ui-error</code> when done.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <ui-input-code language="html" readonly height="auto">&lt;!-- Declarative: just set action and method --&gt;
+&lt;ui-form action="/api/users" method="POST"&gt;
+  &lt;ui-input name="name" label="Name" required&gt;&lt;/ui-input&gt;
+  &lt;ui-input name="email" label="Email" required&gt;&lt;/ui-input&gt;
+  &lt;ui-button type="submit"&gt;Create User&lt;/ui-button&gt;
+&lt;/ui-form&gt;
+
+&lt;script&gt;
+  const form = document.querySelector('ui-form');
+
+  // Success — server responded 2xx
+  form.addEventListener('ui-response', e =&gt; {
+    console.log(e.detail.data);   // parsed JSON response
+    console.log(e.detail.status); // 200, 201, etc.
+  });
+
+  // Error — server responded 4xx/5xx or network failure
+  form.addEventListener('ui-error', e =&gt; {
+    console.log(e.detail.data || e.detail.message);
+  });
+&lt;/script&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<ui-callout variant="info" size="small">
+  The form sends <code>JSON.stringify(form.getValues())</code> as the request body.
+  For example: <code>{"name":"Ada","email":"ada@example.com"}</code>.
+  The response is auto-parsed as JSON if the server returns <code>application/json</code>.
+</ui-callout>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Programmatic submitJson ────────────────────────────── -->
+<ui-text type="heading" size="large">Programmatic Submit</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Use <code>submitJson()</code> for full programmatic control. It validates,
+  sends JSON, and returns a promise with the result. You can pass the URL
+  directly, override the method, or add custom headers (e.g. auth tokens).
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <ui-input-code language="javascript" readonly height="auto">const form = document.querySelector('ui-form');
+
+// Simple — URL from action attribute
+const result = await form.submitJson();
+
+// Override URL and method
+const result = await form.submitJson('/api/users/42', {
+  method: 'PUT',
+  headers: { 'Authorization': 'Bearer token123' }
+});
+
+// Result shape
+if (result.ok) {
+  console.log(result.data);   // parsed server response
+  console.log(result.status); // 200
+} else {
+  console.log(result.error);  // Error object (network) or
+  console.log(result.data);   // server error body (4xx/5xx)
+}</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Validation ─────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Validation</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Required fields are validated on submit. The form sets <code>error</code>
+  attributes on failing inputs and fires <code>ui-invalid</code>. Add
+  <code>novalidate</code> to skip validation entirely.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview" style="display:flex;gap:1.5em;flex-wrap:wrap;">
+    <ui-form style="flex:1;min-width:14em;">
+      <ui-layout-stack gap="0.75em">
+        <ui-text type="heading" size="small">With validation</ui-text>
+        <ui-input name="name" label="Name" required></ui-input>
+        <ui-button type="submit" background="indigo-600" size="small">Submit</ui-button>
+      </ui-layout-stack>
+    </ui-form>
+    <ui-form novalidate style="flex:1;min-width:14em;">
+      <ui-layout-stack gap="0.75em">
+        <ui-text type="heading" size="small">No validation</ui-text>
+        <ui-input name="name" label="Name" required></ui-input>
+        <ui-button type="submit" background="indigo-600" size="small">Submit</ui-button>
+      </ui-layout-stack>
+    </ui-form>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;!-- With validation (default) --&gt;
+&lt;ui-form&gt;
+  &lt;ui-input name="name" label="Name" required&gt;&lt;/ui-input&gt;
+  &lt;ui-button type="submit"&gt;Submit&lt;/ui-button&gt;
+&lt;/ui-form&gt;
+
+&lt;!-- Skip validation --&gt;
+&lt;ui-form novalidate&gt;
+  &lt;ui-input name="name" label="Name" required&gt;&lt;/ui-input&gt;
+  &lt;ui-button type="submit"&gt;Submit&lt;/ui-button&gt;
+&lt;/ui-form&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Other Methods ──────────────────────────────────────── -->
+<ui-text type="heading" size="large">Other Methods</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Use <code>.getValues()</code> for a plain object, <code>.getFormData()</code>
+  for a <code>FormData</code> instance, <code>.validate()</code> to check fields,
+  and <code>.reset()</code> to clear.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <ui-input-code language="javascript" readonly height="auto">const form = document.querySelector('ui-form');
+
+// Get all values as { email: "...", password: "..." }
+const values = form.getValues();
+
+// Get as FormData (for multipart uploads, etc.)
+const fd = form.getFormData();
+
+// Validate programmatically
+const errors = form.validate();
+if (errors.length) console.log('Errors:', errors);
+
+// Reset all fields
+form.reset();</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Playground ─────────────────────────────────────────── -->
+<ui-text type="heading" size="large">
+  <ui-icon color="indigo-500">play-circle</ui-icon>
+  Playground
+</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Toggle disabled, validation, and loading. Try submitting with empty required fields.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="playground">
+  <div class="playground-controls">
+    <ui-card elevation="1">
+      <ui-card-body>
+        <ui-text type="heading" size="small">Controls</ui-text>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input id="form-action" label="Action URL" size="small" placeholder="/api/endpoint"></ui-input>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-select id="form-method" label="Method" size="small">
+          <option value="POST" selected>POST</option>
+          <option value="PUT">PUT</option>
+          <option value="PATCH">PATCH</option>
+        </ui-input-select>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-layout-stack gap="0.5em">
+          <ui-input-checkbox id="form-disabled" label="Disabled"></ui-input-checkbox>
+          <ui-input-checkbox id="form-novalidate" label="No Validate"></ui-input-checkbox>
+          <ui-input-checkbox id="form-loading" label="Loading"></ui-input-checkbox>
+        </ui-layout-stack>
+        <ui-layout-spacer size="1em"></ui-layout-spacer>
+        <ui-button id="form-pg-reset" size="small" background="gray-200">Reset Form</ui-button>
+      </ui-card-body>
+    </ui-card>
+  </div>
+
+  <div class="playground-preview">
+    <div class="demo-card">
+      <div class="demo-preview">
+        <ui-form id="form-playground">
+          <ui-layout-stack gap="0.75em">
+            <ui-input name="name" label="Name" required></ui-input>
+            <ui-input name="email" label="Email" type="email" required></ui-input>
+            <ui-input-select name="role" label="Role">
+              <option value="">Select…</option>
+              <option value="admin">Admin</option>
+              <option value="user">User</option>
+            </ui-input-select>
+            <ui-input-checkbox name="terms" label="Accept terms" required></ui-input-checkbox>
+            <ui-button type="submit" background="indigo-600">Submit</ui-button>
+          </ui-layout-stack>
+        </ui-form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  const form   = document.getElementById('form-playground');
+  const action = document.getElementById('form-action');
+  const method = document.getElementById('form-method');
+  const dis    = document.getElementById('form-disabled');
+  const nv     = document.getElementById('form-novalidate');
+  const load   = document.getElementById('form-loading');
+  const rst    = document.getElementById('form-pg-reset');
+
+  if (!form || !action || !method || !dis || !nv || !load || !rst) return;
+
+  const setOrRemove = (attr, v) => v ? form.setAttribute(attr, v) : form.removeAttribute(attr);
+  const listen = (ctrl, fn) => { ctrl.addEventListener('ui-input', fn); ctrl.addEventListener('ui-change', fn); };
+
+  listen(action, () => setOrRemove('action', action.value));
+  listen(method, () => setOrRemove('method', method.value));
+
+  dis.addEventListener('ui-change', () => {
+    if (dis.checked) form.setAttribute('disabled', '');
+    else form.removeAttribute('disabled');
+  });
+  nv.addEventListener('ui-change', () => {
+    if (nv.checked) form.setAttribute('novalidate', '');
+    else form.removeAttribute('novalidate');
+  });
+  load.addEventListener('ui-change', () => {
+    if (load.checked) form.setAttribute('loading', '');
+    else form.removeAttribute('loading');
+  });
+  rst.addEventListener('click', () => form.reset());
+})();
+</script>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── API Reference ──────────────────────────────────────── -->
+<ui-text type="heading" size="large">API Reference</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead>
+      <tr><th>Attribute</th><th>Type</th><th>Default</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>name</code></td><td>String</td><td>—</td><td>Form name</td></tr>
+      <tr><td><code>action</code></td><td>String</td><td>—</td><td>URL to send JSON data to on submit</td></tr>
+      <tr><td><code>method</code></td><td>String</td><td><code>POST</code></td><td>HTTP method (POST, PUT, PATCH, etc.)</td></tr>
+      <tr><td><code>disabled</code></td><td>Boolean</td><td><code>false</code></td><td>Disables all child inputs</td></tr>
+      <tr><td><code>loading</code></td><td>Boolean</td><td><code>false</code></td><td>Set during async submission (dims form)</td></tr>
+      <tr><td><code>novalidate</code></td><td>Boolean</td><td><code>false</code></td><td>Skip validation on submit</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="1em"></ui-layout-spacer>
+
+<ui-text type="heading" size="medium">Methods</ui-text>
+<ui-layout-spacer size="0.5em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead>
+      <tr><th>Method</th><th>Returns</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>getValues()</code></td><td><code>Object</code></td><td>Key-value map of all named inputs</td></tr>
+      <tr><td><code>getFormData()</code></td><td><code>FormData</code></td><td>FormData populated with input values</td></tr>
+      <tr><td><code>validate()</code></td><td><code>Array</code></td><td>Validates required fields, returns error objects</td></tr>
+      <tr><td><code>submit()</code></td><td><code>boolean</code></td><td>Validates and emits <code>ui-submit</code>; auto-sends JSON if <code>action</code> is set</td></tr>
+      <tr><td><code>submitJson(url?, opts?)</code></td><td><code>Promise</code></td><td>Validates and sends form values as JSON; returns <code>{ ok, status, data }</code></td></tr>
+      <tr><td><code>reset()</code></td><td>—</td><td>Clears all fields and auto-generated errors</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Events ──────────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Events</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead>
+      <tr><th>Event</th><th>Detail</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>ui-submit</code></td><td><code>{ values, formData }</code></td><td>Fires when form is submitted and valid</td></tr>
+      <tr><td><code>ui-response</code></td><td><code>{ ok, status, data, values }</code></td><td>Fires when server responds 2xx</td></tr>
+      <tr><td><code>ui-error</code></td><td><code>{ ok, status, data, values }</code></td><td>Fires on server error (4xx/5xx) or network failure</td></tr>
+      <tr><td><code>ui-invalid</code></td><td><code>{ errors }</code></td><td>Fires when validation fails on submit</td></tr>
+      <tr><td><code>ui-reset</code></td><td>—</td><td>Fires when the form is reset</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>

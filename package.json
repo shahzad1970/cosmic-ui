@@ -1,0 +1,44 @@
+{
+  "name": "@ui-components/core",
+  "version": "0.1.0",
+  "description": "Pure JavaScript custom web component library — zero dependencies, 50+ components, no build step required.",
+  "type": "module",
+  "main": "src/index.js",
+  "exports": {
+    ".": "./src/index.js",
+    "./button": "./src/components/button/button.js"
+  },
+  "files": [
+    "src/",
+    "LICENSE",
+    "README.md",
+    "CHANGELOG.md"
+  ],
+  "scripts": {
+    "dev": "node dev-server.js",
+    "lint": "npx eslint src/",
+    "test": "node --test test/**/*.test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nicokimmel/ui-components.git"
+  },
+  "homepage": "https://github.com/nicokimmel/ui-components#readme",
+  "bugs": {
+    "url": "https://github.com/nicokimmel/ui-components/issues"
+  },
+  "keywords": [
+    "web-components",
+    "custom-elements",
+    "ui",
+    "framework",
+    "shadow-dom",
+    "vanilla-js",
+    "zero-dependencies",
+    "design-system",
+    "component-library"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {}
+}

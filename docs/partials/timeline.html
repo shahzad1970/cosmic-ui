@@ -1,0 +1,466 @@
+<!-- ============================================================
+     Timeline — Component Documentation
+     ============================================================ -->
+
+<ui-layout-stack gap="0.25em" style="margin-bottom:2em;">
+  <ui-text type="heading" size="xx-large">Timeline</ui-text>
+  <ui-text type="paragraph" color="gray-500">
+    <code>&lt;ui-timeline&gt;</code> renders a vertical event timeline for activity feeds,
+    changelogs, and step-by-step histories. Each event is a
+    <code>&lt;ui-timeline-item&gt;</code> with an optional dot colour and icon.
+    Compose all content inside the default slot using <code>ui-*</code> components.
+  </ui-text>
+</ui-layout-stack>
+
+<ui-text type="heading" size="large">Basic Usage</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Place <code>&lt;ui-timeline-item&gt;</code> elements inside. Compose headings, timestamps,
+  and body content using <code>ui-text</code> and other components in the default slot.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-timeline>
+      <ui-timeline-item>
+        <ui-text type="heading" size="small">Project started</ui-text>
+        <ui-text size="x-small" color="gray-500">Jan 2024</ui-text>
+        <ui-text size="small">Initial commit and project setup.</ui-text>
+      </ui-timeline-item>
+      <ui-timeline-item color="amber-500">
+        <ui-text type="heading" size="small">Alpha release</ui-text>
+        <ui-text size="x-small" color="gray-500">Feb 2024</ui-text>
+        <ui-text size="small">First internal preview shared with team.</ui-text>
+      </ui-timeline-item>
+      <ui-timeline-item color="green-500" icon="check-circle">
+        <ui-text type="heading" size="small">v1.0 released</ui-text>
+        <ui-text size="x-small" color="gray-500">Mar 2024</ui-text>
+        <ui-text size="small">First stable release shipped to production.</ui-text>
+      </ui-timeline-item>
+      <ui-timeline-item color="blue-500">
+        <ui-text type="heading" size="small">v2.0 in progress</ui-text>
+        <ui-text size="x-small" color="gray-500">Now</ui-text>
+        <ui-text size="small">Major update with new components.</ui-text>
+      </ui-timeline-item>
+    </ui-timeline>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-timeline&gt;
+  &lt;ui-timeline-item&gt;
+    &lt;ui-text type="heading" size="small"&gt;Project started&lt;/ui-text&gt;
+    &lt;ui-text size="x-small" color="gray-500"&gt;Jan 2024&lt;/ui-text&gt;
+    &lt;ui-text size="small"&gt;Initial commit and project setup.&lt;/ui-text&gt;
+  &lt;/ui-timeline-item&gt;
+  &lt;ui-timeline-item color="amber-500"&gt;
+    &lt;ui-text type="heading" size="small"&gt;Alpha release&lt;/ui-text&gt;
+    &lt;ui-text size="x-small" color="gray-500"&gt;Feb 2024&lt;/ui-text&gt;
+    &lt;ui-text size="small"&gt;First internal preview.&lt;/ui-text&gt;
+  &lt;/ui-timeline-item&gt;
+  &lt;ui-timeline-item color="green-500" icon="check-circle"&gt;
+    &lt;ui-text type="heading" size="small"&gt;v1.0 released&lt;/ui-text&gt;
+    &lt;ui-text size="x-small" color="gray-500"&gt;Mar 2024&lt;/ui-text&gt;
+    &lt;ui-text size="small"&gt;Shipped to production.&lt;/ui-text&gt;
+  &lt;/ui-timeline-item&gt;
+&lt;/ui-timeline&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<ui-text type="heading" size="large">With Icons</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Use the <code>icon</code> attribute to display an icon inside the dot instead of a plain circle.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-timeline>
+      <ui-timeline-item icon="shopping-cart" color="indigo-500">
+        <ui-text type="heading" size="small">Order placed</ui-text>
+        <ui-text size="x-small" color="gray-500">10:00 AM</ui-text>
+        <ui-text size="small">Your order #4521 has been placed.</ui-text>
+      </ui-timeline-item>
+      <ui-timeline-item icon="credit-card" color="green-500">
+        <ui-text type="heading" size="small">Payment confirmed</ui-text>
+        <ui-text size="x-small" color="gray-500">10:02 AM</ui-text>
+        <ui-text size="small">Payment of $49.99 processed successfully.</ui-text>
+      </ui-timeline-item>
+      <ui-timeline-item icon="truck" color="blue-500">
+        <ui-text type="heading" size="small">Shipped</ui-text>
+        <ui-text size="x-small" color="gray-500">2:30 PM</ui-text>
+        <ui-text size="small">Package picked up by carrier.</ui-text>
+      </ui-timeline-item>
+      <ui-timeline-item icon="package" color="emerald-500">
+        <ui-text type="heading" size="small">Delivered</ui-text>
+        <ui-text size="x-small" color="gray-500">Next day</ui-text>
+        <ui-text size="small">Delivered to your doorstep.</ui-text>
+      </ui-timeline-item>
+    </ui-timeline>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-timeline&gt;
+  &lt;ui-timeline-item icon="shopping-cart" color="indigo-500"&gt;
+    &lt;ui-text type="heading" size="small"&gt;Order placed&lt;/ui-text&gt;
+    &lt;ui-text size="x-small" color="gray-500"&gt;10:00 AM&lt;/ui-text&gt;
+    &lt;ui-text size="small"&gt;Your order has been placed.&lt;/ui-text&gt;
+  &lt;/ui-timeline-item&gt;
+  &lt;ui-timeline-item icon="credit-card" color="green-500"&gt;
+    &lt;ui-text type="heading" size="small"&gt;Payment confirmed&lt;/ui-text&gt;
+    &lt;ui-text size="x-small" color="gray-500"&gt;10:02 AM&lt;/ui-text&gt;
+    &lt;ui-text size="small"&gt;Payment processed successfully.&lt;/ui-text&gt;
+  &lt;/ui-timeline-item&gt;
+&lt;/ui-timeline&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<ui-text type="heading" size="large">Line Colour</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Set <code>line-color</code> on the timeline to change the vertical line colour.
+  Individual item dots are controlled via <code>color</code>.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack direction="horizontal" gap="2em" wrap>
+      <ui-timeline line-color="indigo-300">
+        <ui-timeline-item color="indigo-500">
+          <ui-text type="heading" size="small">Step 1</ui-text>
+          <ui-text size="small">Design</ui-text>
+        </ui-timeline-item>
+        <ui-timeline-item color="indigo-500">
+          <ui-text type="heading" size="small">Step 2</ui-text>
+          <ui-text size="small">Develop</ui-text>
+        </ui-timeline-item>
+        <ui-timeline-item color="indigo-500">
+          <ui-text type="heading" size="small">Step 3</ui-text>
+          <ui-text size="small">Launch</ui-text>
+        </ui-timeline-item>
+      </ui-timeline>
+      <ui-timeline line-color="rose-300">
+        <ui-timeline-item color="rose-500">
+          <ui-text type="heading" size="small">Draft</ui-text>
+          <ui-text size="small">Write content</ui-text>
+        </ui-timeline-item>
+        <ui-timeline-item color="rose-500">
+          <ui-text type="heading" size="small">Review</ui-text>
+          <ui-text size="small">Peer feedback</ui-text>
+        </ui-timeline-item>
+        <ui-timeline-item color="rose-500">
+          <ui-text type="heading" size="small">Publish</ui-text>
+          <ui-text size="small">Go live</ui-text>
+        </ui-timeline-item>
+      </ui-timeline>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-timeline line-color="indigo-300"&gt;
+  &lt;ui-timeline-item color="indigo-500"&gt;
+    &lt;ui-text type="heading" size="small"&gt;Step 1&lt;/ui-text&gt;
+    &lt;ui-text size="small"&gt;Design&lt;/ui-text&gt;
+  &lt;/ui-timeline-item&gt;
+  &lt;ui-timeline-item color="indigo-500"&gt;
+    &lt;ui-text type="heading" size="small"&gt;Step 2&lt;/ui-text&gt;
+    &lt;ui-text size="small"&gt;Develop&lt;/ui-text&gt;
+  &lt;/ui-timeline-item&gt;
+&lt;/ui-timeline&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<ui-text type="heading" size="large">Alternate Layout</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Add <code>alternate</code> to alternate items left and right of a centred line.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-timeline alternate line-color="indigo-200">
+      <ui-timeline-item icon="search" color="indigo-500">
+        <ui-text type="heading" size="small">Q1 — Research</ui-text>
+        <ui-text size="x-small" color="gray-500">Jan–Mar</ui-text>
+        <ui-text size="small">Market analysis and user interviews.</ui-text>
+      </ui-timeline-item>
+      <ui-timeline-item icon="pen-tool" color="blue-500">
+        <ui-text type="heading" size="small">Q2 — Design</ui-text>
+        <ui-text size="x-small" color="gray-500">Apr–Jun</ui-text>
+        <ui-text size="small">Wireframes and prototypes.</ui-text>
+      </ui-timeline-item>
+      <ui-timeline-item icon="code" color="amber-500">
+        <ui-text type="heading" size="small">Q3 — Build</ui-text>
+        <ui-text size="x-small" color="gray-500">Jul–Sep</ui-text>
+        <ui-text size="small">Frontend and backend implementation.</ui-text>
+      </ui-timeline-item>
+      <ui-timeline-item icon="rocket" color="green-500">
+        <ui-text type="heading" size="small">Q4 — Launch</ui-text>
+        <ui-text size="x-small" color="gray-500">Oct–Dec</ui-text>
+        <ui-text size="small">Ship to production.</ui-text>
+      </ui-timeline-item>
+    </ui-timeline>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-timeline alternate line-color="indigo-200"&gt;
+  &lt;ui-timeline-item icon="search" color="indigo-500"&gt;
+    &lt;ui-text type="heading" size="small"&gt;Q1 — Research&lt;/ui-text&gt;
+    &lt;ui-text size="x-small" color="gray-500"&gt;Jan–Mar&lt;/ui-text&gt;
+    &lt;ui-text size="small"&gt;Market analysis.&lt;/ui-text&gt;
+  &lt;/ui-timeline-item&gt;
+  &lt;ui-timeline-item icon="pen-tool" color="blue-500"&gt;
+    &lt;ui-text type="heading" size="small"&gt;Q2 — Design&lt;/ui-text&gt;
+    &lt;ui-text size="x-small" color="gray-500"&gt;Apr–Jun&lt;/ui-text&gt;
+    &lt;ui-text size="small"&gt;Wireframes and prototypes.&lt;/ui-text&gt;
+  &lt;/ui-timeline-item&gt;
+  ...
+&lt;/ui-timeline&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<ui-text type="heading" size="large">Sizes</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  The <code>size</code> attribute scales the entire timeline — dots, spacing, and text.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack direction="horizontal" gap="3em" wrap>
+      <ui-layout-stack gap="0.25em">
+        <ui-text size="x-small" color="gray-500">small</ui-text>
+        <ui-timeline size="small">
+          <ui-timeline-item color="green-500">
+            <ui-text type="heading" size="small">Event A</ui-text>
+            <ui-text size="small">Small text</ui-text>
+          </ui-timeline-item>
+          <ui-timeline-item color="green-500">
+            <ui-text type="heading" size="small">Event B</ui-text>
+            <ui-text size="small">Details</ui-text>
+          </ui-timeline-item>
+        </ui-timeline>
+      </ui-layout-stack>
+      <ui-layout-stack gap="0.25em">
+        <ui-text size="x-small" color="gray-500">default</ui-text>
+        <ui-timeline>
+          <ui-timeline-item color="blue-500">
+            <ui-text type="heading" size="small">Event A</ui-text>
+            <ui-text size="small">Default text</ui-text>
+          </ui-timeline-item>
+          <ui-timeline-item color="blue-500">
+            <ui-text type="heading" size="small">Event B</ui-text>
+            <ui-text size="small">Details</ui-text>
+          </ui-timeline-item>
+        </ui-timeline>
+      </ui-layout-stack>
+      <ui-layout-stack gap="0.25em">
+        <ui-text size="x-small" color="gray-500">large</ui-text>
+        <ui-timeline size="large">
+          <ui-timeline-item color="purple-500">
+            <ui-text type="heading" size="small">Event A</ui-text>
+            <ui-text size="small">Large text</ui-text>
+          </ui-timeline-item>
+          <ui-timeline-item color="purple-500">
+            <ui-text type="heading" size="small">Event B</ui-text>
+            <ui-text size="small">Details</ui-text>
+          </ui-timeline-item>
+        </ui-timeline>
+      </ui-layout-stack>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-timeline size="small"&gt;...&lt;/ui-timeline&gt;
+&lt;ui-timeline&gt;...&lt;/ui-timeline&gt;
+&lt;ui-timeline size="large"&gt;...&lt;/ui-timeline&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<ui-text type="heading" size="large">Rich Content</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  The default slot accepts any content — badges, buttons, callouts, etc.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-timeline>
+      <ui-timeline-item icon="git-pull-request" color="purple-500">
+        <ui-text type="heading" size="small">Pull request opened</ui-text>
+        <ui-text size="x-small" color="gray-500">2 hours ago</ui-text>
+        <ui-text size="small">@alice opened PR #142 — "Add timeline component"</ui-text>
+        <ui-layout-spacer size="0.35em"></ui-layout-spacer>
+        <ui-layout-stack direction="horizontal" gap="0.5em">
+          <ui-badge background="green-100" color="green-700" size="x-small">+248</ui-badge>
+          <ui-badge background="red-100" color="red-700" size="x-small">-12</ui-badge>
+        </ui-layout-stack>
+      </ui-timeline-item>
+      <ui-timeline-item icon="eye" color="amber-500">
+        <ui-text type="heading" size="small">Code review</ui-text>
+        <ui-text size="x-small" color="gray-500">1 hour ago</ui-text>
+        <ui-text size="small">@bob approved with 2 comments.</ui-text>
+      </ui-timeline-item>
+      <ui-timeline-item icon="git-merge" color="green-500">
+        <ui-text type="heading" size="small">Merged</ui-text>
+        <ui-text size="x-small" color="gray-500">30 min ago</ui-text>
+        <ui-text size="small">PR #142 merged into <code>main</code>.</ui-text>
+      </ui-timeline-item>
+    </ui-timeline>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-timeline&gt;
+  &lt;ui-timeline-item icon="git-pull-request" color="purple-500"&gt;
+    &lt;ui-text type="heading" size="small"&gt;PR opened&lt;/ui-text&gt;
+    &lt;ui-text size="x-small" color="gray-500"&gt;2h ago&lt;/ui-text&gt;
+    &lt;ui-text size="small"&gt;@alice opened PR #142&lt;/ui-text&gt;
+    &lt;ui-badge background="green-100" color="green-700"&gt;+248&lt;/ui-badge&gt;
+  &lt;/ui-timeline-item&gt;
+  &lt;ui-timeline-item icon="git-merge" color="green-500"&gt;
+    &lt;ui-text type="heading" size="small"&gt;Merged&lt;/ui-text&gt;
+    &lt;ui-text size="x-small" color="gray-500"&gt;30m ago&lt;/ui-text&gt;
+    &lt;ui-text size="small"&gt;Merged into main.&lt;/ui-text&gt;
+  &lt;/ui-timeline-item&gt;
+&lt;/ui-timeline&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Playground ─────────────────────────────────────────── -->
+<ui-text type="heading" size="large">
+  <ui-icon color="indigo-500">play-circle</ui-icon>
+  Playground
+</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Tweak timeline properties interactively.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="playground">
+  <div class="playground-controls">
+    <ui-card elevation="1">
+      <ui-card-body>
+        <ui-text type="heading" size="small">Controls</ui-text>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-select id="tl-size" label="Size" size="small">
+          <option value="">(default)</option>
+          <option value="xx-small">xx-small</option>
+          <option value="x-small">x-small</option>
+          <option value="small">small</option>
+          <option value="medium">medium</option>
+          <option value="large">large</option>
+          <option value="x-large">x-large</option>
+        </ui-input-select>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-color id="tl-line-color" label="Line Colour" size="small" value=""></ui-input-color>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-color id="tl-color" label="Default Colour" size="small" value=""></ui-input-color>
+      </ui-card-body>
+    </ui-card>
+  </div>
+
+  <div class="playground-preview">
+    <div class="demo-card">
+      <div class="demo-preview">
+        <ui-timeline id="tl-playground">
+          <ui-timeline-item icon="pen-tool" color="indigo-500">
+            <ui-text type="heading" size="small">Design</ui-text>
+            <ui-text size="x-small" color="gray-500">Week 1</ui-text>
+            <ui-text size="small">Wireframes and visual design.</ui-text>
+          </ui-timeline-item>
+          <ui-timeline-item icon="code" color="blue-500">
+            <ui-text type="heading" size="small">Develop</ui-text>
+            <ui-text size="x-small" color="gray-500">Week 2–3</ui-text>
+            <ui-text size="small">Frontend and backend implementation.</ui-text>
+          </ui-timeline-item>
+          <ui-timeline-item icon="check-square" color="amber-500">
+            <ui-text type="heading" size="small">Test</ui-text>
+            <ui-text size="x-small" color="gray-500">Week 4</ui-text>
+            <ui-text size="small">QA and user acceptance testing.</ui-text>
+          </ui-timeline-item>
+          <ui-timeline-item icon="rocket" color="green-500">
+            <ui-text type="heading" size="small">Launch</ui-text>
+            <ui-text size="x-small" color="gray-500">Week 5</ui-text>
+            <ui-text size="small">Deploy to production.</ui-text>
+          </ui-timeline-item>
+        </ui-timeline>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  const el = document.getElementById('tl-playground');
+  if (!el) return;
+
+  /* Size select */
+  const sizeCtrl = document.getElementById('tl-size');
+  if (sizeCtrl) {
+    sizeCtrl.addEventListener('ui-change', () => {
+      const v = sizeCtrl.value;
+      if (v) el.setAttribute('size', v);
+      else el.removeAttribute('size');
+    });
+  }
+
+  /* Text inputs → attributes */
+  const texts = { 'tl-line-color': 'line-color', 'tl-color': 'color' };
+  Object.entries(texts).forEach(([id, attr]) => {
+    const ctrl = document.getElementById(id);
+    if (!ctrl) return;
+    const update = () => {
+      const val = (ctrl.value || '').trim();
+      if (val) el.setAttribute(attr, val);
+      else el.removeAttribute(attr);
+    };
+    ctrl.addEventListener('ui-input', update);
+    ctrl.addEventListener('ui-change', update);
+  });
+})();
+</script>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<ui-text type="heading" size="large">API Reference</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<ui-text type="heading" size="medium">ui-timeline</ui-text>
+<ui-layout-spacer size="0.5em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead><tr><th>Attribute</th><th>Type</th><th>Default</th><th>Description</th></tr></thead>
+    <tbody>
+      <tr><td><code>size</code></td><td>String</td><td>—</td><td>Component font-size (named keyword or CSS length) — scales dots, spacing, and text</td></tr>
+      <tr><td><code>color</code></td><td>String</td><td>—</td><td>Default colour applied to the line (palette token or CSS colour)</td></tr>
+      <tr><td><code>line-color</code></td><td>String</td><td>—</td><td>Explicit line colour — overrides <code>color</code> for the vertical line only</td></tr>
+      <tr><td><code>alternate</code></td><td>Boolean</td><td>false</td><td>Alternate items left and right of the line (centered layout)</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="1em"></ui-layout-spacer>
+
+<ui-text type="heading" size="medium">ui-timeline-item</ui-text>
+<ui-layout-spacer size="0.5em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead><tr><th>Attribute</th><th>Type</th><th>Default</th><th>Description</th></tr></thead>
+    <tbody>
+      <tr><td><code>color</code></td><td>String</td><td>indigo-500</td><td>Dot colour — palette token or CSS colour</td></tr>
+      <tr><td><code>icon</code></td><td>String</td><td>—</td><td>Icon name to display inside the dot instead of a plain circle</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="1em"></ui-layout-spacer>
+
+<ui-text type="heading" size="medium">Slots</ui-text>
+<ui-layout-spacer size="0.5em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead><tr><th>Slot</th><th>Component</th><th>Description</th></tr></thead>
+    <tbody>
+      <tr><td><code>(default)</code></td><td>ui-timeline</td><td><code>&lt;ui-timeline-item&gt;</code> elements</td></tr>
+      <tr><td><code>(default)</code></td><td>ui-timeline-item</td><td>All event content — compose headings, timestamps, descriptions using <code>ui-*</code> components</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>

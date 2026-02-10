@@ -1,0 +1,261 @@
+<!-- ============================================================
+     Rating — Component Documentation
+     ============================================================ -->
+
+<ui-layout-stack gap="0.25em" style="margin-bottom:2em;">
+  <ui-text type="heading" size="xx-large">Rating</ui-text>
+  <ui-text type="paragraph" color="gray-500">
+    <code>&lt;ui-input-rating&gt;</code> is an interactive star rating control.
+    Click a star to set the value, click the same star again to clear it.
+    Hover feedback and keyboard navigation are built in.
+  </ui-text>
+</ui-layout-stack>
+
+<!-- ── Basic Usage ────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Basic Usage</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Set <code>value</code> for the initial rating and <code>max</code> for the
+  total number of stars. The default is 5 stars.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview" style="display:flex;gap:2em;flex-wrap:wrap;align-items:flex-end;">
+    <ui-input-rating label="5 stars" value="3" max="5"></ui-input-rating>
+    <ui-input-rating label="10 stars" value="7" max="10"></ui-input-rating>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-input-rating label="5 stars" value="3" max="5"&gt;&lt;/ui-input-rating&gt;
+&lt;ui-input-rating label="10 stars" value="7" max="10"&gt;&lt;/ui-input-rating&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Help & Error ───────────────────────────────────────── -->
+<ui-text type="heading" size="large">Help &amp; Error</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Use <code>help</code> for guidance text and <code>error</code> for validation
+  messages. When <code>error</code> is set, the help text is hidden.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview" style="display:flex;gap:2em;flex-wrap:wrap;">
+    <ui-input-rating label="With help" help="How would you rate this?" value="4"></ui-input-rating>
+    <ui-input-rating label="With error" error="A rating is required" required></ui-input-rating>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-input-rating label="With help" help="How would you rate this?" value="4"&gt;&lt;/ui-input-rating&gt;
+&lt;ui-input-rating label="With error" error="A rating is required" required&gt;&lt;/ui-input-rating&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Star Colours ───────────────────────────────────────── -->
+<ui-text type="heading" size="large">Star Colours</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Use the <code>color</code> attribute with a palette token or any CSS colour
+  to change the active star colour. Default is <code>amber-400</code>.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview" style="display:flex;gap:2em;flex-wrap:wrap;">
+    <ui-input-rating label="Amber" value="3" color="amber-400"></ui-input-rating>
+    <ui-input-rating label="Rose" value="3" color="rose-400"></ui-input-rating>
+    <ui-input-rating label="Indigo" value="3" color="indigo-400"></ui-input-rating>
+    <ui-input-rating label="Emerald" value="3" color="emerald-400"></ui-input-rating>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-input-rating label="Amber" value="3" color="amber-400"&gt;&lt;/ui-input-rating&gt;
+&lt;ui-input-rating label="Rose" value="3" color="rose-400"&gt;&lt;/ui-input-rating&gt;
+&lt;ui-input-rating label="Indigo" value="3" color="indigo-400"&gt;&lt;/ui-input-rating&gt;
+&lt;ui-input-rating label="Emerald" value="3" color="emerald-400"&gt;&lt;/ui-input-rating&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Sizes ──────────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Sizes</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Use <code>size</code> with CSS named sizes or any CSS length.
+  Stars scale proportionally via <code>em</code>.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview" style="display:flex;gap:2em;flex-wrap:wrap;align-items:flex-end;">
+    <ui-input-rating label="Small" size="small" value="3"></ui-input-rating>
+    <ui-input-rating label="Default" value="3"></ui-input-rating>
+    <ui-input-rating label="Large" size="large" value="3"></ui-input-rating>
+    <ui-input-rating label="X-Large" size="x-large" value="3"></ui-input-rating>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-input-rating label="Small" size="small" value="3"&gt;&lt;/ui-input-rating&gt;
+&lt;ui-input-rating label="Default" value="3"&gt;&lt;/ui-input-rating&gt;
+&lt;ui-input-rating label="Large" size="large" value="3"&gt;&lt;/ui-input-rating&gt;
+&lt;ui-input-rating label="X-Large" size="x-large" value="3"&gt;&lt;/ui-input-rating&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Read Only ──────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Read Only</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  The <code>readonly</code> attribute prevents changes but keeps the component
+  visually active (no dimming). Useful for displaying a submitted rating.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-input-rating label="Read only" value="4" readonly></ui-input-rating>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-input-rating label="Read only" value="4" readonly&gt;&lt;/ui-input-rating&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Disabled ────────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Disabled</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  The <code>disabled</code> attribute dims the component and prevents all interaction.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-input-rating label="Disabled" value="2" disabled></ui-input-rating>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-input-rating label="Disabled" value="2" disabled&gt;&lt;/ui-input-rating&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Playground ─────────────────────────────────────────── -->
+<ui-text type="heading" size="large">
+  <ui-icon color="indigo-500">play-circle</ui-icon>
+  Playground
+</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Interactively configure every property.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="playground">
+  <div class="playground-controls">
+    <ui-card elevation="1">
+      <ui-card-body>
+        <ui-text type="heading" size="small">Controls</ui-text>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input id="rating-label" label="Label" size="small" value="Rating"></ui-input>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input id="rating-help" label="Help" size="small"></ui-input>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input id="rating-error" label="Error" size="small"></ui-input>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input id="rating-value" label="Value" size="small" value="3"></ui-input>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input id="rating-max" label="Max" size="small" value="5"></ui-input>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-select id="rating-size" label="Size" size="small">
+          <option value="">Default</option>
+          <option value="small">Small</option>
+          <option value="large">Large</option>
+          <option value="x-large">X-Large</option>
+        </ui-input-select>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-color id="rating-color" label="Star Colour" size="small" value="amber-400"></ui-input-color>
+        <ui-layout-spacer size="0.75em"></ui-layout-spacer>
+        <ui-layout-stack direction="horizontal" gap="1em">
+          <ui-input-checkbox id="rating-readonly" label="Read Only"></ui-input-checkbox>
+          <ui-input-checkbox id="rating-disabled" label="Disabled"></ui-input-checkbox>
+          <ui-input-checkbox id="rating-required" label="Required"></ui-input-checkbox>
+        </ui-layout-stack>
+      </ui-card-body>
+    </ui-card>
+  </div>
+
+  <div class="playground-preview">
+    <div class="demo-card">
+      <div class="demo-preview">
+        <ui-input-rating id="rating-playground" label="Rating" value="3" max="5"></ui-input-rating>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  const el    = document.getElementById('rating-playground');
+  const label = document.getElementById('rating-label');
+  const help  = document.getElementById('rating-help');
+  const error = document.getElementById('rating-error');
+  const value = document.getElementById('rating-value');
+  const max   = document.getElementById('rating-max');
+  const size  = document.getElementById('rating-size');
+  const color = document.getElementById('rating-color');
+  const ro    = document.getElementById('rating-readonly');
+  const dis   = document.getElementById('rating-disabled');
+  const req   = document.getElementById('rating-required');
+
+  if (!el || !label || !help || !error || !value || !max || !size || !color || !ro || !dis || !req) return;
+
+  const setOrRemove = (attr, v) => v ? el.setAttribute(attr, v) : el.removeAttribute(attr);
+  const listen = (ctrl, fn) => { ctrl.addEventListener('ui-input', fn); ctrl.addEventListener('ui-change', fn); };
+
+  listen(label, () => setOrRemove('label', label.value));
+  listen(help,  () => setOrRemove('help',  help.value));
+  listen(error, () => setOrRemove('error', error.value));
+  listen(value, () => setOrRemove('value', value.value));
+  listen(max,   () => setOrRemove('max',   max.value));
+  listen(size,  () => setOrRemove('size',  size.value));
+  listen(color, () => setOrRemove('color', color.value));
+
+  ro.addEventListener('ui-change',  () => { if (ro.checked) el.setAttribute('readonly', '');  else el.removeAttribute('readonly'); });
+  dis.addEventListener('ui-change', () => { if (dis.checked) el.setAttribute('disabled', ''); else el.removeAttribute('disabled'); });
+  req.addEventListener('ui-change', () => { if (req.checked) el.setAttribute('required', ''); else el.removeAttribute('required'); });
+})();
+</script>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── API Reference ──────────────────────────────────────── -->
+<ui-text type="heading" size="large">API Reference</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead>
+      <tr><th>Attribute</th><th>Type</th><th>Default</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>value</code></td><td>Number</td><td><code>0</code></td><td>Current rating value (0–max)</td></tr>
+      <tr><td><code>max</code></td><td>Number</td><td><code>5</code></td><td>Maximum number of stars</td></tr>
+      <tr><td><code>name</code></td><td>String</td><td>—</td><td>Form field name</td></tr>
+      <tr><td><code>label</code></td><td>String</td><td>—</td><td>Label text above the stars</td></tr>
+      <tr><td><code>help</code></td><td>String</td><td>—</td><td>Help text below the stars</td></tr>
+      <tr><td><code>error</code></td><td>String</td><td>—</td><td>Error message (hides help when set)</td></tr>
+      <tr><td><code>size</code></td><td>String</td><td>—</td><td>Size keyword or CSS length</td></tr>
+      <tr><td><code>color</code></td><td>String</td><td><code>amber-400</code></td><td>Active star colour (palette token or CSS)</td></tr>
+      <tr><td><code>disabled</code></td><td>Boolean</td><td><code>false</code></td><td>Dims the component and prevents interaction</td></tr>
+      <tr><td><code>readonly</code></td><td>Boolean</td><td><code>false</code></td><td>Prevents changes without dimming</td></tr>
+      <tr><td><code>required</code></td><td>Boolean</td><td><code>false</code></td><td>Marks field as required (shows asterisk)</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Events ──────────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Events</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead>
+      <tr><th>Event</th><th>Detail</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>ui-change</code></td><td><code>{ value }</code></td><td>Fires when the rating value changes</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>

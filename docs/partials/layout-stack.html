@@ -1,0 +1,290 @@
+<!-- ============================================================
+     Layout Stack — Component Documentation
+     ============================================================ -->
+
+<ui-layout-stack gap="0.25em" style="margin-bottom:2em;">
+  <ui-text type="heading" size="xx-large">Stack</ui-text>
+  <ui-text type="paragraph" color="gray-500">
+    <code>&lt;ui-layout-stack&gt;</code> is a flexbox-based layout container for
+    vertical or horizontal stacking with consistent spacing.
+  </ui-text>
+</ui-layout-stack>
+
+<ui-text type="heading" size="large">Diagram</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Vertical (default) and horizontal stacking.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <svg viewBox="0 0 520 140" width="100%" height="140" role="img" aria-label="Stack layout diagram">
+      <rect x="10" y="10" width="240" height="120" rx="8" fill="#f9fafb" stroke="#e5e7eb" />
+      <rect x="28" y="26" width="204" height="24" rx="6" fill="#e0e7ff" stroke="#c7d2fe" />
+      <rect x="28" y="56" width="204" height="24" rx="6" fill="#d1fae5" stroke="#a7f3d0" />
+      <rect x="28" y="86" width="204" height="24" rx="6" fill="#fee2e2" stroke="#fecaca" />
+      <text x="130" y="20" text-anchor="middle" font-size="10" fill="#6b7280" font-family="var(--ui-font, system-ui, sans-serif)">Vertical</text>
+
+      <rect x="270" y="10" width="240" height="120" rx="8" fill="#f9fafb" stroke="#e5e7eb" />
+      <rect x="288" y="56" width="64" height="28" rx="6" fill="#e0e7ff" stroke="#c7d2fe" />
+      <rect x="360" y="56" width="64" height="28" rx="6" fill="#d1fae5" stroke="#a7f3d0" />
+      <rect x="432" y="56" width="64" height="28" rx="6" fill="#fee2e2" stroke="#fecaca" />
+      <text x="390" y="20" text-anchor="middle" font-size="10" fill="#6b7280" font-family="var(--ui-font, system-ui, sans-serif)">Horizontal</text>
+    </svg>
+  </div>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<ui-text type="heading" size="large">Basic Stack</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  The default direction is vertical. Use <code>gap</code> to control spacing.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack gap="0.5em">
+      <ui-card elevation="1"><ui-card-body><ui-text>First</ui-text></ui-card-body></ui-card>
+      <ui-card elevation="1"><ui-card-body><ui-text>Second</ui-text></ui-card-body></ui-card>
+      <ui-card elevation="1"><ui-card-body><ui-text>Third</ui-text></ui-card-body></ui-card>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-layout-stack gap="0.5em"&gt;
+  &lt;ui-card&gt;...&lt;/ui-card&gt;
+  &lt;ui-card&gt;...&lt;/ui-card&gt;
+  &lt;ui-card&gt;...&lt;/ui-card&gt;
+&lt;/ui-layout-stack&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<ui-text type="heading" size="large">Horizontal Alignment</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Use <code>horizontal</code>, <code>align</code>, and <code>justify</code> to
+  control alignment.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack horizontal gap="0.5em" align="center" justify="between">
+      <ui-badge background="indigo-100" color="indigo-700">Left</ui-badge>
+      <ui-badge background="emerald-100" color="emerald-700">Center</ui-badge>
+      <ui-badge background="rose-100" color="rose-700">Right</ui-badge>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-layout-stack horizontal gap="0.5em" align="center" justify="between"&gt;
+  &lt;ui-badge&gt;Left&lt;/ui-badge&gt;
+  &lt;ui-badge&gt;Center&lt;/ui-badge&gt;
+  &lt;ui-badge&gt;Right&lt;/ui-badge&gt;
+&lt;/ui-layout-stack&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<ui-text type="heading" size="large">Wrapping &amp; Padding</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Use <code>wrap</code> to allow items to flow to the next line and
+  <code>padding</code> for inner spacing.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack horizontal wrap gap="0.4em" padding="0.5em" style="background: var(--ui-gray-50);">
+      <ui-badge background="gray-100">Tag A</ui-badge>
+      <ui-badge background="gray-100">Tag B</ui-badge>
+      <ui-badge background="gray-100">Tag C</ui-badge>
+      <ui-badge background="gray-100">Tag D</ui-badge>
+      <ui-badge background="gray-100">Tag E</ui-badge>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-layout-stack horizontal wrap gap="0.4em" padding="0.5em"&gt;
+  &lt;ui-badge&gt;Tag A&lt;/ui-badge&gt;
+  &lt;ui-badge&gt;Tag B&lt;/ui-badge&gt;
+  &lt;ui-badge&gt;Tag C&lt;/ui-badge&gt;
+&lt;/ui-layout-stack&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Playground ─────────────────────────────────────────── -->
+<ui-text type="heading" size="large">
+  <ui-icon color="indigo-500">play-circle</ui-icon>
+  Playground
+</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Toggle direction and spacing to see the stack update in real time.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="playground">
+  <div class="playground-controls">
+    <ui-card elevation="1">
+      <ui-card-body>
+        <ui-text type="heading" size="small">Controls</ui-text>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+
+        <ui-input-select id="stack-direction" label="Direction" size="small" value="column">
+          <option value="column">column</option>
+          <option value="row">row</option>
+          <option value="column-reverse">column-reverse</option>
+          <option value="row-reverse">row-reverse</option>
+        </ui-input-select>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+
+        <ui-input-select id="stack-gap" label="Gap" size="small" value="0.5em">
+          <option value="">none</option>
+          <option value="0.25em">0.25em</option>
+          <option value="0.5em">0.5em</option>
+          <option value="0.75em">0.75em</option>
+          <option value="1em">1em</option>
+          <option value="1.5em">1.5em</option>
+          <option value="2em">2em</option>
+        </ui-input-select>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+
+        <ui-input-select id="stack-align" label="Align" size="small" value="">
+          <option value="">—</option>
+          <option value="start">start</option>
+          <option value="center">center</option>
+          <option value="end">end</option>
+          <option value="stretch">stretch</option>
+          <option value="baseline">baseline</option>
+        </ui-input-select>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+
+        <ui-input-select id="stack-justify" label="Justify" size="small" value="">
+          <option value="">—</option>
+          <option value="start">start</option>
+          <option value="center">center</option>
+          <option value="end">end</option>
+          <option value="between">between</option>
+          <option value="around">around</option>
+          <option value="evenly">evenly</option>
+        </ui-input-select>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+
+        <ui-input id="stack-padding" label="Padding" size="small" value="" placeholder="e.g. 0.5em"></ui-input>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+
+        <ui-input id="stack-width" label="Width" size="small" value="" placeholder="e.g. 100%"></ui-input>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+
+        <ui-input id="stack-height" label="Height" size="small" value="" placeholder="e.g. 200px"></ui-input>
+        <ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+        <ui-layout-stack gap="0.35em">
+          <ui-input-checkbox id="stack-wrap" label="Wrap"></ui-input-checkbox>
+          <ui-input-checkbox id="stack-inline" label="Inline"></ui-input-checkbox>
+          <ui-input-checkbox id="stack-reverse" label="Reverse"></ui-input-checkbox>
+          <ui-input-checkbox id="stack-grow" label="Grow"></ui-input-checkbox>
+          <ui-input-checkbox id="stack-center" label="Center"></ui-input-checkbox>
+          <ui-input-checkbox id="stack-full" label="Full"></ui-input-checkbox>
+        </ui-layout-stack>
+      </ui-card-body>
+    </ui-card>
+  </div>
+
+  <div class="playground-preview">
+    <div class="demo-card">
+      <div class="demo-preview">
+        <ui-layout-stack id="stack-playground" gap="0.5em" style="min-height:120px;">
+          <ui-badge background="indigo-100" color="indigo-700">Alpha</ui-badge>
+          <ui-badge background="emerald-100" color="emerald-700">Beta</ui-badge>
+          <ui-badge background="amber-100" color="amber-700">Gamma</ui-badge>
+          <ui-badge background="rose-100" color="rose-700">Delta</ui-badge>
+        </ui-layout-stack>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  const stack = document.getElementById('stack-playground');
+  if (!stack) return;
+
+  const el = id => document.getElementById(id);
+
+  const setAttr = (name, val) => {
+    if (val) stack.setAttribute(name, val);
+    else stack.removeAttribute(name);
+  };
+
+  const setBool = (name, on) => {
+    if (on) stack.setAttribute(name, '');
+    else stack.removeAttribute(name);
+  };
+
+  // Select controls
+  for (const [id, attr] of [
+    ['stack-direction', 'direction'],
+    ['stack-gap',       'gap'],
+    ['stack-align',     'align'],
+    ['stack-justify',   'justify'],
+  ]) {
+    const ctrl = el(id);
+    if (ctrl) ctrl.addEventListener('ui-change', () => setAttr(attr, ctrl.value));
+  }
+
+  // Text input controls
+  for (const [id, attr] of [
+    ['stack-padding', 'padding'],
+    ['stack-width',   'width'],
+    ['stack-height',  'height'],
+  ]) {
+    const ctrl = el(id);
+    if (ctrl) {
+      const handler = () => setAttr(attr, (ctrl.value || '').trim());
+      ctrl.addEventListener('ui-input', handler);
+      ctrl.addEventListener('ui-change', handler);
+    }
+  }
+
+  // Boolean controls
+  for (const [id, attr] of [
+    ['stack-wrap',    'wrap'],
+    ['stack-inline',  'inline'],
+    ['stack-reverse', 'reverse'],
+    ['stack-grow',    'grow'],
+    ['stack-center',  'center'],
+    ['stack-full',    'full'],
+  ]) {
+    const ctrl = el(id);
+    if (ctrl) ctrl.addEventListener('ui-change', () => setBool(attr, ctrl.checked));
+  }
+})();
+</script>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<ui-text type="heading" size="large">API Reference</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead>
+      <tr><th>Attribute</th><th>Type</th><th>Default</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>direction</code></td><td>String</td><td>column</td><td>Flex direction</td></tr>
+      <tr><td><code>horizontal</code></td><td>Boolean</td><td>false</td><td>Shorthand for row direction</td></tr>
+      <tr><td><code>gap</code></td><td>String</td><td>—</td><td>Gap between children</td></tr>
+      <tr><td><code>align</code></td><td>String</td><td>—</td><td>Cross-axis alignment</td></tr>
+      <tr><td><code>justify</code></td><td>String</td><td>—</td><td>Main-axis distribution</td></tr>
+      <tr><td><code>wrap</code></td><td>Boolean</td><td>false</td><td>Allow wrapping</td></tr>
+      <tr><td><code>padding</code></td><td>String</td><td>—</td><td>Inner padding (named size or CSS value)</td></tr>
+      <tr><td><code>width</code></td><td>String</td><td>—</td><td>CSS width</td></tr>
+      <tr><td><code>height</code></td><td>String</td><td>—</td><td>CSS height</td></tr>
+      <tr><td><code>grow</code></td><td>Boolean</td><td>false</td><td>Fill available space (flex: 1 1 auto)</td></tr>
+      <tr><td><code>center</code></td><td>Boolean</td><td>false</td><td>Shorthand for align + justify center</td></tr>
+      <tr><td><code>full</code></td><td>Boolean</td><td>false</td><td>100% width and height</td></tr>
+      <tr><td><code>inline</code></td><td>Boolean</td><td>false</td><td>Inline-flex display</td></tr>
+      <tr><td><code>reverse</code></td><td>Boolean</td><td>false</td><td>Reverse stacking order</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>

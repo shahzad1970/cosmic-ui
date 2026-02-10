@@ -1,0 +1,460 @@
+<!-- ============================================================
+     Carousel — Component Documentation
+     ============================================================ -->
+
+<ui-layout-stack gap="0.25em" style="margin-bottom:2em;">
+  <ui-text type="heading" size="xx-large">Carousel</ui-text>
+  <ui-text type="paragraph" color="gray-500">
+    <code>&lt;ui-carousel&gt;</code> creates a slide-based content carousel with
+    prev/next arrows, dot indicators, optional auto-play with pause-on-hover,
+    looping, keyboard navigation, and touch-swipe support.
+  </ui-text>
+</ui-layout-stack>
+
+<ui-text type="heading" size="large">Basic Carousel</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Place <code>&lt;ui-carousel-slide&gt;</code> children inside the carousel.
+  Each slide can set its own <code>background</code> and <code>color</code>.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview" style="padding: 0;">
+    <ui-carousel loop>
+      <ui-carousel-slide background="indigo-600">
+        <ui-text type="heading" size="large">Slide One</ui-text>
+      </ui-carousel-slide>
+      <ui-carousel-slide background="emerald-600">
+        <ui-text type="heading" size="large">Slide Two</ui-text>
+      </ui-carousel-slide>
+      <ui-carousel-slide background="rose-600">
+        <ui-text type="heading" size="large">Slide Three</ui-text>
+      </ui-carousel-slide>
+    </ui-carousel>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-carousel loop&gt;
+  &lt;ui-carousel-slide background="indigo-600"&gt;Slide One&lt;/ui-carousel-slide&gt;
+  &lt;ui-carousel-slide background="emerald-600"&gt;Slide Two&lt;/ui-carousel-slide&gt;
+  &lt;ui-carousel-slide background="rose-600"&gt;Slide Three&lt;/ui-carousel-slide&gt;
+&lt;/ui-carousel&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<ui-text type="heading" size="large">Autoplay</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Set <code>autoplay</code> to an interval in milliseconds. The carousel pauses on hover and resumes on mouse-leave.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview" style="padding: 0;">
+    <ui-carousel loop autoplay="3000">
+      <ui-carousel-slide background="sky-600">
+        <ui-layout-stack gap="0.25em" align="center">
+          <ui-icon size="xx-large">cloud</ui-icon>
+          <ui-text type="heading" size="medium">Cloud Services</ui-text>
+        </ui-layout-stack>
+      </ui-carousel-slide>
+      <ui-carousel-slide background="violet-600">
+        <ui-layout-stack gap="0.25em" align="center">
+          <ui-icon size="xx-large">zap</ui-icon>
+          <ui-text type="heading" size="medium">Lightning Fast</ui-text>
+        </ui-layout-stack>
+      </ui-carousel-slide>
+      <ui-carousel-slide background="amber-600">
+        <ui-layout-stack gap="0.25em" align="center">
+          <ui-icon size="xx-large">shield</ui-icon>
+          <ui-text type="heading" size="medium">Fully Secure</ui-text>
+        </ui-layout-stack>
+      </ui-carousel-slide>
+    </ui-carousel>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-carousel loop autoplay="3000"&gt;
+  &lt;ui-carousel-slide background="sky-600"&gt;...&lt;/ui-carousel-slide&gt;
+  &lt;ui-carousel-slide background="violet-600"&gt;...&lt;/ui-carousel-slide&gt;
+  &lt;ui-carousel-slide background="amber-600"&gt;...&lt;/ui-carousel-slide&gt;
+&lt;/ui-carousel&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<ui-text type="heading" size="large">No Controls</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Set <code>navigation</code> and <code>indicators</code> to <code>false</code>
+  via JavaScript to hide arrows and dots. Users can still swipe or use keyboard arrows.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview" style="padding: 0;">
+    <ui-carousel id="carousel-no-controls" loop autoplay="2500">
+      <ui-carousel-slide background="gray-800">
+        <ui-text type="heading" size="medium">Minimal — Slide 1</ui-text>
+      </ui-carousel-slide>
+      <ui-carousel-slide background="gray-700">
+        <ui-text type="heading" size="medium">Minimal — Slide 2</ui-text>
+      </ui-carousel-slide>
+      <ui-carousel-slide background="gray-600">
+        <ui-text type="heading" size="medium">Minimal — Slide 3</ui-text>
+      </ui-carousel-slide>
+    </ui-carousel>
+  </div>
+  <ui-input-code language="javascript" readonly height="auto">const el = document.querySelector('ui-carousel');
+el.navigation = false;
+el.indicators = false;</ui-input-code>
+</div>
+
+<script>
+(function() {
+  const el = document.getElementById('carousel-no-controls');
+  if (!el) return;
+  requestAnimationFrame(() => {
+    el.navigation = false;
+    el.indicators = false;
+  });
+})();
+</script>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<ui-text type="heading" size="large">Rich Content</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Slides accept any HTML content — cards, images, forms, or nested components.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview" style="padding: 0;">
+    <ui-carousel loop>
+      <ui-carousel-slide background="indigo-50" color="indigo-900">
+        <ui-layout-stack gap="0.5em" align="center">
+          <ui-avatar background="indigo-600" size="x-large">JS</ui-avatar>
+          <ui-text type="heading" size="medium">Jane Smith</ui-text>
+          <ui-text color="indigo-600" size="small">Lead Developer</ui-text>
+        </ui-layout-stack>
+      </ui-carousel-slide>
+      <ui-carousel-slide background="emerald-50" color="emerald-900">
+        <ui-layout-stack gap="0.5em" align="center">
+          <ui-avatar background="emerald-600" size="x-large">AD</ui-avatar>
+          <ui-text type="heading" size="medium">Alex Doe</ui-text>
+          <ui-text color="emerald-600" size="small">Designer</ui-text>
+        </ui-layout-stack>
+      </ui-carousel-slide>
+      <ui-carousel-slide background="rose-50" color="rose-900">
+        <ui-layout-stack gap="0.5em" align="center">
+          <ui-avatar background="rose-600" size="x-large">MR</ui-avatar>
+          <ui-text type="heading" size="medium">Morgan Reed</ui-text>
+          <ui-text color="rose-600" size="small">Product Manager</ui-text>
+        </ui-layout-stack>
+      </ui-carousel-slide>
+    </ui-carousel>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-carousel loop&gt;
+  &lt;ui-carousel-slide background="indigo-50" color="indigo-900"&gt;
+    &lt;ui-avatar background="indigo-600" size="x-large"&gt;JS&lt;/ui-avatar&gt;
+    &lt;ui-text type="heading"&gt;Jane Smith&lt;/ui-text&gt;
+  &lt;/ui-carousel-slide&gt;
+  ...
+&lt;/ui-carousel&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<ui-text type="heading" size="large">Background Images</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Set the <code>image</code> attribute on a slide to use a photo background.
+  Combine with <code>background</code> as a fallback colour. Text defaults to white on image slides.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview" style="padding: 0;">
+    <ui-carousel loop>
+      <ui-carousel-slide image="https://picsum.photos/id/1015/800/400">
+        <ui-text type="heading" size="large">Mountain Lake</ui-text>
+      </ui-carousel-slide>
+      <ui-carousel-slide image="https://picsum.photos/id/1018/800/400">
+        <ui-text type="heading" size="large">Misty Forest</ui-text>
+      </ui-carousel-slide>
+      <ui-carousel-slide image="https://picsum.photos/id/1036/800/400">
+        <ui-text type="heading" size="large">Coastal Road</ui-text>
+      </ui-carousel-slide>
+    </ui-carousel>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-carousel loop&gt;
+  &lt;ui-carousel-slide image="https://picsum.photos/id/1015/800/400"&gt;
+    Mountain Lake
+  &lt;/ui-carousel-slide&gt;
+  &lt;ui-carousel-slide image="https://picsum.photos/id/1018/800/400"&gt;
+    Misty Forest
+  &lt;/ui-carousel-slide&gt;
+&lt;/ui-carousel&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<ui-text type="heading" size="large">Elevation</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Add depth with <code>elevation</code> (1–5). The carousel gains a box-shadow, making it pop off the page.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview" style="overflow: visible;">
+    <ui-layout-stack gap="1.5em">
+      <ui-carousel loop elevation="2">
+        <ui-carousel-slide background="indigo-600">
+          <ui-text type="heading" size="medium">Elevation 2</ui-text>
+        </ui-carousel-slide>
+        <ui-carousel-slide background="indigo-500">
+          <ui-text type="heading" size="medium">Slide Two</ui-text>
+        </ui-carousel-slide>
+      </ui-carousel>
+      <ui-carousel loop elevation="5">
+        <ui-carousel-slide background="rose-600">
+          <ui-text type="heading" size="medium">Elevation 5</ui-text>
+        </ui-carousel-slide>
+        <ui-carousel-slide background="rose-500">
+          <ui-text type="heading" size="medium">Slide Two</ui-text>
+        </ui-carousel-slide>
+      </ui-carousel>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-carousel loop elevation="2"&gt;...&lt;/ui-carousel&gt;
+&lt;ui-carousel loop elevation="5"&gt;...&lt;/ui-carousel&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<ui-text type="heading" size="large">Sizes</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Scale the entire carousel with the <code>size</code> attribute. All inner elements scale proportionally.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview" style="padding: 0;">
+    <ui-layout-stack gap="1em">
+      <ui-text size="x-small" weight="600" color="gray-500">Small</ui-text>
+      <ui-carousel loop size="small">
+        <ui-carousel-slide background="teal-600">Slide A</ui-carousel-slide>
+        <ui-carousel-slide background="teal-500">Slide B</ui-carousel-slide>
+      </ui-carousel>
+      <ui-text size="x-small" weight="600" color="gray-500">Large</ui-text>
+      <ui-carousel loop size="large">
+        <ui-carousel-slide background="fuchsia-600">Slide A</ui-carousel-slide>
+        <ui-carousel-slide background="fuchsia-500">Slide B</ui-carousel-slide>
+      </ui-carousel>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-carousel loop size="small"&gt;...&lt;/ui-carousel&gt;
+&lt;ui-carousel loop size="large"&gt;...&lt;/ui-carousel&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Playground ─────────────────────────────────────────── -->
+<ui-text type="heading" size="large">
+  <ui-icon color="indigo-500">play-circle</ui-icon>
+  Playground
+</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Toggle controls and autoplay settings interactively.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="playground">
+  <div class="playground-controls">
+    <ui-card elevation="1">
+      <ui-card-body>
+        <ui-text type="heading" size="small">Controls</ui-text>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-select id="carousel-size" label="Size" size="small">
+          <option value="">— (default)</option>
+          <option value="xx-small">xx-small</option>
+          <option value="x-small">x-small</option>
+          <option value="small">small</option>
+          <option value="medium">medium</option>
+          <option value="large">large</option>
+          <option value="x-large">x-large</option>
+        </ui-input-select>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-select id="carousel-elevation" label="Elevation" size="small">
+          <option value="">— (none)</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </ui-input-select>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input id="carousel-autoplay" label="Autoplay (ms)" size="small" value="0"></ui-input>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-layout-stack gap="0.35em">
+          <ui-input-checkbox id="carousel-loop" label="Loop"></ui-input-checkbox>
+          <ui-input-checkbox id="carousel-navigation" label="Navigation" checked></ui-input-checkbox>
+          <ui-input-checkbox id="carousel-indicators" label="Indicators" checked></ui-input-checkbox>
+        </ui-layout-stack>
+      </ui-card-body>
+    </ui-card>
+  </div>
+
+  <div class="playground-preview">
+    <div class="demo-card">
+      <div class="demo-preview" style="padding: 1em; overflow: visible;">
+        <ui-carousel id="carousel-playground" navigation indicators>
+          <ui-carousel-slide background="indigo-600">
+            <ui-text type="heading" size="large">Slide One</ui-text>
+          </ui-carousel-slide>
+          <ui-carousel-slide background="emerald-600">
+            <ui-text type="heading" size="large">Slide Two</ui-text>
+          </ui-carousel-slide>
+          <ui-carousel-slide background="rose-600">
+            <ui-text type="heading" size="large">Slide Three</ui-text>
+          </ui-carousel-slide>
+          <ui-carousel-slide background="amber-600">
+            <ui-text type="heading" size="large">Slide Four</ui-text>
+          </ui-carousel-slide>
+        </ui-carousel>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  const el = document.getElementById('carousel-playground');
+  if (!el) return;
+
+  /* Size select */
+  const sizeCtrl = document.getElementById('carousel-size');
+  if (sizeCtrl) {
+    sizeCtrl.addEventListener('ui-change', () => {
+      const val = (sizeCtrl.value || '').trim();
+      if (val) el.setAttribute('size', val);
+      else el.removeAttribute('size');
+    });
+  }
+
+  /* Elevation select */
+  const elevCtrl = document.getElementById('carousel-elevation');
+  if (elevCtrl) {
+    elevCtrl.addEventListener('ui-change', () => {
+      const val = (elevCtrl.value || '').trim();
+      if (val) el.setAttribute('elevation', val);
+      else el.removeAttribute('elevation');
+    });
+  }
+
+  /* Autoplay text input */
+  const autoCtrl = document.getElementById('carousel-autoplay');
+  if (autoCtrl) {
+    const updateAutoplay = () => {
+      const val = (autoCtrl.value || '').trim();
+      if (val && val !== '0') el.setAttribute('autoplay', val);
+      else el.removeAttribute('autoplay');
+    };
+    autoCtrl.addEventListener('ui-input', updateAutoplay);
+    autoCtrl.addEventListener('ui-change', updateAutoplay);
+  }
+
+  /* Boolean checkboxes */
+  const bools = {
+    'carousel-loop':       'loop',
+    'carousel-navigation': 'navigation',
+    'carousel-indicators': 'indicators',
+  };
+  Object.entries(bools).forEach(([id, attr]) => {
+    const ctrl = document.getElementById(id);
+    if (!ctrl) return;
+    ctrl.addEventListener('ui-change', () => {
+      if (ctrl.checked) el.setAttribute(attr, '');
+      else el.removeAttribute(attr);
+    });
+  });
+})();
+</script>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<ui-text type="heading" size="large">API Reference</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<ui-text type="heading" size="medium">ui-carousel</ui-text>
+<ui-layout-spacer size="0.5em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead>
+      <tr><th>Attribute</th><th>Type</th><th>Default</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>autoplay</code></td><td>Number</td><td>0</td><td>Auto-advance interval in milliseconds. <code>0</code> disables autoplay. Pauses on hover.</td></tr>
+      <tr><td><code>loop</code></td><td>Boolean</td><td>false</td><td>Wrap around: when reaching the last slide, <code>next()</code> goes back to the first (and vice-versa)</td></tr>
+      <tr><td><code>navigation</code></td><td>Boolean</td><td>true</td><td>Show previous/next arrow buttons overlaid on the carousel</td></tr>
+      <tr><td><code>indicators</code></td><td>Boolean</td><td>true</td><td>Show dot indicators at the bottom of the carousel</td></tr>
+      <tr><td><code>background</code></td><td>String</td><td>—</td><td>Carousel container background colour (palette token or CSS colour)</td></tr>
+      <tr><td><code>color</code></td><td>String</td><td>—</td><td>Carousel container text colour (palette token or CSS colour)</td></tr>
+      <tr><td><code>size</code></td><td>String</td><td>—</td><td>Scale the entire carousel — named keyword (<code>xx-small</code> … <code>xxx-large</code>) or CSS length</td></tr>
+      <tr><td><code>elevation</code></td><td>String</td><td>—</td><td>Shadow depth (1–5) or raw CSS <code>box-shadow</code> value</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="1.5em"></ui-layout-spacer>
+
+<ui-text type="heading" size="medium">JS Methods &amp; Properties</ui-text>
+<ui-layout-spacer size="0.5em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead>
+      <tr><th>Member</th><th>Type</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>next()</code></td><td>Method</td><td>Advance to the next slide</td></tr>
+      <tr><td><code>prev()</code></td><td>Method</td><td>Go back to the previous slide</td></tr>
+      <tr><td><code>goTo(index)</code></td><td>Method</td><td>Jump to a specific slide by 0-based index</td></tr>
+      <tr><td><code>index</code></td><td>Getter</td><td>Returns the current active slide index (0-based)</td></tr>
+      <tr><td><code>count</code></td><td>Getter</td><td>Returns the total number of slides</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="1.5em"></ui-layout-spacer>
+
+<ui-text type="heading" size="medium">ui-carousel-slide</ui-text>
+<ui-layout-spacer size="0.5em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead>
+      <tr><th>Attribute</th><th>Type</th><th>Default</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>background</code></td><td>String</td><td>—</td><td>Slide background colour (palette token or CSS colour). Auto-sets contrasting text colour.</td></tr>
+      <tr><td><code>color</code></td><td>String</td><td>—</td><td>Slide text colour — overrides auto-contrast when set explicitly</td></tr>
+      <tr><td><code>image</code></td><td>String</td><td>—</td><td>Background image URL. Covers the slide with <code>background-size: cover</code>. Text defaults to white.</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Events ──────────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Events</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead>
+      <tr><th>Event</th><th>Detail</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>ui-slide-change</code></td><td><code>{ index }</code></td><td>Fired when the active slide changes via arrows, dots, swipe, keyboard, autoplay, or the JS API</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>

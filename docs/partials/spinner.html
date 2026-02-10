@@ -1,0 +1,184 @@
+<!-- ============================================================
+     Spinner — Component Documentation
+     ============================================================ -->
+
+<ui-layout-stack gap="0.25em" style="margin-bottom:2em;">
+  <ui-text type="heading" size="xx-large">Spinner</ui-text>
+  <ui-text type="paragraph" color="gray-500">
+    <code>&lt;ui-spinner&gt;</code> renders a circular loading indicator with
+    configurable colour, thickness, speed, and an optional overlay mode.
+  </ui-text>
+</ui-layout-stack>
+
+<!-- ── Basic Usage ────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Basic Usage</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Drop a spinner inline to indicate loading state.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack direction="horizontal" gap="1em" wrap align="center">
+      <ui-spinner></ui-spinner>
+      <ui-spinner color="indigo-500"></ui-spinner>
+      <ui-spinner color="emerald-500"></ui-spinner>
+      <ui-spinner color="rose-500"></ui-spinner>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-spinner&gt;&lt;/ui-spinner&gt;
+&lt;ui-spinner color="indigo-500"&gt;&lt;/ui-spinner&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Sizes ──────────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Sizes</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Scale with <code>size</code> keywords or any CSS length.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack direction="horizontal" gap="1em" wrap align="center">
+      <ui-spinner size="x-small" color="indigo-500"></ui-spinner>
+      <ui-spinner size="small" color="indigo-500"></ui-spinner>
+      <ui-spinner color="indigo-500"></ui-spinner>
+      <ui-spinner size="large" color="indigo-500"></ui-spinner>
+      <ui-spinner size="x-large" color="indigo-500"></ui-spinner>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-spinner size="x-small"&gt;&lt;/ui-spinner&gt;
+&lt;ui-spinner size="small"&gt;&lt;/ui-spinner&gt;
+&lt;ui-spinner&gt;&lt;/ui-spinner&gt; &lt;!-- default --&gt;
+&lt;ui-spinner size="large"&gt;&lt;/ui-spinner&gt;
+&lt;ui-spinner size="x-large"&gt;&lt;/ui-spinner&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Overlay ────────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Overlay</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Use <code>overlay</code> to fill the nearest positioned parent with a
+  translucent backdrop and centred spinner.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview" style="position:relative;height:6em;border:1px dashed var(--ui-border-color,#e5e7eb);border-radius:0.5em;">
+    <ui-spinner overlay color="indigo-500"></ui-spinner>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;div style="position:relative;height:6em"&gt;
+  &lt;ui-spinner overlay color="indigo-500"&gt;&lt;/ui-spinner&gt;
+&lt;/div&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Playground ─────────────────────────────────────────── -->
+<ui-text type="heading" size="large">
+  <ui-icon color="indigo-500">play-circle</ui-icon>
+  Playground
+</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Adjust size, colour, thickness, speed, and overlay mode.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="playground">
+  <div class="playground-controls">
+    <ui-card elevation="1">
+      <ui-card-body>
+        <ui-text type="heading" size="small">Controls</ui-text>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-select id="spinner-size" label="Size" size="small">
+          <option value="">— (default)</option>
+          <option value="xx-small">xx-small</option>
+          <option value="x-small">x-small</option>
+          <option value="small">small</option>
+          <option value="medium">medium</option>
+          <option value="large">large</option>
+          <option value="x-large">x-large</option>
+        </ui-input-select>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-color id="spinner-color" label="Color" size="small" value=""></ui-input-color>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input id="spinner-thickness" label="Thickness" size="small" value=""></ui-input>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input id="spinner-speed" label="Speed" size="small" value=""></ui-input>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-checkbox id="spinner-overlay" label="Overlay"></ui-input-checkbox>
+      </ui-card-body>
+    </ui-card>
+  </div>
+
+  <div class="playground-preview">
+    <div class="demo-card">
+      <div class="demo-preview" style="position:relative;height:6em;border:1px dashed var(--ui-border-color,#e5e7eb);border-radius:0.5em;">
+        <ui-spinner id="spinner-playground"></ui-spinner>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  const spinner   = document.getElementById('spinner-playground');
+  const sizeCtrl  = document.getElementById('spinner-size');
+  const color     = document.getElementById('spinner-color');
+  const thickness = document.getElementById('spinner-thickness');
+  const speed     = document.getElementById('spinner-speed');
+  const overlay   = document.getElementById('spinner-overlay');
+
+  if (!spinner || !sizeCtrl || !color || !thickness || !speed || !overlay) return;
+
+  const setOrRemove = (attr, val) => {
+    val ? spinner.setAttribute(attr, val) : spinner.removeAttribute(attr);
+  };
+
+  const update = () => {
+    setOrRemove('color',     (color.value || '').trim());
+    setOrRemove('thickness', (thickness.value || '').trim());
+    setOrRemove('speed',     (speed.value || '').trim());
+  };
+
+  [color, thickness, speed].forEach(ctrl => {
+    ctrl.addEventListener('ui-input', update);
+    ctrl.addEventListener('ui-change', update);
+  });
+
+  sizeCtrl.addEventListener('ui-change', () => {
+    setOrRemove('size', (sizeCtrl.value || '').trim());
+  });
+
+  overlay.addEventListener('ui-change', () => {
+    overlay.checked ? spinner.setAttribute('overlay', '') : spinner.removeAttribute('overlay');
+  });
+})();
+</script>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── API Reference ──────────────────────────────────────── -->
+<ui-text type="heading" size="large">API Reference</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead>
+      <tr><th>Attribute</th><th>Type</th><th>Default</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>size</code></td><td>String</td><td>—</td><td>Spinner scale: named keyword (<code>xx-small</code> … <code>xxx-large</code>) or CSS length</td></tr>
+      <tr><td><code>color</code></td><td>String</td><td>—</td><td>Spinner colour (palette token or CSS colour)</td></tr>
+      <tr><td><code>thickness</code></td><td>String</td><td>0.2em</td><td>Stroke thickness (CSS length)</td></tr>
+      <tr><td><code>speed</code></td><td>String</td><td>0.75s</td><td>Animation duration (CSS time)</td></tr>
+      <tr><td><code>label</code></td><td>String</td><td>Loading</td><td>Accessible <code>aria-label</code> text</td></tr>
+      <tr><td><code>overlay</code></td><td>Boolean</td><td>false</td><td>Fill the nearest positioned parent with a translucent backdrop</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>

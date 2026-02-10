@@ -1,0 +1,263 @@
+<!-- ============================================================
+     Calendar — Component Documentation
+     ============================================================ -->
+
+<ui-layout-stack gap="0.25em" style="margin-bottom:2em;">
+  <ui-text type="heading" size="xx-large">Calendar</ui-text>
+  <ui-text type="paragraph" color="gray-500">
+    <code>&lt;ui-calendar&gt;</code> renders an always-visible inline month calendar
+    with selectable dates, month navigation, and min/max bounds. Ideal for
+    scheduling UIs and dashboards.
+  </ui-text>
+</ui-layout-stack>
+
+<!-- ── Basic Usage ────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Basic Usage</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Click a date to select it. Today is highlighted with a ring, the selected
+  date is filled. Use <code>value</code> to set the initial selection (ISO format).
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack direction="horizontal" gap="1.5em" wrap>
+      <ui-calendar background="indigo-500"></ui-calendar>
+      <ui-calendar background="emerald-500"></ui-calendar>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-calendar background="indigo-500"&gt;&lt;/ui-calendar&gt;
+&lt;ui-calendar background="emerald-500"&gt;&lt;/ui-calendar&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Min / Max Bounds ───────────────────────────────────── -->
+<ui-text type="heading" size="large">Min / Max Bounds</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Use <code>min</code> and <code>max</code> to restrict the selectable date range.
+  Out-of-range dates are dimmed and cannot be clicked.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-calendar background="indigo-500" min="2024-06-10" max="2024-06-25" value="2024-06-15"></ui-calendar>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-calendar background="indigo-500"
+  min="2024-06-10" max="2024-06-25"
+  value="2024-06-15"&gt;&lt;/ui-calendar&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Accent Colours ─────────────────────────────────────── -->
+<ui-text type="heading" size="large">Accent Colours</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  The <code>background</code> attribute controls the accent colour for the
+  selected date and today ring. Text colour is auto-computed for contrast,
+  or override with <code>color</code>.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack direction="horizontal" gap="1em" wrap>
+      <ui-calendar background="rose-500" value="2024-06-15"></ui-calendar>
+      <ui-calendar background="amber-500" value="2024-06-15"></ui-calendar>
+      <ui-calendar background="cyan-600" value="2024-06-15"></ui-calendar>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-calendar background="rose-500" value="2024-06-15"&gt;&lt;/ui-calendar&gt;
+&lt;ui-calendar background="amber-500" value="2024-06-15"&gt;&lt;/ui-calendar&gt;
+&lt;ui-calendar background="cyan-600" value="2024-06-15"&gt;&lt;/ui-calendar&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Sizes ──────────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Sizes</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Use <code>size</code> with CSS named sizes or any CSS length.
+  Everything scales proportionally via <code>em</code>.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack direction="horizontal" gap="1em" wrap style="align-items:flex-start;">
+      <ui-calendar background="indigo-500" size="small" value="2024-06-15"></ui-calendar>
+      <ui-calendar background="indigo-500" value="2024-06-15"></ui-calendar>
+      <ui-calendar background="indigo-500" size="large" value="2024-06-15"></ui-calendar>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-calendar size="small" value="2024-06-15"&gt;&lt;/ui-calendar&gt;
+&lt;ui-calendar value="2024-06-15"&gt;&lt;/ui-calendar&gt;
+&lt;ui-calendar size="large" value="2024-06-15"&gt;&lt;/ui-calendar&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Locale ─────────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Locale</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Set <code>locale</code> to change the month name and day-of-week headers.
+  Uses the browser's <code>Intl</code> API. Defaults to the browser locale.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack direction="horizontal" gap="1em" wrap>
+      <ui-calendar background="indigo-500" locale="fr" value="2024-06-15"></ui-calendar>
+      <ui-calendar background="indigo-500" locale="de" value="2024-06-15"></ui-calendar>
+      <ui-calendar background="indigo-500" locale="ja" value="2024-06-15"></ui-calendar>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-calendar locale="fr" value="2024-06-15"&gt;&lt;/ui-calendar&gt;
+&lt;ui-calendar locale="de" value="2024-06-15"&gt;&lt;/ui-calendar&gt;
+&lt;ui-calendar locale="ja" value="2024-06-15"&gt;&lt;/ui-calendar&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Disabled ────────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Disabled</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  The <code>disabled</code> attribute dims the calendar and prevents all interaction.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-calendar background="indigo-500" value="2024-06-15" disabled></ui-calendar>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-calendar background="indigo-500" value="2024-06-15" disabled&gt;&lt;/ui-calendar&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Playground ─────────────────────────────────────────── -->
+<ui-text type="heading" size="large">
+  <ui-icon color="indigo-500">play-circle</ui-icon>
+  Playground
+</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Interactively configure every property.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="playground">
+  <div class="playground-controls">
+    <ui-card elevation="1">
+      <ui-card-body>
+        <ui-text type="heading" size="small">Controls</ui-text>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input id="cal-value" label="Value" size="small" placeholder="YYYY-MM-DD"></ui-input>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input id="cal-min" label="Min" size="small" placeholder="YYYY-MM-DD"></ui-input>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input id="cal-max" label="Max" size="small" placeholder="YYYY-MM-DD"></ui-input>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-select id="cal-size" label="Size" size="small">
+          <option value="">Default</option>
+          <option value="small">Small</option>
+          <option value="large">Large</option>
+          <option value="x-large">X-Large</option>
+        </ui-input-select>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-color id="cal-bg" label="Background" size="small" value="indigo-500"></ui-input-color>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input id="cal-locale" label="Locale" size="small" placeholder="e.g. fr, de, ja"></ui-input>
+        <ui-layout-spacer size="0.75em"></ui-layout-spacer>
+        <ui-input-checkbox id="cal-disabled" label="Disabled"></ui-input-checkbox>
+      </ui-card-body>
+    </ui-card>
+  </div>
+
+  <div class="playground-preview">
+    <div class="demo-card">
+      <div class="demo-preview">
+        <ui-calendar id="cal-playground" background="indigo-500"></ui-calendar>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  const el     = document.getElementById('cal-playground');
+  const value  = document.getElementById('cal-value');
+  const min    = document.getElementById('cal-min');
+  const max    = document.getElementById('cal-max');
+  const size   = document.getElementById('cal-size');
+  const bg     = document.getElementById('cal-bg');
+  const locale = document.getElementById('cal-locale');
+  const dis    = document.getElementById('cal-disabled');
+
+  if (!el || !value || !min || !max || !size || !bg || !locale || !dis) return;
+
+  const setOrRemove = (attr, v) => v ? el.setAttribute(attr, v) : el.removeAttribute(attr);
+  const listen = (ctrl, fn) => { ctrl.addEventListener('ui-input', fn); ctrl.addEventListener('ui-change', fn); };
+
+  listen(value,  () => setOrRemove('value',  value.value));
+  listen(min,    () => setOrRemove('min',    min.value));
+  listen(max,    () => setOrRemove('max',    max.value));
+  listen(size,   () => setOrRemove('size',   size.value));
+  listen(bg,     () => setOrRemove('background', bg.value));
+  listen(locale, () => setOrRemove('locale', locale.value));
+
+  dis.addEventListener('ui-change', () => {
+    if (dis.checked) el.setAttribute('disabled', '');
+    else el.removeAttribute('disabled');
+  });
+
+  // Sync when user clicks a date
+  el.addEventListener('ui-change', (e) => {
+    value.value = e.detail.value;
+  });
+})();
+</script>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── API Reference ──────────────────────────────────────── -->
+<ui-text type="heading" size="large">API Reference</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead>
+      <tr><th>Attribute</th><th>Type</th><th>Default</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>value</code></td><td>String</td><td>—</td><td>Selected date (ISO: YYYY-MM-DD)</td></tr>
+      <tr><td><code>min</code></td><td>String</td><td>—</td><td>Earliest selectable date (ISO)</td></tr>
+      <tr><td><code>max</code></td><td>String</td><td>—</td><td>Latest selectable date (ISO)</td></tr>
+      <tr><td><code>background</code></td><td>String</td><td><code>indigo-500</code></td><td>Accent colour for selected date &amp; today ring</td></tr>
+      <tr><td><code>color</code></td><td>String</td><td>—</td><td>Text colour override for selected date</td></tr>
+      <tr><td><code>size</code></td><td>String</td><td>—</td><td>Size keyword or CSS length</td></tr>
+      <tr><td><code>locale</code></td><td>String</td><td>—</td><td>Locale for day/month names (e.g. <code>fr</code>, <code>de</code>, <code>ja</code>)</td></tr>
+      <tr><td><code>disabled</code></td><td>Boolean</td><td><code>false</code></td><td>Dims the calendar and prevents interaction</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Events ──────────────────────────────────────────────── -->
+<ui-text type="heading" size="large">Events</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead>
+      <tr><th>Event</th><th>Detail</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>ui-change</code></td><td><code>{ value, date }</code></td><td>Emitted when a date is selected</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>

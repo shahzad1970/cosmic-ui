@@ -1,0 +1,34 @@
+{
+  "type": "line",
+  "data": {
+    "labels": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+    "datasets": [
+      {
+        "label": "Orders",
+        "data": [12, 18, 9, 22, 15, 28, 20],
+        "borderColor": "#6366f1",
+        "backgroundColor": "#6366f133",
+        "tension": 0.35,
+        "fill": true,
+        "pointRadius": 3
+      }
+    ]
+  },
+  "options": {
+    "responsive": true,
+    "maintainAspectRatio": false,
+    "plugins": {
+      "legend": { "display": false }
+    },
+    "scales": {
+      "x": {
+        "grid": { "display": false },
+        "ticks": { "color": "#6b7280" }
+      },
+      "y": {
+        "grid": { "color": "#e5e7eb" },
+        "ticks": { "color": "#6b7280" }
+      }
+    }
+  }
+}

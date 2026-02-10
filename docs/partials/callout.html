@@ -1,0 +1,324 @@
+<!-- ============================================================
+     Callout — Component Documentation
+     ============================================================ -->
+
+<ui-layout-stack gap="0.25em" style="margin-bottom:2em;">
+  <ui-text type="heading" size="xx-large">Callout</ui-text>
+  <ui-text type="paragraph" color="gray-500">
+    <code>&lt;ui-callout&gt;</code> highlights important messages, tips, warnings,
+    and alerts with colour, elevation, and dismiss controls.
+  </ui-text>
+</ui-layout-stack>
+
+<ui-text type="heading" size="large">Basic Usage</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Use a light <code>background</code> with a matching dark <code>color</code> for semantic callouts.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack gap="0.5em">
+      <ui-callout background="sky-50" color="sky-700">
+        <ui-icon size="small">info</ui-icon> This is an informational message.
+      </ui-callout>
+      <ui-callout background="amber-50" color="amber-700">
+        <ui-icon size="small">alert-triangle</ui-icon> Warning — this action cannot be undone.
+      </ui-callout>
+      <ui-callout background="rose-50" color="rose-700">
+        <ui-icon size="small">x-circle</ui-icon> Something went wrong. Please try again.
+      </ui-callout>
+      <ui-callout background="emerald-50" color="emerald-700">
+        <ui-icon size="small">check-circle</ui-icon> Changes saved successfully.
+      </ui-callout>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-callout background="sky-50" color="sky-700"&gt;
+  &lt;ui-icon size="small"&gt;info&lt;/ui-icon&gt; Informational message.
+&lt;/ui-callout&gt;
+&lt;ui-callout background="amber-50" color="amber-700"&gt;
+  &lt;ui-icon size="small"&gt;alert-triangle&lt;/ui-icon&gt; Warning.
+&lt;/ui-callout&gt;
+&lt;ui-callout background="rose-50" color="rose-700"&gt;
+  &lt;ui-icon size="small"&gt;x-circle&lt;/ui-icon&gt; Error.
+&lt;/ui-callout&gt;
+&lt;ui-callout background="emerald-50" color="emerald-700"&gt;
+  &lt;ui-icon size="small"&gt;check-circle&lt;/ui-icon&gt; Success.
+&lt;/ui-callout&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<ui-text type="heading" size="large">Bold Colours</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Use saturated backgrounds — text colour auto-contrasts when <code>color</code> is omitted.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack gap="0.5em">
+      <ui-callout background="indigo-500">Indigo callout with auto-contrast white text.</ui-callout>
+      <ui-callout background="emerald-600">Emerald callout — auto white text.</ui-callout>
+      <ui-callout background="rose-500">Rose callout — auto white text.</ui-callout>
+      <ui-callout background="gray-900">Dark callout — auto white text.</ui-callout>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-callout background="indigo-500"&gt;Auto-contrast text.&lt;/ui-callout&gt;
+&lt;ui-callout background="emerald-600"&gt;Green callout.&lt;/ui-callout&gt;
+&lt;ui-callout background="rose-500"&gt;Rose callout.&lt;/ui-callout&gt;
+&lt;ui-callout background="gray-900"&gt;Dark callout.&lt;/ui-callout&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<ui-text type="heading" size="large">Dismissible</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Add <code>dismissible</code> for a close button. The callout fires <code>ui-dismiss</code> and removes itself.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack gap="0.5em">
+      <ui-callout background="sky-50" color="sky-700" dismissible>
+        <ui-icon size="small">info</ui-icon> You can dismiss this callout.
+      </ui-callout>
+      <ui-callout background="amber-50" color="amber-700" dismissible>
+        <ui-icon size="small">alert-triangle</ui-icon> Dismissible warning.
+      </ui-callout>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-callout background="sky-50" color="sky-700" dismissible&gt;
+  Dismiss me with the ✕ button.
+&lt;/ui-callout&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<ui-text type="heading" size="large">Elevation</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Add <code>elevation</code> (1–5) for shadow depth with a subtle border.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack gap="0.75em">
+      <ui-callout background="sky-50" color="sky-700" elevation="1">Elevation 1 — subtle shadow.</ui-callout>
+      <ui-callout background="sky-50" color="sky-700" elevation="3">Elevation 3 — medium shadow.</ui-callout>
+      <ui-callout background="sky-50" color="sky-700" elevation="5">Elevation 5 — deep shadow.</ui-callout>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-callout background="sky-50" elevation="1"&gt;Subtle&lt;/ui-callout&gt;
+&lt;ui-callout background="sky-50" elevation="3"&gt;Medium&lt;/ui-callout&gt;
+&lt;ui-callout background="sky-50" elevation="5"&gt;Deep&lt;/ui-callout&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<ui-text type="heading" size="large">Sizes</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Scale with named keywords or any CSS length.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-layout-stack gap="0.5em">
+      <ui-callout background="indigo-50" color="indigo-700" size="x-small">Extra-small callout</ui-callout>
+      <ui-callout background="indigo-50" color="indigo-700" size="small">Small callout</ui-callout>
+      <ui-callout background="indigo-50" color="indigo-700">Default size callout</ui-callout>
+      <ui-callout background="indigo-50" color="indigo-700" size="large">Large callout</ui-callout>
+    </ui-layout-stack>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-callout size="x-small"&gt;Extra-small&lt;/ui-callout&gt;
+&lt;ui-callout size="small"&gt;Small&lt;/ui-callout&gt;
+&lt;ui-callout&gt;Default size&lt;/ui-callout&gt;
+&lt;ui-callout size="large"&gt;Large&lt;/ui-callout&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<ui-text type="heading" size="large">Rich Content</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Callouts accept any slotted content — headings, lists, buttons, icons.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="demo-card">
+  <div class="demo-preview">
+    <ui-callout background="violet-50" color="violet-800" elevation="1">
+      <ui-layout-stack gap="0.5em">
+        <ui-text weight="700"><ui-icon size="small">sparkles</ui-icon> Pro Tip</ui-text>
+        <ui-text size="small">You can nest any component inside a callout — headings, text, buttons, and more.</ui-text>
+        <ui-layout-stack direction="horizontal" gap="0.35em">
+          <ui-button size="x-small" background="violet-600">Learn More</ui-button>
+          <ui-button size="x-small" background="violet-200" color="violet-800">Dismiss</ui-button>
+        </ui-layout-stack>
+      </ui-layout-stack>
+    </ui-callout>
+  </div>
+  <ui-input-code language="html" readonly height="auto">&lt;ui-callout background="violet-50" color="violet-800" elevation="1"&gt;
+  &lt;ui-layout-stack gap="0.5em"&gt;
+    &lt;ui-text weight="700"&gt;
+      &lt;ui-icon size="small"&gt;sparkles&lt;/ui-icon&gt; Pro Tip
+    &lt;/ui-text&gt;
+    &lt;ui-text size="small"&gt;Nest any component inside.&lt;/ui-text&gt;
+    &lt;ui-button size="x-small" background="violet-600"&gt;Learn More&lt;/ui-button&gt;
+  &lt;/ui-layout-stack&gt;
+&lt;/ui-callout&gt;</ui-input-code>
+</div>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<!-- ── Playground ─────────────────────────────────────────── -->
+<ui-text type="heading" size="large">
+  <ui-icon color="indigo-500">play-circle</ui-icon>
+  Playground
+</ui-text>
+<ui-text type="paragraph" color="gray-500" size="small">
+  Adjust callout properties interactively.
+</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<div class="playground">
+  <div class="playground-controls">
+    <ui-card elevation="1">
+      <ui-card-body>
+        <ui-text type="heading" size="small">Controls</ui-text>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input id="callout-text" label="Text" size="small" value="Playground callout message"></ui-input>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-color id="callout-bg" label="Background" size="small" value="sky-50"></ui-input-color>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-color id="callout-color" label="Color" size="small" value="sky-700"></ui-input-color>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-select id="callout-size" label="Size" size="small">
+          <option value="">— (default)</option>
+          <option value="xx-small">xx-small</option>
+          <option value="x-small">x-small</option>
+          <option value="small">small</option>
+          <option value="medium">medium</option>
+          <option value="large">large</option>
+          <option value="x-large">x-large</option>
+        </ui-input-select>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-select id="callout-elevation" label="Elevation" size="small">
+          <option value="">— (none)</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </ui-input-select>
+        <ui-layout-spacer size="0.5em"></ui-layout-spacer>
+        <ui-input-checkbox id="callout-dismissible" label="Dismissible"></ui-input-checkbox>
+      </ui-card-body>
+    </ui-card>
+  </div>
+
+  <div class="playground-preview">
+    <div class="demo-card">
+      <div class="demo-preview">
+        <ui-callout id="callout-playground" background="sky-50" color="sky-700">
+          Playground callout message
+        </ui-callout>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  const el = document.getElementById('callout-playground');
+  if (!el) return;
+
+  /* Text */
+  const textCtrl = document.getElementById('callout-text');
+  if (textCtrl) {
+    const update = () => { el.textContent = textCtrl.value || 'Playground callout message'; };
+    textCtrl.addEventListener('ui-input', update);
+    textCtrl.addEventListener('ui-change', update);
+  }
+
+  /* Freeform text attrs */
+  const inputs = {
+    'callout-bg':    'background',
+    'callout-color': 'color',
+  };
+  Object.entries(inputs).forEach(([id, attr]) => {
+    const ctrl = document.getElementById(id);
+    if (!ctrl) return;
+    const update = () => {
+      const val = (ctrl.value || '').trim();
+      if (val) el.setAttribute(attr, val);
+      else el.removeAttribute(attr);
+    };
+    ctrl.addEventListener('ui-input', update);
+    ctrl.addEventListener('ui-change', update);
+  });
+
+  /* Select-based attrs */
+  const selects = {
+    'callout-size':      'size',
+    'callout-elevation': 'elevation',
+  };
+  Object.entries(selects).forEach(([id, attr]) => {
+    const ctrl = document.getElementById(id);
+    if (!ctrl) return;
+    ctrl.addEventListener('ui-change', () => {
+      const val = (ctrl.value || '').trim();
+      if (val) el.setAttribute(attr, val);
+      else el.removeAttribute(attr);
+    });
+  });
+
+  /* Dismissible checkbox */
+  const dismissCtrl = document.getElementById('callout-dismissible');
+  if (dismissCtrl) {
+    dismissCtrl.addEventListener('ui-change', () => {
+      if (dismissCtrl.checked) el.setAttribute('dismissible', '');
+      else el.removeAttribute('dismissible');
+    });
+  }
+})();
+</script>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<ui-text type="heading" size="large">API Reference</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead>
+      <tr><th>Attribute</th><th>Type</th><th>Default</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>background</code></td><td>String</td><td>—</td><td>Background colour (palette token or CSS colour). Text auto-contrasts if <code>color</code> is omitted.</td></tr>
+      <tr><td><code>color</code></td><td>String</td><td>auto</td><td>Text colour (auto-contrasts against background if omitted)</td></tr>
+      <tr><td><code>size</code></td><td>String</td><td>—</td><td>Callout font-size (named keyword or CSS length)</td></tr>
+      <tr><td><code>elevation</code></td><td>String</td><td>—</td><td>Shadow depth: <code>1</code>–<code>5</code> (adds border + shadow) or raw CSS <code>box-shadow</code></td></tr>
+      <tr><td><code>dismissible</code></td><td>Boolean</td><td>false</td><td>Show a close button; fires <code>ui-dismiss</code> and removes element on click</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
+
+<ui-text type="heading" size="large">Events</ui-text>
+<ui-layout-spacer size="0.75em"></ui-layout-spacer>
+
+<ui-table size="small">
+  <table>
+    <thead>
+      <tr><th>Event</th><th>Detail</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>ui-dismiss</code></td><td>—</td><td>Fired when the dismiss button is clicked (requires <code>dismissible</code>). The callout removes itself from the DOM.</td></tr>
+    </tbody>
+  </table>
+</ui-table>
+
+<ui-layout-spacer size="2em"></ui-layout-spacer>
